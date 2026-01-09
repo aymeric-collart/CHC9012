@@ -1,11 +1,65 @@
 ---
-title: "CHU9012: Data Visualization"
+title: "Introduction to Language Questionnaires"
+subtitle: "CHU9012 | National Taiwan Normal University"
 ---
 
-## Welcome to the Course
+## Welcome
 
-This is the course website for **CHU9012**, taught by Aymeric Collart.
+Welcome to the course website for **CHU9012: Language Questionnaires**. 
 
-### Quick Links
-- [Syllabus](syllabus.qmd)
-- [Course Materials](course-materials/week1.qmd)
+**Instructor:** Aymeric Collart (理克)
+**Department:** Department of Chinese, NTNU
+**Credits:** 2
+**Prerequisites:** None
+
+## 📋 Course Description
+
+This course introduces the fundamentals of online language questionnaires with an emphasis on hands-on practice. After discussing ethic issues in linguistic research, the course will be divided into three parts:
+
+1.  **Fundamental concepts** and practices in language questionnaires.
+2.  **Set-up of a web-based questionnaire** (using PCIbex).
+3.  **Handling, analysis, and visualization** of the results (using R).
+
+By the end of the course, students are expected to acquire the basic knowledge of questionnaire design concepts and the capacity to design and run their own language questionnaire.
+
+---
+
+### 🚀 Quick Links
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-4}
+::: {.callout-note appearance="minimal"}
+## 📖 Syllabus
+Full course schedule, reading list, and grading policies.
+
+[**Go to Syllabus**](syllabus.qmd){.btn .btn-primary}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.callout-important appearance="minimal"}
+## 💻 PCIbex
+We use PCIbex for designing web-based experiments.
+
+[**Launch PCIbex**](https://farm.pcibex.net/){.btn .btn-info target="_blank"}
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.callout-tip appearance="minimal"}
+## 📊 R & RStudio
+Download the software needed for Part 3 of the course.
+
+[**Get R**](https://www.r-project.org/){.btn .btn-success target="_blank"} [**Get RStudio**](https://posit.co/download/rstudio-desktop/){.btn .btn-secondary target="_blank"}
+:::
+:::
+
+:::
+
+---
+
+### 👤 Instructor
+
+**Aymeric Collart (理克)** Department of Chinese, NTNU  
+*Email provided in class*

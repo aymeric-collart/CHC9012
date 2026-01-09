@@ -1,5 +1,33 @@
 [
   {
+    "objectID": "syllabus.html",
+    "href": "syllabus.html",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Part 1: FundamentalsPart 2: Web-Based DesignPart 3: Analysis & Viz\n\n\nFocus: Ethics & Design Theory\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n1\nIntroductory Week\nNone\nMandatory: Take online ethic classes and pass the examination\n\n\n2\nEthics in Linguistic Research\nEckert (2014); Center for Taiwan Academic Research Ethics Education\nRead material for Week 3\n\n\n3\nFundamentals of Questionnaire Design\nAbbuhl et al. (2014); Rogers & Révész (2020)\nRead material for Week 4\n\n\n4\nParadigms and Tools\nSchütze & Sprouse (2014); Kaiser (2014)\nRead material for Week 5\n\n\n5\nQuestionnaire Items & Q&A\nGillioz & Zufferey (2021)\n1. Write project draft (max 2 pages)2. Prepare item Excel files3. Optional: Go through PCIbex tutorial\n\n\n6\nGroup & Individual Meetings\nDesign your own questionnaire in classroom\nContinue project work\n\n\n\n\n\nFocus: PCIbex Implementation\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nFocus\nHomework / Due\n\n\n\n\n7\nPresentation of PCIbex\nYour first questionnaire; PCIbex documentation & tutorials\nNone listed\n\n\n8\nAdvanced PCIbex\nMultiple items, Latin Square, and other paradigms\n1. Finish ‘Basic Tutorial’ of PCIbex docs2. Annotate each line of code\n\n\n9\nWorkshop Week\nSet-up your own questionnaire on PCIbex (In-class meetings)\n1. Finish ‘Advanced Tutorial’ (steps 8-10)2. Annotate code3. Prepare PCIbex document of own project\n\n\n\n\n\nFocus: R & RStudio\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading (R4DS)\nHomework / Due\n\n\n\n\n10\nIntro to R Interface\nIntro; Ch 2 (Workflow: basics); Ch 6 (Scripts); Ch 28 (Quarto)\nExercises for next week (provide code before due date)\n\n\n11\nImport & Tidying Data (1/2)\nCh 7 (Import); Ch 20 (Spreadsheets); Ch 3 (Data transformation)\nExercises for next week (provide code before due date)\n\n\n12\nTidying (2/2) & Exploration (1/2)\nCh 5 (Tidy data); Ch 10 (Exploratory Data Analysis)\nExercises for next week (provide code before due date)\n\n\n13\nExploration (2/2) & Viz (1/2)\nCh 9 (Layers); Ch 11 (Communication)\nExercises for next week (provide code before due date)\n\n\n14\nData Visualization (2/2)\nCh 9, 10, 11; Q&A for projects\nPrepare a Quarto document of your analysis/viz (preliminary version)\n\n\n15\nProject Workshop\nAssistance for handling results\nWork on final presentation\n\n\n16\nFinal Presentations\nStudent presentations of individual/group projects\nFinal Deliverables"
+  },
+  {
+    "objectID": "syllabus.html#course-schedule",
+    "href": "syllabus.html#course-schedule",
+    "title": "Syllabus",
+    "section": "",
+    "text": "Part 1: FundamentalsPart 2: Web-Based DesignPart 3: Analysis & Viz\n\n\nFocus: Ethics & Design Theory\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading Material\nHomework / Due\n\n\n\n\n1\nIntroductory Week\nNone\nMandatory: Take online ethic classes and pass the examination\n\n\n2\nEthics in Linguistic Research\nEckert (2014); Center for Taiwan Academic Research Ethics Education\nRead material for Week 3\n\n\n3\nFundamentals of Questionnaire Design\nAbbuhl et al. (2014); Rogers & Révész (2020)\nRead material for Week 4\n\n\n4\nParadigms and Tools\nSchütze & Sprouse (2014); Kaiser (2014)\nRead material for Week 5\n\n\n5\nQuestionnaire Items & Q&A\nGillioz & Zufferey (2021)\n1. Write project draft (max 2 pages)2. Prepare item Excel files3. Optional: Go through PCIbex tutorial\n\n\n6\nGroup & Individual Meetings\nDesign your own questionnaire in classroom\nContinue project work\n\n\n\n\n\nFocus: PCIbex Implementation\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nFocus\nHomework / Due\n\n\n\n\n7\nPresentation of PCIbex\nYour first questionnaire; PCIbex documentation & tutorials\nNone listed\n\n\n8\nAdvanced PCIbex\nMultiple items, Latin Square, and other paradigms\n1. Finish ‘Basic Tutorial’ of PCIbex docs2. Annotate each line of code\n\n\n9\nWorkshop Week\nSet-up your own questionnaire on PCIbex (In-class meetings)\n1. Finish ‘Advanced Tutorial’ (steps 8-10)2. Annotate code3. Prepare PCIbex document of own project\n\n\n\n\n\nFocus: R & RStudio\n\n\n\n\n\n\n\n\n\nWeek\nTopic\nReading (R4DS)\nHomework / Due\n\n\n\n\n10\nIntro to R Interface\nIntro; Ch 2 (Workflow: basics); Ch 6 (Scripts); Ch 28 (Quarto)\nExercises for next week (provide code before due date)\n\n\n11\nImport & Tidying Data (1/2)\nCh 7 (Import); Ch 20 (Spreadsheets); Ch 3 (Data transformation)\nExercises for next week (provide code before due date)\n\n\n12\nTidying (2/2) & Exploration (1/2)\nCh 5 (Tidy data); Ch 10 (Exploratory Data Analysis)\nExercises for next week (provide code before due date)\n\n\n13\nExploration (2/2) & Viz (1/2)\nCh 9 (Layers); Ch 11 (Communication)\nExercises for next week (provide code before due date)\n\n\n14\nData Visualization (2/2)\nCh 9, 10, 11; Q&A for projects\nPrepare a Quarto document of your analysis/viz (preliminary version)\n\n\n15\nProject Workshop\nAssistance for handling results\nWork on final presentation\n\n\n16\nFinal Presentations\nStudent presentations of individual/group projects\nFinal Deliverables"
+  },
+  {
+    "objectID": "syllabus.html#grading-evaluation",
+    "href": "syllabus.html#grading-evaluation",
+    "title": "Syllabus",
+    "section": "⚖️ Grading & Evaluation",
+    "text": "⚖️ Grading & Evaluation\nThe final grade is distributed as follows:\n\n\n\n\n\n\n\npie title Grade Distribution\n    \"Assignments\" : 40\n    \"Final Project (Oral)\" : 15\n    \"Final Project (Written)\" : 15\n    \"Class Participation\" : 15\n    \"Attendance\" : 15\n\n\n\n\n\n\n\n\n📝 Assessment Details\n\nAssignments (40%): Regular homework.\n\nNote: 4% will be deducted for each failure to submit homework on time.\n\nFinal Project (30%):\n\nOral Presentation: 15%\nWritten Report: 15%\n\nClass Discussion (15%): Active participation.\nAttendance (15%): Regular presence is required."
+  },
+  {
+    "objectID": "syllabus.html#resources-software",
+    "href": "syllabus.html#resources-software",
+    "title": "Syllabus",
+    "section": "📚 Resources & Software",
+    "text": "📚 Resources & Software\n\n\n\n\n\n\nOnline Resources\n\n\n\n\nEthics: Center for Taiwan Academic Research Ethics Education\nPlatform: PCIbex | Documentation | Forum\nSoftware: R Project | RStudio Desktop\n\n\n\n\n\n\n\n\n\nKey References\n\n\n\n\nWickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). R for Data Science (2nd ed). O’Reilly Media. Free Online\nPodesva, J., & Sharma, D. (Eds.). (2014). Research methods in linguistics. Cambridge University Press.\n\nEckert, P. (Ethics)\nSchütze, C. T., & Sprouse, J. (Judgment data)\nAbbuhl, R., et al. (Experimental design)\nKaiser, E. (Experimental paradigms)\n\nGillioz, C., & Zufferey, S. (2021). Introduction to experimental linguistics. Wiley.\nRogers, J., & Révész, A. (2020). Experimental and quasi-experimental designs. In The Routledge handbook of research methods in applied linguistics."
+  },
+  {
     "objectID": "about.html",
     "href": "about.html",
     "title": "About",
@@ -9,15 +37,22 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "CHU9012: Data Visualization",
+    "title": "Introduction to Language Questionnaires",
     "section": "",
-    "text": "This is the course website for CHU9012, taught by Aymeric Collart.\n\n\n\nSyllabus\nCourse Materials"
+    "text": "Welcome to the course website for CHU9012: Language Questionnaires.\nInstructor: Aymeric Collart (理克) Department: Department of Chinese, NTNU Credits: 2 Prerequisites: None"
   },
   {
-    "objectID": "index.html#welcome-to-the-course",
-    "href": "index.html#welcome-to-the-course",
-    "title": "CHU9012: Data Visualization",
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Introduction to Language Questionnaires",
     "section": "",
-    "text": "This is the course website for CHU9012, taught by Aymeric Collart.\n\n\n\nSyllabus\nCourse Materials"
+    "text": "Welcome to the course website for CHU9012: Language Questionnaires.\nInstructor: Aymeric Collart (理克) Department: Department of Chinese, NTNU Credits: 2 Prerequisites: None"
+  },
+  {
+    "objectID": "index.html#course-description",
+    "href": "index.html#course-description",
+    "title": "Introduction to Language Questionnaires",
+    "section": "📋 Course Description",
+    "text": "📋 Course Description\nThis course introduces the fundamentals of online language questionnaires with an emphasis on hands-on practice. After discussing ethic issues in linguistic research, the course will be divided into three parts:\n\nFundamental concepts and practices in language questionnaires.\nSet-up of a web-based questionnaire (using PCIbex).\nHandling, analysis, and visualization of the results (using R).\n\nBy the end of the course, students are expected to acquire the basic knowledge of questionnaire design concepts and the capacity to design and run their own language questionnaire.\n\n\n🚀 Quick Links\n\n\n\n\n\n\n\n\n📖 Syllabus\n\n\n\nFull course schedule, reading list, and grading policies.\nGo to Syllabus\n\n\n\n\n\n\n\n\n\n\n💻 PCIbex\n\n\n\nWe use PCIbex for designing web-based experiments.\nLaunch PCIbex\n\n\n\n\n\n\n\n\n\n\n📊 R & RStudio\n\n\n\nDownload the software needed for Part 3 of the course.\nGet R Get RStudio\n\n\n\n\n\n\n\n👤 Instructor\nAymeric Collart (理克) Department of Chinese, NTNU\nEmail provided in class"
   }
 ]

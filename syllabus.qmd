@@ -1,3 +1,104 @@
 ---
-title: "syllabus"
+title: "Syllabus"
+subtitle: "CHU9012: Introduction to Language Questionnaires"
+format:
+  html:
+    toc: true
+    toc-depth: 2
 ---
+
+## 📅 Course Schedule
+
+::: {.panel-tabset}
+
+### Part 1: Fundamentals
+*Focus: Ethics & Design Theory*
+
+| Week | Topic | Reading Material | Homework / Due |
+|:---:|:---|:---|:---|
+| **1** | **Introductory Week** | *None* | **Mandatory:** Take online ethic classes and pass the examination  |
+| **2** | **Ethics in Linguistic Research** | Eckert (2014); Center for Taiwan Academic Research Ethics Education | Read material for Week 3  |
+| **3** | **Fundamentals of Questionnaire Design** | Abbuhl et al. (2014); Rogers & Révész (2020) | Read material for Week 4  |
+| **4** | **Paradigms and Tools** | Schütze & Sprouse (2014); Kaiser (2014) | Read material for Week 5  |
+| **5** | **Questionnaire Items & Q&A** | Gillioz & Zufferey (2021) | 1. Write project draft (max 2 pages)<br>2. Prepare item Excel files<br>3. *Optional:* Go through PCIbex tutorial  |
+| **6** | **Group & Individual Meetings** | *Design your own questionnaire in classroom* | *Continue project work*  |
+
+### Part 2: Web-Based Design
+*Focus: PCIbex Implementation*
+
+| Week | Topic | Focus | Homework / Due |
+|:---:|:---|:---|:---|
+| **7** | **Presentation of PCIbex** | Your first questionnaire; PCIbex documentation & tutorials | *None listed* |
+| **8** | **Advanced PCIbex** | Multiple items, Latin Square, and other paradigms | 1. Finish 'Basic Tutorial' of PCIbex docs<br>2. Annotate each line of code |
+| **9** | **Workshop Week** | Set-up your own questionnaire on PCIbex (In-class meetings) | 1. Finish 'Advanced Tutorial' (steps 8-10)<br>2. Annotate code<br>3. Prepare PCIbex document of own project |
+
+### Part 3: Analysis & Viz
+*Focus: R & RStudio*
+
+| Week | Topic | Reading (*R4DS*) | Homework / Due |
+|:---:|:---|:---|:---|
+| **10** | **Intro to R Interface** | Intro; Ch 2 (Workflow: basics); Ch 6 (Scripts); Ch 28 (Quarto) | Exercises for next week (provide code before due date) |
+| **11** | **Import & Tidying Data (1/2)** | Ch 7 (Import); Ch 20 (Spreadsheets); Ch 3 (Data transformation) | Exercises for next week (provide code before due date) |
+| **12** | **Tidying (2/2) & Exploration (1/2)** | Ch 5 (Tidy data); Ch 10 (Exploratory Data Analysis) | Exercises for next week (provide code before due date)  |
+| **13** | **Exploration (2/2) & Viz (1/2)** | Ch 9 (Layers); Ch 11 (Communication) | Exercises for next week (provide code before due date)  |
+| **14** | **Data Visualization (2/2)** | Ch 9, 10, 11; Q&A for projects | Prepare a Quarto document of your analysis/viz (preliminary version)  |
+| **15** | **Project Workshop** | Assistance for handling results | *Work on final presentation*  |
+| **16** | **Final Presentations** | Student presentations of individual/group projects | *Final Deliverables*  |
+
+:::
+
+---
+
+## ⚖️ Grading & Evaluation
+
+The final grade is distributed as follows:
+
+::: {.grid}
+
+::: {.g-col-12 .g-col-md-6}
+```{mermaid}
+%%| fig-width: 6
+pie title Grade Distribution
+    "Assignments" : 40
+    "Final Project (Oral)" : 15
+    "Final Project (Written)" : 15
+    "Class Participation" : 15
+    "Attendance" : 15
+```
+::: 
+::: {.g-col-12 .g-col-md-6}
+#### 📝 Assessment Details
+
+* **Assignments (40%):** Regular homework.
+    * *Note: 4% will be deducted for each failure to submit homework on time*.
+* **Final Project (30%):**
+    * Oral Presentation: 15% 
+    * Written Report: 15% 
+* **Class Discussion (15%):** Active participation.
+* **Attendance (15%):** Regular presence is required.
+
+::: 
+::: 
+
+---
+
+## 📚 Resources & Software
+
+::: {.callout-tip}
+## Online Resources
+* **Ethics:** [Center for Taiwan Academic Research Ethics Education](https://ethics.moe.edu.tw/) 
+* **Platform:** [PCIbex](https://farm.pcibex.net/) | [Documentation](https://doc.pcibex.net/) | [Forum](https://www.pcibex.net/forums/) 
+* **Software:** [R Project](https://www.r-project.org/) | [RStudio Desktop](https://posit.co/download/rstudio-desktop/) 
+:::
+
+::: {.callout-note}
+## Key References
+* **Wickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023).** *R for Data Science (2nd ed).* O'Reilly Media. [Free Online](https://r4ds.hadley.nz/) 
+* **Podesva, J., & Sharma, D. (Eds.). (2014).** *Research methods in linguistics.* Cambridge University Press. 
+    * *Eckert, P.* (Ethics) 
+    * *Schütze, C. T., & Sprouse, J.* (Judgment data) 
+    * *Abbuhl, R., et al.* (Experimental design) 
+    * *Kaiser, E.* (Experimental paradigms) 
+* **Gillioz, C., & Zufferey, S. (2021).** *Introduction to experimental linguistics.* Wiley. 
+* **Rogers, J., & Révész, A. (2020).** Experimental and quasi-experimental designs. In *The Routledge handbook of research methods in applied linguistics*. 
+:::
