@@ -1,0 +1,11 @@
+---
+title: "CHU9012: Data Visualization"
+---
+
+## Welcome to the Course
+
+This is the course website for **CHU9012**, taught by Aymeric Collart.
+
+### Quick Links
+- [Syllabus](syllabus.qmd)
+- [Course Materials](course-materials/week1.qmd)

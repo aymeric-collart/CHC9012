@@ -1,0 +1,41 @@
+project:
+  type: website
+  output-dir: docs   # Crucial for GitHub Pages
+
+website:
+  title: "CHU9012"
+  repo-url: https://github.com/aymeric-collart/CHU9012
+  repo-actions: [issue]
+  page-footer:
+    left: "© 2026 Aymeric Collart"
+    right: "This website is built with Quarto"
+
+  # Top Navigation Bar
+  navbar:
+    background: primary
+    left:
+      - href: index.qmd
+        text: Home
+      - href: syllabus.qmd
+        text: Syllabus
+      - text: "Course Materials"
+        href: course-materials/week1.qmd # Links to first week
+      - text: "Assignments"
+        menu:
+          - assignments/hw1.qmd
+
+  # Side Navigation Bar (Context aware)
+  sidebar:
+    - title: "Course Materials"
+      contents:
+        - section: "Part 1: Intro"
+          contents:
+            - text: "Week 1: Introduction"
+              href: course-materials/week1.qmd
+
+format:
+  html:
+    theme: cosmo       # The theme used by EDS 240 (or very similar)
+    toc: true
+    toc-depth: 2
+    css: styles.css
