@@ -1,5 +1,6 @@
 ---
-title: "week1"
+title: "Week1"
 format: html
 ---
 
+This is the introductory week.
