@@ -28,11 +28,16 @@
     "text": "📚 Resources & Software\n\n\n\n\n\n\nOnline Resources\n\n\n\n\nEthics: Center for Taiwan Academic Research Ethics Education\nPlatform: PCIbex | Documentation | Forum\nSoftware: R Project | RStudio Desktop\n\n\n\n\n\n\n\n\n\nKey References\n\n\n\n\nWickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). R for Data Science (2nd ed). O’Reilly Media. Free Online\nPodesva, J., & Sharma, D. (Eds.). (2014). Research methods in linguistics. Cambridge University Press.\n\nEckert, P. (Ethics)\nSchütze, C. T., & Sprouse, J. (Judgment data)\nAbbuhl, R., et al. (Experimental design)\nKaiser, E. (Experimental paradigms)\n\nGillioz, C., & Zufferey, S. (2021). Introduction to experimental linguistics. Wiley.\nRogers, J., & Révész, A. (2020). Experimental and quasi-experimental designs. In The Routledge handbook of research methods in applied linguistics."
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "course-materials/week1.html",
+    "href": "course-materials/week1.html",
+    "title": "Week1",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "This is the introductory week.",
+    "crumbs": [
+      "Course Materials",
+      "Part 1: Intro",
+      "Week 1: Introduction"
+    ]
   },
   {
     "objectID": "index.html",
@@ -77,15 +82,22 @@
     "text": "👤 Instructor\nAymeric Collart (理克) Department of Chinese, NTNU\nEmail provided in class"
   },
   {
-    "objectID": "course-materials/week1.html",
-    "href": "course-materials/week1.html",
-    "title": "Week1",
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
     "section": "",
-    "text": "This is the introductory week.",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "course-materials/week2.html",
+    "href": "course-materials/week2.html",
+    "title": "Week2 - What is language, and ethics in linguistic and experimental research",
+    "section": "",
+    "text": "We will talk about ethics during this week.\n[To complete later]",
     "crumbs": [
       "Course Materials",
       "Part 1: Intro",
-      "Week 1: Introduction"
+      "Week 2: Linguistic researhc and ethics"
     ]
   }
 ]

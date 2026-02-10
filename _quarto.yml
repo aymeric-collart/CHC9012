@@ -36,6 +36,8 @@ website:
           contents:
             - text: "Week 1: Introduction"
               href: course-materials/week1.qmd
+            - text: "Week 2: Linguistic researhc and ethics"
+              href: course-materials/week2.qmd
 
 format:
   html:
