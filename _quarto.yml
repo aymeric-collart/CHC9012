@@ -36,8 +36,32 @@ website:
           contents:
             - text: "Week 1: Introduction"
               href: course-materials/week1.qmd
-            - text: "Week 2: Linguistic researhc and ethics"
+            - text: "Week 2: Linguistic research and ethics"
               href: course-materials/week2.qmd
+            - text: "Week 3: Introduction"
+              href: course-materials/week3.qmd
+            - text: "Week 4: Linguistic researhc and ethics"
+              href: course-materials/week4.qmd
+            - text: "Week 5: Introduction"
+              href: course-materials/week5.qmd
+            - text: "Week 6: Linguistic researhc and ethics"
+            - text: "Week 7: Introduction"
+              href: course-materials/week7.qmd
+            - text: "Week 8: Linguistic researhc and ethics"
+              href: course-materials/week8.qmd
+            - text: "Week 9: Introduction"
+            - text: "Week 10: Linguistic researhc and ethics"
+              href: course-materials/week10.qmd
+            - text: "Week 11: Introduction"
+              href: course-materials/week11.qmd
+            - text: "Week 12: Linguistic researhc and ethics"
+              href: course-materials/week12.qmd
+            - text: "Week 13: Introduction"
+              href: course-materials/week13.qmd
+            - text: "Week 14: Linguistic researhc and ethics"
+              href: course-materials/week14.qmd
+            - text: "Week 15: Introduction"
+            - text: "Week 16: Linguistic researhc and ethics"
 
 format:
   html:

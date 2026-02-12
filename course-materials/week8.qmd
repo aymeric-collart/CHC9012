@@ -1,0 +1,6 @@
+---
+title: "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms"
+format: html
+---
+
+[To complete later]

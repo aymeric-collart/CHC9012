@@ -1,0 +1,6 @@
+---
+title: "Week 4 - Paradigms and tools"
+format: html
+---
+
+[To complete later]

@@ -28,15 +28,75 @@
     "text": "📚 Resources & Software\n\n\n\n\n\n\nOnline Resources\n\n\n\n\nEthics: Center for Taiwan Academic Research Ethics Education\nPlatform: PCIbex | Documentation | Forum\nSoftware: R Project | RStudio Desktop\n\n\n\n\n\n\n\n\n\nKey References\n\n\n\n\nWickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). R for Data Science (2nd ed). O’Reilly Media. Free Online\nPodesva, J., & Sharma, D. (Eds.). (2014). Research methods in linguistics. Cambridge University Press.\n\nEckert, P. (Ethics)\nSchütze, C. T., & Sprouse, J. (Judgment data)\nAbbuhl, R., et al. (Experimental design)\nKaiser, E. (Experimental paradigms)\n\nGillioz, C., & Zufferey, S. (2021). Introduction to experimental linguistics. Wiley.\nRogers, J., & Révész, A. (2020). Experimental and quasi-experimental designs. In The Routledge handbook of research methods in applied linguistics."
   },
   {
-    "objectID": "course-materials/week1.html",
-    "href": "course-materials/week1.html",
-    "title": "Week1",
+    "objectID": "course-materials/week10.html",
+    "href": "course-materials/week10.html",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
     "section": "",
-    "text": "This is the introductory week.",
+    "text": "[To complete later]",
     "crumbs": [
       "Course Materials",
       "Part 1: Intro",
-      "Week 1: Introduction"
+      "Week 10: Linguistic researhc and ethics"
+    ]
+  },
+  {
+    "objectID": "course-materials/week13.html",
+    "href": "course-materials/week13.html",
+    "title": "Week 13 - Data exploration (2/2) and data visualization (1/2) with R",
+    "section": "",
+    "text": "[To complete later]",
+    "crumbs": [
+      "Course Materials",
+      "Part 1: Intro",
+      "Week 13: Introduction"
+    ]
+  },
+  {
+    "objectID": "course-materials/week5.html",
+    "href": "course-materials/week5.html",
+    "title": "Week 5 - Questionnaire items",
+    "section": "",
+    "text": "[To complete later]",
+    "crumbs": [
+      "Course Materials",
+      "Part 1: Intro",
+      "Week 5: Introduction"
+    ]
+  },
+  {
+    "objectID": "course-materials/week7.html",
+    "href": "course-materials/week7.html",
+    "title": "Week 7 - Presentation of PCIbex: Your first questionnaire",
+    "section": "",
+    "text": "[To complete later]",
+    "crumbs": [
+      "Course Materials",
+      "Part 1: Intro",
+      "Week 7: Introduction"
+    ]
+  },
+  {
+    "objectID": "course-materials/week2.html",
+    "href": "course-materials/week2.html",
+    "title": "Week 2 - What is language, and ethics in linguistic and experimental research",
+    "section": "",
+    "text": "We will talk about ethics during this week.\n[To complete later]",
+    "crumbs": [
+      "Course Materials",
+      "Part 1: Intro",
+      "Week 2: Linguistic research and ethics"
+    ]
+  },
+  {
+    "objectID": "course-materials/week8.html",
+    "href": "course-materials/week8.html",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "",
+    "text": "[To complete later]",
+    "crumbs": [
+      "Course Materials",
+      "Part 1: Intro",
+      "Week 8: Linguistic researhc and ethics"
     ]
   },
   {
@@ -89,15 +149,75 @@
     "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
   {
-    "objectID": "course-materials/week2.html",
-    "href": "course-materials/week2.html",
-    "title": "Week2 - What is language, and ethics in linguistic and experimental research",
+    "objectID": "course-materials/week1.html",
+    "href": "course-materials/week1.html",
+    "title": "Week 1",
     "section": "",
-    "text": "We will talk about ethics during this week.\n[To complete later]",
+    "text": "This is the introductory week.",
     "crumbs": [
       "Course Materials",
       "Part 1: Intro",
-      "Week 2: Linguistic researhc and ethics"
+      "Week 1: Introduction"
+    ]
+  },
+  {
+    "objectID": "course-materials/week3.html",
+    "href": "course-materials/week3.html",
+    "title": "Week 3 - Fundamentals of questionnaire design",
+    "section": "",
+    "text": "[To complete later]",
+    "crumbs": [
+      "Course Materials",
+      "Part 1: Intro",
+      "Week 3: Introduction"
+    ]
+  },
+  {
+    "objectID": "course-materials/week4.html",
+    "href": "course-materials/week4.html",
+    "title": "Week 4 - Paradigms and tools",
+    "section": "",
+    "text": "[To complete later]",
+    "crumbs": [
+      "Course Materials",
+      "Part 1: Intro",
+      "Week 4: Linguistic researhc and ethics"
+    ]
+  },
+  {
+    "objectID": "course-materials/week12.html",
+    "href": "course-materials/week12.html",
+    "title": "Week 12 - Tidying data (2/2) and data exploration (1/2) with R",
+    "section": "",
+    "text": "[To complete later]",
+    "crumbs": [
+      "Course Materials",
+      "Part 1: Intro",
+      "Week 12: Linguistic researhc and ethics"
+    ]
+  },
+  {
+    "objectID": "course-materials/week11.html",
+    "href": "course-materials/week11.html",
+    "title": "Week 11 - Import and tidying data (1/2) with R",
+    "section": "",
+    "text": "[To complete later]",
+    "crumbs": [
+      "Course Materials",
+      "Part 1: Intro",
+      "Week 11: Introduction"
+    ]
+  },
+  {
+    "objectID": "course-materials/week14.html",
+    "href": "course-materials/week14.html",
+    "title": "Week 14 - Data visualization with R (2/2)",
+    "section": "",
+    "text": "[To complete later]",
+    "crumbs": [
+      "Course Materials",
+      "Part 1: Intro",
+      "Week 14: Linguistic researhc and ethics"
     ]
   }
 ]
