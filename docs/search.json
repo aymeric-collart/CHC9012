@@ -32,28 +32,48 @@
     "href": "course-materials/week10.html",
     "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
     "section": "",
-    "text": "[To complete later]"
+    "text": "[To complete later]",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 10: Presentation of R"
+    ]
   },
   {
     "objectID": "course-materials/week13.html",
     "href": "course-materials/week13.html",
     "title": "Week 13 - Data exploration (2/2) and data visualization (1/2) with R",
     "section": "",
-    "text": "[To complete later]"
+    "text": "[To complete later]",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 13: Data exploration (2/2) and data visualization (1/2) with R"
+    ]
   },
   {
     "objectID": "course-materials/week5.html",
     "href": "course-materials/week5.html",
     "title": "Week 5 - Questionnaire items",
     "section": "",
-    "text": "[To complete later]"
+    "text": "[To complete later]",
+    "crumbs": [
+      "Home",
+      "Part 1: Fundamentals of language questionnaires",
+      "Week 5: Questionnaire items"
+    ]
   },
   {
     "objectID": "course-materials/week7.html",
     "href": "course-materials/week7.html",
     "title": "Week 7 - Presentation of PCIbex: Your first questionnaire",
     "section": "",
-    "text": "[To complete later]"
+    "text": "[To complete later]",
+    "crumbs": [
+      "Home",
+      "Part 2: Designing a web-based questionnaire",
+      "Week 7: Presentation of PCIbex"
+    ]
   },
   {
     "objectID": "course-materials/week2.html",
@@ -63,6 +83,7 @@
     "text": "We will talk about ethics during this week.\n[To complete later]",
     "crumbs": [
       "Home",
+      "Preliminary weeks",
       "Week 2: Linguistic research and ethics"
     ]
   },
@@ -71,7 +92,12 @@
     "href": "course-materials/week8.html",
     "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
     "section": "",
-    "text": "[To complete later]"
+    "text": "[To complete later]",
+    "crumbs": [
+      "Home",
+      "Part 2: Designing a web-based questionnaire",
+      "Week 8: More complex questionnaires with PCIbex"
+    ]
   },
   {
     "objectID": "index.html",
@@ -130,6 +156,7 @@
     "text": "This is the introductory week.",
     "crumbs": [
       "Home",
+      "Preliminary weeks",
       "Week 1: Introduction"
     ]
   },
@@ -138,34 +165,59 @@
     "href": "course-materials/week3.html",
     "title": "Week 3 - Fundamentals of questionnaire design",
     "section": "",
-    "text": "[To complete later]"
+    "text": "[To complete later]",
+    "crumbs": [
+      "Home",
+      "Part 1: Fundamentals of language questionnaires",
+      "Week 3: Fundamentals of questionnaire design"
+    ]
   },
   {
     "objectID": "course-materials/week4.html",
     "href": "course-materials/week4.html",
     "title": "Week 4 - Paradigms and tools",
     "section": "",
-    "text": "[To complete later]"
+    "text": "[To complete later]",
+    "crumbs": [
+      "Home",
+      "Part 1: Fundamentals of language questionnaires",
+      "Week 4: Paradigms and tools"
+    ]
   },
   {
     "objectID": "course-materials/week12.html",
     "href": "course-materials/week12.html",
     "title": "Week 12 - Tidying data (2/2) and data exploration (1/2) with R",
     "section": "",
-    "text": "[To complete later]"
+    "text": "[To complete later]",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 12: Tidying data (2/2) and data exploration (1/2) with R"
+    ]
   },
   {
     "objectID": "course-materials/week11.html",
     "href": "course-materials/week11.html",
     "title": "Week 11 - Import and tidying data (1/2) with R",
     "section": "",
-    "text": "[To complete later]"
+    "text": "[To complete later]",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 11: Import and tidying data (1/2) with R"
+    ]
   },
   {
     "objectID": "course-materials/week14.html",
     "href": "course-materials/week14.html",
     "title": "Week 14 - Data visualization with R (2/2)",
     "section": "",
-    "text": "[To complete later]"
+    "text": "[To complete later]",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 14: Data visualization with R (2/2)"
+    ]
   }
 ]
