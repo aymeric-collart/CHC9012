@@ -32,24 +32,14 @@
     "href": "course-materials/week10.html",
     "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
     "section": "",
-    "text": "[To complete later]",
-    "crumbs": [
-      "Course Materials",
-      "Part 1: Intro",
-      "Week 10: Linguistic researhc and ethics"
-    ]
+    "text": "[To complete later]"
   },
   {
     "objectID": "course-materials/week13.html",
     "href": "course-materials/week13.html",
     "title": "Week 13 - Data exploration (2/2) and data visualization (1/2) with R",
     "section": "",
-    "text": "[To complete later]",
-    "crumbs": [
-      "Course Materials",
-      "Part 1: Intro",
-      "Week 13: Introduction"
-    ]
+    "text": "[To complete later]"
   },
   {
     "objectID": "course-materials/week5.html",
@@ -58,9 +48,8 @@
     "section": "",
     "text": "[To complete later]",
     "crumbs": [
-      "Course Materials",
-      "Part 1: Intro",
-      "Week 5: Introduction"
+      "Home",
+      "Week 5: Questionnaire items"
     ]
   },
   {
@@ -68,36 +57,21 @@
     "href": "course-materials/week7.html",
     "title": "Week 7 - Presentation of PCIbex: Your first questionnaire",
     "section": "",
-    "text": "[To complete later]",
-    "crumbs": [
-      "Course Materials",
-      "Part 1: Intro",
-      "Week 7: Introduction"
-    ]
+    "text": "[To complete later]"
   },
   {
     "objectID": "course-materials/week2.html",
     "href": "course-materials/week2.html",
     "title": "Week 2 - What is language, and ethics in linguistic and experimental research",
     "section": "",
-    "text": "We will talk about ethics during this week.\n[To complete later]",
-    "crumbs": [
-      "Course Materials",
-      "Part 1: Intro",
-      "Week 2: Linguistic research and ethics"
-    ]
+    "text": "We will talk about ethics during this week.\n[To complete later]"
   },
   {
     "objectID": "course-materials/week8.html",
     "href": "course-materials/week8.html",
     "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
     "section": "",
-    "text": "[To complete later]",
-    "crumbs": [
-      "Course Materials",
-      "Part 1: Intro",
-      "Week 8: Linguistic researhc and ethics"
-    ]
+    "text": "[To complete later]"
   },
   {
     "objectID": "index.html",
@@ -153,12 +127,7 @@
     "href": "course-materials/week1.html",
     "title": "Week 1",
     "section": "",
-    "text": "This is the introductory week.",
-    "crumbs": [
-      "Course Materials",
-      "Part 1: Intro",
-      "Week 1: Introduction"
-    ]
+    "text": "This is the introductory week."
   },
   {
     "objectID": "course-materials/week3.html",
@@ -167,9 +136,8 @@
     "section": "",
     "text": "[To complete later]",
     "crumbs": [
-      "Course Materials",
-      "Part 1: Intro",
-      "Week 3: Introduction"
+      "Home",
+      "Week 3: Fundamentals of questionnaire design"
     ]
   },
   {
@@ -179,9 +147,8 @@
     "section": "",
     "text": "[To complete later]",
     "crumbs": [
-      "Course Materials",
-      "Part 1: Intro",
-      "Week 4: Linguistic researhc and ethics"
+      "Home",
+      "Week 4: Paradigms and tools"
     ]
   },
   {
@@ -189,35 +156,20 @@
     "href": "course-materials/week12.html",
     "title": "Week 12 - Tidying data (2/2) and data exploration (1/2) with R",
     "section": "",
-    "text": "[To complete later]",
-    "crumbs": [
-      "Course Materials",
-      "Part 1: Intro",
-      "Week 12: Linguistic researhc and ethics"
-    ]
+    "text": "[To complete later]"
   },
   {
     "objectID": "course-materials/week11.html",
     "href": "course-materials/week11.html",
     "title": "Week 11 - Import and tidying data (1/2) with R",
     "section": "",
-    "text": "[To complete later]",
-    "crumbs": [
-      "Course Materials",
-      "Part 1: Intro",
-      "Week 11: Introduction"
-    ]
+    "text": "[To complete later]"
   },
   {
     "objectID": "course-materials/week14.html",
     "href": "course-materials/week14.html",
     "title": "Week 14 - Data visualization with R (2/2)",
     "section": "",
-    "text": "[To complete later]",
-    "crumbs": [
-      "Course Materials",
-      "Part 1: Intro",
-      "Week 14: Linguistic researhc and ethics"
-    ]
+    "text": "[To complete later]"
   }
 ]

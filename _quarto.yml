@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: docs   # Crucial for GitHub Pages
+  output-dir: docs
 
 website:
   title: "CHU9012"
@@ -20,7 +20,7 @@ website:
       - href: syllabus.qmd
         text: Syllabus
       - text: "Course Materials"
-        href: course-materials/week1.qmd # Links to first week
+        href: course-materials/week1.qmd
       - text: "Assignments"
         menu:
           - assignments/hw1.qmd
@@ -28,45 +28,49 @@ website:
       - icon: github
         href: https://github.com/aymeric-collart/CHU9012
 
-  # Side Navigation Bar (Context aware)
+  # Side Navigation Bar
   sidebar:
     - title: "Course Materials"
       contents:
-        - section: "Part 1: Intro"
-          contents:
-            - text: "Week 1: Introduction"
-              href: course-materials/week1.qmd
-            - text: "Week 2: Linguistic research and ethics"
-              href: course-materials/week2.qmd
-            - text: "Week 3: Introduction"
-              href: course-materials/week3.qmd
-            - text: "Week 4: Linguistic researhc and ethics"
-              href: course-materials/week4.qmd
-            - text: "Week 5: Introduction"
-              href: course-materials/week5.qmd
-            - text: "Week 6: Linguistic researhc and ethics"
-            - text: "Week 7: Introduction"
-              href: course-materials/week7.qmd
-            - text: "Week 8: Linguistic researhc and ethics"
-              href: course-materials/week8.qmd
-            - text: "Week 9: Introduction"
-            - text: "Week 10: Linguistic researhc and ethics"
-              href: course-materials/week10.qmd
-            - text: "Week 11: Introduction"
-              href: course-materials/week11.qmd
-            - text: "Week 12: Linguistic researhc and ethics"
-              href: course-materials/week12.qmd
-            - text: "Week 13: Introduction"
-              href: course-materials/week13.qmd
-            - text: "Week 14: Linguistic researhc and ethics"
-              href: course-materials/week14.qmd
-            - text: "Week 15: Introduction"
-            - text: "Week 16: Linguistic researhc and ethics"
+        - text: "Week 1: Introduction"
+          href: course-materials/week1.qmd
+        - text: "Week 2: Linguistic research and ethics"
+          href: course-materials/week2.qmd
+    - section: "Part 1: Fundamentals of language questionnaires"
+      contents:
+        - text: "Week 3: Fundamentals of questionnaire design"
+          href: course-materials/week3.qmd
+        - text: "Week 4: Paradigms and tools"
+          href: course-materials/week4.qmd
+        - text: "Week 5: Questionnaire items"
+          href: course-materials/week5.qmd
+        - text: "Week 6: Group and individual meetings (Design your own questionnaire)"
+    - section: "Part 2: Designing a web-based questionnaire"
+      contents:
+        - text: "Week 7: Presentation of PCIbex"
+          href: course-materials/week7.qmd
+        - text: "Week 8: More complex questionnaires with PCIbex"
+          href: course-materials/week8.qmd
+        - text: "Week 9: Group and individual meetings (Set-up your own questionnaire)"
+    - section: "Part 3: Analyses and visualization"
+      contents:
+        - text: "Week 10: Presentation of R"
+          href: course-materials/week10.qmd
+        - text: "Week 11: Import and tidying data (1/2) with R"
+          href: course-materials/week11.qmd
+        - text: "Week 12: Tidying data (2/2) and data exploration (1/2) with R"
+          href: course-materials/week12.qmd
+        - text: "Week 13: Data exploration (2/2) and data visualization (1/2) with R"
+          href: course-materials/week13.qmd
+        - text: "Week 14: Data visualization with R (2/2)"
+          href: course-materials/week14.qmd
+        - text: "Week 15: Assistance for handling results"
+        - text: "Week 16: Student’s presentations"
 
 format:
   html:
     theme:
-      light: cosmo   # The theme for Light Mode
-      dark: darkly   # The theme for Dark Mode (you can also use 'superhero' or 'cyborg')
+      light: cosmo
+      dark: darkly
     toc: true
     css: styles.css
