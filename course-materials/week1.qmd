@@ -1,6 +1,6 @@
 ---
-title: "Week 1"
+title: "Week 1 - Introductory week"
 format: html
 ---
 
-This is the introductory week.
+This is the introductory week, where I will explain the goals and content of the course, the syllabus and the grading system.

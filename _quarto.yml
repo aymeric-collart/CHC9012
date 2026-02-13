@@ -19,7 +19,7 @@ website:
         text: Home
       - href: syllabus.qmd
         text: Syllabus
-      - text: "Course Materials"
+      - text: "Course"
         href: course-materials/week1.qmd
       - text: "Assignments"
         menu:
