@@ -10,7 +10,7 @@ This week, we will cover the basics of questionnaire (or *experimental*) design.
 
 ::: {.panel-tabset}
 
-## 🧪 Core Concepts
+## 🧪 Core concepts
 **Experimental design variables & structure**
 
 We will discuss the following core concepts through several studies involving language:
@@ -20,7 +20,7 @@ We will discuss the following core concepts through several studies involving la
 - **Factorial design:** What “factors” and “levels” actually mean.
 - **Counterbalancing:** Why there is a need to counterbalance, and how Latin square designs work to achieve it.
 
-## 📚 Required Readings
+## 📚 Required readings
 **Discussion material for this week**
 
 Our discussion of these concepts will be based on the following two readings:
@@ -36,7 +36,7 @@ Our discussion of these concepts will be based on the following two readings:
 
 Here is a visual breakdown to help you synthesize the experimental design concepts we are discussing this week:
 
-![](Week3Summary.svg){fig-align="center" width="85%"}
+![](Week3_Summary.svg){fig-align="center" width="85%"}
 
 <hr>
 

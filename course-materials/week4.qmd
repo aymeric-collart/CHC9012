@@ -3,4 +3,14 @@ title: "Week 4 - Paradigms and tools"
 format: html
 ---
 
-[To complete later]
+This week, we will talk about the different types of paradigms and tools that we can use when running online questionnaires or experiments. Last week, our discussion focused on the Independent Variable (IV), and how the manipulation of the IVs can create different kinds of design. This week, we focus more on the Dependent Variable (DV), and especially the following topics:
+- Operationalization: What is a "good" (i.e., testable, measurable) DV?
+- Offline methods for language experiments: Judgment experiments and what they test, ad-hoc reaction time, and the different tasks we can use
+- On-line methods: we will talk about *timing methods* (e.g., lexical decision task, self-paced reading, production latency, etc.), in addition to *eye-tracking* and a little bit of *mouse-tracking*.
+While discussing these tools, we will look at some paradigms, such as grammaticality, priming, visual-world, and cross-modal paradigms, for example.
+
+Pay attention! The word "on-line" here does not mean "on the internet", but "in real time"!
+
+Assignment for next week:
+- Read Gillioz & Zufferey (2021)
+- Seriously start to think of your final project (topic, individual or in group, etc.)
