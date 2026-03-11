@@ -1,27 +1,52 @@
 ---
-title: "Week 3 - Fundamentals of questionnaire design"
-format: html
+title: "Week 3: Fundamentals of questionnaire design"
+subtitle: "CHC9012 | National Taiwan Normal University"
+editor: source
 ---
 
-This week, we talk about the basics of questionnaire (or <i>experimental</i>) design. Especially, we will discuss the following concepts through several studies involving language:
-- Independent variable(s) and dependent variable(s)
-- Within-participants design, between-participants design, and mixed designs
-- What "factors" and "levels" are in a factorial design
-- Why the need to counterbalance, and how Latin square designs work for that
+## Overview
 
-the discussion will be based on these two following readings: Abbuhl et al. (2014) (from the book Research Methods in Linguistics) and Rogers & Révész (2020) (fron the book the routledge handbook of research methods in applied linguistics)
+This week, we will cover the basics of questionnaire (or *experimental*) design. We will learn the technical terms to describe the methodology employed in a questionnaire or experiment, which will be essential for you when reading academic papers, attending conferences, and writing your own final term papers.
 
-Help graphic sumary for the students:
+::: {.panel-tabset}
 
-[file name: Week3Summary.svg]
+## 🧪 Core Concepts
+**Experimental Design Variables & Structure**
 
-We will also learn the technical terms to describe the methodology employed in a questionnaire/experiment, which will be helpful for you when (a) reading academic papers or attending talks and conferences, and (b) writing your own final term paper or other studies. 
+We will discuss the following core concepts through several studies involving language:
 
+- **Variables:** Independent variable(s) and dependent variable(s).
+- **Types of design:** Within-participants design, between-participants design, and mixed designs.
+- **Factorial design:** What “factors” and “levels” actually mean.
+- **Counterbalancing:** Why there is a need to counterbalance, and how Latin square designs work to achieve it.
 
-assignment for next week:
-1- Review the concepts we've been through, and start thinking of your own research question and how to translate it with the concepts we've learned this week
-2- Read material for Week 4 (Schütze & Sprouse (2014); Kaiser (2014))
+## 📚 Required Readings
+**Discussion material for this week**
 
+Our discussion of these concepts will be based on the following two readings:
 
+- **Abbuhl et al. (2014)** *(from the book "Research Methods in Linguistics")*
+- **Rogers & Révész (2020)** *(from the book "The Routledge Handbook of Research Methods in Applied Linguistics")*
 
+:::
 
+<br>
+
+### 📊 Graphic Summary
+
+Here is a visual breakdown to help you synthesize the experimental design concepts we are discussing this week:
+
+![](Week3Summary.svg){fig-align="center" width="85%"}
+
+<hr>
+
+::: {.callout-important icon="true"}
+## 📝 Assignment for next week
+
+Please complete the following tasks before our next meeting:
+
+1. **Brainstorm:** Review the concepts we’ve been through today. Start thinking of your own research question and how to translate it using the variables and design structures we've learned this week.
+2. **Read:** Prepare the materials for Week 4:
+   - *Schütze & Sprouse (2014)*
+   - *Kaiser (2014)*
+:::
