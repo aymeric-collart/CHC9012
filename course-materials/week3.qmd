@@ -11,7 +11,7 @@ This week, we will cover the basics of questionnaire (or *experimental*) design.
 ::: {.panel-tabset}
 
 ## 🧪 Core Concepts
-**Experimental Design Variables & Structure**
+**Experimental design variables & structure**
 
 We will discuss the following core concepts through several studies involving language:
 
@@ -37,6 +37,20 @@ Our discussion of these concepts will be based on the following two readings:
 Here is a visual breakdown to help you synthesize the experimental design concepts we are discussing this week:
 
 ![](Week3Summary.svg){fig-align="center" width="85%"}
+
+<hr>
+
+### 📖 Concept definitions & examples
+
+| Concept | Definition | Example application |
+| :--- | :--- | :--- |
+| **Independent variable** | The variable that is manipulated by the researcher, also known as the variable of influence. It is expected to bring about variation or change in the dependent variable. | Corrective feedback |
+| **Dependent variable** | The variable that is measured or influenced. | Grammatical development |
+| **Between-participants design** | A design where each level of the independent variable is comprised of different participants. | Typically developing (TD) children and children with specific language impairment (SLI) |
+| **Within-participants design** | A design where the same individuals are assigned to all levels of the independent variable. | A class studying half of target items under a spaced-short condition and the other half under a spaced-long condition |
+| **Mixed design** | A design that combines both within-participants and between-participants factors. | Examining L2 performance using task complexity (within-participants) and modality (between-participants) |
+| **Factorial design** | A research design that includes more than one independent variable to examine separate and combined effects. | Investigating the effects of wh-dependency and dependency length on sentence processing using a 2 x 2 design |
+| **Counterbalancing** | Having different, randomly assigned participants complete the different levels of the independent variable in different orders to address order or carryover effects. A Latin-square design is frequently used for this purpose to control against test- and task-order effects. | Counterbalancing four different tasks across four groups in a Latin-square design so each group completes tasks in a different order |
 
 <hr>
 
