@@ -1,16 +1,62 @@
 ---
-title: "Week 4 - Paradigms and tools"
-format: html
+title: "Week 4: Paradigms and tools"
+subtitle: "CHC9012 | National Taiwan Normal University"
+editor: source
 ---
 
-This week, we will talk about the different types of paradigms and tools that we can use when running online questionnaires or experiments. Last week, our discussion focused on the Independent Variable (IV), and how the manipulation of the IVs can create different kinds of design. This week, we focus more on the Dependent Variable (DV), and especially the following topics:
-- Operationalization: What is a "good" (i.e., testable, measurable) DV?
-- Offline methods for language experiments: Judgment experiments and what they test, ad-hoc reaction time, and the different tasks we can use
-- On-line methods: we will talk about *timing methods* (e.g., lexical decision task, self-paced reading, production latency, etc.), in addition to *eye-tracking* and a little bit of *mouse-tracking*.
-While discussing these tools, we will look at some paradigms, such as grammaticality, priming, visual-world, and cross-modal paradigms, for example.
+## Overview
 
-Pay attention! The word "on-line" here does not mean "on the internet", but "in real time"!
+This week, we will talk about the different types of paradigms and tools that we can use when running online questionnaires or experiments. Last week, our discussion focused on the Independent Variable (IV) and how its manipulation creates different kinds of design. This week, we shift our focus to the **Dependent Variable (DV)**.
 
-Assignment for next week:
-- Read Gillioz & Zufferey (2021)
-- Seriously start to think of your final project (topic, individual or in group, etc.)
+::: {.panel-tabset}
+
+## 🧪 Core concepts
+**Focusing on the Dependent Variable (DV)**
+
+We will explore the following key areas:
+
+- **Operationalization:** What makes a DV “good” (i.e., testable and measurable)?
+- **Offline methods:** Judgment experiments, ad-hoc reaction times, and various tasks for language experiments.
+- **On-line methods:** Exploring *timing methods* and tracking techniques.
+- **Paradigms:** We will examine common experimental setups used to elicit specific data.
+
+## 📚 Required readings
+**Discussion material for this week**
+
+Our discussion of these concepts will be based on the following two readings:
+
+- **Schütze & Sprouse (2014)** *(from the book "Research Methods in Linguistics")*
+- **Kaiser (2014)** *(from the book "Research Methods in Linguistics")*
+
+:::
+
+<br>
+
+::: {.callout-warning icon="true"}
+## ⚠️ Important clarification: "On-line"
+Pay attention! In experimental linguistics and psychology, the word **“on-line”** does *not* mean “on the internet.” Instead, it means measuring a cognitive process **“in real time”** as it unfolds.
+:::
+
+<br>
+
+### 📖 Concept definitions & examples
+
+| Concept | Definition / Focus | Example application |
+| :--- | :--- | :--- |
+| **Operationalization (Dependent Measures)** | The selection of a specific behavioral response to measure cognitive systems, such as time, error rate, or reported perceptions of acceptability. | Measuring reaction times as an indication of processing complexity |
+| **Off-line methods** | Methods that provide crucial information about final interpretations, or the final outcome of language processing. | Acceptability judgment tasks, where speakers are explicitly asked to report their spontaneous reaction concerning whether a string of words is a possible utterance |
+| **On-line methods** | Methods that tap into real-time aspects of language processing. These methods detect rapid, transient effects that are often not explicitly noticed by language users. | Using an eye-tracker to record eye movements that are closely time-locked to the speech stream as a participant listens to instructions |
+| **Reaction-time paradigms** | Methods measuring how rapidly people perform different kinds of linguistic tasks. | A self-paced reading task where participants press a button to reveal words one by one, allowing researchers to record how much time is spent on each part of the sentence |
+| **Visual-world paradigm** | An eye-tracking method where a participant is presented with auditory linguistic stimuli coupled with objects or a visual display. | Measuring fixation probabilities to target objects (like a beaker) and competitor objects on a computer screen as the participant hears the spoken word unfold  |
+
+<hr>
+
+::: {.callout-important icon="true"}
+## 📝 Assignment for next week
+
+Please complete the following tasks before next week:
+
+1. **Read:** Review the assigned materials:
+   - *Gillioz & Zufferey (2021)*
+2. **Project Planning:** Seriously start to think of your final project. Consider your specific topic and decide whether you will be working individually or in a group.
+:::
