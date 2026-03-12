@@ -1,0 +1,6 @@
+---
+title: "Weeks 3 and 4"
+date: 2026-03-12
+categories: [Website announcment]
+description: "Weeks 3 and 4 of the course have been updated!"
+---
