@@ -23,7 +23,7 @@ In this session, I will explain:
 
 ::: {.g-col-12 .g-col-md-4}
 ::: {.callout-tip icon="false"}
-## 📄 Key Document
+## 📄 Key document
 The syllabus contains all the details about the grading policy and schedule.
 
 <a href="../syllabus.html" class="btn btn-primary w-100 mt-2">
@@ -41,7 +41,7 @@ The syllabus contains all the details about the grading policy and schedule.
 ::: {.callout-note}
 ## Checklist
 
--   [ ] **Review the Syllabus:** Make sure you understand the attendance and grading policies.
+-   [ ] **Review the syllabus:** Make sure you understand the attendance and grading policies.
 -   [ ] **Join Moodle:** Ensure you have access to the course Moodle page.
--   [ ] **Software Check:** Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.
+-   [ ] **Software check:** Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.
 :::

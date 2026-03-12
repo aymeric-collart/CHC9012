@@ -13,44 +13,44 @@ format:
 ::: {.panel-tabset}
 
 ### Part 1: Fundamentals
-*Focus: Ethics & Design Theory*
+*Focus: Ethics & design theory*
 
 | Week | Topic | Reading Material | Homework / Due |
 |:---:|:---|:---|:---|
-| **1** | **Introductory Week** | *None* | **Mandatory:** Take online ethic classes and pass the examination  |
-| **2** | **Ethics in Linguistic Research** | Eckert (2014); Center for Taiwan Academic Research Ethics Education | Read material for Week 3  |
-| **3** | **Fundamentals of Questionnaire Design** | Abbuhl et al. (2014); Rogers & Révész (2020) | Read material for Week 4  |
-| **4** | **Paradigms and Tools** | Schütze & Sprouse (2014); Kaiser (2014) | Read material for Week 5  |
-| **5** | **Questionnaire Items & Q&A** | Gillioz & Zufferey (2021) | 1. Write project draft (max 2 pages)<br>2. Prepare item Excel files<br>3. *Optional:* Go through PCIbex tutorial  |
-| **6** | **Group & Individual Meetings** | *Design your own questionnaire in classroom* | *Continue project work*  |
+| **1** | **Introductory week** | *None* | **Mandatory:** Take online ethic classes and pass the examination  |
+| **2** | **Ethics in linguistic research** | Eckert (2014); Center for Taiwan Academic Research Ethics Education | Read material for Week 3  |
+| **3** | **Fundamentals of questionnaire design** | Abbuhl et al. (2014); Rogers & Révész (2020) | Read material for Week 4  |
+| **4** | **Paradigms and tools** | Schütze & Sprouse (2014); Kaiser (2014) | Read material for Week 5  |
+| **5** | **Questionnaire items; Q&A** | Gillioz & Zufferey (2021) | 1. Write project draft (max 2 pages)<br>2. Prepare item Excel files<br>3. *Optional:* Go through PCIbex tutorial  |
+| **6** | **Group & individual meetings** | *Design your own questionnaire in classroom* | *Continue project work*  |
 
-### Part 2: Web-Based Design
-*Focus: PCIbex Implementation*
+### Part 2: Web-based design
+*Focus: PCIbex implementation*
 
 | Week | Topic | Focus | Homework / Due |
 |:---:|:---|:---|:---|
 | **7** | **Presentation of PCIbex** | Your first questionnaire; PCIbex documentation & tutorials | *None listed* |
 | **8** | **Advanced PCIbex** | Multiple items, Latin Square, and other paradigms | 1. Finish 'Basic Tutorial' of PCIbex docs<br>2. Annotate each line of code |
-| **9** | **Workshop Week** | Set-up your own questionnaire on PCIbex (In-class meetings) | 1. Finish 'Advanced Tutorial' (steps 8-10)<br>2. Annotate code<br>3. Prepare PCIbex document of own project |
+| **9** | **Workshop week** | Set-up your own questionnaire on PCIbex (In-class meetings) | 1. Finish 'Advanced Tutorial' (steps 8-10)<br>2. Annotate code<br>3. Prepare PCIbex document of own project |
 
-### Part 3: Analysis & Viz
+### Part 3: Analysis & Visualization
 *Focus: R & RStudio*
 
 | Week | Topic | Reading (*R4DS*) | Homework / Due |
 |:---:|:---|:---|:---|
-| **10** | **Intro to R Interface** | Intro; Ch 2 (Workflow: basics); Ch 6 (Scripts); Ch 28 (Quarto) | Exercises for next week (provide code before due date) |
-| **11** | **Import & Tidying Data (1/2)** | Ch 7 (Import); Ch 20 (Spreadsheets); Ch 3 (Data transformation) | Exercises for next week (provide code before due date) |
-| **12** | **Tidying (2/2) & Exploration (1/2)** | Ch 5 (Tidy data); Ch 10 (Exploratory Data Analysis) | Exercises for next week (provide code before due date)  |
-| **13** | **Exploration (2/2) & Viz (1/2)** | Ch 9 (Layers); Ch 11 (Communication) | Exercises for next week (provide code before due date)  |
-| **14** | **Data Visualization (2/2)** | Ch 9, 10, 11; Q&A for projects | Prepare a Quarto document of your analysis/viz (preliminary version)  |
-| **15** | **Project Workshop** | Assistance for handling results | *Work on final presentation*  |
-| **16** | **Final Presentations** | Student presentations of individual/group projects | *Final Deliverables*  |
+| **10** | **Introduction to the R Interface** | Intro; Ch 2 (Workflow: basics); Ch 6 (Scripts); Ch 28 (Quarto) | Exercises for next week (provide code before due date) |
+| **11** | **Import & tidying data (1/2)** | Ch 7 (Import); Ch 20 (Spreadsheets); Ch 3 (Data transformation) | Exercises for next week (provide code before due date) |
+| **12** | **Tidying (2/2) & exploration (1/2)** | Ch 5 (Tidy data); Ch 10 (Exploratory Data Analysis) | Exercises for next week (provide code before due date)  |
+| **13** | **Exploration (2/2) & visualization (1/2)** | Ch 9 (Layers); Ch 11 (Communication) | Exercises for next week (provide code before due date)  |
+| **14** | **Data visualization (2/2)** | Ch 9, 10, 11; Q&A for projects | Prepare a Quarto document of your analysis/visualization (preliminary version)  |
+| **15** | **Project workshop** | Assistance for handling results | *Work on final presentation*  |
+| **16** | **Final presentations** | Student presentations of individual/group projects | *Final reports*  |
 
 :::
 
 ---
 
-## ⚖️ Grading & Evaluation
+## ⚖️ Grading & evaluation
 
 The final grade is distributed as follows:
 
@@ -68,22 +68,22 @@ pie title Grade Distribution
 ```
 ::: 
 ::: {.g-col-12 .g-col-md-6}
-#### 📝 Assessment Details
+#### 📝 Assessment details
 
-* **Assignments (40%):** Regular homework.
+* **Assignments (40%):** Regular homework
     * *Note: 4% will be deducted for each failure to submit homework on time*.
-* **Final Project (30%):**
-    * Oral Presentation: 15% 
-    * Written Report: 15% 
-* **Class Discussion (15%):** Active participation.
-* **Attendance (15%):** Regular presence is required.
+* **Final project (30%):**
+    * Oral presentation: 15% 
+    * Written report: 15% 
+* **Class discussion (15%):** Active participation
+* **Attendance (15%):** Regular presence is required
 
 ::: 
 ::: 
 
 ---
 
-## 📚 Resources & Software
+## 📚 Resources & software
 
 ::: {.callout-tip}
 ## Online Resources
