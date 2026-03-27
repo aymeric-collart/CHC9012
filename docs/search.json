@@ -68,7 +68,31 @@
     "href": "course-materials/week7.html",
     "title": "Week 7 - Presentation of PCIbex: Your first questionnaire",
     "section": "",
-    "text": "[To complete later]",
+    "text": "[Page to be completed]",
+    "crumbs": [
+      "Home",
+      "Part 2: Designing a web-based questionnaire",
+      "Week 7: Presentation of PCIbex"
+    ]
+  },
+  {
+    "objectID": "course-materials/week7.html#overview",
+    "href": "course-materials/week7.html#overview",
+    "title": "Week 7 - Presentation of PCIbex: Your first questionnaire",
+    "section": "Overview",
+    "text": "Overview\nThis week, we will introduce the web-based platform PCIbex, which is used to design questionnaires and experiments. By the end of this week, you will have the script of your very first questionnaire/experiment ready.\n\nOverall presentation of the platformBasics of your first experiment\n\n\nWe will have an introduction of the platform, including:\n\nLayout: What does this platform look like? Where to type the script?\nAssistance: How to access the documentation and the forum?\n\n\n\nYou will learn the basic concepts to write a simple yet powerful script on PCIbex:\n\nComments: How to comment a script on PCIbex to keep track of the structure;\nElements: How to create texts, tasks, etc.;\nAdjustments: How to adjust these elements to make them behave like you want;\nLogging: How to have the relevant results stored on PCIbex.\n\n\n\n\n\nBelow is a biref summary of the necessary codes.\n\nList of commandsFull script\n\n\nHere you can find a list of the commands (i.e., functions) used in the basic script and their function:\n\nnewTrial(…): Used to introduce a trial in the experiment\nnewText(…): Used to introduce a line of text\n\n\n\nYou can download the full script here.",
+    "crumbs": [
+      "Home",
+      "Part 2: Designing a web-based questionnaire",
+      "Week 7: Presentation of PCIbex"
+    ]
+  },
+  {
+    "objectID": "course-materials/week7.html#presentation-of-the-interface",
+    "href": "course-materials/week7.html#presentation-of-the-interface",
+    "title": "Week 7 - Presentation of PCIbex: Your first questionnaire",
+    "section": "1. Presentation of the interface",
+    "text": "1. Presentation of the interface\nThe link to the PCIbex platform is here: https://farm.pcibex.net/\nHere is what the first page looks like:\n\nThe first thing to do is to create an account (click on “Sign up”). Once you created your personal account, you can log in. Please don’t forget to verify your email, otherwise you can only create one experiment!\nAfter logging, you will see this page:\n\nOn the left side, you can find your projects. Each project corresponds to one experiment. On the right side, you can find templates for specific paradigms. Today, we will learn how to code a simple experiment from scratch. So let’s click on “Empty project”.\nHere’s what you can see after that:\n\nThere are many blocks to unpack. Let’s only explain the relevant one for you one by one:\n\nThe banner. Can you see where it is written “Empty project_copy”? Click on it, and you can change its name. Good to know: The participants won’t see this name when you share the experiment, so you can be very explicit!\n\n\n\nThe folders and files. You can see two parts:\n\n\nResources: So far, this is empty. This is the place where you can upload the files to be used for your experiment. Such files can be images to display, audio to run, or even an Excel file (more precisely, a tabular file with the csv extension) where all the items can be found (we will talk about that next week)\nScripts: There is already a file called “main.js”. For simple experiments, this one is enough. This is the file we need to modify to code the whole experiment. Of course, you can create your own file and modify it on your computer. But it is also possible to modify it directly on PCIbex, which is quite convenient!\n\nThe modifying interface. Once you open a script or an Excel-like file, you can directly modify it here. The cool option is that you can test anytime after modify it. You just have to click on “Refresh”. Be patient, it can take several seconds!\n\nThe last part is called “Actions”. It displays several options:\n\n“Unpublished” button: Once your experiment is ready, click on it before starting your data collection! You can test your script as many times as you wish before, and the data will be stored separately.\nResults: Where you can find the results of your experiment.\nShare: Click on it to obtain the link to the experiment that you can share online.\n\n\n\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before our next meeting",
     "crumbs": [
       "Home",
       "Part 2: Designing a web-based questionnaire",

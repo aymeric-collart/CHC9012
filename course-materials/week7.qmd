@@ -1,6 +1,103 @@
 ---
 title: "Week 7 - Presentation of PCIbex: Your first questionnaire"
-format: html
+subtitle: "CHC9012 | National Taiwan Normal University"
+editor: source
 ---
 
-[To complete later]
+\[Page to be completed\]
+
+## Overview
+
+This week, we will introduce the web-based platform PCIbex, which is used to design questionnaires and experiments. By the end of this week, you will have the script of your very first questionnaire/experiment ready.
+
+::: panel-tabset
+## Overall presentation of the platform
+
+We will have an introduction of the platform, including:
+
+-   **Layout:** What does this platform look like? Where to type the script?
+-   **Assistance:** How to access the documentation and the forum?
+
+## Basics of your first experiment
+
+You will learn the basic concepts to write a simple yet powerful script on PCIbex:
+
+-   **Comments:** How to comment a script on PCIbex to keep track of the structure;
+-   **Elements:** How to create texts, tasks, etc.;
+-   **Adjustments:** How to adjust these elements to make them behave like you want;
+-   **Logging:** How to have the relevant results stored on PCIbex.
+:::
+
+<br>
+
+Below is a biref summary of the necessary codes.
+
+::: panel-tabset
+## List of commands
+
+Here you can find a list of the commands (i.e., functions) used in the basic script and their function:
+
+-   **newTrial(...)**: Used to introduce a trial in the experiment
+-   **newText(...)**: Used to introduce a line of text
+
+## Full script
+
+You can download the full script here.
+:::
+
+<br>
+
+## 1. Presentation of the interface
+
+The link to the PCIbex platform is here: https://farm.pcibex.net/
+
+Here is what the first page looks like:
+
+![](images/clipboard-428372100.png)
+
+The first thing to do is to create an account (click on "Sign up"). Once you created your personal account, you can log in. Please don't forget to verify your email, otherwise you can only create one experiment!
+
+After logging, you will see this page:
+
+![](images/clipboard-3319492300.png)
+
+On the left side, you can find your projects. Each project corresponds to one experiment. On the right side, you can find templates for specific paradigms. Today, we will learn how to code a simple experiment from scratch. So let's click on "Empty project".
+
+Here's what you can see after that:
+
+![](images/clipboard-2706246832.png)
+
+There are many blocks to unpack. Let's only explain the relevant one for you one by one:
+
+-   The banner. Can you see where it is written "Empty project_copy"? Click on it, and you can change its name. Good to know: The participants won't see this name when you share the experiment, so you can be very explicit!
+
+![](images/clipboard-2853803788.png)
+
+-   The folders and files. You can see two parts:
+
+    ![](images/clipboard-678675311.png)
+
+    -   **Resources:** So far, this is empty. This is the place where you can upload the files to be used for your experiment. Such files can be images to display, audio to run, or even an Excel file (more precisely, a tabular file with the ***csv*** extension) where all the items can be found (we will talk about that next week)
+    -   **Scripts:** There is already a file called "main.js". For simple experiments, this one is enough. This is the file we need to modify to code the whole experiment. Of course, you can create your own file and modify it on your computer. But it is also possible to modify it directly on PCIbex, which is quite convenient!
+
+-   The modifying interface. Once you open a script or an Excel-like file, you can directly modify it here. The cool option is that you can test anytime after modify it. You just have to click on "Refresh". Be patient, it can take several seconds!
+
+    ![](images/clipboard-1581035044.png)
+
+-   The last part is called "Actions". It displays several options:
+
+    -   **"Unpublished" button:** Once your experiment is ready, click on it before starting your data collection! You can test your script as many times as you wish before, and the data will be stored separately.
+
+    -   **Results:** Where you can find the results of your experiment.
+
+    -   **Share:** Click on it to obtain the link to the experiment that you can share online.
+
+        ![](images/clipboard-1824256606.png)
+
+<br>
+
+::: {.callout-important icon="true"}
+## 📝 Assignment for next week
+
+Please complete the following tasks before our next meeting
+:::
