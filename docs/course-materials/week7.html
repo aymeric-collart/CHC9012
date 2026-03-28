@@ -454,6 +454,22 @@ ul.task-list li input[type="checkbox"] {
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#presentation-of-the-interface" id="toc-presentation-of-the-interface" class="nav-link" data-scroll-target="#presentation-of-the-interface">1. Presentation of the interface</a></li>
+  <li><a href="#lets-be-organized-the-structure-of-your-experiment" id="toc-lets-be-organized-the-structure-of-your-experiment" class="nav-link" data-scroll-target="#lets-be-organized-the-structure-of-your-experiment">2. Let’s be organized: The structure of your experiment</a>
+  <ul class="collapse">
+  <li><a href="#conceptual-structure" id="toc-conceptual-structure" class="nav-link" data-scroll-target="#conceptual-structure">2.1 Conceptual structure</a></li>
+  <li><a href="#create-the-structure-on-pcibex-comment-lines" id="toc-create-the-structure-on-pcibex-comment-lines" class="nav-link" data-scroll-target="#create-the-structure-on-pcibex-comment-lines">2.2 Create the structure on PCIbex: Comment lines</a></li>
+  </ul></li>
+  <li><a href="#creation-of-your-first-experiment" id="toc-creation-of-your-first-experiment" class="nav-link" data-scroll-target="#creation-of-your-first-experiment">3. Creation of your first experiment</a>
+  <ul class="collapse">
+  <li><a href="#welcome-page-canvas-texts-text-inputs-buttons-and-dropdowns" id="toc-welcome-page-canvas-texts-text-inputs-buttons-and-dropdowns" class="nav-link" data-scroll-target="#welcome-page-canvas-texts-text-inputs-buttons-and-dropdowns">3.1 Welcome page: Canvas, texts, text inputs, buttons and dropdowns</a></li>
+  <li><a href="#the-experiment-itself-trials-scales-and-keys" id="toc-the-experiment-itself-trials-scales-and-keys" class="nav-link" data-scroll-target="#the-experiment-itself-trials-scales-and-keys">3.2 The experiment itself: Trials, scales and keys</a></li>
+  <li><a href="#the-goodbye-page" id="toc-the-goodbye-page" class="nav-link" data-scroll-target="#the-goodbye-page">3.3 The goodbye page</a></li>
+  </ul></li>
+  <li><a href="#adjusting-the-script" id="toc-adjusting-the-script" class="nav-link" data-scroll-target="#adjusting-the-script">4. Adjusting the script</a>
+  <ul class="collapse">
+  <li><a href="#what-results-to-store-the-log-function" id="toc-what-results-to-store-the-log-function" class="nav-link" data-scroll-target="#what-results-to-store-the-log-function">4.1 What results to store? The “log” function</a></li>
+  <li><a href="#details-of-the-procedure-and-the-aesthetics" id="toc-details-of-the-procedure-and-the-aesthetics" class="nav-link" data-scroll-target="#details-of-the-procedure-and-the-aesthetics">4.2 Details of the procedure and the aesthetics</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -507,7 +523,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <p><br></p>
-<p>Below is a biref summary of the necessary codes.</p>
+<p>Below is a brief summary of the necessary codes.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">List of commands</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Full script</a></li></ul>
 <div class="tab-content">
@@ -529,35 +545,87 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="presentation-of-the-interface">1. Presentation of the interface</h2>
 <p>The link to the PCIbex platform is here: https://farm.pcibex.net/</p>
 <p>Here is what the first page looks like:</p>
-<p><img src="images/clipboard-428372100.png" class="img-fluid"></p>
+<p><img src="images/clipboard-428372100.png" class="img-fluid" style="border: 5px solid #555;"></p>
 <p>The first thing to do is to create an account (click on “Sign up”). Once you created your personal account, you can log in. Please don’t forget to verify your email, otherwise you can only create one experiment!</p>
 <p>After logging, you will see this page:</p>
-<p><img src="images/clipboard-3319492300.png" class="img-fluid"></p>
+<p><img src="images/clipboard-3319492300.png" class="img-fluid" style="border: 5px solid #555;"></p>
 <p>On the left side, you can find your projects. Each project corresponds to one experiment. On the right side, you can find templates for specific paradigms. Today, we will learn how to code a simple experiment from scratch. So let’s click on “Empty project”.</p>
 <p>Here’s what you can see after that:</p>
-<p><img src="images/clipboard-2706246832.png" class="img-fluid"></p>
+<p><img src="images/clipboard-2706246832.png" class="img-fluid" style="border: 5px solid #555;"></p>
 <p>There are many blocks to unpack. Let’s only explain the relevant one for you one by one:</p>
-<ul>
-<li>The banner. Can you see where it is written “Empty project_copy”? Click on it, and you can change its name. Good to know: The participants won’t see this name when you share the experiment, so you can be very explicit!</li>
-</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">The banner</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Folders and files</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">The coding interface</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">Actions</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Can you see where it is written “Empty project_copy”? Click on it, and you can change its name. Good to know: The participants won’t see this name when you share the experiment, so you can be very explicit!</p>
 <p><img src="images/clipboard-2853803788.png" class="img-fluid"></p>
-<ul>
-<li><p>The folders and files. You can see two parts:</p>
-<p><img src="images/clipboard-678675311.png" class="img-fluid"></p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>It contains two parts:</p>
 <ul>
 <li><strong>Resources:</strong> So far, this is empty. This is the place where you can upload the files to be used for your experiment. Such files can be images to display, audio to run, or even an Excel file (more precisely, a tabular file with the <strong><em>csv</em></strong> extension) where all the items can be found (we will talk about that next week)</li>
 <li><strong>Scripts:</strong> There is already a file called “main.js”. For simple experiments, this one is enough. This is the file we need to modify to code the whole experiment. Of course, you can create your own file and modify it on your computer. But it is also possible to modify it directly on PCIbex, which is quite convenient!</li>
-</ul></li>
-<li><p>The modifying interface. Once you open a script or an Excel-like file, you can directly modify it here. The cool option is that you can test anytime after modify it. You just have to click on “Refresh”. Be patient, it can take several seconds!</p>
-<p><img src="images/clipboard-1581035044.png" class="img-fluid"></p></li>
-<li><p>The last part is called “Actions”. It displays several options:</p>
-<ul>
-<li><p><strong>“Unpublished” button:</strong> Once your experiment is ready, click on it before starting your data collection! You can test your script as many times as you wish before, and the data will be stored separately.</p></li>
-<li><p><strong>Results:</strong> Where you can find the results of your experiment.</p></li>
-<li><p><strong>Share:</strong> Click on it to obtain the link to the experiment that you can share online.</p>
-<p><img src="images/clipboard-1824256606.png" class="img-fluid"></p></li>
-</ul></li>
 </ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-678675311.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="border: 1px solid #555;;width:25.0%"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p>Once you open a script or an Excel-like file, you can directly modify it here. The cool option is that you can test anytime after modify it. You just have to click on “Refresh”. Be patient, it can take several seconds!</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1581035044.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="border: 1px solid #555;"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
+<p>The last part is called “Actions”. It displays several options:</p>
+<ul>
+<li><strong>“Unpublished” button:</strong> Once your experiment is ready, click on it before starting your data collection! You can test your script as many times as you wish before, and the data will be stored separately.</li>
+<li><strong>Results:</strong> Where you can find the results of your experiment.</li>
+<li><strong>Share:</strong> Click on it to obtain the link to the experiment that you can share online.</li>
+</ul>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-1824256606.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="border: 1px solid #555;;width:25.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="lets-be-organized-the-structure-of-your-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="lets-be-organized-the-structure-of-your-experiment">2. Let’s be organized: The structure of your experiment</h2>
+<section id="conceptual-structure" class="level3">
+<h3 class="anchored" data-anchor-id="conceptual-structure">2.1 Conceptual structure</h3>
+</section>
+<section id="create-the-structure-on-pcibex-comment-lines" class="level3">
+<h3 class="anchored" data-anchor-id="create-the-structure-on-pcibex-comment-lines">2.2 Create the structure on PCIbex: Comment lines</h3>
+<p><br></p>
+</section>
+</section>
+<section id="creation-of-your-first-experiment" class="level2">
+<h2 class="anchored" data-anchor-id="creation-of-your-first-experiment">3. Creation of your first experiment</h2>
+<section id="welcome-page-canvas-texts-text-inputs-buttons-and-dropdowns" class="level3">
+<h3 class="anchored" data-anchor-id="welcome-page-canvas-texts-text-inputs-buttons-and-dropdowns">3.1 Welcome page: Canvas, texts, text inputs, buttons and dropdowns</h3>
+</section>
+<section id="the-experiment-itself-trials-scales-and-keys" class="level3">
+<h3 class="anchored" data-anchor-id="the-experiment-itself-trials-scales-and-keys">3.2 The experiment itself: Trials, scales and keys</h3>
+</section>
+<section id="the-goodbye-page" class="level3">
+<h3 class="anchored" data-anchor-id="the-goodbye-page">3.3 The goodbye page</h3>
+</section>
+</section>
+<section id="adjusting-the-script" class="level2">
+<h2 class="anchored" data-anchor-id="adjusting-the-script">4. Adjusting the script</h2>
+<section id="what-results-to-store-the-log-function" class="level3">
+<h3 class="anchored" data-anchor-id="what-results-to-store-the-log-function">4.1 What results to store? The “log” function</h3>
+</section>
+<section id="details-of-the-procedure-and-the-aesthetics" class="level3">
+<h3 class="anchored" data-anchor-id="details-of-the-procedure-and-the-aesthetics">4.2 Details of the procedure and the aesthetics</h3>
 <p><br></p>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -574,6 +642,7 @@ ul.task-list li input[type="checkbox"] {
 </div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
