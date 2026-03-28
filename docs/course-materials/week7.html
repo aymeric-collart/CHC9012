@@ -106,6 +106,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -665,55 +668,95 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="lets-be-organized-the-structure-of-your-experiment">2. Let’s be organized: The structure of your experiment</h2>
 <section id="conceptual-structure" class="level3">
 <h3 class="anchored" data-anchor-id="conceptual-structure">2.1 Conceptual structure</h3>
-<p>Before starting coding, we must be clear of the <em>procedure</em> to adopt for the experiment. Even if each experiment is different, most of then follow this sequence:</p>
-<p>Welcome page (Informed Consent Form, Background questionnaire, Instructions) –&gt; Practice trials –&gt; Experimental trials –&gt; Goodbye page</p>
-<p>The difference between each experiment is the content of each section. Again, we must be very clear about what each section consists of.</p>
-<div class="callout callout-style-simple callout-note callout-titled">
+<p>Before you start typing any code, you must have a crystal-clear vision of the <em>procedure</em> for your experiment. Even though every experiment is unique, most follow a standard logical sequence:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A([👋 Welcome Page]) ==&gt; B([🛠️ Practice Trials])
+  B ==&gt; C([🧪 Experimental Trials])
+  C ==&gt; D([🏁 Goodbye Page])
+  
+  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px
+  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px
+  style C fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>The difference between experiments lies in the specific content of each of these blocks. You must be very explicit about what each section consists of before you begin.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🚧 Preparatory activity
+✍️ Preparatory Activity: Map it out!
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>A straightforward way to visualize the overall procedure is to draw it by hand. You draw several rectangles, and each rectangle corresponds to different steps. After drawing the whole experiment, what needs to be done is to “translate” into PCIbex!</p>
+<p>A highly effective way to visualize your overall procedure is to <strong>draw it by hand</strong>.</p>
+<p>Sketch out a series of rectangles on a piece of paper, with each rectangle corresponding to a different step (Consent, Background, Instructions, etc.). Once you have drawn the whole experiment, your only remaining task is to “translate” those boxes into PCIbex code!</p>
 </div>
 </div>
+<p><br></p>
 </section>
 <section id="create-the-structure-on-pcibex-comment-lines" class="level3">
 <h3 class="anchored" data-anchor-id="create-the-structure-on-pcibex-comment-lines">2.2 Create the structure on PCIbex: Comment lines</h3>
-<p>Before coding the experiment, it is always a good idea to annotate the script in terms of the structure. It is useful to keep track of what is going on. To do so in PCIbex, you must open the main.js file in the coding interface. After that, delete all the lines except the first one (“PennController.ResetPrefix(null)”). Adding the structure means that it is an annotation for ourself. In other words, we are going to add comments in the scripts. Comments are indicated by the ” // ” sign (you need at least two, you can add three dashes if you wish). Here is an example below:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PennController.ResetPrefix(null)</span>
+<p>Now that we have our structure, let’s put it into PCIbex. Before writing the actual experiment commands, it is best practice to create a “skeleton” of your script using <strong>comments</strong>.</p>
+<ol type="1">
+<li>Open the <code>main.js</code> file in the PCIbex coding interface.</li>
+<li>Delete all the default text <strong>except the very first line</strong> (<code>PennController.ResetPrefix(null)</code>).</li>
+<li>Build your outline using comments. In JavaScript, anything following two slashes <code>//</code> is ignored by the computer.</li>
+</ol>
+<p>Here is what you need to add. <em>(Notice the green lines indicating what you should type)</em>:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>  PennController.ResetPrefix(null)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">+ /// 1. Welcome page</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">+ // 1.1 Hello page, ICF</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="va">+ </span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="va">+ // 1.2 Background questionnaire</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="va">+ </span></span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="va">+ // 1.3 Instructions</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="va">+ </span></span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="va">+ /// 2. Practice trials</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="va">+ </span></span>
 <span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="va">+ /// 3. Experimental trials</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="va">+ </span></span>
 <span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="va">+ /// 4. Goodbye page</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Important Note! In the examples on this website, the “+” sign indicates that this line is an addition to the script, so it should not appear in the end! Your script should look like that:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PennController.ResetPrefix(null)</span>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+⚠️ Important Note!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>In the examples on this website, the <code>+</code> sign simply highlights that a line is a <strong>new addition</strong> to the script. You should not actually type the <code>+</code> sign!</p>
+</div>
+</div>
+<p>Once you finish, your clean, organized <code>main.js</code> script should look exactly like this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode javascript code-with-copy"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PennController<span class="op">.</span><span class="fu">ResetPrefix</span>(<span class="kw">null</span>)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>/// 1. Welcome page</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>// 1.1 Hello page, ICF</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="co">/// 1. Welcome page</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">// 1.1 Hello page, ICF</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>// 1.2 Background questionnaire</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">// 1.2 Background questionnaire</span></span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>// 1.3 Instructions</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a><span class="co">// 1.3 Instructions</span></span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>/// 2. Practice trials</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a><span class="co">/// 2. Practice trials</span></span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>/// 3. Experimental trials</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="co">/// 3. Experimental trials</span></span>
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>/// 4. Goodbye page</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a><span class="co">/// 4. Goodbye page</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="creation-of-your-first-experiment" class="level2">

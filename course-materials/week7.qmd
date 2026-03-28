@@ -113,45 +113,69 @@ The last part is the "Actions" menu, which gives you several options:
 :::
 
 ## 2. Let’s be organized: The structure of your experiment
+
 ### 2.1 Conceptual structure
 
-Before starting coding, we must be clear of the *procedure* to adopt for the experiment. Even if each experiment is different, most of then follow this sequence:
+Before you start typing any code, you must have a crystal-clear vision of the *procedure* for your experiment. Even though every experiment is unique, most follow a standard logical sequence:
 
-Welcome page (Informed Consent Form, Background questionnaire, Instructions) --> Practice trials --> Experimental trials --> Goodbye page
+```{mermaid}
+flowchart LR
+  A([👋 Welcome Page]) ==> B([🛠️ Practice Trials])
+  B ==> C([🧪 Experimental Trials])
+  C ==> D([🏁 Goodbye Page])
+  
+  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px
+  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px
+  style C fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px
+```
 
-The difference between each experiment is the content of each section. Again, we must be very clear about what each section consists of.
+The difference between experiments lies in the specific content of each of these blocks. You must be very explicit about what each section consists of before you begin.
 
-::: {.callout-note appearance="simple"}
-## 🚧 Preparatory activity
-A straightforward way to visualize the overall procedure is to draw it by hand. You draw several rectangles, and each rectangle corresponds to different steps. After drawing the whole experiment, what needs to be done is to "translate" into PCIbex!
+::: {.callout-tip icon="true"}
+## ✍️ Preparatory Activity: Map it out!
+A highly effective way to visualize your overall procedure is to **draw it by hand**. 
+
+Sketch out a series of rectangles on a piece of paper, with each rectangle corresponding to a different step (Consent, Background, Instructions, etc.). Once you have drawn the whole experiment, your only remaining task is to "translate" those boxes into PCIbex code!
 :::
+
+<br>
 
 ### 2.2 Create the structure on PCIbex: Comment lines
 
-Before coding the experiment, it is always a good idea to annotate the script in terms of the structure. It is useful to keep track of what is going on.
-To do so in PCIbex, you must open the main.js file in the coding interface. After that, delete all the lines except the first one ("PennController.ResetPrefix(null)").
-Adding the structure means that it is an annotation for ourself. In other words, we are going to add comments in the scripts. Comments are indicated by the " // " sign (you need at least two, you can add three dashes if you wish). Here is an example below:
+Now that we have our structure, let's put it into PCIbex. Before writing the actual experiment commands, it is best practice to create a "skeleton" of your script using **comments**. 
+
+1. Open the `main.js` file in the PCIbex coding interface.
+2. Delete all the default text **except the very first line** (`PennController.ResetPrefix(null)`).
+3. Build your outline using comments. In JavaScript, anything following two slashes `//` is ignored by the computer.
+
+Here is what you need to add. *(Notice the green lines indicating what you should type)*:
 
 ```diff
-PennController.ResetPrefix(null)
+  PennController.ResetPrefix(null)
 
 + /// 1. Welcome page
 + // 1.1 Hello page, ICF
-
++ 
 + // 1.2 Background questionnaire
-
++ 
 + // 1.3 Instructions
-
++ 
 + /// 2. Practice trials
-
++ 
 + /// 3. Experimental trials
-
++ 
 + /// 4. Goodbye page
 ```
 
-Important Note! In the examples on this website, the "+" sign indicates that this line is an addition to the script, so it should not appear in the end! Your script should look like that:
+::: {.callout-warning icon="true"}
+## ⚠️ Important Note!
+In the examples on this website, the `+` sign simply highlights that a line is a **new addition** to the script. You should not actually type the `+` sign! 
+:::
 
-```diff
+Once you finish, your clean, organized `main.js` script should look exactly like this:
+
+```javascript
 PennController.ResetPrefix(null)
 
 /// 1. Welcome page
