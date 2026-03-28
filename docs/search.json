@@ -66,9 +66,9 @@
   {
     "objectID": "course-materials/week7.html",
     "href": "course-materials/week7.html",
-    "title": "Week 7 - Presentation of PCIbex: Your first questionnaire",
+    "title": "Week 7: Presentation of PCIbex (Your first questionnaire)",
     "section": "",
-    "text": "[Page to be completed]",
+    "text": "This week, we will introduce the web-based platform PCIbex, which is used to design online questionnaires and experiments. By the end of this week, you will have the script of your very first experiment ready!\n\n🎯 Goals & Layout🧠 Key Concepts💻 Necessary Codes\n\n\nWhat to expect from the platform:\n\nLayout: What does this platform look like? Where do you type the script?\nAssistance: How to access the documentation and the user forum.\nOverall Presentation: Getting comfortable with the interface.\nBasics: Setting up your first experiment from scratch.\n\n\n\nWriting a simple yet powerful script:\n\nComments: How to comment a script on PCIbex to keep track of your structure.\nElements: How to create texts, tasks, and visual components.\nAdjustments: How to adjust these elements to make them behave exactly as you want.\nLogging: How to ensure the relevant results are stored correctly on PCIbex.\n\n\n\nA brief summary of the essential commands:\n\nnewTrial(...): Used to introduce a trial in the experiment.\nnewText(...): Used to introduce a line of text.\n\n   Download the Full Script  (Link will be activated during class)",
     "crumbs": [
       "Home",
       "Part 2: Designing a web-based questionnaire",
@@ -78,9 +78,9 @@
   {
     "objectID": "course-materials/week7.html#overview",
     "href": "course-materials/week7.html#overview",
-    "title": "Week 7 - Presentation of PCIbex: Your first questionnaire",
-    "section": "Overview",
-    "text": "Overview\nThis week, we will introduce the web-based platform PCIbex, which is used to design questionnaires and experiments. By the end of this week, you will have the script of your very first questionnaire/experiment ready.\n\nOverall presentation of the platformBasics of your first experiment\n\n\nWe will have an introduction of the platform, including:\n\nLayout: What does this platform look like? Where to type the script?\nAssistance: How to access the documentation and the forum?\n\n\n\nYou will learn the basic concepts to write a simple yet powerful script on PCIbex:\n\nComments: How to comment a script on PCIbex to keep track of the structure;\nElements: How to create texts, tasks, etc.;\nAdjustments: How to adjust these elements to make them behave like you want;\nLogging: How to have the relevant results stored on PCIbex.\n\n\n\n\n\nBelow is a brief summary of the necessary codes.\n\nList of commandsFull script\n\n\nHere you can find a list of the commands (i.e., functions) used in the basic script and their function:\n\nnewTrial(…): Used to introduce a trial in the experiment\nnewText(…): Used to introduce a line of text\n\n\n\nYou can download the full script here.",
+    "title": "Week 7: Presentation of PCIbex (Your first questionnaire)",
+    "section": "",
+    "text": "This week, we will introduce the web-based platform PCIbex, which is used to design online questionnaires and experiments. By the end of this week, you will have the script of your very first experiment ready!\n\n🎯 Goals & Layout🧠 Key Concepts💻 Necessary Codes\n\n\nWhat to expect from the platform:\n\nLayout: What does this platform look like? Where do you type the script?\nAssistance: How to access the documentation and the user forum.\nOverall Presentation: Getting comfortable with the interface.\nBasics: Setting up your first experiment from scratch.\n\n\n\nWriting a simple yet powerful script:\n\nComments: How to comment a script on PCIbex to keep track of your structure.\nElements: How to create texts, tasks, and visual components.\nAdjustments: How to adjust these elements to make them behave exactly as you want.\nLogging: How to ensure the relevant results are stored correctly on PCIbex.\n\n\n\nA brief summary of the essential commands:\n\nnewTrial(...): Used to introduce a trial in the experiment.\nnewText(...): Used to introduce a line of text.\n\n   Download the Full Script  (Link will be activated during class)",
     "crumbs": [
       "Home",
       "Part 2: Designing a web-based questionnaire",
@@ -90,9 +90,9 @@
   {
     "objectID": "course-materials/week7.html#presentation-of-the-interface",
     "href": "course-materials/week7.html#presentation-of-the-interface",
-    "title": "Week 7 - Presentation of PCIbex: Your first questionnaire",
-    "section": "1. Presentation of the interface",
-    "text": "1. Presentation of the interface\nThe link to the PCIbex platform is here: https://farm.pcibex.net/\nHere is what the first page looks like:\n\nThe first thing to do is to create an account (click on “Sign up”). Once you created your personal account, you can log in. Please don’t forget to verify your email, otherwise you can only create one experiment!\nAfter logging, you will see this page:\n\nOn the left side, you can find your projects. Each project corresponds to one experiment. On the right side, you can find templates for specific paradigms. Today, we will learn how to code a simple experiment from scratch. So let’s click on “Empty project”.\nHere’s what you can see after that:\n\nThere are many blocks to unpack. Let’s only explain the relevant one for you one by one:\n\nThe bannerFolders and filesThe coding interfaceActions\n\n\nCan you see where it is written “Empty project_copy”? Click on it, and you can change its name. Good to know: The participants won’t see this name when you share the experiment, so you can be very explicit!\n\n\n\nIt contains two parts:\n\nResources: So far, this is empty. This is the place where you can upload the files to be used for your experiment. Such files can be images to display, audio to run, or even an Excel file (more precisely, a tabular file with the csv extension) where all the items can be found (we will talk about that next week)\nScripts: There is already a file called “main.js”. For simple experiments, this one is enough. This is the file we need to modify to code the whole experiment. Of course, you can create your own file and modify it on your computer. But it is also possible to modify it directly on PCIbex, which is quite convenient!\n\n\n\n\n\n\n\n\nOnce you open a script or an Excel-like file, you can directly modify it here. The cool option is that you can test anytime after modify it. You just have to click on “Refresh”. Be patient, it can take several seconds!\n\n\n\n\n\n\n\nThe last part is called “Actions”. It displays several options:\n\n“Unpublished” button: Once your experiment is ready, click on it before starting your data collection! You can test your script as many times as you wish before, and the data will be stored separately.\nResults: Where you can find the results of your experiment.\nShare: Click on it to obtain the link to the experiment that you can share online.",
+    "title": "Week 7: Presentation of PCIbex (Your first questionnaire)",
+    "section": "1. Presentation of the Interface",
+    "text": "1. Presentation of the Interface\nBefore we begin coding, you need to access the platform and set up your workspace.\n\n  Go to PCIbex (farm.pcibex.net) \n\n\n⚠️ Important: Please don’t forget to verify your email after signing up, otherwise you will only be allowed to create one experiment!\n\nExplore the different parts of the PCIbex interface below:\n\n1. Getting Started2. The Project Banner3. Folders & Files4. Coding Interface5. Actions Menu\n\n\nThe first thing to do is to create an account (click on “Sign up”). Once you have created your personal account, you can log in.\n\n\n\n\n\nAfter logging in, you will see your dashboard. On the left side, you can find your projects. On the right side, you can find templates for specific paradigms.\nToday, we will learn how to code a simple experiment from scratch. Let’s click on “Empty project”.\n\n\n\n\n\n\n\nOnce inside, you will see the main workspace.\n\n\n\n\n\nCan you see where it is written Empty project_copy? Click on it to change its name. Good to know: The participants won’t see this name when you share the experiment, so you can be very explicit with your naming conventions!\n\n\n\n\n\n\n\nThis section contains two main parts:\n\nResources: So far, this is empty. This is where you upload files for your experiment (images, audio, or a .csv file where all your items can be found—we will talk about that next week!).\nScripts: There is already a file called main.js. For simple experiments, this is enough. This is the file we modify to code the whole experiment.\n\n\n\n\n\n\n\n\nOnce you open a script or an Excel-like file, you can modify it directly here.\nThe best feature is that you can test your experiment anytime after modifying it just by clicking “Refresh”. (Be patient, it can take several seconds!)\n\n\n\n\n\n\n\nThe last part is the “Actions” menu, which gives you several options:\n\n“Unpublished” button: Once your experiment is ready, click this before starting data collection! You can test your script as many times as you wish beforehand, and those test data will be stored separately.\nResults: Where you can find the downloaded data of your experiment.\nShare: Click this to obtain the public link to share your experiment online.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n🚧 Lecture Outline\n\n\n\nThe following sections will be completed in the following days.",
     "crumbs": [
       "Home",
       "Part 2: Designing a web-based questionnaire",
@@ -102,9 +102,9 @@
   {
     "objectID": "course-materials/week7.html#lets-be-organized-the-structure-of-your-experiment",
     "href": "course-materials/week7.html#lets-be-organized-the-structure-of-your-experiment",
-    "title": "Week 7 - Presentation of PCIbex: Your first questionnaire",
+    "title": "Week 7: Presentation of PCIbex (Your first questionnaire)",
     "section": "2. Let’s be organized: The structure of your experiment",
-    "text": "2. Let’s be organized: The structure of your experiment\n\n2.1 Conceptual structure\n\n\n2.2 Create the structure on PCIbex: Comment lines",
+    "text": "2. Let’s be organized: The structure of your experiment\n\n2.1 Conceptual structure\nBefore starting coding, we must be clear of the procedure to adopt for the experiment. Even if each experiment is different, most of then follow this sequence:\nWelcome page (Informed Consent Form, Background questionnaire, Instructions) –&gt; Practice trials –&gt; Experimental trials –&gt; Goodbye page\nThe difference between each experiment is the content of each section. Again, we must be very clear about what each section consists of.\n\n\n\n\n\n\n🚧 Preparatory activity\n\n\n\nA straightforward way to visualize the overall procedure is to draw it by hand. You draw several rectangles, and each rectangle corresponds to different steps. After drawing the whole experiment, what needs to be done is to “translate” into PCIbex!\n\n\n\n\n2.2 Create the structure on PCIbex: Comment lines\nBefore coding the experiment, it is always a good idea to annotate the script in terms of the structure. It is useful to keep track of what is going on. To do so in PCIbex, you must open the main.js file in the coding interface. After that, delete all the lines except the first one (“PennController.ResetPrefix(null)”). Adding the structure means that it is an annotation for ourself. In other words, we are going to add comments in the scripts. Comments are indicated by the ” // ” sign (you need at least two, you can add three dashes if you wish). Here is an example below:\nPennController.ResetPrefix(null)\n\n+ /// 1. Welcome page\n+ // 1.1 Hello page, ICF\n\n+ // 1.2 Background questionnaire\n\n+ // 1.3 Instructions\n\n+ /// 2. Practice trials\n\n+ /// 3. Experimental trials\n\n+ /// 4. Goodbye page\nImportant Note! In the examples on this website, the “+” sign indicates that this line is an addition to the script, so it should not appear in the end! Your script should look like that:\nPennController.ResetPrefix(null)\n\n/// 1. Welcome page\n// 1.1 Hello page, ICF\n\n// 1.2 Background questionnaire\n\n// 1.3 Instructions\n\n/// 2. Practice trials\n\n/// 3. Experimental trials\n\n/// 4. Goodbye page",
     "crumbs": [
       "Home",
       "Part 2: Designing a web-based questionnaire",
@@ -114,7 +114,7 @@
   {
     "objectID": "course-materials/week7.html#creation-of-your-first-experiment",
     "href": "course-materials/week7.html#creation-of-your-first-experiment",
-    "title": "Week 7 - Presentation of PCIbex: Your first questionnaire",
+    "title": "Week 7: Presentation of PCIbex (Your first questionnaire)",
     "section": "3. Creation of your first experiment",
     "text": "3. Creation of your first experiment\n\n3.1 Welcome page: Canvas, texts, text inputs, buttons and dropdowns\n\n\n3.2 The experiment itself: Trials, scales and keys\n\n\n3.3 The goodbye page",
     "crumbs": [
@@ -126,9 +126,9 @@
   {
     "objectID": "course-materials/week7.html#adjusting-the-script",
     "href": "course-materials/week7.html#adjusting-the-script",
-    "title": "Week 7 - Presentation of PCIbex: Your first questionnaire",
+    "title": "Week 7: Presentation of PCIbex (Your first questionnaire)",
     "section": "4. Adjusting the script",
-    "text": "4. Adjusting the script\n\n4.1 What results to store? The “log” function\n\n\n4.2 Details of the procedure and the aesthetics\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before our next meeting",
+    "text": "4. Adjusting the script\n\n4.1 What results to store? The “log” function\n\n\n4.2 Details of the procedure and the aesthetics\n\n\n\n\n\n\n\n📝 Assignment for Next Week\n\n\n\nPlease complete the following tasks before our next meeting: (Assignment details will be updated after the lecture)",
     "crumbs": [
       "Home",
       "Part 2: Designing a web-based questionnaire",

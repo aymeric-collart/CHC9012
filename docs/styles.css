@@ -103,3 +103,16 @@ a:hover {
   color: #000000 !important;
   font-size: 1.05em;           /* Slightly larger to stand out */
 }
+
+/* GitHub-style green and red backgrounds for diff code blocks */
+code.diff .va {
+  background-color: #e6ffed !important; /* Light green background */
+  color: #1a7f37 !important;            /* Dark green text */
+  display: block;
+}
+
+code.diff .st {
+  background-color: #ffeef0 !important; /* Light red background */
+  color: #d1242f !important;            /* Dark red text */
+  display: block;
+}

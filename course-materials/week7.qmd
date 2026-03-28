@@ -1,133 +1,187 @@
 ---
-title: "Week 7 - Presentation of PCIbex: Your first questionnaire"
+title: "Week 7: Presentation of PCIbex (Your first questionnaire)"
 subtitle: "CHC9012 | National Taiwan Normal University"
 editor: source
 ---
 
-\[Page to be completed\]
-
 ## Overview
 
-This week, we will introduce the web-based platform PCIbex, which is used to design questionnaires and experiments. By the end of this week, you will have the script of your very first questionnaire/experiment ready.
+This week, we will introduce the web-based platform **PCIbex**, which is used to design online questionnaires and experiments. By the end of this week, you will have the script of your very first experiment ready!
 
-::: panel-tabset
-## Overall presentation of the platform
+::: {.panel-tabset}
 
-We will have an introduction of the platform, including:
+## 🎯 Goals & Layout
+**What to expect from the platform:**
 
--   **Layout:** What does this platform look like? Where to type the script?
--   **Assistance:** How to access the documentation and the forum?
+- **Layout:** What does this platform look like? Where do you type the script?
+- **Assistance:** How to access the documentation and the user forum.
+- **Overall Presentation:** Getting comfortable with the interface.
+- **Basics:** Setting up your first experiment from scratch.
 
-## Basics of your first experiment
+## 🧠 Key Concepts
+**Writing a simple yet powerful script:**
 
-You will learn the basic concepts to write a simple yet powerful script on PCIbex:
+- **Comments:** How to comment a script on PCIbex to keep track of your structure.
+- **Elements:** How to create texts, tasks, and visual components.
+- **Adjustments:** How to adjust these elements to make them behave exactly as you want.
+- **Logging:** How to ensure the relevant results are stored correctly on PCIbex.
 
--   **Comments:** How to comment a script on PCIbex to keep track of the structure;
--   **Elements:** How to create texts, tasks, etc.;
--   **Adjustments:** How to adjust these elements to make them behave like you want;
--   **Logging:** How to have the relevant results stored on PCIbex.
-:::
+## 💻 Necessary Codes
+**A brief summary of the essential commands:**
 
-<br>
-
-Below is a brief summary of the necessary codes.
-
-::: panel-tabset
-## List of commands
-
-Here you can find a list of the commands (i.e., functions) used in the basic script and their function:
-
--   **newTrial(...)**: Used to introduce a trial in the experiment
--   **newText(...)**: Used to introduce a line of text
-
-## Full script
-
-You can download the full script here.
-:::
+- `newTrial(...)`: Used to introduce a trial in the experiment.
+- `newText(...)`: Used to introduce a line of text.
 
 <br>
-
-## 1. Presentation of the interface
-
-The link to the PCIbex platform is here: https://farm.pcibex.net/
-
-Here is what the first page looks like:
-
-![](images/clipboard-428372100.png){style="border: 5px solid #555;"}
-
-The first thing to do is to create an account (click on "Sign up"). Once you created your personal account, you can log in. Please don't forget to verify your email, otherwise you can only create one experiment!
-
-After logging, you will see this page:
-
-![](images/clipboard-3319492300.png){style="border: 5px solid #555;"}
-
-On the left side, you can find your projects. Each project corresponds to one experiment. On the right side, you can find templates for specific paradigms. Today, we will learn how to code a simple experiment from scratch. So let's click on "Empty project".
-
-Here's what you can see after that:
-
-![](images/clipboard-2706246832.png){style="border: 5px solid #555;"}
-
-There are many blocks to unpack. Let's only explain the relevant one for you one by one:
-
-::: panel-tabset
-## The banner
-
-Can you see where it is written “Empty project_copy”? Click on it, and you can change its name. Good to know: The participants won’t see this name when you share the experiment, so you can be very explicit!
-
-![](images/clipboard-2853803788.png)
-
-## Folders and files
-
-It contains two parts:
-
--   **Resources:** So far, this is empty. This is the place where you can upload the files to be used for your experiment. Such files can be images to display, audio to run, or even an Excel file (more precisely, a tabular file with the ***csv*** extension) where all the items can be found (we will talk about that next week)
--   **Scripts:** There is already a file called "main.js". For simple experiments, this one is enough. This is the file we need to modify to code the whole experiment. Of course, you can create your own file and modify it on your computer. But it is also possible to modify it directly on PCIbex, which is quite convenient!
-    
-![](images/clipboard-678675311.png){width=25% fig-align="center" style="border: 1px solid #555;"}
-
-## The coding interface
-
-Once you open a script or an Excel-like file, you can directly modify it here. The cool option is that you can test anytime after modify it. You just have to click on "Refresh". Be patient, it can take several seconds!
-
-![](images/clipboard-1581035044.png){fig-align="center" style="border: 1px solid #555;"}
-
-## Actions
-
-The last part is called "Actions". It displays several options:
-
--   **"Unpublished" button:** Once your experiment is ready, click on it before starting your data collection! You can test your script as many times as you wish before, and the data will be stored separately.
--   **Results:** Where you can find the results of your experiment.
--   **Share:** Click on it to obtain the link to the experiment that you can share online.
-
-![](images/clipboard-1824256606.png){width=25% fig-align="center" style="border: 1px solid #555;"}
+<a href="#" class="btn btn-outline-primary btn-sm">
+  <i class="bi bi-download"></i> Download the Full Script
+</a>
+*(Link will be activated during class)*
 
 :::
 
 <br>
 
-## 2. Let's be organized: The structure of your experiment
+## 1. Presentation of the Interface
+
+Before we begin coding, you need to access the platform and set up your workspace. 
+
+<div class="text-center mb-4">
+  <a href="https://farm.pcibex.net/" class="btn btn-primary btn-lg" target="_blank">
+    <i class="bi bi-link-45deg"></i> Go to PCIbex (farm.pcibex.net)
+  </a>
+</div>
+
+> **⚠️ Important:** Please don't forget to **verify your email** after signing up, otherwise you will only be allowed to create one experiment!
+
+Explore the different parts of the PCIbex interface below:
+
+::: {.panel-tabset}
+
+## 1. Getting Started
+The first thing to do is to create an account (click on “Sign up”). Once you have created your personal account, you can log in.
+
+![](images/clipboard-428372100.png){fig-align="center" width="85%"}
+
+After logging in, you will see your dashboard. On the left side, you can find your projects. On the right side, you can find templates for specific paradigms. 
+
+Today, we will learn how to code a simple experiment from scratch. **Let’s click on “Empty project”.**
+
+![](images/clipboard-3319492300.png){fig-align="center" width="85%"}
+
+## 2. The Project Banner
+Once inside, you will see the main workspace. 
+
+![](images/clipboard-2706246832.png){fig-align="center" width="85%"}
+
+Can you see where it is written `Empty project_copy`? Click on it to change its name. 
+*Good to know: The participants won’t see this name when you share the experiment, so you can be very explicit with your naming conventions!*
+
+![](images/clipboard-2853803788.png){fig-align="center" width="85%"}
+
+## 3. Folders & Files
+This section contains two main parts:
+
+- **Resources:** So far, this is empty. This is where you upload files for your experiment (images, audio, or a `.csv` file where all your items can be found—we will talk about that next week!).
+- **Scripts:** There is already a file called `main.js`. For simple experiments, this is enough. This is the file we modify to code the whole experiment. 
+
+![](images/clipboard-678675311.png){fig-align="center" width="85%"}
+
+## 4. Coding Interface
+Once you open a script or an Excel-like file, you can modify it directly here. 
+
+The best feature is that you can test your experiment anytime after modifying it just by clicking **“Refresh”**. *(Be patient, it can take several seconds!)*
+
+![](images/clipboard-1581035044.png){fig-align="center" width="85%"}
+
+## 5. Actions Menu
+The last part is the "Actions" menu, which gives you several options:
+
+- **“Unpublished” button:** Once your experiment is ready, click this before starting data collection! You can test your script as many times as you wish beforehand, and those test data will be stored separately.
+- **Results:** Where you can find the downloaded data of your experiment.
+- **Share:** Click this to obtain the public link to share your experiment online.
+
+![](images/clipboard-1824256606.png){fig-align="center" width="85%"}
+
+:::
+
+<hr>
+
+::: {.callout-note appearance="simple"}
+## 🚧 Lecture Outline
+*The following sections will be completed in the following days.*
+:::
+
+## 2. Let’s be organized: The structure of your experiment
 ### 2.1 Conceptual structure
+
+Before starting coding, we must be clear of the *procedure* to adopt for the experiment. Even if each experiment is different, most of then follow this sequence:
+
+Welcome page (Informed Consent Form, Background questionnaire, Instructions) --> Practice trials --> Experimental trials --> Goodbye page
+
+The difference between each experiment is the content of each section. Again, we must be very clear about what each section consists of.
+
+::: {.callout-note appearance="simple"}
+## 🚧 Preparatory activity
+A straightforward way to visualize the overall procedure is to draw it by hand. You draw several rectangles, and each rectangle corresponds to different steps. After drawing the whole experiment, what needs to be done is to "translate" into PCIbex!
+:::
 
 ### 2.2 Create the structure on PCIbex: Comment lines
 
-<br>
+Before coding the experiment, it is always a good idea to annotate the script in terms of the structure. It is useful to keep track of what is going on.
+To do so in PCIbex, you must open the main.js file in the coding interface. After that, delete all the lines except the first one ("PennController.ResetPrefix(null)").
+Adding the structure means that it is an annotation for ourself. In other words, we are going to add comments in the scripts. Comments are indicated by the " // " sign (you need at least two, you can add three dashes if you wish). Here is an example below:
+
+```diff
+PennController.ResetPrefix(null)
+
++ /// 1. Welcome page
++ // 1.1 Hello page, ICF
+
++ // 1.2 Background questionnaire
+
++ // 1.3 Instructions
+
++ /// 2. Practice trials
+
++ /// 3. Experimental trials
+
++ /// 4. Goodbye page
+```
+
+Important Note! In the examples on this website, the "+" sign indicates that this line is an addition to the script, so it should not appear in the end! Your script should look like that:
+
+```diff
+PennController.ResetPrefix(null)
+
+/// 1. Welcome page
+// 1.1 Hello page, ICF
+
+// 1.2 Background questionnaire
+
+// 1.3 Instructions
+
+/// 2. Practice trials
+
+/// 3. Experimental trials
+
+/// 4. Goodbye page
+```
 
 ## 3. Creation of your first experiment
 ### 3.1 Welcome page: Canvas, texts, text inputs, buttons and dropdowns
-
 ### 3.2 The experiment itself: Trials, scales and keys
-
 ### 3.3 The goodbye page
 
 ## 4. Adjusting the script
-### 4.1 What results to store? The "log" function
-
+### 4.1 What results to store? The “log” function
 ### 4.2 Details of the procedure and the aesthetics
 
-<br>
+<hr>
 
 ::: {.callout-important icon="true"}
-## 📝 Assignment for next week
+## 📝 Assignment for Next Week
 
-Please complete the following tasks before our next meeting
+Please complete the following tasks before our next meeting:
+*(Assignment details will be updated after the lecture)*
 :::

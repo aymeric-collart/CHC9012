@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 7 - Presentation of PCIbex: Your first questionnaire – CHC9012</title>
+<title>Week 7: Presentation of PCIbex (Your first questionnaire) – CHC9012</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -453,7 +488,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
-  <li><a href="#presentation-of-the-interface" id="toc-presentation-of-the-interface" class="nav-link" data-scroll-target="#presentation-of-the-interface">1. Presentation of the interface</a></li>
+  <li><a href="#presentation-of-the-interface" id="toc-presentation-of-the-interface" class="nav-link" data-scroll-target="#presentation-of-the-interface">1. Presentation of the Interface</a></li>
   <li><a href="#lets-be-organized-the-structure-of-your-experiment" id="toc-lets-be-organized-the-structure-of-your-experiment" class="nav-link" data-scroll-target="#lets-be-organized-the-structure-of-your-experiment">2. Let’s be organized: The structure of your experiment</a>
   <ul class="collapse">
   <li><a href="#conceptual-structure" id="toc-conceptual-structure" class="nav-link" data-scroll-target="#conceptual-structure">2.1 Conceptual structure</a></li>
@@ -479,7 +514,7 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../course-materials/week7.html">Part 2: Designing a web-based questionnaire</a></li><li class="breadcrumb-item"><a href="../course-materials/week7.html">Week 7: Presentation of PCIbex</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Week 7 - Presentation of PCIbex: Your first questionnaire</h1>
+<h1 class="title">Week 7: Presentation of PCIbex (Your first questionnaire)</h1>
 <p class="subtitle lead">CHC9012 | National Taiwan Normal University</p>
 </div>
 
@@ -497,114 +532,188 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>[Page to be completed]</p>
 <section id="overview" class="level2">
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
-<p>This week, we will introduce the web-based platform PCIbex, which is used to design questionnaires and experiments. By the end of this week, you will have the script of your very first questionnaire/experiment ready.</p>
+<p>This week, we will introduce the web-based platform <strong>PCIbex</strong>, which is used to design online questionnaires and experiments. By the end of this week, you will have the script of your very first experiment ready!</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Overall presentation of the platform</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Basics of your first experiment</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals &amp; Layout</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">🧠 Key Concepts</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">💻 Necessary Codes</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<p>We will have an introduction of the platform, including:</p>
+<p><strong>What to expect from the platform:</strong></p>
 <ul>
-<li><strong>Layout:</strong> What does this platform look like? Where to type the script?</li>
-<li><strong>Assistance:</strong> How to access the documentation and the forum?</li>
+<li><strong>Layout:</strong> What does this platform look like? Where do you type the script?</li>
+<li><strong>Assistance:</strong> How to access the documentation and the user forum.</li>
+<li><strong>Overall Presentation:</strong> Getting comfortable with the interface.</li>
+<li><strong>Basics:</strong> Setting up your first experiment from scratch.</li>
 </ul>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<p>You will learn the basic concepts to write a simple yet powerful script on PCIbex:</p>
+<p><strong>Writing a simple yet powerful script:</strong></p>
 <ul>
-<li><strong>Comments:</strong> How to comment a script on PCIbex to keep track of the structure;</li>
-<li><strong>Elements:</strong> How to create texts, tasks, etc.;</li>
-<li><strong>Adjustments:</strong> How to adjust these elements to make them behave like you want;</li>
-<li><strong>Logging:</strong> How to have the relevant results stored on PCIbex.</li>
+<li><strong>Comments:</strong> How to comment a script on PCIbex to keep track of your structure.</li>
+<li><strong>Elements:</strong> How to create texts, tasks, and visual components.</li>
+<li><strong>Adjustments:</strong> How to adjust these elements to make them behave exactly as you want.</li>
+<li><strong>Logging:</strong> How to ensure the relevant results are stored correctly on PCIbex.</li>
 </ul>
 </div>
-</div>
-</div>
-<p><br></p>
-<p>Below is a brief summary of the necessary codes.</p>
-<div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">List of commands</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">Full script</a></li></ul>
-<div class="tab-content">
-<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<p>Here you can find a list of the commands (i.e., functions) used in the basic script and their function:</p>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>A brief summary of the essential commands:</strong></p>
 <ul>
-<li><strong>newTrial(…)</strong>: Used to introduce a trial in the experiment</li>
-<li><strong>newText(…)</strong>: Used to introduce a line of text</li>
+<li><code>newTrial(...)</code>: Used to introduce a trial in the experiment.</li>
+<li><code>newText(...)</code>: Used to introduce a line of text.</li>
 </ul>
-</div>
-<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<p>You can download the full script here.</p>
+<p><br> <a href="#" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the Full Script </a> <em>(Link will be activated during class)</em></p>
 </div>
 </div>
 </div>
 <p><br></p>
 </section>
 <section id="presentation-of-the-interface" class="level2">
-<h2 class="anchored" data-anchor-id="presentation-of-the-interface">1. Presentation of the interface</h2>
-<p>The link to the PCIbex platform is here: https://farm.pcibex.net/</p>
-<p>Here is what the first page looks like:</p>
-<p><img src="images/clipboard-428372100.png" class="img-fluid" style="border: 5px solid #555;"></p>
-<p>The first thing to do is to create an account (click on “Sign up”). Once you created your personal account, you can log in. Please don’t forget to verify your email, otherwise you can only create one experiment!</p>
-<p>After logging, you will see this page:</p>
-<p><img src="images/clipboard-3319492300.png" class="img-fluid" style="border: 5px solid #555;"></p>
-<p>On the left side, you can find your projects. Each project corresponds to one experiment. On the right side, you can find templates for specific paradigms. Today, we will learn how to code a simple experiment from scratch. So let’s click on “Empty project”.</p>
-<p>Here’s what you can see after that:</p>
-<p><img src="images/clipboard-2706246832.png" class="img-fluid" style="border: 5px solid #555;"></p>
-<p>There are many blocks to unpack. Let’s only explain the relevant one for you one by one:</p>
+<h2 class="anchored" data-anchor-id="presentation-of-the-interface">1. Presentation of the Interface</h2>
+<p>Before we begin coding, you need to access the platform and set up your workspace.</p>
+<div class="text-center mb-4">
+<p><a href="https://farm.pcibex.net/" class="btn btn-primary btn-lg" target="_blank"> <i class="bi bi-link-45deg"></i> Go to PCIbex (farm.pcibex.net) </a></p>
+</div>
+<blockquote class="blockquote">
+<p><strong>⚠️ Important:</strong> Please don’t forget to <strong>verify your email</strong> after signing up, otherwise you will only be allowed to create one experiment!</p>
+</blockquote>
+<p>Explore the different parts of the PCIbex interface below:</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">The banner</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Folders and files</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">The coding interface</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">Actions</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">1. Getting Started</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">2. The Project Banner</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">3. Folders &amp; Files</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">4. Coding Interface</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-5" role="tab" aria-controls="tabset-2-5" aria-selected="false">5. Actions Menu</a></li></ul>
 <div class="tab-content">
-<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<p>Can you see where it is written “Empty project_copy”? Click on it, and you can change its name. Good to know: The participants won’t see this name when you share the experiment, so you can be very explicit!</p>
-<p><img src="images/clipboard-2853803788.png" class="img-fluid"></p>
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>The first thing to do is to create an account (click on “Sign up”). Once you have created your personal account, you can log in.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-428372100.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
 </div>
-<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<p>It contains two parts:</p>
+<p>After logging in, you will see your dashboard. On the left side, you can find your projects. On the right side, you can find templates for specific paradigms.</p>
+<p>Today, we will learn how to code a simple experiment from scratch. <strong>Let’s click on “Empty project”.</strong></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-3319492300.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Once inside, you will see the main workspace.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2706246832.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+<p>Can you see where it is written <code>Empty project_copy</code>? Click on it to change its name. <em>Good to know: The participants won’t see this name when you share the experiment, so you can be very explicit with your naming conventions!</em></p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/clipboard-2853803788.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
+</figure>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>This section contains two main parts:</p>
 <ul>
-<li><strong>Resources:</strong> So far, this is empty. This is the place where you can upload the files to be used for your experiment. Such files can be images to display, audio to run, or even an Excel file (more precisely, a tabular file with the <strong><em>csv</em></strong> extension) where all the items can be found (we will talk about that next week)</li>
-<li><strong>Scripts:</strong> There is already a file called “main.js”. For simple experiments, this one is enough. This is the file we need to modify to code the whole experiment. Of course, you can create your own file and modify it on your computer. But it is also possible to modify it directly on PCIbex, which is quite convenient!</li>
+<li><strong>Resources:</strong> So far, this is empty. This is where you upload files for your experiment (images, audio, or a <code>.csv</code> file where all your items can be found—we will talk about that next week!).</li>
+<li><strong>Scripts:</strong> There is already a file called <code>main.js</code>. For simple experiments, this is enough. This is the file we modify to code the whole experiment.</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-678675311.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="border: 1px solid #555;;width:25.0%"></p>
+<p><img src="images/clipboard-678675311.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
-<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
-<p>Once you open a script or an Excel-like file, you can directly modify it here. The cool option is that you can test anytime after modify it. You just have to click on “Refresh”. Be patient, it can take several seconds!</p>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<p>Once you open a script or an Excel-like file, you can modify it directly here.</p>
+<p>The best feature is that you can test your experiment anytime after modifying it just by clicking <strong>“Refresh”</strong>. <em>(Be patient, it can take several seconds!)</em></p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-1581035044.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="border: 1px solid #555;"></p>
+<p><img src="images/clipboard-1581035044.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
-<div id="tabset-3-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-4-tab">
-<p>The last part is called “Actions”. It displays several options:</p>
+<div id="tabset-2-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-5-tab">
+<p>The last part is the “Actions” menu, which gives you several options:</p>
 <ul>
-<li><strong>“Unpublished” button:</strong> Once your experiment is ready, click on it before starting your data collection! You can test your script as many times as you wish before, and the data will be stored separately.</li>
-<li><strong>Results:</strong> Where you can find the results of your experiment.</li>
-<li><strong>Share:</strong> Click on it to obtain the link to the experiment that you can share online.</li>
+<li><strong>“Unpublished” button:</strong> Once your experiment is ready, click this before starting data collection! You can test your script as many times as you wish beforehand, and those test data will be stored separately.</li>
+<li><strong>Results:</strong> Where you can find the downloaded data of your experiment.</li>
+<li><strong>Share:</strong> Click this to obtain the public link to share your experiment online.</li>
 </ul>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="images/clipboard-1824256606.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="border: 1px solid #555;;width:25.0%"></p>
+<p><img src="images/clipboard-1824256606.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:85.0%"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<p><br></p>
+<hr>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🚧 Lecture Outline
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><em>The following sections will be completed in the following days.</em></p>
+</div>
+</div>
 </section>
 <section id="lets-be-organized-the-structure-of-your-experiment" class="level2">
 <h2 class="anchored" data-anchor-id="lets-be-organized-the-structure-of-your-experiment">2. Let’s be organized: The structure of your experiment</h2>
 <section id="conceptual-structure" class="level3">
 <h3 class="anchored" data-anchor-id="conceptual-structure">2.1 Conceptual structure</h3>
+<p>Before starting coding, we must be clear of the <em>procedure</em> to adopt for the experiment. Even if each experiment is different, most of then follow this sequence:</p>
+<p>Welcome page (Informed Consent Form, Background questionnaire, Instructions) –&gt; Practice trials –&gt; Experimental trials –&gt; Goodbye page</p>
+<p>The difference between each experiment is the content of each section. Again, we must be very clear about what each section consists of.</p>
+<div class="callout callout-style-simple callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🚧 Preparatory activity
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A straightforward way to visualize the overall procedure is to draw it by hand. You draw several rectangles, and each rectangle corresponds to different steps. After drawing the whole experiment, what needs to be done is to “translate” into PCIbex!</p>
+</div>
+</div>
 </section>
 <section id="create-the-structure-on-pcibex-comment-lines" class="level3">
 <h3 class="anchored" data-anchor-id="create-the-structure-on-pcibex-comment-lines">2.2 Create the structure on PCIbex: Comment lines</h3>
-<p><br></p>
+<p>Before coding the experiment, it is always a good idea to annotate the script in terms of the structure. It is useful to keep track of what is going on. To do so in PCIbex, you must open the main.js file in the coding interface. After that, delete all the lines except the first one (“PennController.ResetPrefix(null)”). Adding the structure means that it is an annotation for ourself. In other words, we are going to add comments in the scripts. Comments are indicated by the ” // ” sign (you need at least two, you can add three dashes if you wish). Here is an example below:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PennController.ResetPrefix(null)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="va">+ /// 1. Welcome page</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="va">+ // 1.1 Hello page, ICF</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="va">+ // 1.2 Background questionnaire</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="va">+ // 1.3 Instructions</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="va">+ /// 2. Practice trials</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="va">+ /// 3. Experimental trials</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="va">+ /// 4. Goodbye page</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Important Note! In the examples on this website, the “+” sign indicates that this line is an addition to the script, so it should not appear in the end! Your script should look like that:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>PennController.ResetPrefix(null)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>/// 1. Welcome page</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>// 1.1 Hello page, ICF</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>// 1.2 Background questionnaire</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>// 1.3 Instructions</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>/// 2. Practice trials</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>/// 3. Experimental trials</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>/// 4. Goodbye page</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
 </section>
 <section id="creation-of-your-first-experiment" class="level2">
@@ -626,18 +735,18 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="details-of-the-procedure-and-the-aesthetics" class="level3">
 <h3 class="anchored" data-anchor-id="details-of-the-procedure-and-the-aesthetics">4.2 Details of the procedure and the aesthetics</h3>
-<p><br></p>
+<hr>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-📝 Assignment for next week
+📝 Assignment for Next Week
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please complete the following tasks before our next meeting</p>
+<p>Please complete the following tasks before our next meeting: <em>(Assignment details will be updated after the lecture)</em></p>
 </div>
 </div>
 
