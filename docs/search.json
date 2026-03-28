@@ -116,7 +116,7 @@
     "href": "course-materials/week7.html#creation-of-your-first-experiment",
     "title": "Week 7: Presentation of PCIbex (Your first questionnaire)",
     "section": "3. Creation of your first experiment",
-    "text": "3. Creation of your first experiment\n\n3.1 Welcome page: Canvas, texts, text inputs, buttons and dropdowns\n\n\n3.2 The experiment itself: Trials, scales and keys\n\n\n3.3 The goodbye page",
+    "text": "3. Creation of your first experiment\nNow we will build the actual content of the experiment step-by-step.\n\n📄 3.1 Welcome Page🧪 3.2 The Experiment Itself👋 3.3 The Goodbye Page\n\n\nCanvas, texts, text inputs, buttons, and dropdowns\n(Code and explanations for the Welcome Page will be added here during class)\n\n\nTrials, scales, and keys\n(Code and explanations for the core experimental trials will be added here during class)\n\n\nWrapping up and sending data\n(Code and explanations for the final screen will be added here during class)",
     "crumbs": [
       "Home",
       "Part 2: Designing a web-based questionnaire",
@@ -128,7 +128,7 @@
     "href": "course-materials/week7.html#adjusting-the-script",
     "title": "Week 7: Presentation of PCIbex (Your first questionnaire)",
     "section": "4. Adjusting the script",
-    "text": "4. Adjusting the script\n\n4.1 What results to store? The “log” function\n\n\n4.2 Details of the procedure and the aesthetics\n\n\n\n\n\n\n\n📝 Assignment for Next Week\n\n\n\nPlease complete the following tasks before our next meeting: (Assignment details will be updated after the lecture)",
+    "text": "4. Adjusting the script\nOnce the basic structure is working, we need to fine-tune what data we are collecting and how the experiment looks to the participants.\n\n4.1 What results to store? The log function\n\n\n\n\n\n\nWe will discuss how to use the .log() command to ensure PCIbex records the exact data points you need for your analysis.\n\n\n\n\n\n4.2 Details of the procedure and the aesthetics\nOften, you will need to adjust the layout, sizing, or timing of your elements. Here is an example of how we can modify an existing trial to center text, resize images, and add new elements.\nTask: 1. Center the text and make it unfold over time. 2. Resize the “fish-plural” image to 200x200 px. 3. Create a new image named “fish-singular” using the file 1fishSquareTank.png and resize it to 200x200 px.\n// Experimental trial\nnewTrial(\"experimental-trial\",\n    newAudio(\"fish-audio\", \"2fishRoundTank.mp3\")\n        .play()\n    ,\n    newText(\"fish-sentence\", \"The fish swim in a tank which is perfectly round.\")\n+       .center()\n+       .unfold(2676)\n-       .print()\n    ,\n    newImage(\"fish-plural\", \"2fishRoundTank.png\")\n+       .size(200, 200)\n        .print()\n+   ,\n+   newImage(\"fish-singular\", \"1fishSquareTank.png\")\n+       .size(200, 200)\n+       .print()\n    ,\n    newKey(\"keypress\", \"FJ\")\n        .wait()\n)\n\n\n\n\n\n\n\n📝 Assignment for Next Week\n\n\n\nPlease complete the following tasks before our next meeting: (Assignment details will be updated after the lecture)",
     "crumbs": [
       "Home",
       "Part 2: Designing a web-based questionnaire",
