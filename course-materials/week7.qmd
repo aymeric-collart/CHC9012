@@ -10,7 +10,7 @@ This week, we will introduce the web-based platform **PCIbex**, which is used to
 
 ::: {.panel-tabset}
 
-## 🎯 Goals & Layout
+## 🎯 Goals & layout
 **What to expect from the platform:**
 
 - **Layout:** What does this platform look like? Where do you type the script?
@@ -18,7 +18,7 @@ This week, we will introduce the web-based platform **PCIbex**, which is used to
 - **Overall Presentation:** Getting comfortable with the interface.
 - **Basics:** Setting up your first experiment from scratch.
 
-## 🧠 Key Concepts
+## 🧠 Key concepts
 **Writing a simple yet powerful script:**
 
 - **Comments:** How to comment a script on PCIbex to keep track of your structure.
@@ -26,19 +26,36 @@ This week, we will introduce the web-based platform **PCIbex**, which is used to
 - **Adjustments:** How to adjust these elements to make them behave exactly as you want.
 - **Logging:** How to ensure the relevant results are stored correctly on PCIbex.
 
-## 💻 Necessary Codes
+## 💻 Necessary codes
 **A brief summary of the essential elements:**
 
 - `newTrial(...)`: Used to introduce a trial in the experiment.
 - `newText(...)`: Used to introduce a line of text.
+- `newTextInput(...)`: Used to prompt the participants to type their response.
 - `newButton(...)`: Used to insert a button in the experiment.
 - `newDropDown(...)`: Used to prompt the participants to select between several options.
+- `newScale(...)`: Used to display a scale on the screen.
+- `SendResults(...)`: Used to send the responses to the PCIbex server.
 
 <br>
-<a href="#" class="btn btn-outline-primary btn-sm">
-  <i class="bi bi-download"></i> Download the Full Script
-</a>
-*(Link will be activated during class)*
+<div class="text-center mb-3">
+  <a href="#" class="btn btn-outline-primary btn-sm">
+    <i class="bi bi-download"></i> Download the full script
+  </a>
+</div>
+
+<div class="text-center mb-4">
+  <a href="https://farm.pcibex.net/r/EoPXRG/" class="btn btn-primary btn-lg" target="_blank">
+    <i class="bi bi-link-45deg"></i> Experiment from the script covered this week
+  </a>
+</div>
+
+## 📝 Homework
+**Please complete the following tasks before our next meeting:**
+
+- Download the (simple) script of this week
+- Annotate each line of code (use your own words, these annotations are for your own reference!)
+- Upload the annotated script on Moodle (you can upload the `.js` file, or a Word or PDF file)
 
 :::
 
@@ -108,11 +125,6 @@ The last part is the "Actions" menu, which gives you several options:
 :::
 
 <hr>
-
-::: {.callout-note appearance="simple"}
-## 🚧 Lecture Outline
-*The following sections will be completed in the following days.*
-:::
 
 ## 2. Let’s be organized: The structure of your experiment
 
@@ -203,11 +215,11 @@ Before that, we will need some basics:
 
 - PCIbex is a platform to run experiments, and therefore it requires **trials**. Therefore, we always need to start with the `newTrial()` element, even if it is not a trial in the proper sense.
 
-### 📄 3.1 Welcome Page
+### 📄 3.1 Welcome page
 
 ::: {.panel-tabset}
 
-## A. Welcome Page
+## A. Welcome page
 **Texts and buttons**
 
 The welcome page consists of paragraphs with:
@@ -527,7 +539,7 @@ newTrial("Practice",
 + )
 ```
 
-## B. The Experiment Itself
+## B. The experiment itself
 **Same as the practice trials, but there are more items!**
 
 Official trials need to exhibit the same format, so we need to use the exact same code, and change the variable names in addition to the experimental materials.
@@ -569,12 +581,27 @@ This is quite straightforward. But imagine if you have 140 sentences, then you w
 :::
 
 
-### 👋 3.3 The Goodbye Page
+### 👋 3.3 The goodbye page
 
 The "goodbye page" is just a straightforward `newText()` element.
 
 ```diff
 /// 4. Goodbye page
+
+newTrial("Goodbye",
+    newText("GoodbyeMessage", "Thank you very much for your participation!")
+        .print()
+        .center()
+        )
+```
+
+There is a simple yet important trick we can play with. We can actually control when the results are sent to the server. Let's say we only want the data of the participants who completed the experiment (and not of people who gave up in between).
+There is an element called `SendResults()`. We just need to place it right after the last trial and before the goodbye page to do so!
+
+```diff
+/// 4. Goodbye page
+
++ SendResults()
 
 newTrial("Goodbye",
     newText("GoodbyeMessage", "Thank you very much for your participation!")
@@ -591,19 +618,390 @@ Once the basic structure is working, we need to fine-tune what data we are colle
 
 ### 4.1 What results to store? The `log` function
 
+Let's run the script we wrote so far. By the end of the experiment, there is a screen saying that it successfully sent the information to the server. We just need to click on `Results` and download the file. Here is what we obtain.
+
+![*Click on the image to zoom in*](Images/Results_Week7_NoLog.png){.lightbox width="450"}
+
+
+We can indeed find all the elements we wrote... and yet, we cannot see the answers for the personal information, or the acceptability data!
+
 ::: {.callout-note appearance="simple"}
-We will discuss how to use the `.log()` command to ensure PCIbex records the exact data points you need for your analysis.
+No panic. This is only because we did not ask PCIbex to store such data, only to display them.
+
+We will have to use the `.log()` command to ensure PCIbex records the exact data points you need for the analyses.
 :::
 
+Here is the final script updated with the `.log()` commands.
+
+::: {.callout-note collapse="true" title="Click to unpack the whole code"}
+
+```diff
+PennController.ResetPrefix(null)
+
+/// 1. Welcome page
+// 1.1 Hello page, ICF
+
+newTrial("Welcome page",
+    newText("This is the welcome page.")
+        .print()
+        .center()
+    ,
+    newText("You can type the Informed Consent Form here.")
+        .print()
+        .center()
+,
+    newButton("Continue")
+        .center()
+        .print()
+        .wait()
+)
+
+// 1.2 Background questionnaire
+
+newTrial("Background information",
+    newText("We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.")
+        .print()
+        .center()
+    ,
+    newText("Your age:")
+        .print()
+        .center()
+    ,
+    newTextInput("Age")
+        .print()
+        .center()
++        .log("final")
+    ,
+    newText("Your highest degree:")
+        .print()
+        .center()
+    ,
+    newDropDown("Degree", "Please select one option")
+        .add("Elementary school", "Junior high school", "Senior high school", "BA", "MA", "Ph.D.")
+        .print()
+        .center()
++        .log()
+    ,
+    newButton("Continue")
+        .center()
+        .print()
+        .wait()
+    )
+
+// 1.3 Instructions
+
+newTrial("Instructions",
+    newText("This is the instruction page.")
+        .print()
+        .center()
+    ,
+    newText("In this experiment, you will ... [Please enter the instructions depending on your experiment].")
+        .print()
+        .center()
+    ,
+    newText("Example: In this experiment, you will read sentences on the screen. These sentences will appear one at a time. Your task is to judge these sentences [add a word about how to judge the sentences].")
+        .print()
+        .center()
+    ,
+    newText("Here is an example: 'I will must do it.' This sentence is not acceptable, please click on 'not acceptable'.")
+        .print()
+        .center()
+    ,
+    newText("Please click on 'I understood' if you read and understood the instructions.")
+        .print()
+        .center()
+    ,
+    newDropDown("InstructionsCheck", "Please select one option")
+        .add("I read and understood the instructions.", "I did not read the instructions.")
+        .print()
+        .center()
++        .log()
+    ,
+    newButton("Continue")
+        .center()
+        .print()
+        .wait()
+    )
+
+/// 2. Practice trials
+
+newTrial("AnnouncementPractice",
+    newText("The practice trials are about to begin.")
+        .print()
+        .center()
+    ,
+    newButton("Continue")
+        .center()
+        .print()
+        .wait()
+)
+
+newTrial("Practice",
+    newText("FirstPractice", "This is a grammatical sentence")
+        .print()
+        .center()
++        .log()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
++        .log()
+    )
+    
+newTrial("AnnouncementEndPractice",
+    newText("The practice is over. Please click on 'Continue' to start the experiment.")
+        .print()
+        .center()
+    ,
+    newButton("Continue")
+        .center()
+        .print()
+        .wait()
+)
+
+/// 3. Experimental trials
+
+newTrial("Experiment",
+    newText("FirstSentence", "This is another grammatical sentence")
+        .print()
+        .center()
++        .log()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
++        .log()
+    )
+    
+newTrial("Experiment",
+    newText("SecondSentence", "This sentence not is grammatical")
+        .print()
+        .center()
++        .log()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
++        .log()
+    )
+
+
+/// 4. Goodbye page
+SendResults()
+newTrial("Goodbye",
+    newText("GoodbyeMessage", "Thank you very much for your participation!")
+        .print()
+        .center()
+        .wait()
+        )
+```
+
+:::
+
+Now we can see the results! (As you can see, it is not an effective way to store the actual sentences that have been displayed. Again, we will cover a much more efficient way to solve this problem next week)
+
+
+![*Click on the image to zoom in*](Images/Results_Week7_WithLog.png){.lightbox width="450"}
+
 ### 4.2 Details of the procedure and the aesthetics
+
+We covered the basics of experiment building on PCIbex. So far, we have a very functional script, but it is not very appealing. There are many options to change the aesthetics of the experiment, and I invite you to have a look at the PCIbex documentation.
+
+Alternatively, I found that AI tools can be quite useful to improve the overall aesthetics. You can always have a try, and now that you understand the basics of the script, you know what it changed, and how to change back or adjust if it is not your taste!
+
+::: {.callout-caution icon="true"}
+Always be careful when using AI to change the aesthetics, as it is not completely naive. Changing the size of the text, the fonts, the color, or anything, may have an impact on the results. In addition, AI may change some codes such that in the end the results are not properly saved.
+**Always check, double check, triple check!**
+:::
+
+<div class="text-center mb-4">
+  <a href="https://farm.pcibex.net/r/MkkuWz/" class="btn btn-primary btn-lg" target="_blank">
+    <i class="bi bi-link-45deg"></i> Example of an AI-augmented aesthetics
+  </a>
+</div>
+
+
+::: {.callout-note collapse="true" title="Click here to see the AI-augmented script -- Same experiment, different aesthetics"}
+
+
+```diff
+PennController.ResetPrefix(null)
+
+/// 1. Welcome page
+// 1.1 Hello page, ICF
+newTrial("Welcome page",
+    // Premium Defaults: High-end typography, modern colors, and pill-shaped buttons with shadows
+    defaultText
+        .css("font-family", "'Segoe UI', Roboto, Helvetica, Arial, sans-serif")
+        .css("color", "#2c3e50")
+        .css("line-height", "1.6")
+        .center(),
+    defaultButton
+        .css("background-color", "#3498db")
+        .css("color", "white")
+        .css("border", "none")
+        .css("border-radius", "30px") // Pill shape
+        .css("padding", "12px 30px")
+        .css("font-size", "1.1em")
+        .css("font-weight", "bold")
+        .css("box-shadow", "0 4px 15px rgba(52, 152, 219, 0.3)") // Soft glow shadow
+        .css("cursor", "pointer")
+        .center(),
+
+    newText("welcome_title", "<h1 style='color: #2c3e50; font-size: 2.5em; margin-bottom: 0.2em;'>Welcome to the Study</h1>").print(),
+    newText("divider", "<hr style='width: 50%; border: 1px solid #ecf0f1; margin-bottom: 2em;'>").print(),
+    
+    newText("icf_text", "<div style='background-color: #f8f9fa; padding: 25px; border-radius: 12px; border-left: 5px solid #3498db; max-width: 600px; text-align: left;'><b>Informed Consent</b><br><br>Please read the following carefully. You can type your official consent form here. The box creates a neat, contained reading area for the participant, making it feel like a professional document.</div>").print(),
+    
+    newText("spacer1", "<br><br>").print(),
+    newButton("I Agree & Continue").print().wait()
+)
+
+// 1.2 Background questionnaire
+newTrial("Background information",
+    defaultText.css("font-family", "'Segoe UI', Roboto, Helvetica, Arial, sans-serif").css("color", "#2c3e50").center(),
+    defaultTextInput.css("padding", "10px").css("border", "1px solid #bdc3c7").css("border-radius", "6px").css("font-size", "1em").css("width", "250px").center(),
+    defaultDropDown.css("padding", "10px").css("border", "1px solid #bdc3c7").css("border-radius", "6px").css("font-size", "1em").css("width", "270px").center(),
+    defaultButton.css("background-color", "#3498db").css("color", "white").css("border", "none").css("border-radius", "30px").css("padding", "12px 30px").css("font-size", "1.1em").css("font-weight", "bold").css("box-shadow", "0 4px 15px rgba(52, 152, 219, 0.3)").center(),
+
+    newText("bg_intro", "<h2 style='color: #2c3e50;'>Participant Background</h2><p style='color: #7f8c8d; margin-bottom: 2em;'>Please provide some basic information. You may skip any question you prefer not to answer.</p>").print(),
+    
+    newText("age_prompt", "<b>Your age:</b><br>").print(),
+    newTextInput("Age").print().log("final"),
+    
+    newText("spacer2", "<br>").print(),
+    
+    newText("degree_prompt", "<b>Your highest degree:</b><br>").print(),
+    newDropDown("Degree", "Please select one option")
+        .add("Elementary school", "Junior high school", "Senior high school", "BA", "MA", "Ph.D.")
+        .print()
+        .log(),
+    
+    newText("spacer3", "<br><br>").print(),
+    newButton("Next Step").print().wait()
+)
+
+// 1.3 Instructions
+newTrial("Instructions",
+    defaultText.css("font-family", "'Segoe UI', Roboto, Helvetica, Arial, sans-serif").css("color", "#2c3e50").center(),
+    defaultDropDown.css("padding", "10px").css("border", "1px solid #bdc3c7").css("border-radius", "6px").css("font-size", "1em").center(),
+    defaultButton.css("background-color", "#3498db").css("color", "white").css("border", "none").css("border-radius", "30px").css("padding", "12px 30px").css("font-size", "1.1em").css("font-weight", "bold").css("box-shadow", "0 4px 15px rgba(52, 152, 219, 0.3)").center(),
+
+    newText("inst_title", "<h2>Instructions</h2>").print(),
+    
+    newText("inst_box", "<div style='background-color: #fff; padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); max-width: 600px; text-align: left; line-height: 1.8;'><h3 style='margin-top: 0; color: #e74c3c;'>Your Task</h3>In this experiment, you will read sentences on the screen.<br>These sentences will appear one at a time.<br><br><b>Example:</b><br><i style='color: #7f8c8d;'>\"I will must do it.\"</i><br><br>This sentence is not acceptable, so you would click on <b>Not acceptable</b>.</div>").print(),
+    
+    newText("spacer4", "<br><br>").print(),
+    
+    newText("inst_confirm", "<b>Please confirm to proceed:</b><br>").print(),
+    newDropDown("InstructionsCheck", "Select an option...")
+        .add("I have read and understand the instructions.", "I need more time.")
+        .print()
+        .log(),
+    
+    newText("spacer5", "<br><br>").print(),
+    newButton("Begin Practice").print().wait()
+)
+
+/// 2. Practice trials
+newTrial("AnnouncementPractice",
+    defaultText.css("font-family", "'Segoe UI', Roboto, Helvetica, Arial, sans-serif").center(),
+    defaultButton.css("background-color", "#2ecc71").css("color", "white").css("border", "none").css("border-radius", "30px").css("padding", "12px 30px").css("font-size", "1.1em").css("font-weight", "bold").css("box-shadow", "0 4px 15px rgba(46, 204, 113, 0.3)").center(), // Green button for "Go"
+
+    newText("prac_announce", "<h1 style='color: #2ecc71; font-size: 3em; margin-bottom: 0;'>Practice Phase</h1><p style='color: #7f8c8d; font-size: 1.2em; margin-bottom: 2em;'>Let's do a quick warm-up.</p>").print(),
+    newButton("Start").print().wait()
+)
+
+newTrial("Practice",
+    defaultText.css("font-family", "'Segoe UI', Roboto, Helvetica, Arial, sans-serif").css("color", "#2c3e50").center(),
+    
+    // Large, highly legible target sentence
+    newText("FirstPractice", "<div style='font-size: 2em; margin-top: 2em; margin-bottom: 1.5em; font-weight: 500;'>This is a grammatical sentence.</div>").print().log(),
+    
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("left_label", "<b style='color: #e74c3c;'>Not acceptable</b>").css("font-size", "1em").css("margin-right", "2em"))
+        .after(newText("right_label", "<b style='color: #2ecc71;'>Acceptable</b>").css("font-size", "1em").css("margin-left", "2em"))
+        .center()
+        .print()
+        .wait()
+        .log()
+)
+    
+newTrial("AnnouncementEndPractice",
+    defaultText.css("font-family", "'Segoe UI', Roboto, Helvetica, Arial, sans-serif").center(),
+    defaultButton.css("background-color", "#9b59b6").css("color", "white").css("border", "none").css("border-radius", "30px").css("padding", "12px 30px").css("font-size", "1.1em").css("font-weight", "bold").css("box-shadow", "0 4px 15px rgba(155, 89, 182, 0.3)").center(), // Purple button for main experiment
+
+    newText("end_prac", "<h2 style='color: #8e44ad;'>Practice Complete</h2><p style='color: #7f8c8d; font-size: 1.2em; margin-bottom: 2em;'>You are now ready for the real experiment.</p>").print(),
+    newButton("Start Experiment").print().wait()
+)
+
+/// 3. Experimental trials
+newTrial("Experiment",
+    defaultText.css("font-family", "'Segoe UI', Roboto, Helvetica, Arial, sans-serif").css("color", "#2c3e50").center(),
+    
+    newText("FirstSentence", "<div style='font-size: 2em; margin-top: 2em; margin-bottom: 1.5em; font-weight: 500;'>This is another grammatical sentence.</div>").print().log(),
+    
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("left_label", "<b style='color: #e74c3c;'>Not acceptable</b>").css("font-size", "1em").css("margin-right", "2em"))
+        .after(newText("right_label", "<b style='color: #2ecc71;'>Acceptable</b>").css("font-size", "1em").css("margin-left", "2em"))
+        .center()
+        .print()
+        .wait()
+        .log()
+)
+    
+newTrial("Experiment",
+    defaultText.css("font-family", "'Segoe UI', Roboto, Helvetica, Arial, sans-serif").css("color", "#2c3e50").center(),
+    
+    newText("SecondSentence", "<div style='font-size: 2em; margin-top: 2em; margin-bottom: 1.5em; font-weight: 500;'>This sentence not is grammatical.</div>").print().log(),
+    
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("left_label", "<b style='color: #e74c3c;'>Not acceptable</b>").css("font-size", "1em").css("margin-right", "2em"))
+        .after(newText("right_label", "<b style='color: #2ecc71;'>Acceptable</b>").css("font-size", "1em").css("margin-left", "2em"))
+        .center()
+        .print()
+        .wait()
+        .log()
+)
+
+/// 4. Goodbye page
+SendResults()
+newTrial("Goodbye",
+    defaultText.css("font-family", "'Segoe UI', Roboto, Helvetica, Arial, sans-serif").center(),
+    
+    newText("GoodbyeMessage", "<div style='margin-top: 3em;'><h1 style='color: #3498db; font-size: 3em; margin-bottom: 0;'>Thank You!</h1><p style='color: #7f8c8d; font-size: 1.5em;'>Your responses have been successfully recorded.</p></div>")
+        .print()
+        .wait()
+)
+```
+
+
+:::
 
 
 
 <hr>
 
 ::: {.callout-important icon="true"}
-## 📝 Assignment for Next Week
+## 📝 Assignment for next week
 
 Please complete the following tasks before our next meeting:
-*(Assignment details will be updated after the lecture)*
+- Download the (simple) script of this week
+- Annotate each line of code (use your own words, these annotations are for your own reference!)
+- Upload the annotated script on Moodle (you can upload the `.js` file, or a Word or PDF file)
 :::

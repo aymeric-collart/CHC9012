@@ -1,0 +1,44 @@
+#
+# Results on Sun, 29 Mar 2026 10:06:00 GMT
+# USER AGENT: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+# Design number was non-random = 18
+#
+# Columns below this comment are as follows:
+# 1. Results reception time.
+# 2. MD5 hash of participant's IP address.
+# 3. Controller name.
+# 4. Order number of item.
+# 5. Inner element number.
+# 6. Label.
+# 7. Latin Square Group.
+# 8. PennElementType.
+# 9. PennElementName.
+# 10. Parameter.
+# 11. Value.
+# 12. EventTime.
+# 13. Comments.
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,0,0,Welcome page,NULL,PennController,0,_Trial_,Start,1774778739409,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,0,0,Welcome page,NULL,PennController,0,_Trial_,End,1774778741589,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,1,0,Background information,NULL,PennController,1,_Trial_,Start,1774778741591,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,1,0,Background information,NULL,TextInput,Age,Final,43,1774778747415,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,1,0,Background information,NULL,DropDown,Degree,Selected,MA,1774778745186,4
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,1,0,Background information,NULL,PennController,1,_Trial_,End,1774778747415,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,2,0,Instructions,NULL,PennController,2,_Trial_,Start,1774778747417,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,2,0,Instructions,NULL,DropDown,InstructionsCheck,Selected,I read and understood the instructions.,1774778750570,0
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,2,0,Instructions,NULL,PennController,2,_Trial_,End,1774778751674,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,3,0,AnnouncementPractice,NULL,PennController,3,_Trial_,Start,1774778751676,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,3,0,AnnouncementPractice,NULL,PennController,3,_Trial_,End,1774778753081,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,4,0,Practice,NULL,PennController,4,_Trial_,Start,1774778753083,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,4,0,Practice,NULL,Text,FirstPractice,Print,NA,1774778753084,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,4,0,Practice,NULL,Scale,Scale,Choice,6,1774778755623,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,4,0,Practice,NULL,PennController,4,_Trial_,End,1774778755625,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,5,0,AnnouncementEndPractice,NULL,PennController,5,_Trial_,Start,1774778755628,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,5,0,AnnouncementEndPractice,NULL,PennController,5,_Trial_,End,1774778756348,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,6,0,Experiment,NULL,PennController,6,_Trial_,Start,1774778756351,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,6,0,Experiment,NULL,Text,FirstSentence,Print,NA,1774778756351,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,6,0,Experiment,NULL,Scale,Scale,Choice,7,1774778758405,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,6,0,Experiment,NULL,PennController,6,_Trial_,End,1774778758406,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,7,0,Experiment,NULL,PennController,7,_Trial_,Start,1774778758407,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,7,0,Experiment,NULL,Text,SecondSentence,Print,NA,1774778758407,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,7,0,Experiment,NULL,Scale,Scale,Choice,1,1774778760240,NULL
+1774778760,40848d20eb4c7e923d460141b2d292f7,PennController,7,0,Experiment,NULL,PennController,7,_Trial_,End,1774778760240,NULL
