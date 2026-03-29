@@ -27,10 +27,12 @@ This week, we will introduce the web-based platform **PCIbex**, which is used to
 - **Logging:** How to ensure the relevant results are stored correctly on PCIbex.
 
 ## 💻 Necessary Codes
-**A brief summary of the essential commands:**
+**A brief summary of the essential elements:**
 
 - `newTrial(...)`: Used to introduce a trial in the experiment.
 - `newText(...)`: Used to introduce a line of text.
+- `newButton(...)`: Used to insert a button in the experiment.
+- `newDropDown(...)`: Used to prompt the participants to select between several options.
 
 <br>
 <a href="#" class="btn btn-outline-primary btn-sm">
@@ -194,26 +196,251 @@ PennController.ResetPrefix(null)
 
 ## 3. Creation of your first experiment
 
-Now we will build the actual content of the experiment step-by-step. 
+Now we will build the actual content of the experiment step-by-step.
+Before that, we will need some basics:
+
+- We will be taking about "functions", which are also refered to as **elements** in PCIbex. An element comes with a name and parentheses, such as: `newText()`. The details to input in the parentheses.
+
+- PCIbex is a platform to run experiments, and therefore it requires **trials**. Therefore, we always need to start with the `newTrial()` element, even if it is not a trial in the proper sense.
+
+### 📄 3.1 Welcome Page
 
 ::: {.panel-tabset}
 
-## 📄 3.1 Welcome Page
-**Canvas, texts, text inputs, buttons, and dropdowns**
+## A. Welcome Page
+**Texts and buttons**
 
-*(Code and explanations for the Welcome Page will be added here during class)*
+The welcome page consists of paragraphs with:
+- Welcoming words,
+- The Informed Consent Form,
+- Buttons to continue to the next pages,
+- Another page to collect personal information.
 
-## 🧪 3.2 The Experiment Itself
-**Trials, scales, and keys**
+Let's start with the welcome page, and as mentioned above, with a `newTrial()` element. We want to give a name to this element, and then add text, as follows.
 
-*(Code and explanations for the core experimental trials will be added here during class)*
+```diff
+/// 1. Welcome page
+// 1.1 Hello page, ICF
 
-## 👋 3.3 The Goodbye Page
-**Wrapping up and sending data**
+newTrial("Welcome page",
++ newText("This is the welcome page.")
++ ,
++ newText("You can type the Informed Consent Form here.")
+)
+```
+When you run these lines, you will realize that it does not work at all. And this is normal, it is just because we did not specify ***what to do*** with all these elements!
+We need to add **commands** to these elements. What we want is that these texts are (a) displayed (i.e., printed) on the screen, and that it does not automatically run into the next step. Here is the updated version:
 
-*(Code and explanations for the final screen will be added here during class)*
+```diff
+/// 1. Welcome page
+// 1.1 Hello page, ICF
+
+newTrial("Welcome page",
+    newText("This is the welcome page.")
++     .print()
++     .center() //You can add more commands like that
+    ,
+    newText("You can type the Informed Consent Form here.")
++     .print()
++     .center()
++     .wait() //Please remark that this command is placed at the last element
+)
+```
+
+We are running into a new problem. The procedure "waits" as we asked to, but how to go to the next page? We can solve this by adding a "Continue" button (using the `newButton()` element).
+
+```diff
+/// 1. Welcome page
+// 1.1 Hello page, ICF
+
+newTrial("Welcome page",
+    newText("This is the welcome page.")
+        .print()
+        .center()
+    ,
+    newText("You can type the Informed Consent Form here.")
+        .print()
+        .center()
+-        .wait()
++   ,
++    newButton("Continue")
++        .center()
++        .print()
++        .wait() //Please remark that we moved the 'wait' command here
+)
+```
+And we are done with this first page!
+
+## B. Background information
+**Texts, text inputs and dropdown**
+
+Next, we turn to the page where we collect personal information, such as the age of the participants, the highest degree they obtained, the languages they speak, etc. We already know how to type some text, so let's start with this:
+
+```diff
+// 1.2 Background questionnaire
+
+newTrial("Background information",
+    newText("We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.")
+        .print()
+        .center()
+        .wait() 
+    )
+```
+
+Now we need to add some text to prompt the participants to enter their age, and a box where they can directly write. We will proceed this way:
+
+```diff
+// 1.2 Background questionnaire
+
+newTrial("Background information",
+    newText("We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.")
+        .print()
+        .center()
+-        .wait()
++    ,
++    newText("Your age:")
++        .print()
++        .center()
++    ,
++    newTextInput("Age") //Please not that we added "Age" just to refer back to this element later
++        .print()
++        .center()
++        .wait()
+    )
+```
+
+Let's say that we want to collect more data, but we want the participants to choose between different options. We will do that with the `newDropDown()` element, as follows:
+
+```diff
+// 1.2 Background questionnaire
+
+newTrial("Background information",
+    newText("We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.")
+        .print()
+        .center()
+    ,
+    newText("Your age:")
+        .print()
+        .center()
+    ,
+    newTextInput("Age")
+        .print()
+        .center()
+-        .wait()
++    ,
++    newText("Your highest degree:")
++        .print()
++        .center()
++    ,
++    newDropDown("Degree", "Please select one option")
++        .add("Elementary school", "Junior high school", "Senior high school", "BA", "MA", "Ph.D.")
++        .print()
++        .center()
++        .wait()
+    )
+```
+
+You can add as much as you want now that you understand the logic.
+
+⚠️ ***Important!*** In the end, we will need to add a "Continue" button. If not, it will move to the next screen after the participants selected one option. Adding this button prevents such potential problems.
+
+```diff
+// 1.2 Background questionnaire
+
+newTrial("Background information",
+    newText("We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.")
+        .print()
+        .center()
+    ,
+    newText("Your age:")
+        .print()
+        .center()
+    ,
+    newTextInput("Age")
+        .print()
+        .center()
+    ,
+    newText("Your highest degree:")
+        .print()
+        .center()
+    ,
+    newDropDown("Degree", "Please select one option")
+        .add("Elementary school", "Junior high school", "Senior high school", "BA", "MA", "Ph.D.")
+        .print()
+        .center()
+-        .wait()
++    ,
++    newButton("Continue")
++        .center()
++        .print()
++        .wait()
+    )
+```
+
+The story is not over yet, since we need to specify what information needs to be stored. We cover this point in Section 4.
+
+
+## C. Instructions
+**Nothing new!**
+
+Now that you know how to add text, you just need to follow the same logic to add the instructions! Here is an example for this course:
+
+```diff
+// 1.3 Instructions
+
+newTrial("Instructions",
+    newText("This is the instruction page.")
+        .print()
+        .center()
+    ,
+    newText("In this experiment, you will ... [Please enter the instructions depending on your experiment].")
+        .print()
+        .center()
+    ,
+    newText("Example: In this experiment, you will read sentences on the screen. These sentences will appear one at a time. Your task is to judge these sentences [add a word about how to judge the sentences].")
+        .print()
+        .center()
+    ,
+    newText("Here is an example: 'I will must do it.' This sentence is not acceptable, please click on 'not acceptable'.")
+        .print()
+        .center()
+    ,
+    newText("Please click on 'I understood' if you read and understood the instructions.")
+        .print()
+        .center()
+    ,
+    newDropDown("InstructionsCheck", "Please select one option")
+        .add("I read and understood the instructions.", "I did not read the instructions.")
+        .print()
+        .center()
+    ,
+    newButton("Continue")
+        .center()
+        .print()
+        .wait()
+    )
+```
 
 :::
+
+We just finished the first part of the experiment! The good news is that this is actually the most tedious coding part, so it will only get easier for the rest of the coding!
+
+### 🧪 3.2 The experiment itself
+
+::: {.panel-tabset}
+
+## A. Welcome Page
+**Texts and scales**
+
+
+## B. The Experiment Itself
+**Same as the practice trials, but there are more items!**
+
+:::
+
+
+### 👋 3.3 The Goodbye Page
+
 
 <br>
 
