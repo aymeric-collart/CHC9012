@@ -427,20 +427,161 @@ We just finished the first part of the experiment! The good news is that this is
 
 ### 🧪 3.2 The experiment itself
 
+Since many students decided to use written sentences as their experimental materials, the coding of the script for this experiment will be introduced based on this.
+
 ::: {.panel-tabset}
 
-## A. Welcome Page
+## A. Practice trials
 **Texts and scales**
 
+Let's start with something simple: How to display an experimental sentence. We already know how to do it, like below.
+
+```diff
+/// 2. Practice trials
+newTrial("Practice",
+    newText("FirstPractice", "This is a grammatical sentence")
+        .print()
+        .center()
+        .wait()
+    )
+```
+
+There is something different from before. We assigned a name to the `newText()` element (here, `FirstPractice`) such that we can keep track of the results from each sentence.
+
+Let's assume that this is an acceptability judgment experiment, using a 7-point Likert scale. Here is how to add this scale.
+
+```diff
+/// 2. Practice trials
+newTrial("Practice",
+    newText("FirstPractice", "This is a grammatical sentence")
+        .print()
+        .center()
+-        .wait()
++    ,
++    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
++        .labelsPosition("bottom")
++        .print()
++        .center()
++        .wait()
+    )
+```
+
+We just need to use the `newScale()` element, give it a name, and enter the scale itself. The command `.labelsPosition()` is used to display the parts of the scale on the screen. Finally, we can add what the labels mean to remind the participants how they are supposed to judge the sentences.
+
+```diff
+/// 2. Practice trials
+newTrial("Practice",
+    newText("FirstPractice", "This is a grammatical sentence")
+        .print()
+        .center()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
++        .before(newText("Not acceptable"))
++        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
+    )
+```
+
+We are almost done. We need to add two screens: One before the practice trials to inform the participants that the practice trials are about to begin, and another one after, to mention that the practice is over and that the participants need to get ready before the official experiment begins.
+
+```diff
+/// 2. Practice trials
+
++ newTrial("AnnouncementPractice",
++     newText("The practice trials are about to begin.")
++         .print()
++         .center()
++     ,
++     newButton("Continue")
++         .center()
++         .print()
++         .wait()
++ )
+
+newTrial("Practice",
+    newText("FirstPractice", "This is a grammatical sentence")
+        .print()
+        .center()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
+    )
+    
++ newTrial("AnnouncementEndPractice",
++     newText("The practice is over. Please click on 'Continue' to start the experiment.")
++         .print()
++         .center()
++     ,
++     newButton("Continue")
++         .center()
++         .print()
++         .wait()
++ )
+```
 
 ## B. The Experiment Itself
 **Same as the practice trials, but there are more items!**
+
+Official trials need to exhibit the same format, so we need to use the exact same code, and change the variable names in addition to the experimental materials.
+
+```diff
+/// 3. Experimental trials
+
+newTrial("Experiment",
+    newText("FirstSentence", "This is another grammatical sentence")
+        .print()
+        .center()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
+    )
+    
+newTrial("Experiment",
+    newText("SecondSentence", "This sentence not is grammatical")
+        .print()
+        .center()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
+    )
+```
+
+This is quite straightforward. But imagine if you have 140 sentences, then you will need to repeat this 140 times. In addition, presenting them in a random order using this method is not easy. We will see next week how to use a trick from PCIbex to make this simple.
 
 :::
 
 
 ### 👋 3.3 The Goodbye Page
 
+The "goodbye page" is just a straightforward `newText()` element.
+
+```diff
+/// 4. Goodbye page
+
+newTrial("Goodbye",
+    newText("GoodbyeMessage", "Thank you very much for your participation!")
+        .print()
+        .center()
+        )
+```
 
 <br>
 
@@ -456,36 +597,7 @@ We will discuss how to use the `.log()` command to ensure PCIbex records the exa
 
 ### 4.2 Details of the procedure and the aesthetics
 
-Often, you will need to adjust the layout, sizing, or timing of your elements. Here is an example of how we can modify an existing trial to center text, resize images, and add new elements.
 
-**Task:**
-1. Center the text and make it unfold over time.
-2. Resize the "fish-plural" image to 200x200 px.
-3. Create a new image named "fish-singular" using the file `1fishSquareTank.png` and resize it to 200x200 px.
-
-```diff
-// Experimental trial
-newTrial("experimental-trial",
-    newAudio("fish-audio", "2fishRoundTank.mp3")
-        .play()
-    ,
-    newText("fish-sentence", "The fish swim in a tank which is perfectly round.")
-+       .center()
-+       .unfold(2676)
--       .print()
-    ,
-    newImage("fish-plural", "2fishRoundTank.png")
-+       .size(200, 200)
-        .print()
-+   ,
-+   newImage("fish-singular", "1fishSquareTank.png")
-+       .size(200, 200)
-+       .print()
-    ,
-    newKey("keypress", "FJ")
-        .wait()
-)
-```
 
 <hr>
 
