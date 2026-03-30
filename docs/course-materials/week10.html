@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -447,8 +482,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#part-1-setup-installation" id="toc-part-1-setup-installation" class="nav-link" data-scroll-target="#part-1-setup-installation">🎒 Part 1: Setup &amp; Installation</a></li>
+  <li><a href="#part-2-working-in-rstudio" id="toc-part-2-working-in-rstudio" class="nav-link" data-scroll-target="#part-2-working-in-rstudio">💻 Part 2: Working in RStudio</a></li>
+  <li><a href="#part-3-reproducible-data-with-r-markdown" id="toc-part-3-reproducible-data-with-r-markdown" class="nav-link" data-scroll-target="#part-3-reproducible-data-with-r-markdown">📊 Part 3: Reproducible data with R Markdown</a>
+  <ul class="collapse">
+  <li><a href="#writing-text-and-code" id="toc-writing-text-and-code" class="nav-link" data-scroll-target="#writing-text-and-code">Writing Text and Code</a></li>
+  <li><a href="#the-magic-knit-button" id="toc-the-magic-knit-button" class="nav-link" data-scroll-target="#the-magic-knit-button">The Magic “Knit” Button</a></li>
+  </ul></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -457,6 +505,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../course-materials/week10.html">Part 3: Analyses and visualization</a></li><li class="breadcrumb-item"><a href="../course-materials/week10.html">Week 10: Presentation of R</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 10 - Presentation of the R interface and how to create reproducible data</h1>
+<p class="subtitle lead">CHC9012 | National Taiwan Normal University</p>
 </div>
 
 
@@ -473,9 +522,511 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<style>
+  
+  /* Tabset Styling */
+  .nav-tabs {
+    border-bottom: 2px solid #ecf0f1;
+    margin-top: 1em;
+    margin-bottom: 30px;
+  }
+.nav-tabs .nav-link {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #95a5a6;
+    border: none;
+  padding: 15px 25px;
+  transition: all 0.3s ease;
+}
+.nav-tabs .nav-link:hover {
+  color: #2c3e50;
+    border: none;
+}
+.nav-tabs .nav-link.active {
+  color: #3498db !important;
+    background: none;
+  border: none;
+  border-bottom: 4px solid #3498db;
+}
+
+/* Stunning Headers */
+  
+  h2 {
+    margin-top: 1.8em;
+    color: #2980b9;
+      font-weight: 600;
+  }
+h3 {
+  margin-top: 1.5em;
+  color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Floating Images with Animations */
+  img {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    margin: 2rem auto;
+    display: block;
+  }
+img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
+}
+
+/* Elegant Gradient Divider */
+  hr.rounded {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
+    margin: 4rem 0;
+  }
+
+/* Pro Code Styling */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    color: #e74c3c;
+      background-color: #fdf2f0;
+      padding: 3px 6px;
+    border-radius: 5px;
+  }
+pre code {
+  color: #333;
+    background-color: transparent;
+}
+
+/* Clean Tables */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin: 2rem 0;
+  }
+th {
+  background-color: #3498db;
+    color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  font-weight: 600;
+}
+td {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* Emphasized bolding */
+  b, strong {
+    color: #2c3e50;
+      font-weight: 700;
+  }
+</style>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals &amp; key concepts</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>Get to know R:</strong></p>
+<ul>
+<li><strong>Basics:</strong> What is R, and what is RStudio?</li>
+<li><strong>Simple coding:</strong> What are the most important functions in R?</li>
+<li><strong>Script sharing:</strong> How to write a beautiful script to share?</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>A brief summary of the essential elements:</strong></p>
 <p>[To complete later]</p>
+<br>
+<div class="text-center mb-3">
+<p><a href="" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the full script </a></p>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>Please complete the following tasks before our next meeting:</strong></p>
+<ul>
+<li>Download the script of this week</li>
+<li>Annotate each line of code (use your own words, these annotations are for your own reference!)</li>
+<li>Upload the annotated script on Moodle</li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="part-1-setup-installation" class="level1">
+<h1>🎒 Part 1: Setup &amp; Installation</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">1.1. What is R? What is RStudio?</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">1.2. Download and Install</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">1.3. Launch and Try!</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>So far, we have been talking about something called “R/RStudio”. People familiar with this program know what this is about. However, it can be quite confusing when we have never heard of it. We are actually referring to two distinct, yet connected programs:</p>
+<div class="columns">
+<div class="column" style="width:45%;">
+<div style="text-align: center; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+<h3 style="color: #3498db; margin-top: 0;" class="anchored" data-anchor-id="part-1-setup-installation">
+The Engine: R
+</h3>
+<img src="Images/R_logo.png" class="img-fluid" width="120">
+<p style="font-size: 0.9em; color: #7f8c8d; margin-top: 15px;">
+The main program where all the mathematical magic and deep computations happen.
+</p>
+</div>
+</div><div class="column" style="width:10%;">
+
+</div><div class="column" style="width:45%;">
+<div style="text-align: center; padding: 20px; background: white; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.05);">
+<h3 style="color: #3498db; margin-top: 0;" class="anchored">
+The Dashboard: RStudio
+</h3>
+<img src="Images/RStudio_Logo.png" class="img-fluid" width="200">
+<p style="font-size: 0.9em; color: #7f8c8d; margin-top: 15px;">
+A user-friendly interface that makes it incredibly easy to interact with R.
+</p>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>Maybe a metaphor can help to understand the difference between R and RStudio. As you are engaging yourself in this tutorial, I assume that you have a computer. You can create folders, open Word or Excel documents, write in them, and save them in the folders you created.</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🧠 Think about it
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Now it is time to reflect on what you are doing. You have done these tasks by using your mouse or your touchpad and clicking on icons (or figures) on your screen. What you may not know is that when doing so, you have actually run many hidden lines of code!</p>
+<p>It is your computer that ran them in programs able to perform computations. Your role has been to trigger these programs by using the user-friendly interface installed in your computer.</p>
+</div>
+</div>
+<p>This is the exact same thing with R and RStudio. R will perform the computations that you ask for. And you will ask R to do stuff by clicking on icons and writing commands using the user-friendly interface of RStudio. And this is why you need to download two programs!</p>
+<div class="callout callout-style-simple callout-note no-icon" style="background-color: #f8f9fa; border-left: 4px solid #f39c12;">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>📖 Personal Anecdote</strong><br> Let me share a memory from when I first entered graduate school. I had my very first class of language programming for linguistic research. Just before leaving, the instructor said very quickly that we had to, I quote, <em>“download R for next time”</em>.</p>
+<p>I had never heard of R, and to me, calling a program with only one letter seemed kind of awkward. I assumed I misheard the instructions. You can imagine how surprised I was when I googled “R” and found it actually existed!</p>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<section id="step-1-download-and-install-r" class="level3">
+<h3 class="anchored" data-anchor-id="step-1-download-and-install-r">Step 1: Download and install R</h3>
+<p>Now that R is installed, it is time to do the same with RStudio. Go to the RStudio website by clicking <a href="https://posit.co/download/rstudio-desktop/" target="_blank">here</a>. You will see something like this:</p>
+<p><img src="Images/RStudioWebsite_FrontPage.png" class="img-fluid"></p>
+<p>Next, choose your <strong>CRAN</strong> (The Comprehensive R Archive Network). Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.</p>
+<p><img src="Images/RWebsite_CRAN.png" class="img-fluid"></p>
+<p>Choose the files to download according to your computer’s operating system. The most common are macOS (for Apple computers) or Windows.</p>
+<p><img src="Images/RWebsite_Download.png" class="img-fluid"></p>
+<p>On the next page, choose the subdirectory. For our purposes, we only need the <strong>“base”</strong> subdirectory.</p>
+<p><img src="Images/RWebsite_DownloadSubdirectory.png" class="img-fluid"></p>
+<p>We finally got to the last page! Click on the first link to download the files, as shown below. Wait until the file is downloaded, open it, and follow the standard instructions to install R on your computer.</p>
+<p><img src="Images/RWebsite_DownloadFinal.png" class="img-fluid"></p>
+</section>
+<section id="step-2-download-and-install-rstudio" class="level3">
+<h3 class="anchored" data-anchor-id="step-2-download-and-install-rstudio">Step 2: Download and install RStudio</h3>
+<p>Now that R is installed, it is time to do the same with RStudio. Go to the RStudio website by clicking <a href="https://posit.co/download/rstudio-desktop/" target="_blank">here</a>. You will see something like this:</p>
+<p><img src="Images/RStudioWebsite_FrontPage.png" class="img-fluid"></p>
+<p>Scroll down to look for the download links. Again, choose the right file for your operating system. Just click the link, let it download, open the file, and follow the instructions!</p>
+<p><img src="Images/RStudioWebsite_Download.png" class="img-fluid"></p>
+</section>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<p>Look for the program called <strong>“RStudio”</strong> on your computer. Once you find it, just open it up, and you can move on to the next section!</p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+💡 Wait, why didn’t we open R?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Recall that R is the program where computations are done, and RStudio is the user-friendly interface. Even though we <em>needed</em> to download both, you actually <strong>only ever need to open RStudio</strong> when you want to use R! RStudio will talk to R in the background for you.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-2-working-in-rstudio" class="level1">
+<h1>💻 Part 2: Working in RStudio</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">2.1. The Interface of RStudio</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">2.2. Libraries (Packages)</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">2.3. Essential R Syntax &amp; Data</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Now I assume that R and RStudio are correctly installed. When you start RStudio, you will see a lot of things on your screen—many blocks, many menus. It can be quite overwhelming. No worries! This is exactly what this section is about.</p>
+<div class="callout callout-style-default callout-warning no-icon callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🎯 Objectives for this section
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ol type="1">
+<li>Learn to navigate the RStudio interface and get comfortable with it.</li>
+<li>Write your very first lines of R code!</li>
+</ol>
+</div>
+</div>
+<section id="general-overview-blocks-blocks-blocks" class="level3">
+<h3 class="anchored" data-anchor-id="general-overview-blocks-blocks-blocks">General Overview: Blocks, Blocks, Blocks!</h3>
+<p>When you open RStudio for the very first time, you should see something similar to the picture below. <em>(Note: If yours looks slightly different, that is completely normal!)</em></p>
+<p><img src="Images/RStudio_FirstPage.png" class="img-fluid"></p>
+<p>The best way to apprehend RStudio is to see the interface as a collection of <strong>blocks</strong>, each serving a specific purpose. There are four main blocks. I give them unofficial names to make them easier to remember:</p>
+<ol type="1">
+<li>💻 <strong>The Computer Block</strong></li>
+<li>🗂️ <strong>The Variable Block</strong></li>
+<li>📝 <strong>The Script Block</strong></li>
+<li>⚙️ <strong>The Console Block</strong></li>
+</ol>
+<p><img src="Images/RStudio_4Blocks.png" class="img-fluid"></p>
+<p><em>(You may not be able to see the ‘Script block’ on your computer just yet. Don’t worry, we will open it soon!)</em></p>
+</section>
+<section id="the-computer-block-bottom-right" class="level3">
+<h3 class="anchored" data-anchor-id="the-computer-block-bottom-right">💻 The Computer Block (Bottom-Right)</h3>
+<p>Click on the <strong>Files</strong> button in this block. You will see a list of files and folders from your computer. This interface allows you to communicate and navigate directly with your hard drive, right from inside RStudio!</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>Take a second to play with it:</strong> Click on the folders. Try to navigate to your Documents or Desktop. There is no mystery here—it works exactly like navigating folders on your computer normally does!</p>
+</div>
+</div>
+</div>
+</section>
+<section id="the-variable-block-top-right" class="level3">
+<h3 class="anchored" data-anchor-id="the-variable-block-top-right">🗂️ The Variable Block (Top-Right)</h3>
+<p>The most important tab here is the <strong>Environment</strong>. This is where variables you create while coding are temporarily stored. Let’s demonstrate this. In the ‘Console block’ (bottom-left), type this code and press Enter:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>And indeed, the output shows <code>6</code>. Now, let’s play a game. You want to obtain the number 8, but you have to use <code>4 + 2</code>. You could write:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>But what if the math gets incredibly complex? This is where <strong>variables</strong> come in. Try this code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>a <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nothing appears in the console anymore. But look at your Variable block!</p>
+<p><img src="Images/VariableBlock_WithVariable.png" class="img-fluid"></p>
+<p>You have stored the calculation inside a variable called <code>a</code>. You can call it anytime simply by typing <code>a</code> in the console, or even add to it by typing <code>a + 2</code>!</p>
+</section>
+<section id="the-console-block-bottom-left" class="level3">
+<h3 class="anchored" data-anchor-id="the-console-block-bottom-left">⚙️ The Console Block (Bottom-Left)</h3>
+<p>You just had a glimpse of it. <strong>The console block is the engine room where the code is actually run.</strong> When you type commands here and press Enter, R executes them immediately.</p>
+<p><em>(There are also Terminal and Background Jobs tabs here, but we can safely ignore them for this tutorial).</em></p>
+</section>
+<section id="the-script-block-top-left" class="level3">
+<h3 class="anchored" data-anchor-id="the-script-block-top-left">📝 The Script Block (Top-Left)</h3>
+<p>The Script block is your digital notepad. If you type code in the Console, it disappears when you close RStudio. If you want to save hundreds of lines of code, you need a Script!</p>
+<p>Let’s open one. Click <strong>“New File”</strong>, and then select <strong>“R Script”</strong>.</p>
+<p><img src="Images/OpenNewScript.gif" class="img-fluid"></p>
+<p>Type the following lines into your new Script block:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>    <span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>    a <span class="ot">&lt;-</span> <span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>    a</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    a <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Select all the text with your mouse, and click <strong>‘Run’</strong>.</p>
+<p><img src="Images/Script_Demo.gif" class="img-fluid"></p>
+<p>Now you can go to <code>File &gt; Save</code> and save this script to your computer. The next time you open it, all your code will still be there!</p>
+</section>
+<section id="exercise-make-it-your-own" class="level3">
+<h3 class="anchored" data-anchor-id="exercise-make-it-your-own">🎨 Exercise: Make it your own!</h3>
+<p>Your four blocks are like construction toys. You can change their size by dragging the borders, or even change the background color to a dark theme!</p>
+<p><strong>Path:</strong> <code>Tools &gt; Global Options... &gt; Appearance &gt; Editor theme</code></p>
+<p><img src="Images/ChangeColor.gif" class="img-fluid"></p>
+<div class="callout callout-style-simple callout-note no-icon" style="background-color: #f8f9fa; border-left: 4px solid #9b59b6;">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><strong>🧑 🏫 Instructor Tip</strong><br> I change the sizes of my blocks dynamically all the time. If I’m writing complex code, I enlarge the Script block. When I’m drawing plots, I make the Computer block bigger to visualize the graphs clearly. Make the layout work for you!</p>
+</div>
+</div>
+</div>
+</section>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>You can do amazing things with R: draw maps, run complex statistics, and manipulate massive datasets. But it can feel overwhelming to write all that code from scratch.</p>
+<p><strong>Good news!</strong> R is a collaborative, open-source community. Nobody writes all their code from scratch! We rely on “Packages” or “Libraries” built by other people.</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 50%">
+<col style="width: 50%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Concept</th>
+<th style="text-align: left;">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><strong>Line of code</strong></td>
+<td style="text-align: left;">A single, simple instruction (e.g., <code>4 + 2</code>).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><strong>Function</strong></td>
+<td style="text-align: left;">A pre-packaged cluster of code that performs a specific task.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><strong>Package / Library</strong></td>
+<td style="text-align: left;">A downloadable folder containing hundreds of useful functions!</td>
+</tr>
+</tbody>
+</table>
+<p>There are thousands of packages available for free, often coming with their own fun hex-logos.</p>
+<p><img src="Images/RPackages.jpg" class="img-fluid"></p>
+<section id="how-to-install-and-use-libraries" class="level3">
+<h3 class="anchored" data-anchor-id="how-to-install-and-use-libraries">How to install and use Libraries</h3>
+<p>You only need to install a package <strong>once</strong>, but you must load it <strong>every time</strong> you open RStudio.</p>
+<p>In your Console, type this to install <code>ggplot2</code> (a famous plotting package):</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">install.packages</span>(<span class="st">"ggplot2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Once it finishes installing, you load it into your current session by typing:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>    <span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🍳 The Cookbook Metaphor
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Imagine you want to cook a complex dinner.</p>
+<ol type="1">
+<li><p><code>install.packages()</code> is like going to the bookstore to buy a recipe book. You bring it home and put it on your shelf.</p></li>
+<li><p><code>library()</code> is like taking the book off the shelf and opening it on your kitchen counter. You have to open it every time you want to use those specific recipes!</p></li>
+</ol>
+</div>
+</div>
+</section>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<section id="the-working-directory" class="level3">
+<h3 class="anchored" data-anchor-id="the-working-directory">1. The Working Directory</h3>
+<p>Before doing <em>anything</em> with data, you must tell R exactly which folder on your computer to look in. This is your <strong>Working Directory</strong>.</p>
+<p>Use the Computer Block to navigate to your project folder. Click the <strong>Gear Icon</strong>, and select <strong>“Save as Working Directory”</strong>.</p>
+<p><img src="Images/SetWorkingDirectory.gif" class="img-fluid"></p>
+</section>
+<section id="comments" class="level3">
+<h3 class="anchored" data-anchor-id="comments">2. Comments</h3>
+<p>Use the <code>#</code> symbol to write notes to yourself. R will completely ignore anything written after a hashtag!</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>    <span class="do">### This is a comment. R will not run this.</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="dv">2</span> <span class="sc">+</span> <span class="dv">4</span> <span class="do">### This adds two numbers together!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="loading-data" class="level3">
+<h3 class="anchored" data-anchor-id="loading-data">3. Loading Data</h3>
+<p>Let’s import a <code>.csv</code> dataset (like an Excel file). We use the <code>read.csv()</code> function and assign it to a variable called <code>data</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"GACTT_RESULTS_ANONYMIZED_v2.csv"</span>, <span class="at">header=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Alternatively, you can use the RStudio interface! In your Variable block, click <strong>“Import Dataset” &gt; “From Text (base)”</strong>, select your file, and click Import.</p>
+<p><img src="Images/ImportDataBaseR.gif" class="img-fluid"></p>
+</section>
+<section id="transforming-and-summarizing-data" class="level3">
+<h3 class="anchored" data-anchor-id="transforming-and-summarizing-data">4. Transforming and Summarizing Data</h3>
+<p>Once loaded, you can inspect your data using <code>str(data)</code> to see its structure, or <code>summary(data)</code> to get a quick mathematical overview.</p>
+<p>Often, survey data comes in as plain text when it should be categorized into groups (Factors). We fix this using <code>as.factor()</code>:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>What.is.your.age. <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>What.is.your.age.)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>(The <code>$</code> symbol tells R to look <strong>inside</strong> the dataset for a specific column!)</em></p>
+<p>If we want to count how many people fit into different groups, we can use the powerful <code>dplyr</code> package:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>data3 <span class="ot">&lt;-</span> data2 <span class="sc">%&gt;%</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(What.is.your.age., How.many.cups.of.coffee.do.you.typically.drink.per.day.) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Count =</span> <span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><img src="Images/ResultsSummarize.png" class="img-fluid"></p>
+</section>
+<section id="plotting-the-data" class="level3">
+<h3 class="anchored" data-anchor-id="plotting-the-data">5. Plotting the Data</h3>
+<p>With our data summarized, we can use the built-in <code>plot()</code> function to visualize it:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="at">x =</span> data3<span class="sc">$</span>What.is.your.age., <span class="at">y =</span> data3<span class="sc">$</span>Count)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><em>(If your groups are out of alphabetical order, you can use the <code>factor(..., levels=c(...))</code> command to manually sort them before plotting!)</em></p>
+</section>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-3-reproducible-data-with-r-markdown" class="level1">
+<h1>📊 Part 3: Reproducible data with R Markdown</h1>
+<p>Standard R Scripts only save your code. <strong>R Markdown</strong> files are an incredible upgrade. They allow you to combine your titles, your narrative text, your R code, and your generated plots into <strong>one single, shareable document</strong> (like a PDF, Word, or HTML file). This is the gold standard for Open Science!</p>
+<p>To start, click <strong>“New File” &gt; “R Markdown…”</strong></p>
+<p><img src="Images/ScriptTypes.png" class="img-fluid"></p>
+<p>RStudio will prompt you for a Title and Author. Once created, you will see a document with a <strong>YAML Header</strong> at the top between dashed lines <code>---</code>. This header controls the settings for your final document.</p>
+<p><img src="Images/Markdown_YAML.png" class="img-fluid"></p>
+<section id="writing-text-and-code" class="level3">
+<h3 class="anchored" data-anchor-id="writing-text-and-code">Writing Text and Code</h3>
+<p>In an R Markdown file, anything you type normally becomes standard text. To actually write R code, you must insert a <strong>Code Chunk</strong>. Click the “Insert” button at the top of the script and select “R”. A grey box will appear.</p>
+<p><img src="Images/RCodeBlock_WarningMessage.png" class="img-fluid"></p>
+<p>You can run these individual chunks using the green <strong>Play Button</strong> in the corner of the grey box.</p>
+<p><img src="Images/RCodeBlock_RunBlock.png" class="img-fluid"></p>
+</section>
+<section id="the-magic-knit-button" class="level3">
+<h3 class="anchored" data-anchor-id="the-magic-knit-button">The Magic “Knit” Button</h3>
+<p>When your document is complete, click the <strong>Knit</strong> button at the top of the interface. R will automatically run all your code chunks, generate the graphs, format your text beautifully, and produce a polished final document you can share with the world!</p>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📝 Assignment for next week
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please complete the following tasks before our next meeting:</p>
+<ul>
+<li>Download the script of this week</li>
+<li>Annotate each line of code (use your own words, these annotations are for your own reference!)</li>
+<li>Upload the annotated script on Moodle</li>
+</ul>
+</div>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -898,7 +1449,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This website is built with Quarto</p>
 </div>
