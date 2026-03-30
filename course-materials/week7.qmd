@@ -39,7 +39,7 @@ This week, we will introduce the web-based platform **PCIbex**, which is used to
 
 <br>
 <div class="text-center mb-3">
-  <a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/main.js" class="btn btn-outline-primary btn-sm">
+  <a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/main_Week7.js" class="btn btn-outline-primary btn-sm">
     <i class="bi bi-download"></i> Download the full script
   </a>
 </div>

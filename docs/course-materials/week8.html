@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -44,6 +79,9 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/bootstrap/bootstrap-39d2cc59df9be9d58f235e55fb9506ca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
 <link href="../site_libs/bootstrap/bootstrap-dark-5a6e8b33ceac916afd5be85d9a928bd2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <link href="../site_libs/bootstrap/bootstrap-39d2cc59df9be9d58f235e55fb9506ca.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-contrib/glightbox/glightbox.min.js"></script>
+<link href="../site_libs/quarto-contrib/glightbox/glightbox.min.css" rel="stylesheet">
+<link href="../site_libs/quarto-contrib/glightbox/lightbox.css" rel="stylesheet">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,6 +109,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="../site_libs/quarto-diagram/mermaid.min.js"></script>
+<script src="../site_libs/quarto-diagram/mermaid-init.js"></script>
+<link href="../site_libs/quarto-diagram/mermaid.css" rel="stylesheet">
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -447,8 +488,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#lets-simplify-and-automatize-the-process" id="toc-lets-simplify-and-automatize-the-process" class="nav-link" data-scroll-target="#lets-simplify-and-automatize-the-process">1. Let’s simplify and automatize the process</a>
+  <ul class="collapse">
+  <li><a href="#creation-of-the-template" id="toc-creation-of-the-template" class="nav-link" data-scroll-target="#creation-of-the-template">1.1 Creation of the template</a></li>
+  <li><a href="#log-with-a-template" id="toc-log-with-a-template" class="nav-link" data-scroll-target="#log-with-a-template">1.2 <code>log()</code> with a template</a></li>
+  </ul></li>
+  <li><a href="#lets-specify-the-template-and-the-overall-procedure" id="toc-lets-specify-the-template-and-the-overall-procedure" class="nav-link" data-scroll-target="#lets-specify-the-template-and-the-overall-procedure">2. Let’s specify the template and the overall procedure</a></li>
+  <li><a href="#final-test-run-the-experiment-several-times-and-look-at-the-results-file" id="toc-final-test-run-the-experiment-several-times-and-look-at-the-results-file" class="nav-link" data-scroll-target="#final-test-run-the-experiment-several-times-and-look-at-the-results-file">3. Final test: Run the experiment several times and look at the results file</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -457,6 +511,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../course-materials/week7.html">Part 2: Designing a web-based questionnaire</a></li><li class="breadcrumb-item"><a href="../course-materials/week8.html">Week 8: More complex questionnaires with PCIbex</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms</h1>
+<p class="subtitle lead">CHC9012 | National Taiwan Normal University</p>
 </div>
 
 
@@ -473,9 +528,648 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>[To complete later]</p>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This week, we will discuss how to set the parameters of a template to obtain a more simple and yet more powerful script. By the end of this week, you will have the script of your very final experiment ready!</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals &amp; key concepts</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>How to optimize your script:</strong></p>
+<ul>
+<li><strong>Template:</strong> How to create a script that can run automatically through all the trials?</li>
+<li><strong>Randomization:</strong> How to present the trials using a random order?</li>
+<li><strong>Counterbalancing:</strong> How to counterbalance the items using a Latin square design?</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>A brief summary of the essential elements:</strong></p>
+<ul>
+<li><code>Template(...)</code>: Used to introduce a trial template.</li>
+<li><code>Sequence(...)</code>: Used to control the order of the different parts of the experiment.</li>
+<li><code>randomize(...)</code>: Used to present the trials using a random order.</li>
+<li><code>newVar(...)</code>: Used to create a new variable.</li>
+<li><code>getX(...)</code>: Used to obtained the content given by the participants in a specific element (example: <code>getTextInput(...)</code>, <code>getDropDown(...)</code>, etc.)</li>
+<li><code>getVar(...)</code>: Used to obtain the content of an element stored in a variable (i.e., within <code>newVar(...)</code>).</li>
+</ul>
+<br>
+<div class="text-center mb-3">
+<p><a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/main_Week8.js" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the full script </a></p>
+</div>
+<div class="text-center mb-4">
+<p><a href="https://farm.pcibex.net/r/VWCdcX/" class="btn btn-primary btn-lg" target="_blank"> <i class="bi bi-link-45deg"></i> Experiment from the script covered this week </a></p>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>Please complete the following tasks before our next meeting:</strong></p>
+<ul>
+<li>Download the script of this week</li>
+<li>Annotate each line of code (use your own words, these annotations are for your own reference!)</li>
+<li>Upload the annotated script on Moodle (you can upload the <code>.js</code> file, or a Word or PDF file)</li>
+</ul>
+</div>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="lets-simplify-and-automatize-the-process" class="level2">
+<h2 class="anchored" data-anchor-id="lets-simplify-and-automatize-the-process">1. Let’s simplify and automatize the process</h2>
+<section id="creation-of-the-template" class="level3">
+<h3 class="anchored" data-anchor-id="creation-of-the-template">1.1 Creation of the template</h3>
+<p>So far, we created an experiment following this structure:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])
+  B ==&gt; C([🧪 Experimental trials])
+  C ==&gt; D([🏁 Goodbye page])
+  
+  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px
+  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px
+  style C fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>But more precisely, it looks like that, with multiple trials:</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])
+  
+  subgraph Exp [🧪 Experimental trials]
+    C1([Trial 1]) --&gt; C2([Trial 2]) --&gt; C3([Trial 3]) --&gt; C4([Trial 4]) -.-&gt; C5([Last Trial])
+  end
+  
+  B ==&gt; C1
+  C5 ==&gt; D([🏁 Goodbye page])
+  
+  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px
+  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px
+  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px
+  
+  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C2 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C3 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C4 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  
+  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>As we saw last week, we could type all the trials individually. Alternatively, there is a much more efficient way to go. We provide the details below.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true"><strong>A. Create the material table</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false"><strong>B. Update the existing code</strong></a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<p>Instead of typing the trials in the script, we create a table where we can list them. Let’s say we have 8 sentences, divided between 2 conditions (so 4 sentences per condition)</p>
+<style>
+  th { text-transform: none !important; }
+</style>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">ItemNo</th>
+<th style="text-align: left;">Sentence</th>
+<th style="text-align: left;">Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">This is the first sentence</td>
+<td style="text-align: left;">Grammatical</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">This is the second sentence</td>
+<td style="text-align: left;">Grammatical</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">This is the third sentence</td>
+<td style="text-align: left;">Grammatical</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">This is the fourth sentence</td>
+<td style="text-align: left;">Grammatical</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">This are the fifth sentence</td>
+<td style="text-align: left;">Ungrammatical</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">This are the sixth sentence</td>
+<td style="text-align: left;">Ungrammatical</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">This are the seventh sentence</td>
+<td style="text-align: left;">Ungrammatical</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">This are the eighth sentence</td>
+<td style="text-align: left;">Ungrammatical</td>
+</tr>
+</tbody>
+</table>
+<p>We need to have this tables under the <code>Resources</code> part on the left of the interface. One way to do is to open an Excel document, save it into a <code>.csv</code> file (columns seperated by commas), and upload on PCIbex. This is the most convenient way to go, especially when you have a lot of information.</p>
+<p>Instead, we are going to create it directly for this tutorial. Right next to the <code>Resources</code> part, you can click on the <code>+ (Create new file)</code> sign, and you rename it to: <code>material.csv</code>. You will see the logo changing to something similar to: <i class="bi bi-file-earmark-spreadsheet" style="color: #198754;"></i>.</p>
+<p>After that, you click on the file, and it will open it next to the script. You just have to copy and paste the following section inside (the commas <code>,</code> indicate different columns).</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>ItemNo,Sentence,Condition</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">1,This is the first sentence,Grammatical</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="dt">2,This is the second sentence,Grammatical</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="dt">3,This is the third sentence,Grammatical</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">4,This is the fourth sentence,Grammatical</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="dt">5,This are the fifth sentence,Ungrammatical</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="dt">6,This are the sixth sentence,Ungrammatical</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="dt">7,This are the seventh sentence,Ungrammatical</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="dt">8,This are the eighth sentence,Ungrammatical</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p>Now that we have our materials uploaded onto PCIbex, we just need to modify the script that we already have. As a reminder, this is what it looked like with two trials:</p>
+<div class="callout callout-style-default callout-note callout-titled" title="Previous script">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Previous script
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-1" class="callout-1-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb2"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>/// 3. Experimental trials</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>newTrial("Experiment",</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    newText("FirstSentence", "This is another grammatical sentence")</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        .labelsPosition("bottom")</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>        .before(newText("Not acceptable"))</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>        .after(newText("Acceptable"))</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        .wait()</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>newTrial("Experiment",</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    newText("SecondSentence", "This sentence not is grammatical")</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>        .labelsPosition("bottom")</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>        .before(newText("Not acceptable"))</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>        .after(newText("Acceptable"))</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>        .wait()</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<p>We actually just need to update that a little bit… and you will realize that it will even look easier than what we wrote! More specifically:</p>
+<ul>
+<li>We must specify that we are dealing with a <em>template</em> using the <code>Template()</code> function. The content of the template (i.e., the trials) is found within the parentheses.</li>
+<li>We must also specify the name of the file where the trials can be found, we change the file into a variable to refer to (here, the name of the variable is <code>row</code>), and which column corresponds to the trials to display on the screen (here, the column is called <code>Sentence</code>; <code>row.Sentence</code> means that it is the column called <em>Sentence</em> in the file corresponding to the variable <em>row</em>).</li>
+<li>Importantly, we delete all other <code>newTrial()</code> elements. We only need one within the template.</li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>/// 3. Experimental trials</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="va">+ Template("material.csv", row =&gt; </span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>newTrial("Experiment",</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="st">-    newText("FirstSentence", "This is another grammatical sentence")</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="va">+    newText("Sentence", row.Sentence)</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>        .log()</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>        .labelsPosition("bottom")</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>        .before(newText("Not acceptable"))</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>        .after(newText("Acceptable"))</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>        .wait()</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>        .log()</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="va">+ ) // This is the closing parenthesis corresponding to `Template()`</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a><span class="st">- newTrial("Experiment",</span></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a><span class="st">-     newText("SecondSentence", "This sentence not is grammatical")</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a><span class="st">-         .print()</span></span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a><span class="st">-         .center()</span></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="st">-     ,</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="st">-     newScale("Scale", "1", "2", "3", "4", "5", "6", "7")</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="st">-         .labelsPosition("bottom")</span></span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true" tabindex="-1"></a><span class="st">-         .before(newText("Not acceptable"))</span></span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true" tabindex="-1"></a><span class="st">-         .after(newText("Acceptable"))</span></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true" tabindex="-1"></a><span class="st">-         .print()</span></span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true" tabindex="-1"></a><span class="st">-         .center()</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true" tabindex="-1"></a><span class="st">-         .wait()</span></span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true" tabindex="-1"></a><span class="st">-    )</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>And that’s all, we are done!</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="log-with-a-template" class="level3">
+<h3 class="anchored" data-anchor-id="log-with-a-template">1.2 <code>log()</code> with a template</h3>
+<p>If you run the experiment and look at the results file, you will see that you can find the judgments given by the participants. But we may want more information in the results file:</p>
+<ul>
+<li>The ID of the sentence,</li>
+<li>The sentence itself,</li>
+<li>The experimental condition,</li>
+<li>And other information found in the material table.</li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>/// 3. Experimental trials</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>Template("material.csv", row =&gt; </span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>newTrial("Experiment",</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    newText("Sentence", row.Sentence)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="st">-        .log() // Since we know it does not work, let's delete it</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")</span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>        .labelsPosition("bottom")</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a>        .before(newText("Not acceptable"))</span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a>        .after(newText("Acceptable"))</span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a>        .wait()</span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>        .log()</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a><span class="va">+    .log("ItemNo", row.ItemNo)</span></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="va">+    .log("Sentence", row.Sentence)</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a><span class="va">+    .log("Condition", row.Condition)</span></span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>In addition, since the participants provide background information, we would like to add these details in the same line as well! But such information is not found in a seperate file, they are provided by the participants themselves. This is therefore <strong><em>a two-step process</em></strong> to store such information in the results file, as follows:</p>
+<div style="display: flex; justify-content: center;">
+<div style="width: 50%;">
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A(["👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;"]) ==&gt; B(["🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;"])
+  
+  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px
+  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<ul>
+<li><strong><em>Step 1</em></strong> - Define the variable when the participants provide their information. We create a new variable (think as if we create a new column) called “Age” with the <code>newVar()</code> element. Then we set the content of this variable. We need to tell PCIbex where to find it with the <code>getTextInput()</code> element. In the same code, we have an element called <code>newTextInput("Age")</code>, therefore we need to use the same name: <code>getTextInput("Age")</code>. We need to do the same with other elements we want to keep, hence the <code>getDropDown("Degree")</code> element.</li>
+</ul>
+<div class="sourceCode" id="cb5"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>// 1.2 Background questionnaire</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>newTrial("Background information",</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>    newText("We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.")</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    newText("Your age:")</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    newTextInput("Age")</span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>        .log("final")</span>
+<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    newText("Your highest degree:")</span>
+<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    newDropDown("Degree", "Please select one option")</span>
+<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>        .add("Elementary school", "Junior high school", "Senior high school", "BA", "MA", "Ph.D.")</span>
+<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>        .log()</span>
+<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    newButton("Continue")</span>
+<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb5-30"><a href="#cb5-30" aria-hidden="true" tabindex="-1"></a>        .wait()</span>
+<span id="cb5-31"><a href="#cb5-31" aria-hidden="true" tabindex="-1"></a><span class="va">+    ,</span></span>
+<span id="cb5-32"><a href="#cb5-32" aria-hidden="true" tabindex="-1"></a><span class="va">+    newVar("Age")</span></span>
+<span id="cb5-33"><a href="#cb5-33" aria-hidden="true" tabindex="-1"></a><span class="va">+        .global()</span></span>
+<span id="cb5-34"><a href="#cb5-34" aria-hidden="true" tabindex="-1"></a><span class="va">+        .set(getTextInput("Age"))</span></span>
+<span id="cb5-35"><a href="#cb5-35" aria-hidden="true" tabindex="-1"></a><span class="va">+    ,</span></span>
+<span id="cb5-36"><a href="#cb5-36" aria-hidden="true" tabindex="-1"></a><span class="va">+    newVar("Degree")</span></span>
+<span id="cb5-37"><a href="#cb5-37" aria-hidden="true" tabindex="-1"></a><span class="va">+        .global()</span></span>
+<span id="cb5-38"><a href="#cb5-38" aria-hidden="true" tabindex="-1"></a><span class="va">+        .set(getDropDown("Degree"))</span></span>
+<span id="cb5-39"><a href="#cb5-39" aria-hidden="true" tabindex="-1"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li><strong><em>Step 2</em></strong> - Store the information along with the results of each trial. We just need to add two lines, starting with the <code>.log()</code> command that we are very familiar with. We need to use the <code>getVar()</code> element to say “grasp the information from this variable”.</li>
+</ul>
+<div class="sourceCode" id="cb6"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>/// 3. Experimental trials</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>Template("material.csv", row =&gt; </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>newTrial("Experiment",</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    newText("Sentence", row.Sentence)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        .log()</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        .labelsPosition("bottom")</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        .before(newText("Not acceptable"))</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        .after(newText("Acceptable"))</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        .wait()</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        .log()</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>    .log("ItemNo", row.ItemNo)</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    .log("Condition", row.Condition)</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="va">+    .log("Age", getVar("Age"))</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="va">+    .log("Degree", getVar("Degree"))</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+</section>
+<section id="lets-specify-the-template-and-the-overall-procedure" class="level2">
+<h2 class="anchored" data-anchor-id="lets-specify-the-template-and-the-overall-procedure">2. Let’s specify the template and the overall procedure</h2>
+<p>We are almost done with the parameters of the experiment! Now that we are using the <code>Template()</code> element, we can set additional parameters.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true"><strong>A. Sequence and randomization</strong></a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false"><strong>B. Counterbalancing</strong></a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>We can specify the sequence of the whole experiment right at the beginning of the script. In other words, we want to translate this figure into PCIbex language.</p>
+<div class="cell" data-layout-align="default">
+<div class="cell-output-display">
+<div>
+<p></p><figure class="figure"><p></p>
+<div>
+<pre class="mermaid mermaid-js">flowchart LR
+  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])
+  
+  subgraph Exp [🧪 Experimental trials]
+    C1([Trial 1]) --&gt; C2([Trial 2]) --&gt; C3([Trial 3]) --&gt; C4([Trial 4]) -.-&gt; C5([Last Trial])
+  end
+  
+  B ==&gt; C1
+  C5 ==&gt; D([🏁 Goodbye page])
+  
+  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px
+  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px
+  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px
+  
+  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C2 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C3 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C4 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  
+  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5
+</pre>
+</div>
+<p></p></figure><p></p>
+</div>
+</div>
+</div>
+<p>We can do that using the <code>Sequence()</code> element, as below:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>Sequence("Welcome page", "Background information", "Instructions", "AnnouncementPractice", "Practice", "AnnouncementEndPractice", "Experiment", "Goodbye")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>But we will run into a problem. We did not specify <em>when</em> to send the results! To do that, we must give a name to the <code>SendResults()</code> element that we placed right before the ‘goodbye page’, and include it in the <code>Sequence()</code> element.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>PennController.ResetPrefix(null)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="va">+ Sequence("Welcome page", "Background information", "Instructions", "AnnouncementPractice", "Practice", "AnnouncementEndPractice", "Experiment", "Send" "Goodbye")</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>/// 1. Welcome page</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>// 1.1 Hello page, ICF</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>newTrial("Welcome page",</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>// 1.2 Background questionnaire</span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>newTrial("Background information",</span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>// 1.3 Instructions</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>newTrial("Instructions",</span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>/// 2. Practice trials</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>newTrial("AnnouncementPractice",</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a>newTrial("Practice",</span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a>newTrial("AnnouncementEndPractice",</span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>/// 3. Experimental trials</span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>Template("material.csv", row =&gt; </span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>newTrial("Experiment",</span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a>/// 4. Goodbye page</span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="va">+ SendResults("Send")</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a>newTrial("Goodbye",</span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>...</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>        )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>With the <code>Sequence()</code> element, we just need to specify which part of the experiment needs to be presented in random order, using the <code>randomize()</code> element, as below.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>Sequence("Welcome page", "Background information", "Instructions", "AnnouncementPractice", "Practice", "AnnouncementEndPractice",</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="va">+ randomize("Experiment"), </span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>"Send", "Goodbye")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Our last step concerns Latin square designs, i.e., when we want to counterbalance the items and present different ones to different participants for some reasons. So far, we have 8 sentences dispatched into 2 conditions, so 4 items per condition. Now, let’s say that we only want to present the two first sentences from each condition to Participant 1, and the last two sentences to Participant 2, and so on.</p>
+<p>With PCIbex, we can specify the lists directly in the material table. We just need to have a column called <code>group</code>, and PCIbex will automatically identify that these corresponds to different lists in a Latin square design. My habit is to use ‘A’, ‘B’, etc. to specify the lists, such that there is no confusion with the item IDs.</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">ItemNo</th>
+<th style="text-align: left;">Sentence</th>
+<th style="text-align: left;">Condition</th>
+<th style="text-align: left;">group</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">This is the first sentence</td>
+<td style="text-align: left;">Grammatical</td>
+<td style="text-align: left;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">This is the second sentence</td>
+<td style="text-align: left;">Grammatical</td>
+<td style="text-align: left;">A</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">This is the third sentence</td>
+<td style="text-align: left;">Grammatical</td>
+<td style="text-align: left;">B</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">This is the fourth sentence</td>
+<td style="text-align: left;">Grammatical</td>
+<td style="text-align: left;">B</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">This are the fifth sentence</td>
+<td style="text-align: left;">Ungrammatical</td>
+<td style="text-align: left;">A</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">This are the sixth sentence</td>
+<td style="text-align: left;">Ungrammatical</td>
+<td style="text-align: left;">A</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">This are the seventh sentence</td>
+<td style="text-align: left;">Ungrammatical</td>
+<td style="text-align: left;">B</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">This are the eighth sentence</td>
+<td style="text-align: left;">Ungrammatical</td>
+<td style="text-align: left;">B</td>
+</tr>
+</tbody>
+</table>
+<p>In the end, the content of <code>material.csv</code> looks like this:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>ItemNo,Sentence,Condition,group</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="dt">1,This is the first sentence,Grammatical,A</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="dt">2,This is the second sentence,Grammatical,A</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="dt">3,This is the third sentence,Grammatical,B</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="dt">4,This is the fourth sentence,Grammatical,B</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="dt">5,This are the fifth sentence,Ungrammatical,A</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="dt">6,This are the sixth sentence,Ungrammatical,A</span></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="dt">7,This are the seventh sentence,Ungrammatical,B</span></span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="dt">8,This are the eighth sentence,Ungrammatical,B</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Finally, to keep track of which list the participants saw, we need to use the <code>.log()</code> command!</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>/// 3. Experimental trials</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>Template("material.csv", row =&gt; </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>newTrial("Experiment",</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    newText("Sentence", row.Sentence)</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")</span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>        .labelsPosition("bottom")</span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>        .before(newText("Not acceptable"))</span>
+<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>        .after(newText("Acceptable"))</span>
+<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>        .wait()</span>
+<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        .log()</span>
+<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    .log("ItemNo", row.ItemNo)</span>
+<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    .log("Condition", row.Condition)</span>
+<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    .log("Sentence", row.Sentence)</span>
+<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a><span class="va">+    .log("List", row.group)</span></span>
+<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>    .log("Age", getVar("Age"))</span>
+<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    .log("Degree", getVar("Degree"))</span>
+<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="final-test-run-the-experiment-several-times-and-look-at-the-results-file" class="level2">
+<h2 class="anchored" data-anchor-id="final-test-run-the-experiment-several-times-and-look-at-the-results-file">3. Final test: Run the experiment several times and look at the results file</h2>
+<p>A good practice, when everything is set, is to run the experiments several times as if we were pretending that we are different participants. We can first check that this is indeed what we want the participants to see, and also that the results file is in order.</p>
+<p>I just ran the experiment two times, here is what the results file look like. It is also a good practice to prepare a checklist, such that we know what to expect.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Checklist for the results file
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul class="task-list">
+<li><label><input type="checkbox">Are there two participants?</label></li>
+<li><label><input type="checkbox">4 trials per participant?</label></li>
+<li><label><input type="checkbox">Trials from different lists/group?</label></li>
+<li><label><input type="checkbox">Can I see the sentence? The ItemNo? The condition?</label></li>
+<li><label><input type="checkbox">Can I see the age of the participants? Their degree?</label></li>
+<li><label><input type="checkbox">Can I see their choice/judgment?</label></li>
+<li><label><input type="checkbox">Were the sentences randomly presented?</label></li>
+<li><label><input type="checkbox">Other checks we can think of.</label></li>
+</ul>
+</div>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="Images/Results_Week8.png" class="lightbox" data-gallery="quarto-lightbox-gallery-1" title="Click on the image to zoom in"><img src="Images/Results_Week8.png" class="img-fluid figure-img" width="450" alt="Click on the image to zoom in"></a></p>
+<figcaption><em>Click on the image to zoom in</em></figcaption>
+</figure>
+</div>
+<p>Note that I rearranged the results file to fit in one image. It looks quite disorganized, but we will learn in the last part of this course how to handle that without headaches.</p>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📝 Assignment for next week
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please complete the following tasks before our next meeting:</p>
+<ul>
+<li>Download the script of this week</li>
+<li>Annotate each line of code (use your own words, these annotations are for your own reference!)</li>
+<li>Upload the annotated script on Moodle (you can upload the <code>.js</code> file, or a Word or PDF file)</li>
+</ul>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -898,12 +1592,44 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This website is built with Quarto</p>
 </div>
   </div>
 </footer>
+<script>var lightboxQuarto = GLightbox({"closeEffect":"zoom","descPosition":"bottom","loop":false,"openEffect":"zoom","selector":".lightbox"});
+(function() {
+  let previousOnload = window.onload;
+  window.onload = () => {
+    if (previousOnload) {
+      previousOnload();
+    }
+    lightboxQuarto.on('slide_before_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      const href = trigger.getAttribute('href');
+      if (href !== null) {
+        const imgEl = window.document.querySelector(`a[href="${href}"] img`);
+        if (imgEl !== null) {
+          const srcAttr = imgEl.getAttribute("src");
+          if (srcAttr && srcAttr.startsWith("data:")) {
+            slideConfig.href = srcAttr;
+          }
+        }
+      } 
+    });
+  
+    lightboxQuarto.on('slide_after_load', (data) => {
+      const { slideIndex, slideNode, slideConfig, player, trigger } = data;
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(slideNode);
+      }
+    });
+  
+  };
+  
+})();
+          </script>
 
 
 

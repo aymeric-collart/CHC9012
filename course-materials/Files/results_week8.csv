@@ -1,0 +1,218 @@
+#
+# Results on Mon, 30 Mar 2026 09:30:25 GMT
+# USER AGENT: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+# Design number was non-random = 9
+#
+# Columns below this comment are as follows:
+# 1. Results reception time.
+# 2. MD5 hash of participant's IP address.
+# 3. Controller name.
+# 4. Order number of item.
+# 5. Inner element number.
+# 6. Label.
+# 7. Latin Square Group.
+# 8. PennElementType.
+# 9. PennElementName.
+# 10. Parameter.
+# 11. Value.
+# 12. EventTime.
+# 13. Comments.
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,0,0,Welcome page,NULL,PennController,0,_Trial_,Start,1774863009067,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,0,0,Welcome page,NULL,PennController,0,_Trial_,End,1774863010230,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,PennController,1,_Trial_,Start,1774863010233,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,TextInput,Age,Final,56,1774863015961,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,DropDown,Degree,Selected,Ph.D.,1774863015325,5
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,PennController,1,_Trial_,End,1774863015961,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,2,0,Instructions,NULL,PennController,2,_Trial_,Start,1774863015963,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,2,0,Instructions,NULL,DropDown,InstructionsCheck,Selected,I read and understood the instructions.,1774863017707,0
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,2,0,Instructions,NULL,PennController,2,_Trial_,End,1774863018121,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,3,0,AnnouncementPractice,NULL,PennController,3,_Trial_,Start,1774863018123,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,3,0,AnnouncementPractice,NULL,PennController,3,_Trial_,End,1774863019063,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,PennController,4,_Trial_,Start,1774863019065,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,Text,FirstPractice,Print,NA,1774863019065,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,Scale,Scale,Choice,7,1774863021195,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,PennController,4,_Trial_,End,1774863021197,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,5,0,AnnouncementEndPractice,NULL,PennController,5,_Trial_,Start,1774863021199,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,5,0,AnnouncementEndPractice,NULL,PennController,5,_Trial_,End,1774863021869,NULL
+# 13. ItemNo.
+# 14. Condition.
+# 15. Sentence.
+# 16. Age.
+# 17. Degree.
+# 18. Comments.
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,7,0,Experiment,NULL,PennController,8,_Trial_,Start,1774863021871,4,Grammatical,This is the fourth sentence,56,Ph.D.,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,7,0,Experiment,NULL,Scale,Scale,Choice,5,1774863023097,4,Grammatical,This is the fourth sentence,56,Ph.D.,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,7,0,Experiment,NULL,PennController,8,_Trial_,End,1774863023099,4,Grammatical,This is the fourth sentence,56,Ph.D.,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,8,0,Experiment,NULL,PennController,9,_Trial_,Start,1774863023101,7,Ungrammatical,This are the seventh sentence,56,Ph.D.,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,8,0,Experiment,NULL,Scale,Scale,Choice,2,1774863023790,7,Ungrammatical,This are the seventh sentence,56,Ph.D.,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,8,0,Experiment,NULL,PennController,9,_Trial_,End,1774863023792,7,Ungrammatical,This are the seventh sentence,56,Ph.D.,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,9,0,Experiment,NULL,PennController,10,_Trial_,Start,1774863023794,8,Ungrammatical,This are the eighth sentence,56,Ph.D.,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,9,0,Experiment,NULL,Scale,Scale,Choice,5,1774863024286,8,Ungrammatical,This are the eighth sentence,56,Ph.D.,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,9,0,Experiment,NULL,PennController,10,_Trial_,End,1774863024288,8,Ungrammatical,This are the eighth sentence,56,Ph.D.,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,6,0,Experiment,NULL,PennController,7,_Trial_,Start,1774863024290,3,Grammatical,This is the third sentence,56,Ph.D.,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,6,0,Experiment,NULL,Scale,Scale,Choice,7,1774863025107,3,Grammatical,This is the third sentence,56,Ph.D.,NULL
+1774863025,29fde330aae1a6e9962441b9321f32ca,PennController,6,0,Experiment,NULL,PennController,7,_Trial_,End,1774863025109,3,Grammatical,This is the third sentence,56,Ph.D.,NULL
+#
+# Results on Mon, 30 Mar 2026 09:30:48 GMT
+# USER AGENT: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+# Design number was non-random = 10
+#
+# Columns below this comment are as follows:
+# 1. Results reception time.
+# 2. MD5 hash of participant's IP address.
+# 3. Controller name.
+# 4. Order number of item.
+# 5. Inner element number.
+# 6. Label.
+# 7. Latin Square Group.
+# 8. PennElementType.
+# 9. PennElementName.
+# 10. Parameter.
+# 11. Value.
+# 12. EventTime.
+# 13. Comments.
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,0,0,Welcome page,NULL,PennController,0,_Trial_,Start,1774863035545,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,0,0,Welcome page,NULL,PennController,0,_Trial_,End,1774863036241,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,PennController,1,_Trial_,Start,1774863036245,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,TextInput,Age,Final,23,1774863041538,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,DropDown,Degree,Selected,BA,1774863041086,3
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,PennController,1,_Trial_,End,1774863041538,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,2,0,Instructions,NULL,PennController,2,_Trial_,Start,1774863041540,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,2,0,Instructions,NULL,DropDown,InstructionsCheck,Selected,I read and understood the instructions.,1774863043182,0
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,2,0,Instructions,NULL,PennController,2,_Trial_,End,1774863043637,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,3,0,AnnouncementPractice,NULL,PennController,3,_Trial_,Start,1774863043639,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,3,0,AnnouncementPractice,NULL,PennController,3,_Trial_,End,1774863044427,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,PennController,4,_Trial_,Start,1774863044429,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,Text,FirstPractice,Print,NA,1774863044430,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,Scale,Scale,Choice,1,1774863045301,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,PennController,4,_Trial_,End,1774863045303,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,5,0,AnnouncementEndPractice,NULL,PennController,5,_Trial_,Start,1774863045305,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,5,0,AnnouncementEndPractice,NULL,PennController,5,_Trial_,End,1774863045989,NULL
+# 13. ItemNo.
+# 14. Condition.
+# 15. Sentence.
+# 16. Age.
+# 17. Degree.
+# 18. Comments.
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,9,0,Experiment,NULL,PennController,10,_Trial_,Start,1774863045992,6,Ungrammatical,This are the sixth sentence,23,BA,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,9,0,Experiment,NULL,Scale,Scale,Choice,3,1774863046832,6,Ungrammatical,This are the sixth sentence,23,BA,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,9,0,Experiment,NULL,PennController,10,_Trial_,End,1774863046834,6,Ungrammatical,This are the sixth sentence,23,BA,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,8,0,Experiment,NULL,PennController,9,_Trial_,Start,1774863046836,5,Ungrammatical,This are the fifth sentence,23,BA,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,8,0,Experiment,NULL,Scale,Scale,Choice,1,1774863047865,5,Ungrammatical,This are the fifth sentence,23,BA,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,8,0,Experiment,NULL,PennController,9,_Trial_,End,1774863047867,5,Ungrammatical,This are the fifth sentence,23,BA,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,6,0,Experiment,NULL,PennController,7,_Trial_,Start,1774863047869,1,Grammatical,This is the first sentence,23,BA,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,6,0,Experiment,NULL,Scale,Scale,Choice,4,1774863048283,1,Grammatical,This is the first sentence,23,BA,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,6,0,Experiment,NULL,PennController,7,_Trial_,End,1774863048285,1,Grammatical,This is the first sentence,23,BA,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,7,0,Experiment,NULL,PennController,8,_Trial_,Start,1774863048287,2,Grammatical,This is the second sentence,23,BA,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,7,0,Experiment,NULL,Scale,Scale,Choice,7,1774863048824,2,Grammatical,This is the second sentence,23,BA,NULL
+1774863048,29fde330aae1a6e9962441b9321f32ca,PennController,7,0,Experiment,NULL,PennController,8,_Trial_,End,1774863048825,2,Grammatical,This is the second sentence,23,BA,NULL
+#
+# Results on Mon, 30 Mar 2026 09:34:23 GMT
+# USER AGENT: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+# Design number was non-random = 11
+#
+# Columns below this comment are as follows:
+# 1. Results reception time.
+# 2. MD5 hash of participant's IP address.
+# 3. Controller name.
+# 4. Order number of item.
+# 5. Inner element number.
+# 6. Label.
+# 7. Latin Square Group.
+# 8. PennElementType.
+# 9. PennElementName.
+# 10. Parameter.
+# 11. Value.
+# 12. EventTime.
+# 13. Comments.
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,0,0,Welcome page,NULL,PennController,0,_Trial_,Start,1774863249108,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,0,0,Welcome page,NULL,PennController,0,_Trial_,End,1774863250066,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,PennController,1,_Trial_,Start,1774863250069,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,TextInput,Age,Final,25,1774863254912,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,DropDown,Degree,Selected,MA,1774863254431,4
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,PennController,1,_Trial_,End,1774863254913,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,2,0,Instructions,NULL,PennController,2,_Trial_,Start,1774863254914,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,2,0,Instructions,NULL,DropDown,InstructionsCheck,Selected,I read and understood the instructions.,1774863256814,0
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,2,0,Instructions,NULL,PennController,2,_Trial_,End,1774863257283,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,3,0,AnnouncementPractice,NULL,PennController,3,_Trial_,Start,1774863257285,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,3,0,AnnouncementPractice,NULL,PennController,3,_Trial_,End,1774863258060,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,PennController,4,_Trial_,Start,1774863258062,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,Text,FirstPractice,Print,NA,1774863258062,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,Scale,Scale,Choice,2,1774863259529,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,PennController,4,_Trial_,End,1774863259530,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,5,0,AnnouncementEndPractice,NULL,PennController,5,_Trial_,Start,1774863259533,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,5,0,AnnouncementEndPractice,NULL,PennController,5,_Trial_,End,1774863260160,NULL
+# 13. ItemNo.
+# 14. Condition.
+# 15. Sentence.
+# 16. List.
+# 17. Age.
+# 18. Degree.
+# 19. Comments.
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,6,0,Experiment,NULL,PennController,7,_Trial_,Start,1774863260162,3,Grammatical,This is the third sentence,B,25,MA,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,6,0,Experiment,NULL,Scale,Scale,Choice,6,1774863261270,3,Grammatical,This is the third sentence,B,25,MA,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,6,0,Experiment,NULL,PennController,7,_Trial_,End,1774863261272,3,Grammatical,This is the third sentence,B,25,MA,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,8,0,Experiment,NULL,PennController,9,_Trial_,Start,1774863261274,7,Ungrammatical,This are the seventh sentence,B,25,MA,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,8,0,Experiment,NULL,Scale,Scale,Choice,4,1774863261958,7,Ungrammatical,This are the seventh sentence,B,25,MA,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,8,0,Experiment,NULL,PennController,9,_Trial_,End,1774863261959,7,Ungrammatical,This are the seventh sentence,B,25,MA,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,9,0,Experiment,NULL,PennController,10,_Trial_,Start,1774863261959,8,Ungrammatical,This are the eighth sentence,B,25,MA,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,9,0,Experiment,NULL,Scale,Scale,Choice,2,1774863262411,8,Ungrammatical,This are the eighth sentence,B,25,MA,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,9,0,Experiment,NULL,PennController,10,_Trial_,End,1774863262413,8,Ungrammatical,This are the eighth sentence,B,25,MA,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,7,0,Experiment,NULL,PennController,8,_Trial_,Start,1774863262415,4,Grammatical,This is the fourth sentence,B,25,MA,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,7,0,Experiment,NULL,Scale,Scale,Choice,1,1774863263790,4,Grammatical,This is the fourth sentence,B,25,MA,NULL
+1774863263,29fde330aae1a6e9962441b9321f32ca,PennController,7,0,Experiment,NULL,PennController,8,_Trial_,End,1774863263792,4,Grammatical,This is the fourth sentence,B,25,MA,NULL
+#
+# Results on Mon, 30 Mar 2026 09:34:42 GMT
+# USER AGENT: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/146.0.0.0 Safari/537.36
+# Design number was non-random = 12
+#
+# Columns below this comment are as follows:
+# 1. Results reception time.
+# 2. MD5 hash of participant's IP address.
+# 3. Controller name.
+# 4. Order number of item.
+# 5. Inner element number.
+# 6. Label.
+# 7. Latin Square Group.
+# 8. PennElementType.
+# 9. PennElementName.
+# 10. Parameter.
+# 11. Value.
+# 12. EventTime.
+# 13. Comments.
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,0,0,Welcome page,NULL,PennController,0,_Trial_,Start,1774863270605,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,0,0,Welcome page,NULL,PennController,0,_Trial_,End,1774863273000,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,PennController,1,_Trial_,Start,1774863273003,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,TextInput,Age,Final,58,1774863276948,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,DropDown,Degree,Selected,Junior high school,1774863276576,1
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,1,0,Background information,NULL,PennController,1,_Trial_,End,1774863276949,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,2,0,Instructions,NULL,PennController,2,_Trial_,Start,1774863276951,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,2,0,Instructions,NULL,DropDown,InstructionsCheck,Selected,I read and understood the instructions.,1774863278715,0
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,2,0,Instructions,NULL,PennController,2,_Trial_,End,1774863279060,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,3,0,AnnouncementPractice,NULL,PennController,3,_Trial_,Start,1774863279063,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,3,0,AnnouncementPractice,NULL,PennController,3,_Trial_,End,1774863279916,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,PennController,4,_Trial_,Start,1774863279918,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,Text,FirstPractice,Print,NA,1774863279919,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,Scale,Scale,Choice,7,1774863280665,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,4,0,Practice,NULL,PennController,4,_Trial_,End,1774863280667,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,5,0,AnnouncementEndPractice,NULL,PennController,5,_Trial_,Start,1774863280670,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,5,0,AnnouncementEndPractice,NULL,PennController,5,_Trial_,End,1774863281296,NULL
+# 13. ItemNo.
+# 14. Condition.
+# 15. Sentence.
+# 16. List.
+# 17. Age.
+# 18. Degree.
+# 19. Comments.
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,9,0,Experiment,NULL,PennController,10,_Trial_,Start,1774863281298,6,Ungrammatical,This are the sixth sentence,A,58,Junior high school,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,9,0,Experiment,NULL,Scale,Scale,Choice,7,1774863282000,6,Ungrammatical,This are the sixth sentence,A,58,Junior high school,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,9,0,Experiment,NULL,PennController,10,_Trial_,End,1774863282002,6,Ungrammatical,This are the sixth sentence,A,58,Junior high school,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,7,0,Experiment,NULL,PennController,8,_Trial_,Start,1774863282004,2,Grammatical,This is the second sentence,A,58,Junior high school,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,7,0,Experiment,NULL,Scale,Scale,Choice,7,1774863282315,2,Grammatical,This is the second sentence,A,58,Junior high school,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,7,0,Experiment,NULL,PennController,8,_Trial_,End,1774863282316,2,Grammatical,This is the second sentence,A,58,Junior high school,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,8,0,Experiment,NULL,PennController,9,_Trial_,Start,1774863282317,5,Ungrammatical,This are the fifth sentence,A,58,Junior high school,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,8,0,Experiment,NULL,Scale,Scale,Choice,7,1774863282577,5,Ungrammatical,This are the fifth sentence,A,58,Junior high school,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,8,0,Experiment,NULL,PennController,9,_Trial_,End,1774863282579,5,Ungrammatical,This are the fifth sentence,A,58,Junior high school,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,6,0,Experiment,NULL,PennController,7,_Trial_,Start,1774863282581,1,Grammatical,This is the first sentence,A,58,Junior high school,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,6,0,Experiment,NULL,Scale,Scale,Choice,7,1774863282856,1,Grammatical,This is the first sentence,A,58,Junior high school,NULL
+1774863282,29fde330aae1a6e9962441b9321f32ca,PennController,6,0,Experiment,NULL,PennController,7,_Trial_,End,1774863282857,1,Grammatical,This is the first sentence,A,58,Junior high school,NULL

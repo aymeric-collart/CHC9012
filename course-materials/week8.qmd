@@ -1,6 +1,554 @@
 ---
 title: "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms"
-format: html
+subtitle: "CHC9012 | National Taiwan Normal University"
+editor: source
 ---
 
-[To complete later]
+## Overview
+
+This week, we will discuss how to set the parameters of a template to obtain a more simple and yet more powerful script. By the end of this week, you will have the script of your very final experiment ready!
+
+::: {.panel-tabset}
+
+## 🎯 Goals & key concepts
+**How to optimize your script:**
+
+- **Template:** How to create a script that can run automatically through all the trials?
+- **Randomization:** How to present the trials using a random order?
+- **Counterbalancing:** How to counterbalance the items using a Latin square design?
+
+## 💻 Necessary codes
+**A brief summary of the essential elements:**
+
+- `Template(...)`: Used to introduce a trial template.
+- `Sequence(...)`: Used to control the order of the different parts of the experiment.
+- `randomize(...)`: Used to present the trials using a random order.
+- `newVar(...)`: Used to create a new variable.
+- `getX(...)`: Used to obtained the content given by the participants in a specific element (example: `getTextInput(...)`, `getDropDown(...)`, etc.)
+- `getVar(...)`: Used to obtain the content of an element stored in a variable (i.e., within `newVar(...)`).
+
+<br>
+<div class="text-center mb-3">
+  <a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/main_Week8.js" class="btn btn-outline-primary btn-sm">
+    <i class="bi bi-download"></i> Download the full script
+  </a>
+</div>
+
+<div class="text-center mb-4">
+  <a href="https://farm.pcibex.net/r/VWCdcX/" class="btn btn-primary btn-lg" target="_blank">
+    <i class="bi bi-link-45deg"></i> Experiment from the script covered this week
+  </a>
+</div>
+
+## 📝 Homework
+**Please complete the following tasks before our next meeting:**
+
+- Download the script of this week
+- Annotate each line of code (use your own words, these annotations are for your own reference!)
+- Upload the annotated script on Moodle (you can upload the `.js` file, or a Word or PDF file)
+
+:::
+
+<br>
+
+## 1. Let's simplify and automatize the process
+
+### 1.1 Creation of the template
+
+So far, we created an experiment following this structure:
+
+```{mermaid}
+flowchart LR
+  A([👋 Welcome page]) ==> B([🛠️ Practice trials])
+  B ==> C([🧪 Experimental trials])
+  C ==> D([🏁 Goodbye page])
+  
+  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px
+  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px
+  style C fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px
+```
+
+But more precisely, it looks like that, with multiple trials:
+
+```{mermaid}
+flowchart LR
+  A([👋 Welcome page]) ==> B([🛠️ Practice trials])
+  
+  subgraph Exp [🧪 Experimental trials]
+    C1([Trial 1]) --> C2([Trial 2]) --> C3([Trial 3]) --> C4([Trial 4]) -.-> C5([Last Trial])
+  end
+  
+  B ==> C1
+  C5 ==> D([🏁 Goodbye page])
+  
+  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px
+  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px
+  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px
+  
+  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C2 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C3 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C4 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  
+  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5
+```
+
+As we saw last week, we could type all the trials individually. Alternatively, there is a much more efficient way to go. We provide the details below.
+
+::: {.panel-tabset}
+
+## **A. Create the material table**
+
+Instead of typing the trials in the script, we create a table where we can list them. Let's say we have 8 sentences, divided between 2 conditions (so 4 sentences per condition)
+
+<style>
+  th { text-transform: none !important; }
+</style>
+
+| ItemNo | Sentence | Condition |
+|:---|:---|:---|
+| 1 | This is the first sentence | Grammatical |
+| 2 | This is the second sentence | Grammatical |
+| 3 | This is the third sentence | Grammatical |
+| 4 | This is the fourth sentence | Grammatical |
+| 5 | This are the fifth sentence | Ungrammatical |
+| 6 | This are the sixth sentence | Ungrammatical |
+| 7 | This are the seventh sentence | Ungrammatical |
+| 8 | This are the eighth sentence | Ungrammatical |
+
+We need to have this tables under the `Resources` part on the left of the interface. One way to do is to open an Excel document, save it into a `.csv` file (columns seperated by commas), and upload on PCIbex. This is the most convenient way to go, especially when you have a lot of information.
+
+Instead, we are going to create it directly for this tutorial. Right next to the `Resources` part, you can click on the `+ (Create new file)` sign, and you rename it to: `material.csv`. You will see the logo changing to something similar to: <i class="bi bi-file-earmark-spreadsheet" style="color: #198754;"></i>.
+
+After that, you click on the file, and it will open it next to the script. You just have to copy and paste the following section inside (the commas `,` indicate different columns).
+
+```diff
+ItemNo,Sentence,Condition
+1,This is the first sentence,Grammatical
+2,This is the second sentence,Grammatical
+3,This is the third sentence,Grammatical
+4,This is the fourth sentence,Grammatical
+5,This are the fifth sentence,Ungrammatical
+6,This are the sixth sentence,Ungrammatical
+7,This are the seventh sentence,Ungrammatical
+8,This are the eighth sentence,Ungrammatical
+```
+
+## **B. Update the existing code**
+
+Now that we have our materials uploaded onto PCIbex, we just need to modify the script that we already have. As a reminder, this is what it looked like with two trials:
+
+
+::: {.callout-note collapse="true" title="Previous script"}
+
+```diff
+/// 3. Experimental trials
+
+newTrial("Experiment",
+    newText("FirstSentence", "This is another grammatical sentence")
+        .print()
+        .center()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
+    )
+    
+newTrial("Experiment",
+    newText("SecondSentence", "This sentence not is grammatical")
+        .print()
+        .center()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
+    )
+```
+:::
+
+We actually just need to update that a little bit... and you will realize that it will even look easier than what we wrote! More specifically:
+
+- We must specify that we are dealing with a *template* using the `Template()` function. The content of the template (i.e., the trials) is found within the parentheses.
+- We must also specify the name of the file where the trials can be found, we change the file into a variable to refer to (here, the name of the variable is `row`), and which column corresponds to the trials to display on the screen (here, the column is called `Sentence`; `row.Sentence` means that it is the column called *Sentence* in the file corresponding to the variable *row*).
+- Importantly, we delete all other `newTrial()` elements. We only need one within the template.
+
+```diff
+/// 3. Experimental trials
+
++ Template("material.csv", row => 
+newTrial("Experiment",
+-    newText("FirstSentence", "This is another grammatical sentence")
++    newText("Sentence", row.Sentence)
+        .print()
+        .center()
+        .log()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
+        .log()
+    )
++ ) // This is the closing parenthesis corresponding to `Template()`
+
+- newTrial("Experiment",
+-     newText("SecondSentence", "This sentence not is grammatical")
+-         .print()
+-         .center()
+-     ,
+-     newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+-         .labelsPosition("bottom")
+-         .before(newText("Not acceptable"))
+-         .after(newText("Acceptable"))
+-         .print()
+-         .center()
+-         .wait()
+-    )
+```
+
+And that's all, we are done!
+
+:::
+
+<hr>
+
+### 1.2 `log()` with a template
+
+If you run the experiment and look at the results file, you will see that you can find the judgments given by the participants. But we may want more information in the results file:
+
+- The ID of the sentence,
+- The sentence itself,
+- The experimental condition,
+- And other information found in the material table.
+
+```diff
+/// 3. Experimental trials
+
+Template("material.csv", row => 
+newTrial("Experiment",
+    newText("Sentence", row.Sentence)
+        .print()
+        .center()
+-        .log() // Since we know it does not work, let's delete it
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
+        .log()
+    )
++    .log("ItemNo", row.ItemNo)
++    .log("Sentence", row.Sentence)
++    .log("Condition", row.Condition)
+)
+```
+
+In addition, since the participants provide background information, we would like to add these details in the same line as well! But such information is not found in a seperate file, they are provided by the participants themselves. This is therefore ***a two-step process*** to store such information in the results file, as follows:
+
+::: {style="display: flex; justify-content: center;"}
+::: {style="width: 50%;"}
+
+```{mermaid}
+flowchart LR
+  A(["👋 Welcome page <br> <b>Define the variable</b>"]) ==> B(["🧪 Experimental trials <br> <b>Log the data</b>"])
+  
+  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px
+  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px
+```
+
+:::
+:::
+
+- ***Step 1*** - Define the variable when the participants provide their information. We create a new variable (think as if we create a new column) called "Age" with the `newVar()` element. Then we set the content of this variable. We need to tell PCIbex where to find it with the `getTextInput()` element. In the same code, we have an element called `newTextInput("Age")`, therefore we need to use the same name: `getTextInput("Age")`. We need to do the same with other elements we want to keep, hence the `getDropDown("Degree")` element.
+
+
+```diff
+// 1.2 Background questionnaire
+
+newTrial("Background information",
+    newText("We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.")
+        .print()
+        .center()
+    ,
+    newText("Your age:")
+        .print()
+        .center()
+    ,
+    newTextInput("Age")
+        .print()
+        .center()
+        .log("final")
+    ,
+    newText("Your highest degree:")
+        .print()
+        .center()
+    ,
+    newDropDown("Degree", "Please select one option")
+        .add("Elementary school", "Junior high school", "Senior high school", "BA", "MA", "Ph.D.")
+        .print()
+        .center()
+        .log()
+    ,
+    newButton("Continue")
+        .center()
+        .print()
+        .wait()
++    ,
++    newVar("Age")
++        .global()
++        .set(getTextInput("Age"))
++    ,
++    newVar("Degree")
++        .global()
++        .set(getDropDown("Degree"))
+    )
+```
+
+- ***Step 2*** - Store the information along with the results of each trial. We just need to add two lines, starting with the `.log()` command that we are very familiar with. We need to use the `getVar()` element to say "grasp the information from this variable".
+
+```diff
+/// 3. Experimental trials
+
+Template("material.csv", row => 
+newTrial("Experiment",
+    newText("Sentence", row.Sentence)
+        .print()
+        .center()
+        .log()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
+        .log()
+    )
+    .log("ItemNo", row.ItemNo)
+    .log("Condition", row.Condition)
++    .log("Age", getVar("Age"))
++    .log("Degree", getVar("Degree"))
+)
+```
+
+## 2. Let's specify the template and the overall procedure
+
+We are almost done with the parameters of the experiment! Now that we are using the `Template()` element, we can set additional parameters.
+
+::: {.panel-tabset}
+
+## **A. Sequence and randomization**
+
+We can specify the sequence of the whole experiment right at the beginning of the script. In other words, we want to translate this figure into PCIbex language.
+
+```{mermaid}
+flowchart LR
+  A([👋 Welcome page]) ==> B([🛠️ Practice trials])
+  
+  subgraph Exp [🧪 Experimental trials]
+    C1([Trial 1]) --> C2([Trial 2]) --> C3([Trial 3]) --> C4([Trial 4]) -.-> C5([Last Trial])
+  end
+  
+  B ==> C1
+  C5 ==> D([🏁 Goodbye page])
+  
+  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px
+  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px
+  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px
+  
+  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C2 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C3 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C4 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  
+  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5
+```
+
+We can do that using the `Sequence()` element, as below:
+
+```diff
+Sequence("Welcome page", "Background information", "Instructions", "AnnouncementPractice", "Practice", "AnnouncementEndPractice", "Experiment", "Goodbye")
+```
+
+But we will run into a problem. We did not specify *when* to send the results! To do that, we must give a name to the `SendResults()` element that we placed right before the 'goodbye page', and include it in the `Sequence()` element.
+
+```diff
+PennController.ResetPrefix(null)
+
++ Sequence("Welcome page", "Background information", "Instructions", "AnnouncementPractice", "Practice", "AnnouncementEndPractice", "Experiment", "Send" "Goodbye")
+
+/// 1. Welcome page
+// 1.1 Hello page, ICF
+
+newTrial("Welcome page",
+...
+    )
+
+// 1.2 Background questionnaire
+
+newTrial("Background information",
+...
+    )
+
+// 1.3 Instructions
+
+newTrial("Instructions",
+...
+    )
+
+/// 2. Practice trials
+
+newTrial("AnnouncementPractice",
+...
+    )
+
+newTrial("Practice",
+...
+    )
+    
+newTrial("AnnouncementEndPractice",
+...
+)
+
+/// 3. Experimental trials
+Template("material.csv", row => 
+newTrial("Experiment",
+...
+)
+
+/// 4. Goodbye page
++ SendResults("Send")
+
+newTrial("Goodbye",
+...
+        )
+```
+
+With the `Sequence()` element, we just need to specify which part of the experiment needs to be presented in random order, using the `randomize()` element, as below.
+
+```diff
+Sequence("Welcome page", "Background information", "Instructions", "AnnouncementPractice", "Practice", "AnnouncementEndPractice",
++ randomize("Experiment"), 
+"Send", "Goodbye")
+```
+
+## **B. Counterbalancing**
+
+Our last step concerns Latin square designs, i.e., when we want to counterbalance the items and present different ones to different participants for some reasons. So far, we have 8 sentences dispatched into 2 conditions, so 4 items per condition. Now, let's say that we only want to present the two first sentences from each condition to Participant 1, and the last two sentences to Participant 2, and so on.
+
+With PCIbex, we can specify the lists directly in the material table. We just need to have a column called `group`, and PCIbex will automatically identify that these corresponds to different lists in a Latin square design. My habit is to use 'A', 'B', etc. to specify the lists, such that there is no confusion with the item IDs.
+
+
+| ItemNo | Sentence | Condition | group |
+|:---|:---|:---|:---|
+| 1 | This is the first sentence | Grammatical | A |
+| 2 | This is the second sentence | Grammatical | A |
+| 3 | This is the third sentence | Grammatical | B |
+| 4 | This is the fourth sentence | Grammatical | B |
+| 5 | This are the fifth sentence | Ungrammatical | A |
+| 6 | This are the sixth sentence | Ungrammatical | A |
+| 7 | This are the seventh sentence | Ungrammatical | B |
+| 8 | This are the eighth sentence | Ungrammatical | B |
+
+
+In the end, the content of `material.csv` looks like this:
+
+```diff
+ItemNo,Sentence,Condition,group
+1,This is the first sentence,Grammatical,A
+2,This is the second sentence,Grammatical,A
+3,This is the third sentence,Grammatical,B
+4,This is the fourth sentence,Grammatical,B
+5,This are the fifth sentence,Ungrammatical,A
+6,This are the sixth sentence,Ungrammatical,A
+7,This are the seventh sentence,Ungrammatical,B
+8,This are the eighth sentence,Ungrammatical,B
+```
+
+Finally, to keep track of which list the participants saw, we need to use the `.log()` command!
+
+```diff
+/// 3. Experimental trials
+Template("material.csv", row => 
+newTrial("Experiment",
+    newText("Sentence", row.Sentence)
+        .print()
+        .center()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
+        .log()
+    )
+    .log("ItemNo", row.ItemNo)
+    .log("Condition", row.Condition)
+    .log("Sentence", row.Sentence)
++    .log("List", row.group)
+    .log("Age", getVar("Age"))
+    .log("Degree", getVar("Degree"))
+)
+```
+
+:::
+
+## 3. Final test: Run the experiment several times and look at the results file
+
+A good practice, when everything is set, is to run the experiments several times as if we were pretending that we are different participants. We can first check that this is indeed what we want the participants to see, and also that the results file is in order.
+
+I just ran the experiment two times, here is what the results file look like. It is also a good practice to prepare a checklist, such that we know what to expect.
+
+
+::: {.callout-note}
+## Checklist for the results file
+
+-   [ ] Are there two participants?
+-   [ ] 4 trials per participant?
+-   [ ] Trials from different lists/group?
+-   [ ] Can I see the sentence? The ItemNo? The condition?
+-   [ ] Can I see the age of the participants? Their degree?
+-   [ ] Can I see their choice/judgment?
+-   [ ] Were the sentences randomly presented?
+-   [ ] Other checks we can think of.
+
+:::
+
+
+![*Click on the image to zoom in*](Images/Results_Week8.png){.lightbox width="450"}
+
+
+Note that I rearranged the results file to fit in one image. It looks quite disorganized, but we will learn in the last part of this course how to handle that without headaches.
+
+
+<hr>
+
+::: {.callout-important icon="true"}
+## 📝 Assignment for next week
+
+Please complete the following tasks before our next meeting:
+
+- Download the script of this week
+- Annotate each line of code (use your own words, these annotations are for your own reference!)
+- Upload the annotated script on Moodle (you can upload the `.js` file, or a Word or PDF file)
+:::
