@@ -615,9 +615,7 @@ Once the basic structure is working, we need to fine-tune what data we are colle
 
 Let's run the script we wrote so far. By the end of the experiment, there is a screen saying that it successfully sent the information to the server. We just need to click on `Results` and download the file. Here is what we obtain.
 
-![](Images/Results_Week7_NoLog.png)
-
-![*Click on the image to zoom in*](https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Images/Results_Week7_NoLog.pngg){.lightbox width="450"}
+![*Click on the image to zoom in*](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Results_Week7_NoLog.pngg){.lightbox width="450"}
 
 We can indeed find all the elements we wrote... and yet, we cannot see the answers for the personal information, or the acceptability data!
 
@@ -808,9 +806,6 @@ Now we can see the results! (As you can see, it is not an effective way to store
 
 ![*Click on the image to zoom in*](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Results_Week7_WithLog.png){.lightbox width="450"}
 
-![](Images/Results_Week7_WithLog.png)
-
-![*Click on the image to zoom in*](https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Images/Results_Week7_WithLog.png){.lightbox width="450"}
 
 ### 4.2 Details of the procedure and the aesthetics
 
