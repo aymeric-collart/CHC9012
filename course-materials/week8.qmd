@@ -535,7 +535,7 @@ I just ran the experiment two times, here is what the results file look like. It
 :::
 
 
-![*Click on the image to zoom in*](Images/Results_Week8.png){.lightbox width="450"}
+![*Click on the image to zoom in*](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Results_Week8.png){.lightbox width="450"}
 
 
 Note that I rearranged the results file to fit in one image. It looks quite disorganized, but we will learn in the last part of this course how to handle that without headaches.
