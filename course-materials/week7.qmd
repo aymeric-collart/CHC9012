@@ -806,6 +806,8 @@ newTrial("Goodbye",
 
 Now we can see the results! (As you can see, it is not an effective way to store the actual sentences that have been displayed. Again, we will cover a much more efficient way to solve this problem next week)
 
+![*Click on the image to zoom in*](https://aymeric-collart.github.io/CHC9012/course-materials/Images/Results_Week7_WithLog.png){.lightbox width="450"}
+
 ![](Images/Results_Week7_WithLog.png)
 
 ![*Click on the image to zoom in*](https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Images/Results_Week7_WithLog.png){.lightbox width="450"}
