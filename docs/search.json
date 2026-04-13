@@ -172,64 +172,35 @@
     ]
   },
   {
-    "objectID": "course-materials/week8.html",
-    "href": "course-materials/week8.html",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "objectID": "course-materials/week1.html",
+    "href": "course-materials/week1.html",
+    "title": "Week 1: Introduction",
     "section": "",
-    "text": "This week, we will discuss how to set the parameters of a template to obtain a more simple and yet more powerful script. By the end of this week, you will have the script of your very final experiment ready!\n\n🎯 Goals & key concepts💻 Necessary codes📝 Homework\n\n\nHow to optimize your script:\n\nTemplate: How to create a script that can run automatically through all the trials?\nRandomization: How to present the trials using a random order?\nCounterbalancing: How to counterbalance the items using a Latin square design?\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants in a specific element (example: getTextInput(...), getDropDown(...), etc.)\ngetVar(...): Used to obtain the content of an element stored in a variable (i.e., within newVar(...)).\n\n\n\n  Download the full script \n\n\n  Experiment from the script covered this week \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle (you can upload the .js file, or a Word or PDF file)",
+    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
     "crumbs": [
       "Home",
-      "Part 2: Designing a web-based questionnaire",
-      "Week 8: More complex questionnaires with PCIbex"
+      "Preliminary weeks",
+      "Week 1: Introduction"
     ]
   },
   {
-    "objectID": "course-materials/week8.html#overview",
-    "href": "course-materials/week8.html#overview",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "objectID": "course-materials/week1.html#welcome-to-the-course",
+    "href": "course-materials/week1.html#welcome-to-the-course",
+    "title": "Week 1: Introduction",
     "section": "",
-    "text": "This week, we will discuss how to set the parameters of a template to obtain a more simple and yet more powerful script. By the end of this week, you will have the script of your very final experiment ready!\n\n🎯 Goals & key concepts💻 Necessary codes📝 Homework\n\n\nHow to optimize your script:\n\nTemplate: How to create a script that can run automatically through all the trials?\nRandomization: How to present the trials using a random order?\nCounterbalancing: How to counterbalance the items using a Latin square design?\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants in a specific element (example: getTextInput(...), getDropDown(...), etc.)\ngetVar(...): Used to obtain the content of an element stored in a variable (i.e., within newVar(...)).\n\n\n\n  Download the full script \n\n\n  Experiment from the script covered this week \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle (you can upload the .js file, or a Word or PDF file)",
+    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
     "crumbs": [
       "Home",
-      "Part 2: Designing a web-based questionnaire",
-      "Week 8: More complex questionnaires with PCIbex"
+      "Preliminary weeks",
+      "Week 1: Introduction"
     ]
   },
   {
-    "objectID": "course-materials/week8.html#lets-simplify-and-automatize-the-process",
-    "href": "course-materials/week8.html#lets-simplify-and-automatize-the-process",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "1. Let’s simplify and automatize the process",
-    "text": "1. Let’s simplify and automatize the process\n\n1.1 Creation of the template\nSo far, we created an experiment following this structure:\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  B ==&gt; C([🧪 Experimental trials])\n  C ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style C fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n\n\n\n\n\n\nBut more precisely, it looks like that, with multiple trials:\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  \n  subgraph Exp [🧪 Experimental trials]\n    C1([Trial 1]) --&gt; C2([Trial 2]) --&gt; C3([Trial 3]) --&gt; C4([Trial 4]) -.-&gt; C5([Last Trial])\n  end\n  \n  B ==&gt; C1\n  C5 ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n  \n  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C2 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C3 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C4 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  \n  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5\n\n\n\n\n\n\nAs we saw last week, we could type all the trials individually. Alternatively, there is a much more efficient way to go. We provide the details below.\n\nA. Create the material tableB. Update the existing code\n\n\nInstead of typing the trials in the script, we create a table where we can list them. Let’s say we have 8 sentences, divided between 2 conditions (so 4 sentences per condition)\n\n\n\n\nItemNo\nSentence\nCondition\n\n\n\n\n1\nThis is the first sentence\nGrammatical\n\n\n2\nThis is the second sentence\nGrammatical\n\n\n3\nThis is the third sentence\nGrammatical\n\n\n4\nThis is the fourth sentence\nGrammatical\n\n\n5\nThis are the fifth sentence\nUngrammatical\n\n\n6\nThis are the sixth sentence\nUngrammatical\n\n\n7\nThis are the seventh sentence\nUngrammatical\n\n\n8\nThis are the eighth sentence\nUngrammatical\n\n\n\nWe need to have this tables under the Resources part on the left of the interface. One way to do is to open an Excel document, save it into a .csv file (columns seperated by commas), and upload on PCIbex. This is the most convenient way to go, especially when you have a lot of information.\nInstead, we are going to create it directly for this tutorial. Right next to the Resources part, you can click on the + (Create new file) sign, and you rename it to: material.csv. You will see the logo changing to something similar to: .\nAfter that, you click on the file, and it will open it next to the script. You just have to copy and paste the following section inside (the commas , indicate different columns).\nItemNo,Sentence,Condition\n1,This is the first sentence,Grammatical\n2,This is the second sentence,Grammatical\n3,This is the third sentence,Grammatical\n4,This is the fourth sentence,Grammatical\n5,This are the fifth sentence,Ungrammatical\n6,This are the sixth sentence,Ungrammatical\n7,This are the seventh sentence,Ungrammatical\n8,This are the eighth sentence,Ungrammatical\n\n\nNow that we have our materials uploaded onto PCIbex, we just need to modify the script that we already have. As a reminder, this is what it looked like with two trials:\n\n\n\n\n\n\nPrevious script\n\n\n\n\n\n/// 3. Experimental trials\n\nnewTrial(\"Experiment\",\n    newText(\"FirstSentence\", \"This is another grammatical sentence\")\n        .print()\n        .center()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n    )\n    \nnewTrial(\"Experiment\",\n    newText(\"SecondSentence\", \"This sentence not is grammatical\")\n        .print()\n        .center()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n    )\n\n\n\nWe actually just need to update that a little bit… and you will realize that it will even look easier than what we wrote! More specifically:\n\nWe must specify that we are dealing with a template using the Template() function. The content of the template (i.e., the trials) is found within the parentheses.\nWe must also specify the name of the file where the trials can be found, we change the file into a variable to refer to (here, the name of the variable is row), and which column corresponds to the trials to display on the screen (here, the column is called Sentence; row.Sentence means that it is the column called Sentence in the file corresponding to the variable row).\nImportantly, we delete all other newTrial() elements. We only need one within the template.\n\n/// 3. Experimental trials\n\n+ Template(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n-    newText(\"FirstSentence\", \"This is another grammatical sentence\")\n+    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n+ ) // This is the closing parenthesis corresponding to `Template()`\n\n- newTrial(\"Experiment\",\n-     newText(\"SecondSentence\", \"This sentence not is grammatical\")\n-         .print()\n-         .center()\n-     ,\n-     newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n-         .labelsPosition(\"bottom\")\n-         .before(newText(\"Not acceptable\"))\n-         .after(newText(\"Acceptable\"))\n-         .print()\n-         .center()\n-         .wait()\n-    )\nAnd that’s all, we are done!\n\n\n\n\n\n\n1.2 log() with a template\nIf you run the experiment and look at the results file, you will see that you can find the judgments given by the participants. But we may want more information in the results file:\n\nThe ID of the sentence,\nThe sentence itself,\nThe experimental condition,\nAnd other information found in the material table.\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n-        .log() // Since we know it does not work, let's delete it\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n+    .log(\"ItemNo\", row.ItemNo)\n+    .log(\"Sentence\", row.Sentence)\n+    .log(\"Condition\", row.Condition)\n)\nIn addition, since the participants provide background information, we would like to add these details in the same line as well! But such information is not found in a seperate file, they are provided by the participants themselves. This is therefore a two-step process to store such information in the results file, as follows:\n\n\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n\n\n\n\n\n\n\n\n\nStep 1 - Define the variable when the participants provide their information. We create a new variable (think as if we create a new column) called “Age” with the newVar() element. Then we set the content of this variable. We need to tell PCIbex where to find it with the getTextInput() element. In the same code, we have an element called newTextInput(\"Age\"), therefore we need to use the same name: getTextInput(\"Age\"). We need to do the same with other elements we want to keep, hence the getDropDown(\"Degree\") element.\n\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n    newText(\"We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.\")\n        .print()\n        .center()\n    ,\n    newText(\"Your age:\")\n        .print()\n        .center()\n    ,\n    newTextInput(\"Age\")\n        .print()\n        .center()\n        .log(\"final\")\n    ,\n    newText(\"Your highest degree:\")\n        .print()\n        .center()\n    ,\n    newDropDown(\"Degree\", \"Please select one option\")\n        .add(\"Elementary school\", \"Junior high school\", \"Senior high school\", \"BA\", \"MA\", \"Ph.D.\")\n        .print()\n        .center()\n        .log()\n    ,\n    newButton(\"Continue\")\n        .center()\n        .print()\n        .wait()\n+    ,\n+    newVar(\"Age\")\n+        .global()\n+        .set(getTextInput(\"Age\"))\n+    ,\n+    newVar(\"Degree\")\n+        .global()\n+        .set(getDropDown(\"Degree\"))\n    )\n\nStep 2 - Store the information along with the results of each trial. We just need to add two lines, starting with the .log() command that we are very familiar with. We need to use the getVar() element to say “grasp the information from this variable”.\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n+    .log(\"Age\", getVar(\"Age\"))\n+    .log(\"Degree\", getVar(\"Degree\"))\n)",
-    "crumbs": [
-      "Home",
-      "Part 2: Designing a web-based questionnaire",
-      "Week 8: More complex questionnaires with PCIbex"
-    ]
-  },
-  {
-    "objectID": "course-materials/week8.html#lets-specify-the-template-and-the-overall-procedure",
-    "href": "course-materials/week8.html#lets-specify-the-template-and-the-overall-procedure",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "2. Let’s specify the template and the overall procedure",
-    "text": "2. Let’s specify the template and the overall procedure\nWe are almost done with the parameters of the experiment! Now that we are using the Template() element, we can set additional parameters.\n\nA. Sequence and randomizationB. Counterbalancing\n\n\nWe can specify the sequence of the whole experiment right at the beginning of the script. In other words, we want to translate this figure into PCIbex language.\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  \n  subgraph Exp [🧪 Experimental trials]\n    C1([Trial 1]) --&gt; C2([Trial 2]) --&gt; C3([Trial 3]) --&gt; C4([Trial 4]) -.-&gt; C5([Last Trial])\n  end\n  \n  B ==&gt; C1\n  C5 ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n  \n  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C2 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C3 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C4 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  \n  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5\n\n\n\n\n\n\nWe can do that using the Sequence() element, as below:\nSequence(\"Welcome page\", \"Background information\", \"Instructions\", \"AnnouncementPractice\", \"Practice\", \"AnnouncementEndPractice\", \"Experiment\", \"Goodbye\")\nBut we will run into a problem. We did not specify when to send the results! To do that, we must give a name to the SendResults() element that we placed right before the ‘goodbye page’, and include it in the Sequence() element.\nPennController.ResetPrefix(null)\n\n+ Sequence(\"Welcome page\", \"Background information\", \"Instructions\", \"AnnouncementPractice\", \"Practice\", \"AnnouncementEndPractice\", \"Experiment\", \"Send\" \"Goodbye\")\n\n/// 1. Welcome page\n// 1.1 Hello page, ICF\n\nnewTrial(\"Welcome page\",\n...\n    )\n\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n...\n    )\n\n// 1.3 Instructions\n\nnewTrial(\"Instructions\",\n...\n    )\n\n/// 2. Practice trials\n\nnewTrial(\"AnnouncementPractice\",\n...\n    )\n\nnewTrial(\"Practice\",\n...\n    )\n    \nnewTrial(\"AnnouncementEndPractice\",\n...\n)\n\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n...\n)\n\n/// 4. Goodbye page\n+ SendResults(\"Send\")\n\nnewTrial(\"Goodbye\",\n...\n        )\nWith the Sequence() element, we just need to specify which part of the experiment needs to be presented in random order, using the randomize() element, as below.\nSequence(\"Welcome page\", \"Background information\", \"Instructions\", \"AnnouncementPractice\", \"Practice\", \"AnnouncementEndPractice\",\n+ randomize(\"Experiment\"), \n\"Send\", \"Goodbye\")\n\n\nOur last step concerns Latin square designs, i.e., when we want to counterbalance the items and present different ones to different participants for some reasons. So far, we have 8 sentences dispatched into 2 conditions, so 4 items per condition. Now, let’s say that we only want to present the two first sentences from each condition to Participant 1, and the last two sentences to Participant 2, and so on.\nWith PCIbex, we can specify the lists directly in the material table. We just need to have a column called group, and PCIbex will automatically identify that these corresponds to different lists in a Latin square design. My habit is to use ‘A’, ‘B’, etc. to specify the lists, such that there is no confusion with the item IDs.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nThis is the first sentence\nGrammatical\nA\n\n\n2\nThis is the second sentence\nGrammatical\nA\n\n\n3\nThis is the third sentence\nGrammatical\nB\n\n\n4\nThis is the fourth sentence\nGrammatical\nB\n\n\n5\nThis are the fifth sentence\nUngrammatical\nA\n\n\n6\nThis are the sixth sentence\nUngrammatical\nA\n\n\n7\nThis are the seventh sentence\nUngrammatical\nB\n\n\n8\nThis are the eighth sentence\nUngrammatical\nB\n\n\n\nIn the end, the content of material.csv looks like this:\nItemNo,Sentence,Condition,group\n1,This is the first sentence,Grammatical,A\n2,This is the second sentence,Grammatical,A\n3,This is the third sentence,Grammatical,B\n4,This is the fourth sentence,Grammatical,B\n5,This are the fifth sentence,Ungrammatical,A\n6,This are the sixth sentence,Ungrammatical,A\n7,This are the seventh sentence,Ungrammatical,B\n8,This are the eighth sentence,Ungrammatical,B\nFinally, to keep track of which list the participants saw, we need to use the .log() command!\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n    .log(\"Sentence\", row.Sentence)\n+    .log(\"List\", row.group)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)",
-    "crumbs": [
-      "Home",
-      "Part 2: Designing a web-based questionnaire",
-      "Week 8: More complex questionnaires with PCIbex"
-    ]
-  },
-  {
-    "objectID": "course-materials/week8.html#final-test-run-the-experiment-several-times-and-look-at-the-results-file",
-    "href": "course-materials/week8.html#final-test-run-the-experiment-several-times-and-look-at-the-results-file",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "3. Final test: Run the experiment several times and look at the results file",
-    "text": "3. Final test: Run the experiment several times and look at the results file\nA good practice, when everything is set, is to run the experiments several times as if we were pretending that we are different participants. We can first check that this is indeed what we want the participants to see, and also that the results file is in order.\nI just ran the experiment two times, here is what the results file look like. It is also a good practice to prepare a checklist, such that we know what to expect.\n\n\n\n\n\n\nChecklist for the results file\n\n\n\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see the age of the participants? Their degree?\nCan I see their choice/judgment?\nWere the sentences randomly presented?\nOther checks we can think of.\n\n\n\n\n\n\nClick on the image to zoom in\n\n\nNote that I rearranged the results file to fit in one image. It looks quite disorganized, but we will learn in the last part of this course how to handle that without headaches.\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle (you can upload the .js file, or a Word or PDF file)",
-    "crumbs": [
-      "Home",
-      "Part 2: Designing a web-based questionnaire",
-      "Week 8: More complex questionnaires with PCIbex"
-    ]
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
   },
   {
     "objectID": "index.html",
@@ -274,35 +245,127 @@
     "text": "👤 Instructor\nAymeric Collart (理克) Department of Chinese, NTNU\nEmail provided in class"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "course-materials/week8.html",
+    "href": "course-materials/week8.html",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "course-materials/week1.html",
-    "href": "course-materials/week1.html",
-    "title": "Week 1: Introduction",
-    "section": "",
-    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
+    "text": "This week, we will discuss how to set the parameters of a template to obtain a more simple and yet more powerful script. By the end of this week, you will have the script of your very final experiment ready!\n\n🎯 Goals & key concepts💻 Necessary codes📝 Homework\n\n\nHow to optimize your script:\n\nTemplate: How to create a script that can run automatically through all the trials?\nRandomization: How to present the trials using a random order?\nCounterbalancing: How to counterbalance the items using a Latin square design?\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants in a specific element (example: getTextInput(...), getDropDown(...), etc.)\ngetVar(...): Used to obtain the content of an element stored in a variable (i.e., within newVar(...)).\n\n\n\n  Download the full script \n\n\n  Experiment from the script covered this week \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle (you can upload the .js file, or a Word or PDF file)\n\n\n\n\n\n  View the slides of this week’s tutorial",
     "crumbs": [
       "Home",
-      "Preliminary weeks",
-      "Week 1: Introduction"
+      "Part 2: Designing a web-based questionnaire",
+      "Week 8: More complex questionnaires with PCIbex"
     ]
   },
   {
-    "objectID": "course-materials/week1.html#welcome-to-the-course",
-    "href": "course-materials/week1.html#welcome-to-the-course",
-    "title": "Week 1: Introduction",
+    "objectID": "course-materials/week8.html#overview",
+    "href": "course-materials/week8.html#overview",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
     "section": "",
-    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
+    "text": "This week, we will discuss how to set the parameters of a template to obtain a more simple and yet more powerful script. By the end of this week, you will have the script of your very final experiment ready!\n\n🎯 Goals & key concepts💻 Necessary codes📝 Homework\n\n\nHow to optimize your script:\n\nTemplate: How to create a script that can run automatically through all the trials?\nRandomization: How to present the trials using a random order?\nCounterbalancing: How to counterbalance the items using a Latin square design?\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants in a specific element (example: getTextInput(...), getDropDown(...), etc.)\ngetVar(...): Used to obtain the content of an element stored in a variable (i.e., within newVar(...)).\n\n\n\n  Download the full script \n\n\n  Experiment from the script covered this week \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle (you can upload the .js file, or a Word or PDF file)\n\n\n\n\n\n  View the slides of this week’s tutorial",
     "crumbs": [
       "Home",
-      "Preliminary weeks",
-      "Week 1: Introduction"
+      "Part 2: Designing a web-based questionnaire",
+      "Week 8: More complex questionnaires with PCIbex"
     ]
+  },
+  {
+    "objectID": "course-materials/week8.html#lets-simplify-and-automatize-the-process",
+    "href": "course-materials/week8.html#lets-simplify-and-automatize-the-process",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "1. Let’s simplify and automatize the process",
+    "text": "1. Let’s simplify and automatize the process\n\n1.1 Creation of the template\nSo far, we created an experiment following this structure:\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  B ==&gt; C([🧪 Experimental trials])\n  C ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style C fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n\n\n\n\n\n\nBut more precisely, it looks like that, with multiple trials:\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  \n  subgraph Exp [🧪 Experimental trials]\n    C1([Trial 1]) --&gt; C2([Trial 2]) --&gt; C3([Trial 3]) --&gt; C4([Trial 4]) -.-&gt; C5([Last Trial])\n  end\n  \n  B ==&gt; C1\n  C5 ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n  \n  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C2 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C3 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C4 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  \n  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5\n\n\n\n\n\n\nAs we saw last week, we could type all the trials individually. Alternatively, there is a much more efficient way to go. We provide the details below.\n\nA. Create the material tableB. Update the existing code\n\n\nInstead of typing the trials in the script, we create a table where we can list them. Let’s say we have 8 sentences, divided between 2 conditions (so 4 sentences per condition)\n\n\n\n\nItemNo\nSentence\nCondition\n\n\n\n\n1\nThis is the first sentence\nGrammatical\n\n\n2\nThis is the second sentence\nGrammatical\n\n\n3\nThis is the third sentence\nGrammatical\n\n\n4\nThis is the fourth sentence\nGrammatical\n\n\n5\nThis are the fifth sentence\nUngrammatical\n\n\n6\nThis are the sixth sentence\nUngrammatical\n\n\n7\nThis are the seventh sentence\nUngrammatical\n\n\n8\nThis are the eighth sentence\nUngrammatical\n\n\n\nWe need to have this tables under the Resources part on the left of the interface. One way to do is to open an Excel document, save it into a .csv file (columns seperated by commas), and upload on PCIbex. This is the most convenient way to go, especially when you have a lot of information.\nInstead, we are going to create it directly for this tutorial. Right next to the Resources part, you can click on the + (Create new file) sign, and you rename it to: material.csv. You will see the logo changing to something similar to: .\nAfter that, you click on the file, and it will open it next to the script. You just have to copy and paste the following section inside (the commas , indicate different columns).\nItemNo,Sentence,Condition\n1,This is the first sentence,Grammatical\n2,This is the second sentence,Grammatical\n3,This is the third sentence,Grammatical\n4,This is the fourth sentence,Grammatical\n5,This are the fifth sentence,Ungrammatical\n6,This are the sixth sentence,Ungrammatical\n7,This are the seventh sentence,Ungrammatical\n8,This are the eighth sentence,Ungrammatical\n\n\nNow that we have our materials uploaded onto PCIbex, we just need to modify the script that we already have. As a reminder, this is what it looked like with two trials:\n\n\n\n\n\n\nPrevious script\n\n\n\n\n\n/// 3. Experimental trials\n\nnewTrial(\"Experiment\",\n    newText(\"FirstSentence\", \"This is another grammatical sentence\")\n        .print()\n        .center()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n    )\n    \nnewTrial(\"Experiment\",\n    newText(\"SecondSentence\", \"This sentence not is grammatical\")\n        .print()\n        .center()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n    )\n\n\n\nWe actually just need to update that a little bit… and you will realize that it will even look easier than what we wrote! More specifically:\n\nWe must specify that we are dealing with a template using the Template() function. The content of the template (i.e., the trials) is found within the parentheses.\nWe must also specify the name of the file where the trials can be found, we change the file into a variable to refer to (here, the name of the variable is row), and which column corresponds to the trials to display on the screen (here, the column is called Sentence; row.Sentence means that it is the column called Sentence in the file corresponding to the variable row).\nImportantly, we delete all other newTrial() elements. We only need one within the template.\n\n/// 3. Experimental trials\n\n+ Template(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n-    newText(\"FirstSentence\", \"This is another grammatical sentence\")\n+    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n+ ) // This is the closing parenthesis corresponding to `Template()`\n\n- newTrial(\"Experiment\",\n-     newText(\"SecondSentence\", \"This sentence not is grammatical\")\n-         .print()\n-         .center()\n-     ,\n-     newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n-         .labelsPosition(\"bottom\")\n-         .before(newText(\"Not acceptable\"))\n-         .after(newText(\"Acceptable\"))\n-         .print()\n-         .center()\n-         .wait()\n-    )\nAnd that’s all, we are done!\n\n\n\n\n\n\n1.2 log() with a template\nIf you run the experiment and look at the results file, you will see that you can find the judgments given by the participants. But we may want more information in the results file:\n\nThe ID of the sentence,\nThe sentence itself,\nThe experimental condition,\nAnd other information found in the material table.\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n-        .log() // Since we know it does not work, let's delete it\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n+    .log(\"ItemNo\", row.ItemNo)\n+    .log(\"Sentence\", row.Sentence)\n+    .log(\"Condition\", row.Condition)\n)\nIn addition, since the participants provide background information, we would like to add these details in the same line as well! But such information is not found in a seperate file, they are provided by the participants themselves. This is therefore a two-step process to store such information in the results file, as follows:\n\n\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n\n\n\n\n\n\n\n\n\nStep 1 - Define the variable when the participants provide their information. We create a new variable (think as if we create a new column) called “Age” with the newVar() element. Then we set the content of this variable. We need to tell PCIbex where to find it with the getTextInput() element. In the same code, we have an element called newTextInput(\"Age\"), therefore we need to use the same name: getTextInput(\"Age\"). We need to do the same with other elements we want to keep, hence the getDropDown(\"Degree\") element.\n\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n    newText(\"We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.\")\n        .print()\n        .center()\n    ,\n    newText(\"Your age:\")\n        .print()\n        .center()\n    ,\n    newTextInput(\"Age\")\n        .print()\n        .center()\n        .log(\"final\")\n    ,\n    newText(\"Your highest degree:\")\n        .print()\n        .center()\n    ,\n    newDropDown(\"Degree\", \"Please select one option\")\n        .add(\"Elementary school\", \"Junior high school\", \"Senior high school\", \"BA\", \"MA\", \"Ph.D.\")\n        .print()\n        .center()\n        .log()\n    ,\n    newButton(\"Continue\")\n        .center()\n        .print()\n        .wait()\n+    ,\n+    newVar(\"Age\")\n+        .global()\n+        .set(getTextInput(\"Age\"))\n+    ,\n+    newVar(\"Degree\")\n+        .global()\n+        .set(getDropDown(\"Degree\"))\n    )\n\nStep 2 - Store the information along with the results of each trial. We just need to add two lines, starting with the .log() command that we are very familiar with. We need to use the getVar() element to say “grasp the information from this variable”.\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n+    .log(\"Age\", getVar(\"Age\"))\n+    .log(\"Degree\", getVar(\"Degree\"))\n)",
+    "crumbs": [
+      "Home",
+      "Part 2: Designing a web-based questionnaire",
+      "Week 8: More complex questionnaires with PCIbex"
+    ]
+  },
+  {
+    "objectID": "course-materials/week8.html#lets-specify-the-template-and-the-overall-procedure",
+    "href": "course-materials/week8.html#lets-specify-the-template-and-the-overall-procedure",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "2. Let’s specify the template and the overall procedure",
+    "text": "2. Let’s specify the template and the overall procedure\nWe are almost done with the parameters of the experiment! Now that we are using the Template() element, we can set additional parameters.\n\nA. Sequence and randomizationB. Counterbalancing\n\n\nWe can specify the sequence of the whole experiment right at the beginning of the script. In other words, we want to translate this figure into PCIbex language.\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  \n  subgraph Exp [🧪 Experimental trials]\n    C1([Trial 1]) --&gt; C2([Trial 2]) --&gt; C3([Trial 3]) --&gt; C4([Trial 4]) -.-&gt; C5([Last Trial])\n  end\n  \n  B ==&gt; C1\n  C5 ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n  \n  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C2 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C3 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C4 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  \n  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5\n\n\n\n\n\n\nWe can do that using the Sequence() element, as below:\nSequence(\"Welcome page\", \"Background information\", \"Instructions\", \"AnnouncementPractice\", \"Practice\", \"AnnouncementEndPractice\", \"Experiment\", \"Goodbye\")\nBut we will run into a problem. We did not specify when to send the results! To do that, we must give a name to the SendResults() element that we placed right before the ‘goodbye page’, and include it in the Sequence() element.\nPennController.ResetPrefix(null)\n\n+ Sequence(\"Welcome page\", \"Background information\", \"Instructions\", \"AnnouncementPractice\", \"Practice\", \"AnnouncementEndPractice\", \"Experiment\", \"Send\" \"Goodbye\")\n\n/// 1. Welcome page\n// 1.1 Hello page, ICF\n\nnewTrial(\"Welcome page\",\n...\n    )\n\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n...\n    )\n\n// 1.3 Instructions\n\nnewTrial(\"Instructions\",\n...\n    )\n\n/// 2. Practice trials\n\nnewTrial(\"AnnouncementPractice\",\n...\n    )\n\nnewTrial(\"Practice\",\n...\n    )\n    \nnewTrial(\"AnnouncementEndPractice\",\n...\n)\n\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n...\n)\n\n/// 4. Goodbye page\n+ SendResults(\"Send\")\n\nnewTrial(\"Goodbye\",\n...\n        )\nWith the Sequence() element, we just need to specify which part of the experiment needs to be presented in random order, using the randomize() element, as below.\nSequence(\"Welcome page\", \"Background information\", \"Instructions\", \"AnnouncementPractice\", \"Practice\", \"AnnouncementEndPractice\",\n+ randomize(\"Experiment\"), \n\"Send\", \"Goodbye\")\n\n\nOur last step concerns Latin square designs, i.e., when we want to counterbalance the items and present different ones to different participants for some reasons. So far, we have 8 sentences dispatched into 2 conditions, so 4 items per condition. Now, let’s say that we only want to present the two first sentences from each condition to Participant 1, and the last two sentences to Participant 2, and so on.\nWith PCIbex, we can specify the lists directly in the material table. We just need to have a column called group, and PCIbex will automatically identify that these corresponds to different lists in a Latin square design. My habit is to use ‘A’, ‘B’, etc. to specify the lists, such that there is no confusion with the item IDs.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nThis is the first sentence\nGrammatical\nA\n\n\n2\nThis is the second sentence\nGrammatical\nA\n\n\n3\nThis is the third sentence\nGrammatical\nB\n\n\n4\nThis is the fourth sentence\nGrammatical\nB\n\n\n5\nThis are the fifth sentence\nUngrammatical\nA\n\n\n6\nThis are the sixth sentence\nUngrammatical\nA\n\n\n7\nThis are the seventh sentence\nUngrammatical\nB\n\n\n8\nThis are the eighth sentence\nUngrammatical\nB\n\n\n\nIn the end, the content of material.csv looks like this:\nItemNo,Sentence,Condition,group\n1,This is the first sentence,Grammatical,A\n2,This is the second sentence,Grammatical,A\n3,This is the third sentence,Grammatical,B\n4,This is the fourth sentence,Grammatical,B\n5,This are the fifth sentence,Ungrammatical,A\n6,This are the sixth sentence,Ungrammatical,A\n7,This are the seventh sentence,Ungrammatical,B\n8,This are the eighth sentence,Ungrammatical,B\nFinally, to keep track of which list the participants saw, we need to use the .log() command!\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n    .log(\"Sentence\", row.Sentence)\n+    .log(\"List\", row.group)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)",
+    "crumbs": [
+      "Home",
+      "Part 2: Designing a web-based questionnaire",
+      "Week 8: More complex questionnaires with PCIbex"
+    ]
+  },
+  {
+    "objectID": "course-materials/week8.html#final-test-run-the-experiment-several-times-and-look-at-the-results-file",
+    "href": "course-materials/week8.html#final-test-run-the-experiment-several-times-and-look-at-the-results-file",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "3. Final test: Run the experiment several times and look at the results file",
+    "text": "3. Final test: Run the experiment several times and look at the results file\nA good practice, when everything is set, is to run the experiments several times as if we were pretending that we are different participants. We can first check that this is indeed what we want the participants to see, and also that the results file is in order.\nI just ran the experiment two times, here is what the results file look like. It is also a good practice to prepare a checklist, such that we know what to expect.\n\n\n\n\n\n\nChecklist for the results file\n\n\n\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see the age of the participants? Their degree?\nCan I see their choice/judgment?\nWere the sentences randomly presented?\nOther checks we can think of.\n\n\n\n\n\n\nClick on the image to zoom in\n\n\nNote that I rearranged the results file to fit in one image. It looks quite disorganized, but we will learn in the last part of this course how to handle that without headaches.\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle (you can upload the .js file, or a Word or PDF file)",
+    "crumbs": [
+      "Home",
+      "Part 2: Designing a web-based questionnaire",
+      "Week 8: More complex questionnaires with PCIbex"
+    ]
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#goals-key-concepts",
+    "href": "course-materials/Week8_Slides2.html#goals-key-concepts",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "🎯 Goals & Key Concepts",
+    "text": "🎯 Goals & Key Concepts\n\nHow to optimize your script💻 Necessary codes\n\n\nHow to optimize your script:\n\nTemplate: Automate trials via a single script.\nRandomization: Shuffle trial order effortlessly.\nCounterbalancing: Master Latin square designs.\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants.\ngetVar(...): Used to obtain the content of an element stored in a variable."
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
+    "href": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "A. Create the material table",
+    "text": "A. Create the material table\nInstead of typing the trials in the script, we create a table where we can list them.\n\n\n\n\nItemNo\nSentence\nCondition\n\n\n\n\n1\nThis is the first sentence\nGrammatical\n\n\n2\nThis is the second sentence\nGrammatical\n\n\n…\n…\n…\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nCreate material.csv in the PCIbex Resources section."
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#concept",
+    "href": "course-materials/Week8_Slides2.html#concept",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Concept",
+    "text": "Concept\nThis is a a two-step process to store such information in the results file:\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
+    "href": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Step 1: Define the variables",
+    "text": "Step 1: Define the variables\n\n\n\n\n\n\nNote\n\n\n\nThis must be done where the information appears for the first time. For our experiment, this is in the 👋 Welcome page!\nNotice that we use (1) the newVar() element to create a new variable, and then (2) the getTextInput() and getDropDown() to tell PCIbex what content to keep in memory!\n\n\n\n\n\nLet’s look at the code:\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n    newText(\"We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.\")\n        .print()\n        .center()\n    ,\n    newText(\"Your age:\")\n        .print()\n        .center()\n    ,\n    newTextInput(\"Age\")\n        .print()\n        .center()\n        .log(\"final\")\n    ,\n    newText(\"Your highest degree:\")\n        .print()\n        .center()\n    ,\n    newDropDown(\"Degree\", \"Please select one option\")\n        .add(\"Elementary school\", \"Junior high school\", \"Senior high school\", \"BA\", \"MA\", \"Ph.D.\")\n        .print()\n        .center()\n        .log()\n    ,\n    newButton(\"Continue\")\n        .center()\n        .print()\n        .wait()\n+    ,\n+    newVar(\"Age\")\n+        .global()\n+        .set(getTextInput(\"Age\"))\n+    ,\n+    newVar(\"Degree\")\n+        .global()\n+        .set(getDropDown(\"Degree\"))\n    )\n\n\nDone!"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
+    "href": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Step 2: Store the information about the participants",
+    "text": "Step 2: Store the information about the participants\n\n\n\n\n\n\nNote\n\n\nNow that you created the variable and that they are kept in memory, we can store them in the results file using the .log() command. But notice the use of getVar()!\n\n\n\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n+    .log(\"Age\", getVar(\"Age\"))\n+    .log(\"Degree\", getVar(\"Degree\"))\n)\n\n\nDone!"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
+    "href": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Recall: What is “counterbalancing”?",
+    "text": "Recall: What is “counterbalancing”?\n\n\n\n\n\n\n\nNote\n\n\nExample: For some reasons, you want Participant 1 to read half of the sentences, Participant 2 the other half, Participant 3 the same as Participant 1, Participant 4 the same as Participant 2, etc.\n\n\n\n\n\nHow to do that with PCIbex?\n\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
+    "href": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Final content in the material.csv file",
+    "text": "Final content in the material.csv file\nItemNo,Sentence,Condition,group\n1,This is the first sentence,Grammatical,A\n2,This is the second sentence,Grammatical,A\n3,This is the third sentence,Grammatical,B\n4,This is the fourth sentence,Grammatical,B\n5,This are the fifth sentence,Ungrammatical,A\n6,This are the sixth sentence,Ungrammatical,A\n7,This are the seventh sentence,Ungrammatical,B\n8,This are the eighth sentence,Ungrammatical,B\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB\n\n\n\n\n\nDon’t forget to use the log() element to keep track of which list the participants were assigned to!\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n\n...\n         \n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n    .log(\"Sentence\", row.Sentence)\n+    .log(\"List\", row.group)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
+    "href": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Download the results file, open it and check the following:",
+    "text": "Download the results file, open it and check the following:\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see age and degree? choice/judgment?\nWere the sentences randomly presented?"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#assignment-for-next-week",
+    "href": "course-materials/Week8_Slides2.html#assignment-for-next-week",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "📝 Assignment for next week",
+    "text": "📝 Assignment for next week\n\n\n\n\n\n\nAssignment\n\n\n\nDownload the script of this week\nAnnotate each line of code\nUpload the annotated script on Moodle\n\n\n\n\n\n\n\n\n\n\nYou can even start preparing your own experiment!"
   },
   {
     "objectID": "course-materials/week3.html",
@@ -387,306 +450,5 @@
       "Part 3: Analyses and visualization",
       "Week 14: Data visualization with R (2/2)"
     ]
-  },
-  {
-    "objectID": "Week8_Slides.html#overview",
-    "href": "Week8_Slides.html#overview",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Overview",
-    "text": "Overview\nThis week, we will discuss how to set the parameters of a template to obtain a more simple and yet more powerful script.\nBy the end of this week: You will have the script of your very final experiment ready!"
-  },
-  {
-    "objectID": "Week8_Slides.html#goals-key-concepts",
-    "href": "Week8_Slides.html#goals-key-concepts",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "🎯 Goals & Key Concepts",
-    "text": "🎯 Goals & Key Concepts\n\nHow to optimize💻 Necessary codes\n\n\n\nTemplate: Create a script that runs automatically through all trials.\nRandomization: Present trials using a random order.\nCounterbalancing: Counterbalance items using a Latin square design.\n\n\n\n\nTemplate(...): Introduce a trial template.\nSequence(...): Control the order of experiment parts.\nrandomize(...): Present trials in a random order.\nnewVar(...): Create a new variable.\ngetX(...): Obtain content given by participants.\ngetVar(...): Obtain content stored in a variable."
-  },
-  {
-    "objectID": "Week8_Slides.html#lets-simplify-the-process",
-    "href": "Week8_Slides.html#lets-simplify-the-process",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "1. Let’s simplify the process",
-    "text": "1. Let’s simplify the process\nSo far, we created an experiment following this structure:\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  B ==&gt; C([🧪 Experimental trials])\n  C ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style C fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px"
-  },
-  {
-    "objectID": "Week8_Slides.html#homework",
-    "href": "Week8_Slides.html#homework",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "📝 Homework",
-    "text": "📝 Homework\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week.\nAnnotate each line of code (use your own words!).\nUpload the annotated script on Moodle (JS, Word, or PDF)."
-  },
-  {
-    "objectID": "Week8_Slides.html#lets-simplify-and-automatize",
-    "href": "Week8_Slides.html#lets-simplify-and-automatize",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "1. Let’s simplify and automatize",
-    "text": "1. Let’s simplify and automatize\nSo far, we created an experiment following this structure:\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  B ==&gt; C([🧪 Experimental trials])\n  C ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style C fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n\n\n\n\n\n\nBut more precisely, it looks like that, with multiple trials:"
-  },
-  {
-    "objectID": "Week8_Slides2.html#overview",
-    "href": "Week8_Slides2.html#overview",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Overview",
-    "text": "Overview\nThis week, we will discuss how to set the parameters of a template to obtain a more simple and yet more powerful script.\n\nBy the end of this week: You will have the script of your very final experiment ready!"
-  },
-  {
-    "objectID": "Week8_Slides2.html#goals-key-concepts",
-    "href": "Week8_Slides2.html#goals-key-concepts",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "🎯 Goals & Key Concepts",
-    "text": "🎯 Goals & Key Concepts\n\nHow to optimize your script💻 Necessary codes\n\n\nHow to optimize your script:\n\nTemplate: Automate trials via a single script.\nRandomization: Shuffle trial order effortlessly.\nCounterbalancing: Master Latin square designs.\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants.\ngetVar(...): Used to obtain the content of an element stored in a variable."
-  },
-  {
-    "objectID": "Week8_Slides2.html#homework",
-    "href": "Week8_Slides2.html#homework",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "📝 Homework",
-    "text": "📝 Homework\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle (you can upload the .js file, or a Word or PDF file)"
-  },
-  {
-    "objectID": "Week8_Slides2.html#lets-simplify-and-automatize",
-    "href": "Week8_Slides2.html#lets-simplify-and-automatize",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "1. Let’s simplify and automatize",
-    "text": "1. Let’s simplify and automatize"
-  },
-  {
-    "objectID": "Week8_Slides2.html#the-detailed-trial-structure",
-    "href": "Week8_Slides2.html#the-detailed-trial-structure",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "The detailed trial structure",
-    "text": "The detailed trial structure\n\n\n\n\n\nflowchart LR\n  A([Welcome]) ==&gt; B([Practice])\n  subgraph Exp [Experimental trials]\n    C1([Trial 1]) --&gt; C2([Trial 2]) --&gt; C3([Trial 3]) --&gt; C4([Trial 4]) -.-&gt; C5([Last Trial])\n  end\n  B ==&gt; C1\n  C5 ==&gt; D([Goodbye])\n  style A fill:#34495e,stroke:#3498db,color:#fff\n  style B fill:#34495e,stroke:#2ecc71,color:#fff\n  style D fill:#34495e,stroke:#95a5a6,color:#fff\n  style C1 fill:#34495e,stroke:#e74c3c,color:#fff\n  style C5 fill:#34495e,stroke:#e74c3c,color:#fff\n  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5"
-  },
-  {
-    "objectID": "Week8_Slides2.html#a.-create-the-material-table",
-    "href": "Week8_Slides2.html#a.-create-the-material-table",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "A. Create the material table",
-    "text": "A. Create the material table\nInstead of typing the trials in the script, we create a table where we can list them.\n\n\n\n\nItemNo\nSentence\nCondition\n\n\n\n\n1\nThis is the first sentence\nGrammatical\n\n\n2\nThis is the second sentence\nGrammatical\n\n\n…\n…\n…\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nCreate material.csv in the PCIbex Resources section."
-  },
-  {
-    "objectID": "Week8_Slides2.html#material.csv-content",
-    "href": "Week8_Slides2.html#material.csv-content",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "material.csv Content",
-    "text": "material.csv Content\nItemNo,Sentence,Condition\n1,This is the first sentence,Grammatical\n2,This is the second sentence,Grammatical\n3,This is the third sentence,Grammatical\n4,This is the fourth sentence,Grammatical\n5,This are the fifth sentence,Ungrammatical\n6,This are the sixth sentence,Ungrammatical\n7,This are the seventh sentence,Ungrammatical\n8,This are the eighth sentence,Ungrammatical"
-  },
-  {
-    "objectID": "Week8_Slides2.html#b.-update-the-code-to-template",
-    "href": "Week8_Slides2.html#b.-update-the-code-to-template",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "B. Update the code to Template",
-    "text": "B. Update the code to Template\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence).print().center().log(),\n    newScale(\"Scale\", \"1\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print().center().wait().log()\n    )\n)"
-  },
-  {
-    "objectID": "Week8_Slides2.html#storing-participant-info",
-    "href": "Week8_Slides2.html#storing-participant-info",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Storing Participant Info",
-    "text": "Storing Participant Info\nThis is a a two-step process to store such information in the results file:\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px"
-  },
-  {
-    "objectID": "Week8_Slides2.html#step-1-define-variables",
-    "href": "Week8_Slides2.html#step-1-define-variables",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Step 1: Define Variables",
-    "text": "Step 1: Define Variables\nnewTrial(\"Background information\",\n    // ... Elements\n    newVar(\"Age\")\n        .global()\n        .set(getTextInput(\"Age\"))\n    ,\n    newVar(\"Degree\")\n        .global()\n        .set(getDropDown(\"Degree\"))\n)"
-  },
-  {
-    "objectID": "Week8_Slides2.html#step-2-store-information",
-    "href": "Week8_Slides2.html#step-2-store-information",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Step 2: Store Information",
-    "text": "Step 2: Store Information\n\n\n\n\n\n\nNote\n\n\nNow that you created the variable and\n\n\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    // ...\n)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)"
-  },
-  {
-    "objectID": "Week8_Slides2.html#sequence-and-randomization",
-    "href": "Week8_Slides2.html#sequence-and-randomization",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "2. Sequence and Randomization",
-    "text": "2. Sequence and Randomization\nWe can specify the sequence of the whole experiment at the beginning:\nSequence(\"Welcome page\", \"Background information\", \"Instructions\", \n         \"AnnouncementPractice\", \"Practice\", \"AnnouncementEndPractice\", \n         randomize(\"Experiment\"), \n         \"Send\", \"Goodbye\")"
-  },
-  {
-    "objectID": "Week8_Slides2.html#b.-counterbalancing-latin-square",
-    "href": "Week8_Slides2.html#b.-counterbalancing-latin-square",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "B. Counterbalancing (Latin Square)",
-    "text": "B. Counterbalancing (Latin Square)\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n3\nSentence 3\nGrammatical\nB\n\n\n\n\n\n\n\n\n\nTip\n\n\nPCIbex assigns groups automatically!"
-  },
-  {
-    "objectID": "Week8_Slides2.html#final-checklist",
-    "href": "Week8_Slides2.html#final-checklist",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "3. Final Checklist",
-    "text": "3. Final Checklist\n\nTwo participants?\n4 trials per participant?\nBalanced lists (groups)?\nDemographic data logged?\nSentences randomized?"
-  },
-  {
-    "objectID": "Week8_Slides2.html#final-assignment",
-    "href": "Week8_Slides2.html#final-assignment",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "📝 Final Assignment",
-    "text": "📝 Final Assignment\n\n\n\n\n\n\nDue next meeting\n\n\n\nDownload script\nAnnotate each line\nUpload to Moodle"
-  },
-  {
-    "objectID": "Week8_Slides2.html#detailed-structure",
-    "href": "Week8_Slides2.html#detailed-structure",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Detailed Structure",
-    "text": "Detailed Structure\nBut more precisely, it looks like that, with multiple trials:\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  \n  subgraph Exp [🧪 Experimental trials]\n    C1([Trial 1]) --&gt; C2([Trial 2]) --&gt; C3([Trial 3]) --&gt; C4([Trial 4]) -.-&gt; C5([Last Trial])\n  end\n  \n  B ==&gt; C1\n  C5 ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5"
-  },
-  {
-    "objectID": "Week8_Slides2.html#material.csv",
-    "href": "Week8_Slides2.html#material.csv",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "material.csv",
-    "text": "material.csv\nPaste the following inside a new file named material.csv in PCIbex:\nItemNo,Sentence,Condition\n1,This is the first sentence,Grammatical\n2,This is the second sentence,Grammatical\n3,This is the third sentence,Grammatical\n4,This is the fourth sentence,Grammatical\n5,This are the fifth sentence,Ungrammatical\n6,This are the sixth sentence,Ungrammatical\n7,This are the seventh sentence,Ungrammatical\n8,This are the eighth sentence,Ungrammatical"
-  },
-  {
-    "objectID": "Week8_Slides2.html#b.-update-the-existing-code",
-    "href": "Week8_Slides2.html#b.-update-the-existing-code",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "B. Update the existing code",
-    "text": "B. Update the existing code\nWe must specify that we are dealing with a template using the Template() function.\n/// 3. Experimental trials\n\n+ Template(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n-    newText(\"FirstSentence\", \"This is another grammatical sentence\")\n+    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n+ ) // This is the closing parenthesis corresponding to `Template()`\n\n- newTrial(\"Experiment\",\n-     newText(\"SecondSentence\", \"This sentence not is grammatical\")\n-         .print()\n-         .center()\n-     ,\n-     newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n-         .labelsPosition(\"bottom\")\n-         .before(newText(\"Not acceptable\"))\n-         .after(newText(\"Acceptable\"))\n-         .print()\n-         .center()\n-         .wait()\n-    )"
-  },
-  {
-    "objectID": "Week8_Slides2.html#log-with-a-template",
-    "href": "Week8_Slides2.html#log-with-a-template",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "1.2 log() with a template",
-    "text": "1.2 log() with a template\nTo get more information in the results file (ItemNo, Sentence, Condition), we add .log() to the template:\n    // ... inside Template\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Sentence\", row.Sentence)\n    .log(\"Condition\", row.Condition)\n)"
-  },
-  {
-    "objectID": "Week8_Slides2.html#b.-counterbalancing",
-    "href": "Week8_Slides2.html#b.-counterbalancing",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "B. Counterbalancing",
-    "text": "B. Counterbalancing\nAdd a group column to your material table for Latin square designs.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n3\nSentence 3\nGrammatical\nB"
-  },
-  {
-    "objectID": "Week8_Slides2.html#final-test-checklist",
-    "href": "Week8_Slides2.html#final-test-checklist",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "3. Final Test & Checklist",
-    "text": "3. Final Test & Checklist\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see age and degree? choice/judgment?\nWere the sentences randomly presented?"
-  },
-  {
-    "objectID": "Week8_Slides2.html#assignment-for-next-week",
-    "href": "Week8_Slides2.html#assignment-for-next-week",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "📝 Assignment for next week",
-    "text": "📝 Assignment for next week\n\n\n\n\n\n\nAssignment\n\n\n\nDownload the script of this week\nAnnotate each line of code\nUpload the annotated script on Moodle\n\n\n\n\n\n\n\n\n\n\nYou can even start preparing your own experiment!"
-  },
-  {
-    "objectID": "Week8_Slides2.html#creation-of-the-template",
-    "href": "Week8_Slides2.html#creation-of-the-template",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "1.1 Creation of the template",
-    "text": "1.1 Creation of the template"
-  },
-  {
-    "objectID": "Week8_Slides2.html#concept",
-    "href": "Week8_Slides2.html#concept",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Concept",
-    "text": "Concept\nThis is a a two-step process to store such information in the results file:\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px"
-  },
-  {
-    "objectID": "Week8_Slides2.html#step-1-define-the-variables",
-    "href": "Week8_Slides2.html#step-1-define-the-variables",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Step 1: Define the variables",
-    "text": "Step 1: Define the variables\n\n\n\n\n\n\nNote\n\n\n\nThis must be done where the information appears for the first time. For our experiment, this is in the 👋 Welcome page!\nNotice that we use (1) the newVar() element to create a new variable, and then the getTextInput() and getDropDown() to tell PCIbex what content to keep in memory!\n\n\n\n\n\nLet’s look at the code:\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n    newText(\"We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.\")\n        .print()\n        .center()\n    ,\n    newText(\"Your age:\")\n        .print()\n        .center()\n    ,\n    newTextInput(\"Age\")\n        .print()\n        .center()\n        .log(\"final\")\n    ,\n    newText(\"Your highest degree:\")\n        .print()\n        .center()\n    ,\n    newDropDown(\"Degree\", \"Please select one option\")\n        .add(\"Elementary school\", \"Junior high school\", \"Senior high school\", \"BA\", \"MA\", \"Ph.D.\")\n        .print()\n        .center()\n        .log()\n    ,\n    newButton(\"Continue\")\n        .center()\n        .print()\n        .wait()\n+    ,\n+    newVar(\"Age\")\n+        .global()\n+        .set(getTextInput(\"Age\"))\n+    ,\n+    newVar(\"Degree\")\n+        .global()\n+        .set(getDropDown(\"Degree\"))\n    )\n\n\nDone!"
-  },
-  {
-    "objectID": "Week8_Slides2.html#step-2-store-the-information-about-the-participants",
-    "href": "Week8_Slides2.html#step-2-store-the-information-about-the-participants",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Step 2: Store the information about the participants",
-    "text": "Step 2: Store the information about the participants\n\n\n\n\n\n\nNote\n\n\nNow that you created the variable and that they are kept in memory, we can store them in the results file using the .log() command. But notice the use of getVar()!\n\n\n\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n+    .log(\"Age\", getVar(\"Age\"))\n+    .log(\"Degree\", getVar(\"Degree\"))\n)\n\n\nDone!"
-  },
-  {
-    "objectID": "Week8_Slides2.html#recall-what-is-counterbalancing",
-    "href": "Week8_Slides2.html#recall-what-is-counterbalancing",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Recall: What is “counterbalancing”?",
-    "text": "Recall: What is “counterbalancing”?\n\n\n\n\n\n\n\nNote\n\n\nExample: For some reasons, you want Participant 1 to read half of the sentences, Participant 2 the other half, Participant 3 the same as Participant 1, Participant 4 the same as Participant 2, etc.\n\n\n\n\n\nHow to do that with PCIbex?\n\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB"
-  },
-  {
-    "objectID": "Week8_Slides2.html#final-content-in-the-material.csv-file",
-    "href": "Week8_Slides2.html#final-content-in-the-material.csv-file",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Final content in the material.csv file",
-    "text": "Final content in the material.csv file\nItemNo,Sentence,Condition,group\n1,This is the first sentence,Grammatical,A\n2,This is the second sentence,Grammatical,A\n3,This is the third sentence,Grammatical,B\n4,This is the fourth sentence,Grammatical,B\n5,This are the fifth sentence,Ungrammatical,A\n6,This are the sixth sentence,Ungrammatical,A\n7,This are the seventh sentence,Ungrammatical,B\n8,This are the eighth sentence,Ungrammatical,B\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB\n\n\n\n\n\nDon’t forget to use the log() element to keep track of which list the participants were assigned to!\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n\n...\n         \n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n    .log(\"Sentence\", row.Sentence)\n+    .log(\"List\", row.group)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)"
-  },
-  {
-    "objectID": "Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
-    "href": "Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Download the results file, open it and check the following:",
-    "text": "Download the results file, open it and check the following:\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see age and degree? choice/judgment?\nWere the sentences randomly presented?"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#goals-key-concepts",
-    "href": "course-materials/Week8_Slides2.html#goals-key-concepts",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "🎯 Goals & Key Concepts",
-    "text": "🎯 Goals & Key Concepts\n\nHow to optimize your script💻 Necessary codes\n\n\nHow to optimize your script:\n\nTemplate: Automate trials via a single script.\nRandomization: Shuffle trial order effortlessly.\nCounterbalancing: Master Latin square designs.\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants.\ngetVar(...): Used to obtain the content of an element stored in a variable."
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
-    "href": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "A. Create the material table",
-    "text": "A. Create the material table\nInstead of typing the trials in the script, we create a table where we can list them.\n\n\n\n\nItemNo\nSentence\nCondition\n\n\n\n\n1\nThis is the first sentence\nGrammatical\n\n\n2\nThis is the second sentence\nGrammatical\n\n\n…\n…\n…\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nCreate material.csv in the PCIbex Resources section."
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#concept",
-    "href": "course-materials/Week8_Slides2.html#concept",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Concept",
-    "text": "Concept\nThis is a a two-step process to store such information in the results file:\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
-    "href": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Step 1: Define the variables",
-    "text": "Step 1: Define the variables\n\n\n\n\n\n\nNote\n\n\n\nThis must be done where the information appears for the first time. For our experiment, this is in the 👋 Welcome page!\nNotice that we use (1) the newVar() element to create a new variable, and then (2) the getTextInput() and getDropDown() to tell PCIbex what content to keep in memory!\n\n\n\n\n\nLet’s look at the code:\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n    newText(\"We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.\")\n        .print()\n        .center()\n    ,\n    newText(\"Your age:\")\n        .print()\n        .center()\n    ,\n    newTextInput(\"Age\")\n        .print()\n        .center()\n        .log(\"final\")\n    ,\n    newText(\"Your highest degree:\")\n        .print()\n        .center()\n    ,\n    newDropDown(\"Degree\", \"Please select one option\")\n        .add(\"Elementary school\", \"Junior high school\", \"Senior high school\", \"BA\", \"MA\", \"Ph.D.\")\n        .print()\n        .center()\n        .log()\n    ,\n    newButton(\"Continue\")\n        .center()\n        .print()\n        .wait()\n+    ,\n+    newVar(\"Age\")\n+        .global()\n+        .set(getTextInput(\"Age\"))\n+    ,\n+    newVar(\"Degree\")\n+        .global()\n+        .set(getDropDown(\"Degree\"))\n    )\n\n\nDone!"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
-    "href": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Step 2: Store the information about the participants",
-    "text": "Step 2: Store the information about the participants\n\n\n\n\n\n\nNote\n\n\nNow that you created the variable and that they are kept in memory, we can store them in the results file using the .log() command. But notice the use of getVar()!\n\n\n\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n+    .log(\"Age\", getVar(\"Age\"))\n+    .log(\"Degree\", getVar(\"Degree\"))\n)\n\n\nDone!"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
-    "href": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Recall: What is “counterbalancing”?",
-    "text": "Recall: What is “counterbalancing”?\n\n\n\n\n\n\n\nNote\n\n\nExample: For some reasons, you want Participant 1 to read half of the sentences, Participant 2 the other half, Participant 3 the same as Participant 1, Participant 4 the same as Participant 2, etc.\n\n\n\n\n\nHow to do that with PCIbex?\n\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
-    "href": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Final content in the material.csv file",
-    "text": "Final content in the material.csv file\nItemNo,Sentence,Condition,group\n1,This is the first sentence,Grammatical,A\n2,This is the second sentence,Grammatical,A\n3,This is the third sentence,Grammatical,B\n4,This is the fourth sentence,Grammatical,B\n5,This are the fifth sentence,Ungrammatical,A\n6,This are the sixth sentence,Ungrammatical,A\n7,This are the seventh sentence,Ungrammatical,B\n8,This are the eighth sentence,Ungrammatical,B\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB\n\n\n\n\n\nDon’t forget to use the log() element to keep track of which list the participants were assigned to!\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n\n...\n         \n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n    .log(\"Sentence\", row.Sentence)\n+    .log(\"List\", row.group)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
-    "href": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Download the results file, open it and check the following:",
-    "text": "Download the results file, open it and check the following:\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see age and degree? choice/judgment?\nWere the sentences randomly presented?"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#assignment-for-next-week",
-    "href": "course-materials/Week8_Slides2.html#assignment-for-next-week",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "📝 Assignment for next week",
-    "text": "📝 Assignment for next week\n\n\n\n\n\n\nAssignment\n\n\n\nDownload the script of this week\nAnnotate each line of code\nUpload the annotated script on Moodle\n\n\n\n\n\n\n\n\n\n\nYou can even start preparing your own experiment!"
   }
 ]
