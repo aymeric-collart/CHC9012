@@ -29,7 +29,7 @@ This week, we will discuss how to set the parameters of a template to obtain a m
 
 <br>
 <div class="text-center mb-3">
-  <a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/main_Week8.js" class="btn btn-outline-primary btn-sm">
+  <a href="../docs/course-materials/Week8_slides2.html" class="btn btn-outline-primary btn-sm">
     <i class="bi bi-download"></i> Download the full script
   </a>
 </div>
@@ -50,7 +50,7 @@ This week, we will discuss how to set the parameters of a template to obtain a m
 :::
 
 <div class="text-center mb-4">
-  <a href="Week8_slides2.html" class="btn btn-outline-primary" target="_blank">
+  <a href="https://github.com/aymeric-collart/CHC9012/blob/main/docs/course-materials/Week8_Slides2.html" class="btn btn-outline-primary" target="_blank">
     <i class="bi bi-window-stack"></i> View the slides of this week's tutorial
   </a>
 </div>
