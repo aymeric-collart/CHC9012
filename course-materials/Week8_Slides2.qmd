@@ -1,0 +1,497 @@
+---
+title: "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms"
+subtitle: "CHC9012 | National Taiwan Normal University"
+format: 
+  revealjs:
+    theme: serif
+    transition: slide
+    scrollable: true
+    slide-number: true
+    chalkboard: true
+    width: 1280
+    height: 720
+---
+
+# Overview
+
+This week, we will discuss how to set the parameters of a template to obtain a more simple and yet more powerful script.
+
+::: {.fragment .fade-up}
+**By the end of this week:** You will have the script of your very final experiment ready!
+:::
+
+---
+
+## 🎯 Goals & Key Concepts
+
+::: {.panel-tabset}
+
+### How to optimize your script
+**How to optimize your script:**
+
+- **Template:** Automate trials via a single script.
+- **Randomization:** Shuffle trial order effortlessly.
+- **Counterbalancing:** Master Latin square designs.
+
+### 💻 Necessary codes
+**A brief summary of the essential elements:**
+
+- `Template(...)`: Used to introduce a trial template.
+- `Sequence(...)`: Used to control the order of the different parts of the experiment.
+- `randomize(...)`: Used to present the trials using a random order.
+- `newVar(...)`: Used to create a new variable.
+- `getX(...)`: Used to obtained the content given by the participants.
+- `getVar(...)`: Used to obtain the content of an element stored in a variable.
+
+:::
+
+# 1. Let's simplify and automatize
+
+# 1.1 Creation of the template
+
+---
+
+So far, we created an experiment following this structure:
+
+```{mermaid}
+
+flowchart LR
+  A([👋 Welcome page]) ==> B([🛠️ Practice trials])
+  B ==> C([🧪 Experimental trials])
+  C ==> D([🏁 Goodbye page])
+  
+  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px
+  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px
+  style C fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px
+```
+
+::: {.fragment .fade-up}
+
+But more precisely, it looks like that, with multiple trials:
+
+```{mermaid}
+flowchart LR
+  A([👋 Welcome page]) ==> B([🛠️ Practice trials])
+  
+  subgraph Exp [🧪 Experimental trials]
+    C1([Trial 1]) --> C2([Trial 2]) --> C3([Trial 3]) --> C4([Trial 4]) -.-> C5([Last Trial])
+  end
+  
+  B ==> C1
+  C5 ==> D([🏁 Goodbye page])
+  
+  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px
+  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px
+  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px
+  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px
+  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5
+```
+
+:::
+
+---
+
+## A. Create the material table
+
+Instead of typing the trials in the script, we create a table where we can list them.
+
+::: {.fragment .fade-up}
+
+| ItemNo | Sentence | Condition |
+|:---|:---|:---|
+| 1 | This is the first sentence | Grammatical |
+| 2 | This is the second sentence | Grammatical |
+| ... | ... | ... |
+
+:::
+
+::: {.fragment .fade-up}
+
+::: {.callout-note}
+Create `material.csv` in the PCIbex Resources section.
+:::
+
+:::
+
+---
+
+Paste the following inside the new file named `material.csv` in PCIbex:
+
+```csv
+ItemNo,Sentence,Condition
+1,This is the first sentence,Grammatical
+2,This is the second sentence,Grammatical
+3,This is the third sentence,Grammatical
+4,This is the fourth sentence,Grammatical
+5,This are the fifth sentence,Ungrammatical
+6,This are the sixth sentence,Ungrammatical
+7,This are the seventh sentence,Ungrammatical
+8,This are the eighth sentence,Ungrammatical
+```
+
+
+::: {.fragment .fade-up}
+
+Done!
+
+:::
+
+# B. Update the existing code
+
+---
+
+We must specify that we are dealing with a *template* using the `Template()` function.
+
+::: {.fragment .fade-up}
+
+
+```javascript
+/// 3. Experimental trials
+
++ Template("material.csv", row => 
+newTrial("Experiment",
+-    newText("FirstSentence", "This is another grammatical sentence")
++    newText("Sentence", row.Sentence)
+        .print()
+        .center()
+        .log()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
+        .log()
+    )
++ ) // This is the closing parenthesis corresponding to `Template()`
+
+- newTrial("Experiment",
+-     newText("SecondSentence", "This sentence not is grammatical")
+-         .print()
+-         .center()
+-     ,
+-     newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+-         .labelsPosition("bottom")
+-         .before(newText("Not acceptable"))
+-         .after(newText("Acceptable"))
+-         .print()
+-         .center()
+-         .wait()
+-    )
+```
+
+:::
+
+::: {.fragment .fade-up}
+
+Done!
+
+:::
+
+# 1.2 log() with a template
+
+# Storing information about the items
+
+---
+
+To get more information in the results file (ItemNo, Sentence, Condition), we add `.log()` to the template:
+
+::: {.fragment .fade-up}
+
+```javascript
+/// 3. Experimental trials
+
+Template("material.csv", row => 
+newTrial("Experiment",
+    newText("Sentence", row.Sentence)
+        .print()
+        .center()
+-        .log() // Since we know it does not work, let's delete it
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
+        .log()
+    )
++    .log("ItemNo", row.ItemNo)
++    .log("Sentence", row.Sentence)
++    .log("Condition", row.Condition)
+)
+```
+
+:::
+
+::: {.fragment .fade-up}
+
+Done!
+
+:::
+
+
+# Storing information about the participants
+
+---
+
+## Concept
+
+This is a ***a two-step process*** to store such information in the results file:
+
+```{mermaid}
+flowchart LR
+  A(["👋 Welcome page <br> <b>Define the variable</b>"]) ==> B(["🧪 Experimental trials <br> <b>Log the data</b>"])
+  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px
+  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px
+```
+
+---
+
+## Step 1: Define the variables
+
+
+::: {.callout-note}
+ - This must be done where the information appears for the first time. For our experiment, this is in the `👋 Welcome page`!
+ - Notice that we use (1) the `newVar()` element to create a new variable, and then (2) the `getTextInput()` and `getDropDown()` to tell PCIbex what content to keep in memory!
+:::
+
+::: {.fragment .fade-up}
+
+Let's look at the code:
+
+
+
+```javascript
+// 1.2 Background questionnaire
+
+newTrial("Background information",
+    newText("We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.")
+        .print()
+        .center()
+    ,
+    newText("Your age:")
+        .print()
+        .center()
+    ,
+    newTextInput("Age")
+        .print()
+        .center()
+        .log("final")
+    ,
+    newText("Your highest degree:")
+        .print()
+        .center()
+    ,
+    newDropDown("Degree", "Please select one option")
+        .add("Elementary school", "Junior high school", "Senior high school", "BA", "MA", "Ph.D.")
+        .print()
+        .center()
+        .log()
+    ,
+    newButton("Continue")
+        .center()
+        .print()
+        .wait()
++    ,
++    newVar("Age")
++        .global()
++        .set(getTextInput("Age"))
++    ,
++    newVar("Degree")
++        .global()
++        .set(getDropDown("Degree"))
+    )
+```
+
+:::
+
+::: {.fragment .fade-up}
+
+Done!
+
+:::
+
+---
+
+## Step 2: Store the information about the participants
+::: {.callout-note}
+Now that you created the variable and that they are kept in memory, we can store them in the results file using the `.log()` command. But notice the use of `getVar()`!
+:::
+
+::: {.fragment .fade-up}
+```javascript
+/// 3. Experimental trials
+
+Template("material.csv", row => 
+newTrial("Experiment",
+    newText("Sentence", row.Sentence)
+        .print()
+        .center()
+        .log()
+    ,
+    newScale("Scale", "1", "2", "3", "4", "5", "6", "7")
+        .labelsPosition("bottom")
+        .before(newText("Not acceptable"))
+        .after(newText("Acceptable"))
+        .print()
+        .center()
+        .wait()
+        .log()
+    )
+    .log("ItemNo", row.ItemNo)
+    .log("Condition", row.Condition)
++    .log("Age", getVar("Age"))
++    .log("Degree", getVar("Degree"))
+)
+```
+:::
+
+
+::: {.fragment .fade-up}
+
+Done!
+
+:::
+
+# Done with the template! Let's take a break! {background-color="#1a1c2c" transition="zoom"}
+
+# 2. Sequence and randomization
+
+---
+
+We can specify the sequence of the whole experiment at the beginning:
+
+
+
+```javascript
+Sequence("Welcome page", "Background information", "Instructions", 
+         "AnnouncementPractice", "Practice", "AnnouncementEndPractice", 
+         randomize("Experiment"), 
+         "Send", "Goodbye")
+```
+
+
+
+::: {.callout-note}
+ - You can notice that the names are the ones given righ after the `newTrial("name")` command!
+ - You can use the `randomize()` command to present the trials in a random order.
+:::
+
+
+# 3. Counterbalancing (Latin square design)
+
+---
+
+## Recall: What is "counterbalancing"?
+
+::: {.fragment .fade-up}
+
+::: {.callout-note}
+Example: For some reasons, you want Participant 1 to read half of the sentences, Participant 2 the other half, Participant 3 the same as Participant 1, Participant 4 the same as Participant 2, etc.
+
+:::
+
+:::
+
+::: {.fragment .fade-up}
+<b>How to do that with PCIbex?</b>
+
+::: 
+
+::: {.fragment .fade-up}
+
+Add a `group` column to your material table for counterbalancing.
+
+| ItemNo | Sentence | Condition | group |
+|:---|:---|:---|:---|
+| 1 | Sentence 1 | Grammatical | A |
+| 2 | Sentence 2 | Grammatical | B |
+
+:::
+
+---
+
+## Final content in the `material.csv` file
+
+```csv
+ItemNo,Sentence,Condition,group
+1,This is the first sentence,Grammatical,A
+2,This is the second sentence,Grammatical,A
+3,This is the third sentence,Grammatical,B
+4,This is the fourth sentence,Grammatical,B
+5,This are the fifth sentence,Ungrammatical,A
+6,This are the sixth sentence,Ungrammatical,A
+7,This are the seventh sentence,Ungrammatical,B
+8,This are the eighth sentence,Ungrammatical,B
+```
+
+::: {.fragment .fade-up}
+
+Add a `group` column to your material table for counterbalancing.
+
+| ItemNo | Sentence | Condition | group |
+|:---|:---|:---|:---|
+| 1 | Sentence 1 | Grammatical | A |
+| 2 | Sentence 2 | Grammatical | B |
+
+:::
+
+::: {.fragment .fade-up}
+
+Don't forget to use the `log()` element to keep track of which list the participants were assigned to!
+
+```javascript
+/// 3. Experimental trials
+Template("material.csv", row => 
+newTrial("Experiment",
+
+...
+         
+    )
+    .log("ItemNo", row.ItemNo)
+    .log("Condition", row.Condition)
+    .log("Sentence", row.Sentence)
++    .log("List", row.group)
+    .log("Age", getVar("Age"))
+    .log("Degree", getVar("Degree"))
+)
+
+```
+
+:::
+
+# Now that your code is finalized, run the experiment two times, as if two participants finsished it! {background-color="#1a1c2c" transition="zoom"}
+
+# 3. Final test & checklist
+
+---
+
+## Download the results file, open it and check the following:
+
+- [ ] Are there two participants?
+- [ ] 4 trials per participant?
+- [ ] Trials from different lists/group?
+- [ ] Can I see the sentence? The ItemNo? The condition?
+- [ ] Can I see age and degree? choice/judgment?
+- [ ] Were the sentences randomly presented?
+
+---
+
+## 📝 Assignment for next week
+
+::: {.callout-important icon="true"}
+## Assignment
+- Download the script of this week
+- Annotate each line of code
+- Upload the annotated script on Moodle
+:::
+
+::: {.callout-caution icon="true"}
+## You can even start preparing your own experiment!
+:::
