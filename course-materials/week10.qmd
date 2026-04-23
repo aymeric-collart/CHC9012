@@ -269,7 +269,7 @@ Now I assume that R and RStudio are correctly installed. When you start RStudio,
   
 When you open RStudio for the very first time, you should see something similar to the picture below. *(Note: If yours looks slightly different, that is completely normal!)*
   
-![](Images/RStudio_FirstPage.png)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_FirstPage.png)
   
 The best way to apprehend RStudio is to see the interface as a collection of **blocks**, each serving a specific purpose. There are four main blocks. I give them unofficial names to make them easier to remember:
   
@@ -279,7 +279,7 @@ The best way to apprehend RStudio is to see the interface as a collection of **b
   4. ⚙️ **The Console Block**
   
   
-![](Images/RStudio_4Blocks.png)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudio_4Blocks.png)
 
   
 *(You may not be able to see the 'Script block' on your computer just yet. Don't worry, we will open it soon!)*
@@ -316,7 +316,7 @@ a <- 4 + 2
 Nothing appears in the console anymore. But look at your Variable block! 
 
 
-![](Images/VariableBlock_WithVariable.png)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/VariableBlock_WithVariable.png)
 
 
 You have stored the calculation inside a variable called `a`. You can call it anytime simply by typing `a` in the console, or even add to it by typing `a + 2`!
@@ -333,7 +333,7 @@ The Script block is your digital notepad. If you type code in the Console, it di
 
 Let's open one. Click **"New File"**, and then select **"R Script"**.
     
-![](Images/OpenNewScript.gif)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/OpenNewScript.gif)
     
 Type the following lines into your new Script block:
       
@@ -346,7 +346,7 @@ Type the following lines into your new Script block:
     
 Select all the text with your mouse, and click **'Run'**. 
     
-![](Images/Script_Demo.gif)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Script_Demo.gif)
     
       
 Now you can go to `File > Save` and save this script to your computer. The next time you open it, all your code will still be there!
@@ -357,7 +357,7 @@ Your four blocks are like construction toys. You can change their size by draggi
       
 **Path:** `Tools > Global Options... > Appearance > Editor theme`
     
-![](Images/ChangeColor.gif)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ChangeColor.gif)
     
       
 ::: {.callout-note icon="false" appearance="minimal" style="background-color: #f8f9fa; border-left: 4px solid #9b59b6;"}
@@ -380,7 +380,7 @@ You can do amazing things with R: draw maps, run complex statistics, and manipul
       
 There are thousands of packages available for free, often coming with their own fun hex-logos.
     
-![](Images/RPackages.jpg)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RPackages.jpg)
     
 ### How to install and use Libraries
       
@@ -414,7 +414,7 @@ Before doing *anything* with data, you must tell R exactly which folder on your 
     
 Use the Computer Block to navigate to your project folder. Click the **Gear Icon**, and select **"Save as Working Directory"**.
     
-![](Images/SetWorkingDirectory.gif)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/SetWorkingDirectory.gif)
     
 ### 2. Comments
       
@@ -435,7 +435,7 @@ data <- read.csv("GACTT_RESULTS_ANONYMIZED_v2.csv", header=TRUE)
 
 Alternatively, you can use the RStudio interface! In your Variable block, click **"Import Dataset" > "From Text (base)"**, select your file, and click Import. 
 
-![](Images/ImportDataBaseR.gif)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ImportDataBaseR.gif)
 
 ### 4. Transforming and Summarizing Data
 
@@ -459,7 +459,7 @@ data3 <- data2 %>%
 ```
 
 
-![](Images/ResultsSummarize.png)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ResultsSummarize.png)
 
 
 ### 5. Plotting the Data
@@ -483,26 +483,26 @@ Standard R Scripts only save your code. **R Markdown** files are an incredible u
 To start, click **"New File" > "R Markdown..."**
 
 
-![](Images/ScriptTypes.png)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ScriptTypes.png)
 
 
 RStudio will prompt you for a Title and Author. Once created, you will see a document with a **YAML Header** at the top between dashed lines `---`. This header controls the settings for your final document.
 
 
-![](Images/Markdown_YAML.png)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Markdown_YAML.png)
 
 
 ### Writing Text and Code
 In an R Markdown file, anything you type normally becomes standard text. To actually write R code, you must insert a **Code Chunk**. Click the "Insert" button at the top of the script and select "R". A grey box will appear. 
 
 
-![](Images/RCodeBlock_WarningMessage.png)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_WarningMessage.png)
 
 
 You can run these individual chunks using the green **Play Button** in the corner of the grey box.
 
 
-![](Images/RCodeBlock_RunBlock.png)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_RunBlock.png)
 
 
 ### The Magic "Knit" Button
