@@ -28,51 +28,307 @@
     "text": "📚 Resources & software\n\n\n\n\n\n\nOnline Resources\n\n\n\n\nEthics: Center for Taiwan Academic Research Ethics Education\nPlatform: PCIbex | Documentation | Forum\nSoftware: R Project | RStudio Desktop\n\n\n\n\n\n\n\n\n\nKey References\n\n\n\n\nWickham, H., Çetinkaya-Rundel, M., & Grolemund, G. (2023). R for Data Science (2nd ed). O’Reilly Media. Free Online\nPodesva, J., & Sharma, D. (Eds.). (2014). Research methods in linguistics. Cambridge University Press.\n\nEckert, P. (Ethics)\nSchütze, C. T., & Sprouse, J. (Judgment data)\nAbbuhl, R., et al. (Experimental design)\nKaiser, E. (Experimental paradigms)\n\nGillioz, C., & Zufferey, S. (2021). Introduction to experimental linguistics. Wiley.\nRogers, J., & Révész, A. (2020). Experimental and quasi-experimental designs. In The Routledge handbook of research methods in applied linguistics."
   },
   {
-    "objectID": "course-materials/week10.html",
-    "href": "course-materials/week10.html",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "",
-    "text": "This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.\n\n🎯 Goals & key concepts💻 Necessary codes📝 Homework\n\n\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\nScript sharing: How to write a beautiful script to share?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 10: Presentation of R"
-    ]
-  },
-  {
-    "objectID": "course-materials/week10.html#overview",
-    "href": "course-materials/week10.html#overview",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "",
-    "text": "This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.\n\n🎯 Goals & key concepts💻 Necessary codes📝 Homework\n\n\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\nScript sharing: How to write a beautiful script to share?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 10: Presentation of R"
-    ]
-  },
-  {
-    "objectID": "course-materials/week13.html",
-    "href": "course-materials/week13.html",
-    "title": "Week 13 - Data exploration (2/2) and data visualization (1/2) with R",
+    "objectID": "course-materials/week14.html",
+    "href": "course-materials/week14.html",
+    "title": "Week 14 - Data visualization with R (2/2)",
     "section": "",
     "text": "[To complete later]",
     "crumbs": [
       "Home",
       "Part 3: Analyses and visualization",
-      "Week 13: Data exploration (2/2) and data visualization (1/2) with R"
+      "Week 14: Data visualization with R (2/2)"
     ]
   },
   {
-    "objectID": "course-materials/week5.html",
-    "href": "course-materials/week5.html",
-    "title": "Week 5 - Questionnaire items",
+    "objectID": "course-materials/week11.html",
+    "href": "course-materials/week11.html",
+    "title": "Week 11 - Import and tidying data (1/2) with R",
     "section": "",
     "text": "[To complete later]",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 11: Import and tidying data (1/2) with R"
+    ]
+  },
+  {
+    "objectID": "course-materials/week12.html",
+    "href": "course-materials/week12.html",
+    "title": "Week 12 - Tidying data (2/2) and data exploration (1/2) with R",
+    "section": "",
+    "text": "[To complete later]",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 12: Tidying data (2/2) and data exploration (1/2) with R"
+    ]
+  },
+  {
+    "objectID": "course-materials/week4.html",
+    "href": "course-materials/week4.html",
+    "title": "Week 4: Paradigms and tools",
+    "section": "",
+    "text": "This week, we will talk about the different types of paradigms and tools that we can use when running online questionnaires or experiments. Last week, our discussion focused on the Independent Variable (IV) and how its manipulation creates different kinds of design. This week, we shift our focus to the Dependent Variable (DV).\n\n🧪 Core concepts📚 Required readings\n\n\nFocusing on the Dependent Variable (DV)\nWe will explore the following key areas:\n\nOperationalization: What makes a DV “good” (i.e., testable and measurable)?\nOffline methods: Judgment experiments, ad-hoc reaction times, and various tasks for language experiments.\nOn-line methods: Exploring timing methods and tracking techniques.\nParadigms: We will examine common experimental setups used to elicit specific data.\n\n\n\nDiscussion material for this week\nOur discussion of these concepts will be based on the following two readings:\n\nSchütze & Sprouse (2014) (from the book “Research Methods in Linguistics”)\nKaiser (2014) (from the book “Research Methods in Linguistics”)\n\n\n\n\n\n\n\n\n\n\n\n⚠️ Important clarification: “On-line”\n\n\n\nPay attention! In experimental linguistics and psychology, the word “on-line” does not mean “on the internet.” Instead, it means measuring a cognitive process “in real time” as it unfolds.\n\n\n\n\n\n\n\n\n\n\n\n\n\nConcept\nDefinition / Focus\nExample application\n\n\n\n\nOperationalization (Dependent Measures)\nThe selection of a specific behavioral response to measure cognitive systems, such as time, error rate, or reported perceptions of acceptability.\nMeasuring reaction times as an indication of processing complexity\n\n\nOff-line methods\nMethods that provide crucial information about final interpretations, or the final outcome of language processing.\nAcceptability judgment tasks, where speakers are explicitly asked to report their spontaneous reaction concerning whether a string of words is a possible utterance\n\n\nOn-line methods\nMethods that tap into real-time aspects of language processing. These methods detect rapid, transient effects that are often not explicitly noticed by language users.\nUsing an eye-tracker to record eye movements that are closely time-locked to the speech stream as a participant listens to instructions\n\n\nReaction-time paradigms\nMethods measuring how rapidly people perform different kinds of linguistic tasks.\nA self-paced reading task where participants press a button to reveal words one by one, allowing researchers to record how much time is spent on each part of the sentence\n\n\nVisual-world paradigm\nAn eye-tracking method where a participant is presented with auditory linguistic stimuli coupled with objects or a visual display.\nMeasuring fixation probabilities to target objects (like a beaker) and competitor objects on a computer screen as the participant hears the spoken word unfold\n\n\n\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before next week:\n\nRead: Review the assigned materials:\n\nGillioz & Zufferey (2021)\n\nProject Planning: Seriously start to think of your final project. Consider your specific topic and decide whether you will be working individually or in a group.",
     "crumbs": [
       "Home",
       "Part 1: Fundamentals of language questionnaires",
-      "Week 5: Questionnaire items"
+      "Week 4: Paradigms and tools"
+    ]
+  },
+  {
+    "objectID": "course-materials/week4.html#overview",
+    "href": "course-materials/week4.html#overview",
+    "title": "Week 4: Paradigms and tools",
+    "section": "",
+    "text": "This week, we will talk about the different types of paradigms and tools that we can use when running online questionnaires or experiments. Last week, our discussion focused on the Independent Variable (IV) and how its manipulation creates different kinds of design. This week, we shift our focus to the Dependent Variable (DV).\n\n🧪 Core concepts📚 Required readings\n\n\nFocusing on the Dependent Variable (DV)\nWe will explore the following key areas:\n\nOperationalization: What makes a DV “good” (i.e., testable and measurable)?\nOffline methods: Judgment experiments, ad-hoc reaction times, and various tasks for language experiments.\nOn-line methods: Exploring timing methods and tracking techniques.\nParadigms: We will examine common experimental setups used to elicit specific data.\n\n\n\nDiscussion material for this week\nOur discussion of these concepts will be based on the following two readings:\n\nSchütze & Sprouse (2014) (from the book “Research Methods in Linguistics”)\nKaiser (2014) (from the book “Research Methods in Linguistics”)\n\n\n\n\n\n\n\n\n\n\n\n⚠️ Important clarification: “On-line”\n\n\n\nPay attention! In experimental linguistics and psychology, the word “on-line” does not mean “on the internet.” Instead, it means measuring a cognitive process “in real time” as it unfolds.\n\n\n\n\n\n\n\n\n\n\n\n\n\nConcept\nDefinition / Focus\nExample application\n\n\n\n\nOperationalization (Dependent Measures)\nThe selection of a specific behavioral response to measure cognitive systems, such as time, error rate, or reported perceptions of acceptability.\nMeasuring reaction times as an indication of processing complexity\n\n\nOff-line methods\nMethods that provide crucial information about final interpretations, or the final outcome of language processing.\nAcceptability judgment tasks, where speakers are explicitly asked to report their spontaneous reaction concerning whether a string of words is a possible utterance\n\n\nOn-line methods\nMethods that tap into real-time aspects of language processing. These methods detect rapid, transient effects that are often not explicitly noticed by language users.\nUsing an eye-tracker to record eye movements that are closely time-locked to the speech stream as a participant listens to instructions\n\n\nReaction-time paradigms\nMethods measuring how rapidly people perform different kinds of linguistic tasks.\nA self-paced reading task where participants press a button to reveal words one by one, allowing researchers to record how much time is spent on each part of the sentence\n\n\nVisual-world paradigm\nAn eye-tracking method where a participant is presented with auditory linguistic stimuli coupled with objects or a visual display.\nMeasuring fixation probabilities to target objects (like a beaker) and competitor objects on a computer screen as the participant hears the spoken word unfold\n\n\n\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before next week:\n\nRead: Review the assigned materials:\n\nGillioz & Zufferey (2021)\n\nProject Planning: Seriously start to think of your final project. Consider your specific topic and decide whether you will be working individually or in a group.",
+    "crumbs": [
+      "Home",
+      "Part 1: Fundamentals of language questionnaires",
+      "Week 4: Paradigms and tools"
+    ]
+  },
+  {
+    "objectID": "course-materials/week3.html",
+    "href": "course-materials/week3.html",
+    "title": "Week 3: Fundamentals of questionnaire design",
+    "section": "",
+    "text": "This week, we will cover the basics of questionnaire (or experimental) design. We will learn the technical terms to describe the methodology employed in a questionnaire or experiment, which will be essential for you when reading academic papers, attending conferences, and writing your own final term papers.\n\n🧪 Core concepts📚 Required readings\n\n\nExperimental design variables & structure\nWe will discuss the following core concepts through several studies involving language:\n\nVariables: Independent variable(s) and dependent variable(s).\nTypes of design: Within-participants design, between-participants design, and mixed designs.\nFactorial design: What “factors” and “levels” actually mean.\nCounterbalancing: Why there is a need to counterbalance, and how Latin square designs work to achieve it.\n\n\n\nDiscussion material for this week\nOur discussion of these concepts will be based on the following two readings:\n\nAbbuhl et al. (2014) (from the book “Research Methods in Linguistics”)\nRogers & Révész (2020) (from the book “The Routledge Handbook of Research Methods in Applied Linguistics”)\n\n\n\n\n\n\n\nHere is a visual breakdown to help you synthesize the experimental design concepts we are discussing this week:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConcept\nDefinition\nExample application\n\n\n\n\nIndependent variable\nThe variable that is manipulated by the researcher, also known as the variable of influence. It is expected to bring about variation or change in the dependent variable.\nCorrective feedback\n\n\nDependent variable\nThe variable that is measured or influenced.\nGrammatical development\n\n\nBetween-participants design\nA design where each level of the independent variable is comprised of different participants.\nTypically developing (TD) children and children with specific language impairment (SLI)\n\n\nWithin-participants design\nA design where the same individuals are assigned to all levels of the independent variable.\nA class studying half of target items under a spaced-short condition and the other half under a spaced-long condition\n\n\nMixed design\nA design that combines both within-participants and between-participants factors.\nExamining L2 performance using task complexity (within-participants) and modality (between-participants)\n\n\nFactorial design\nA research design that includes more than one independent variable to examine separate and combined effects.\nInvestigating the effects of wh-dependency and dependency length on sentence processing using a 2 x 2 design\n\n\nCounterbalancing\nHaving different, randomly assigned participants complete the different levels of the independent variable in different orders to address order or carryover effects. A Latin-square design is frequently used for this purpose to control against test- and task-order effects.\nCounterbalancing four different tasks across four groups in a Latin-square design so each group completes tasks in a different order\n\n\n\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before our next meeting:\n\nBrainstorm: Review the concepts we’ve been through today. Start thinking of your own research question and how to translate it using the variables and design structures we’ve learned this week.\nRead: Prepare the materials for Week 4:\n\nSchütze & Sprouse (2014)\nKaiser (2014)",
+    "crumbs": [
+      "Home",
+      "Part 1: Fundamentals of language questionnaires",
+      "Week 3: Fundamentals of questionnaire design"
+    ]
+  },
+  {
+    "objectID": "course-materials/week3.html#overview",
+    "href": "course-materials/week3.html#overview",
+    "title": "Week 3: Fundamentals of questionnaire design",
+    "section": "",
+    "text": "This week, we will cover the basics of questionnaire (or experimental) design. We will learn the technical terms to describe the methodology employed in a questionnaire or experiment, which will be essential for you when reading academic papers, attending conferences, and writing your own final term papers.\n\n🧪 Core concepts📚 Required readings\n\n\nExperimental design variables & structure\nWe will discuss the following core concepts through several studies involving language:\n\nVariables: Independent variable(s) and dependent variable(s).\nTypes of design: Within-participants design, between-participants design, and mixed designs.\nFactorial design: What “factors” and “levels” actually mean.\nCounterbalancing: Why there is a need to counterbalance, and how Latin square designs work to achieve it.\n\n\n\nDiscussion material for this week\nOur discussion of these concepts will be based on the following two readings:\n\nAbbuhl et al. (2014) (from the book “Research Methods in Linguistics”)\nRogers & Révész (2020) (from the book “The Routledge Handbook of Research Methods in Applied Linguistics”)\n\n\n\n\n\n\n\nHere is a visual breakdown to help you synthesize the experimental design concepts we are discussing this week:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConcept\nDefinition\nExample application\n\n\n\n\nIndependent variable\nThe variable that is manipulated by the researcher, also known as the variable of influence. It is expected to bring about variation or change in the dependent variable.\nCorrective feedback\n\n\nDependent variable\nThe variable that is measured or influenced.\nGrammatical development\n\n\nBetween-participants design\nA design where each level of the independent variable is comprised of different participants.\nTypically developing (TD) children and children with specific language impairment (SLI)\n\n\nWithin-participants design\nA design where the same individuals are assigned to all levels of the independent variable.\nA class studying half of target items under a spaced-short condition and the other half under a spaced-long condition\n\n\nMixed design\nA design that combines both within-participants and between-participants factors.\nExamining L2 performance using task complexity (within-participants) and modality (between-participants)\n\n\nFactorial design\nA research design that includes more than one independent variable to examine separate and combined effects.\nInvestigating the effects of wh-dependency and dependency length on sentence processing using a 2 x 2 design\n\n\nCounterbalancing\nHaving different, randomly assigned participants complete the different levels of the independent variable in different orders to address order or carryover effects. A Latin-square design is frequently used for this purpose to control against test- and task-order effects.\nCounterbalancing four different tasks across four groups in a Latin-square design so each group completes tasks in a different order\n\n\n\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before our next meeting:\n\nBrainstorm: Review the concepts we’ve been through today. Start thinking of your own research question and how to translate it using the variables and design structures we’ve learned this week.\nRead: Prepare the materials for Week 4:\n\nSchütze & Sprouse (2014)\nKaiser (2014)",
+    "crumbs": [
+      "Home",
+      "Part 1: Fundamentals of language questionnaires",
+      "Week 3: Fundamentals of questionnaire design"
+    ]
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#goals-key-concepts",
+    "href": "course-materials/Week8_Slides2.html#goals-key-concepts",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "🎯 Goals & Key Concepts",
+    "text": "🎯 Goals & Key Concepts\n\nHow to optimize your script💻 Necessary codes\n\n\nHow to optimize your script:\n\nTemplate: Automate trials via a single script.\nRandomization: Shuffle trial order effortlessly.\nCounterbalancing: Master Latin square designs.\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants.\ngetVar(...): Used to obtain the content of an element stored in a variable."
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
+    "href": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "A. Create the material table",
+    "text": "A. Create the material table\nInstead of typing the trials in the script, we create a table where we can list them.\n\n\n\n\nItemNo\nSentence\nCondition\n\n\n\n\n1\nThis is the first sentence\nGrammatical\n\n\n2\nThis is the second sentence\nGrammatical\n\n\n…\n…\n…\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nCreate material.csv in the PCIbex Resources section."
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#concept",
+    "href": "course-materials/Week8_Slides2.html#concept",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Concept",
+    "text": "Concept\nThis is a a two-step process to store such information in the results file:\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
+    "href": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Step 1: Define the variables",
+    "text": "Step 1: Define the variables\n\n\n\n\n\n\nNote\n\n\n\nThis must be done where the information appears for the first time. For our experiment, this is in the 👋 Welcome page!\nNotice that we use (1) the newVar() element to create a new variable, and then (2) the getTextInput() and getDropDown() to tell PCIbex what content to keep in memory!\n\n\n\n\n\nLet’s look at the code:\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n    newText(\"We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.\")\n        .print()\n        .center()\n    ,\n    newText(\"Your age:\")\n        .print()\n        .center()\n    ,\n    newTextInput(\"Age\")\n        .print()\n        .center()\n        .log(\"final\")\n    ,\n    newText(\"Your highest degree:\")\n        .print()\n        .center()\n    ,\n    newDropDown(\"Degree\", \"Please select one option\")\n        .add(\"Elementary school\", \"Junior high school\", \"Senior high school\", \"BA\", \"MA\", \"Ph.D.\")\n        .print()\n        .center()\n        .log()\n    ,\n    newButton(\"Continue\")\n        .center()\n        .print()\n        .wait()\n+    ,\n+    newVar(\"Age\")\n+        .global()\n+        .set(getTextInput(\"Age\"))\n+    ,\n+    newVar(\"Degree\")\n+        .global()\n+        .set(getDropDown(\"Degree\"))\n    )\n\n\nDone!"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
+    "href": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Step 2: Store the information about the participants",
+    "text": "Step 2: Store the information about the participants\n\n\n\n\n\n\nNote\n\n\nNow that you created the variable and that they are kept in memory, we can store them in the results file using the .log() command. But notice the use of getVar()!\n\n\n\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n+    .log(\"Age\", getVar(\"Age\"))\n+    .log(\"Degree\", getVar(\"Degree\"))\n)\n\n\nDone!"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
+    "href": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Recall: What is “counterbalancing”?",
+    "text": "Recall: What is “counterbalancing”?\n\n\n\n\n\n\n\nNote\n\n\nExample: For some reasons, you want Participant 1 to read half of the sentences, Participant 2 the other half, Participant 3 the same as Participant 1, Participant 4 the same as Participant 2, etc.\n\n\n\n\n\nHow to do that with PCIbex?\n\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
+    "href": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Final content in the material.csv file",
+    "text": "Final content in the material.csv file\nItemNo,Sentence,Condition,group\n1,This is the first sentence,Grammatical,A\n2,This is the second sentence,Grammatical,A\n3,This is the third sentence,Grammatical,B\n4,This is the fourth sentence,Grammatical,B\n5,This are the fifth sentence,Ungrammatical,A\n6,This are the sixth sentence,Ungrammatical,A\n7,This are the seventh sentence,Ungrammatical,B\n8,This are the eighth sentence,Ungrammatical,B\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB\n\n\n\n\n\nDon’t forget to use the log() element to keep track of which list the participants were assigned to!\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n\n...\n         \n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n    .log(\"Sentence\", row.Sentence)\n+    .log(\"List\", row.group)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
+    "href": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Download the results file, open it and check the following:",
+    "text": "Download the results file, open it and check the following:\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see age and degree? choice/judgment?\nWere the sentences randomly presented?"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#assignment-for-next-week",
+    "href": "course-materials/Week8_Slides2.html#assignment-for-next-week",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "📝 Assignment for next week",
+    "text": "📝 Assignment for next week\n\n\n\n\n\n\nAssignment\n\n\n\nDownload the script of this week\nAnnotate each line of code\nUpload the annotated script on Moodle\n\n\n\n\n\n\n\n\n\n\nYou can even start preparing your own experiment!"
+  },
+  {
+    "objectID": "course-materials/week8.html",
+    "href": "course-materials/week8.html",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "",
+    "text": "This week, we will discuss how to set the parameters of a template to obtain a more simple and yet more powerful script. By the end of this week, you will have the script of your very final experiment ready!\n\n🎯 Goals & key concepts💻 Necessary codes📝 Homework\n\n\nHow to optimize your script:\n\nTemplate: How to create a script that can run automatically through all the trials?\nRandomization: How to present the trials using a random order?\nCounterbalancing: How to counterbalance the items using a Latin square design?\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants in a specific element (example: getTextInput(...), getDropDown(...), etc.)\ngetVar(...): Used to obtain the content of an element stored in a variable (i.e., within newVar(...)).\n\n\n\n  Download the full script \n\n\n  Experiment from the script covered this week \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle (you can upload the .js file, or a Word or PDF file)\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 2: Designing a web-based questionnaire",
+      "Week 8: More complex questionnaires with PCIbex"
+    ]
+  },
+  {
+    "objectID": "course-materials/week8.html#overview",
+    "href": "course-materials/week8.html#overview",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "",
+    "text": "This week, we will discuss how to set the parameters of a template to obtain a more simple and yet more powerful script. By the end of this week, you will have the script of your very final experiment ready!\n\n🎯 Goals & key concepts💻 Necessary codes📝 Homework\n\n\nHow to optimize your script:\n\nTemplate: How to create a script that can run automatically through all the trials?\nRandomization: How to present the trials using a random order?\nCounterbalancing: How to counterbalance the items using a Latin square design?\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants in a specific element (example: getTextInput(...), getDropDown(...), etc.)\ngetVar(...): Used to obtain the content of an element stored in a variable (i.e., within newVar(...)).\n\n\n\n  Download the full script \n\n\n  Experiment from the script covered this week \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle (you can upload the .js file, or a Word or PDF file)\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 2: Designing a web-based questionnaire",
+      "Week 8: More complex questionnaires with PCIbex"
+    ]
+  },
+  {
+    "objectID": "course-materials/week8.html#lets-simplify-and-automatize-the-process",
+    "href": "course-materials/week8.html#lets-simplify-and-automatize-the-process",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "1. Let’s simplify and automatize the process",
+    "text": "1. Let’s simplify and automatize the process\n\n1.1 Creation of the template\nSo far, we created an experiment following this structure:\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  B ==&gt; C([🧪 Experimental trials])\n  C ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style C fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n\n\n\n\n\n\nBut more precisely, it looks like that, with multiple trials:\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  \n  subgraph Exp [🧪 Experimental trials]\n    C1([Trial 1]) --&gt; C2([Trial 2]) --&gt; C3([Trial 3]) --&gt; C4([Trial 4]) -.-&gt; C5([Last Trial])\n  end\n  \n  B ==&gt; C1\n  C5 ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n  \n  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C2 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C3 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C4 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  \n  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5\n\n\n\n\n\n\nAs we saw last week, we could type all the trials individually. Alternatively, there is a much more efficient way to go. We provide the details below.\n\nA. Create the material tableB. Update the existing code\n\n\nInstead of typing the trials in the script, we create a table where we can list them. Let’s say we have 8 sentences, divided between 2 conditions (so 4 sentences per condition)\n\n\n\n\nItemNo\nSentence\nCondition\n\n\n\n\n1\nThis is the first sentence\nGrammatical\n\n\n2\nThis is the second sentence\nGrammatical\n\n\n3\nThis is the third sentence\nGrammatical\n\n\n4\nThis is the fourth sentence\nGrammatical\n\n\n5\nThis are the fifth sentence\nUngrammatical\n\n\n6\nThis are the sixth sentence\nUngrammatical\n\n\n7\nThis are the seventh sentence\nUngrammatical\n\n\n8\nThis are the eighth sentence\nUngrammatical\n\n\n\nWe need to have this tables under the Resources part on the left of the interface. One way to do is to open an Excel document, save it into a .csv file (columns seperated by commas), and upload on PCIbex. This is the most convenient way to go, especially when you have a lot of information.\nInstead, we are going to create it directly for this tutorial. Right next to the Resources part, you can click on the + (Create new file) sign, and you rename it to: material.csv. You will see the logo changing to something similar to: .\nAfter that, you click on the file, and it will open it next to the script. You just have to copy and paste the following section inside (the commas , indicate different columns).\nItemNo,Sentence,Condition\n1,This is the first sentence,Grammatical\n2,This is the second sentence,Grammatical\n3,This is the third sentence,Grammatical\n4,This is the fourth sentence,Grammatical\n5,This are the fifth sentence,Ungrammatical\n6,This are the sixth sentence,Ungrammatical\n7,This are the seventh sentence,Ungrammatical\n8,This are the eighth sentence,Ungrammatical\n\n\nNow that we have our materials uploaded onto PCIbex, we just need to modify the script that we already have. As a reminder, this is what it looked like with two trials:\n\n\n\n\n\n\nPrevious script\n\n\n\n\n\n/// 3. Experimental trials\n\nnewTrial(\"Experiment\",\n    newText(\"FirstSentence\", \"This is another grammatical sentence\")\n        .print()\n        .center()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n    )\n    \nnewTrial(\"Experiment\",\n    newText(\"SecondSentence\", \"This sentence not is grammatical\")\n        .print()\n        .center()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n    )\n\n\n\nWe actually just need to update that a little bit… and you will realize that it will even look easier than what we wrote! More specifically:\n\nWe must specify that we are dealing with a template using the Template() function. The content of the template (i.e., the trials) is found within the parentheses.\nWe must also specify the name of the file where the trials can be found, we change the file into a variable to refer to (here, the name of the variable is row), and which column corresponds to the trials to display on the screen (here, the column is called Sentence; row.Sentence means that it is the column called Sentence in the file corresponding to the variable row).\nImportantly, we delete all other newTrial() elements. We only need one within the template.\n\n/// 3. Experimental trials\n\n+ Template(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n-    newText(\"FirstSentence\", \"This is another grammatical sentence\")\n+    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n+ ) // This is the closing parenthesis corresponding to `Template()`\n\n- newTrial(\"Experiment\",\n-     newText(\"SecondSentence\", \"This sentence not is grammatical\")\n-         .print()\n-         .center()\n-     ,\n-     newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n-         .labelsPosition(\"bottom\")\n-         .before(newText(\"Not acceptable\"))\n-         .after(newText(\"Acceptable\"))\n-         .print()\n-         .center()\n-         .wait()\n-    )\nAnd that’s all, we are done!\n\n\n\n\n\n\n1.2 log() with a template\nIf you run the experiment and look at the results file, you will see that you can find the judgments given by the participants. But we may want more information in the results file:\n\nThe ID of the sentence,\nThe sentence itself,\nThe experimental condition,\nAnd other information found in the material table.\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n-        .log() // Since we know it does not work, let's delete it\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n+    .log(\"ItemNo\", row.ItemNo)\n+    .log(\"Sentence\", row.Sentence)\n+    .log(\"Condition\", row.Condition)\n)\nIn addition, since the participants provide background information, we would like to add these details in the same line as well! But such information is not found in a seperate file, they are provided by the participants themselves. This is therefore a two-step process to store such information in the results file, as follows:\n\n\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n\n\n\n\n\n\n\n\n\nStep 1 - Define the variable when the participants provide their information. We create a new variable (think as if we create a new column) called “Age” with the newVar() element. Then we set the content of this variable. We need to tell PCIbex where to find it with the getTextInput() element. In the same code, we have an element called newTextInput(\"Age\"), therefore we need to use the same name: getTextInput(\"Age\"). We need to do the same with other elements we want to keep, hence the getDropDown(\"Degree\") element.\n\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n    newText(\"We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.\")\n        .print()\n        .center()\n    ,\n    newText(\"Your age:\")\n        .print()\n        .center()\n    ,\n    newTextInput(\"Age\")\n        .print()\n        .center()\n        .log(\"final\")\n    ,\n    newText(\"Your highest degree:\")\n        .print()\n        .center()\n    ,\n    newDropDown(\"Degree\", \"Please select one option\")\n        .add(\"Elementary school\", \"Junior high school\", \"Senior high school\", \"BA\", \"MA\", \"Ph.D.\")\n        .print()\n        .center()\n        .log()\n    ,\n    newButton(\"Continue\")\n        .center()\n        .print()\n        .wait()\n+    ,\n+    newVar(\"Age\")\n+        .global()\n+        .set(getTextInput(\"Age\"))\n+    ,\n+    newVar(\"Degree\")\n+        .global()\n+        .set(getDropDown(\"Degree\"))\n    )\n\nStep 2 - Store the information along with the results of each trial. We just need to add two lines, starting with the .log() command that we are very familiar with. We need to use the getVar() element to say “grasp the information from this variable”.\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n+    .log(\"Age\", getVar(\"Age\"))\n+    .log(\"Degree\", getVar(\"Degree\"))\n)",
+    "crumbs": [
+      "Home",
+      "Part 2: Designing a web-based questionnaire",
+      "Week 8: More complex questionnaires with PCIbex"
+    ]
+  },
+  {
+    "objectID": "course-materials/week8.html#lets-specify-the-template-and-the-overall-procedure",
+    "href": "course-materials/week8.html#lets-specify-the-template-and-the-overall-procedure",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "2. Let’s specify the template and the overall procedure",
+    "text": "2. Let’s specify the template and the overall procedure\nWe are almost done with the parameters of the experiment! Now that we are using the Template() element, we can set additional parameters.\n\nA. Sequence and randomizationB. Counterbalancing\n\n\nWe can specify the sequence of the whole experiment right at the beginning of the script. In other words, we want to translate this figure into PCIbex language.\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  \n  subgraph Exp [🧪 Experimental trials]\n    C1([Trial 1]) --&gt; C2([Trial 2]) --&gt; C3([Trial 3]) --&gt; C4([Trial 4]) -.-&gt; C5([Last Trial])\n  end\n  \n  B ==&gt; C1\n  C5 ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n  \n  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C2 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C3 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C4 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  \n  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5\n\n\n\n\n\n\nWe can do that using the Sequence() element, as below:\nSequence(\"Welcome page\", \"Background information\", \"Instructions\", \"AnnouncementPractice\", \"Practice\", \"AnnouncementEndPractice\", \"Experiment\", \"Goodbye\")\nBut we will run into a problem. We did not specify when to send the results! To do that, we must give a name to the SendResults() element that we placed right before the ‘goodbye page’, and include it in the Sequence() element.\nPennController.ResetPrefix(null)\n\n+ Sequence(\"Welcome page\", \"Background information\", \"Instructions\", \"AnnouncementPractice\", \"Practice\", \"AnnouncementEndPractice\", \"Experiment\", \"Send\" \"Goodbye\")\n\n/// 1. Welcome page\n// 1.1 Hello page, ICF\n\nnewTrial(\"Welcome page\",\n...\n    )\n\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n...\n    )\n\n// 1.3 Instructions\n\nnewTrial(\"Instructions\",\n...\n    )\n\n/// 2. Practice trials\n\nnewTrial(\"AnnouncementPractice\",\n...\n    )\n\nnewTrial(\"Practice\",\n...\n    )\n    \nnewTrial(\"AnnouncementEndPractice\",\n...\n)\n\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n...\n)\n\n/// 4. Goodbye page\n+ SendResults(\"Send\")\n\nnewTrial(\"Goodbye\",\n...\n        )\nWith the Sequence() element, we just need to specify which part of the experiment needs to be presented in random order, using the randomize() element, as below.\nSequence(\"Welcome page\", \"Background information\", \"Instructions\", \"AnnouncementPractice\", \"Practice\", \"AnnouncementEndPractice\",\n+ randomize(\"Experiment\"), \n\"Send\", \"Goodbye\")\n\n\nOur last step concerns Latin square designs, i.e., when we want to counterbalance the items and present different ones to different participants for some reasons. So far, we have 8 sentences dispatched into 2 conditions, so 4 items per condition. Now, let’s say that we only want to present the two first sentences from each condition to Participant 1, and the last two sentences to Participant 2, and so on.\nWith PCIbex, we can specify the lists directly in the material table. We just need to have a column called group, and PCIbex will automatically identify that these corresponds to different lists in a Latin square design. My habit is to use ‘A’, ‘B’, etc. to specify the lists, such that there is no confusion with the item IDs.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nThis is the first sentence\nGrammatical\nA\n\n\n2\nThis is the second sentence\nGrammatical\nA\n\n\n3\nThis is the third sentence\nGrammatical\nB\n\n\n4\nThis is the fourth sentence\nGrammatical\nB\n\n\n5\nThis are the fifth sentence\nUngrammatical\nA\n\n\n6\nThis are the sixth sentence\nUngrammatical\nA\n\n\n7\nThis are the seventh sentence\nUngrammatical\nB\n\n\n8\nThis are the eighth sentence\nUngrammatical\nB\n\n\n\nIn the end, the content of material.csv looks like this:\nItemNo,Sentence,Condition,group\n1,This is the first sentence,Grammatical,A\n2,This is the second sentence,Grammatical,A\n3,This is the third sentence,Grammatical,B\n4,This is the fourth sentence,Grammatical,B\n5,This are the fifth sentence,Ungrammatical,A\n6,This are the sixth sentence,Ungrammatical,A\n7,This are the seventh sentence,Ungrammatical,B\n8,This are the eighth sentence,Ungrammatical,B\nFinally, to keep track of which list the participants saw, we need to use the .log() command!\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n    .log(\"Sentence\", row.Sentence)\n+    .log(\"List\", row.group)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)",
+    "crumbs": [
+      "Home",
+      "Part 2: Designing a web-based questionnaire",
+      "Week 8: More complex questionnaires with PCIbex"
+    ]
+  },
+  {
+    "objectID": "course-materials/week8.html#final-test-run-the-experiment-several-times-and-look-at-the-results-file",
+    "href": "course-materials/week8.html#final-test-run-the-experiment-several-times-and-look-at-the-results-file",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "3. Final test: Run the experiment several times and look at the results file",
+    "text": "3. Final test: Run the experiment several times and look at the results file\nA good practice, when everything is set, is to run the experiments several times as if we were pretending that we are different participants. We can first check that this is indeed what we want the participants to see, and also that the results file is in order.\nI just ran the experiment two times, here is what the results file look like. It is also a good practice to prepare a checklist, such that we know what to expect.\n\n\n\n\n\n\nChecklist for the results file\n\n\n\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see the age of the participants? Their degree?\nCan I see their choice/judgment?\nWere the sentences randomly presented?\nOther checks we can think of.\n\n\n\n\n\n\nClick on the image to zoom in\n\n\nNote that I rearranged the results file to fit in one image. It looks quite disorganized, but we will learn in the last part of this course how to handle that without headaches.\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle (you can upload the .js file, or a Word or PDF file)",
+    "crumbs": [
+      "Home",
+      "Part 2: Designing a web-based questionnaire",
+      "Week 8: More complex questionnaires with PCIbex"
+    ]
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Introduction to Language Questionnaires",
+    "section": "",
+    "text": "Welcome to the course website for CHC9012: Language Questionnaires.\nInstructor: Aymeric Collart (理克) Department: Department of Chinese, NTNU  Credits: 2  Prerequisites: None"
+  },
+  {
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Introduction to Language Questionnaires",
+    "section": "",
+    "text": "Welcome to the course website for CHC9012: Language Questionnaires.\nInstructor: Aymeric Collart (理克) Department: Department of Chinese, NTNU  Credits: 2  Prerequisites: None"
+  },
+  {
+    "objectID": "index.html#course-description",
+    "href": "index.html#course-description",
+    "title": "Introduction to Language Questionnaires",
+    "section": "📋 Course Description",
+    "text": "📋 Course Description\nThis course introduces the fundamentals of online language questionnaires with an emphasis on hands-on practice. After discussing ethic issues in linguistic research, the course will be divided into three parts:\n\nFundamental concepts and practices in language questionnaires.\nSet-up of a web-based questionnaire (using PCIbex).\nHandling, analysis, and visualization of the results (using R).\n\nBy the end of the course, students are expected to acquire the basic knowledge of questionnaire design concepts and the capacity to design and run their own language questionnaire."
+  },
+  {
+    "objectID": "index.html#news-updates",
+    "href": "index.html#news-updates",
+    "title": "Introduction to Language Questionnaires",
+    "section": "📢 News & Updates",
+    "text": "📢 News & Updates\n\n\n\n\n\n\n\nWeek 7\n\n\n\nWebsite announcment\n\n\n\nWeeks 8 and 10 of the course have been updated!\n\n\n\nMar 30, 2026\n\n\n\n\n\n\n\n\n\n\nWeek 7\n\n\n\nWebsite announcment\n\n\n\nWeek 7 of the course has been updated!\n\n\n\nMar 30, 2026\n\n\n\n\n\n\n\n\n\n\nWeeks 3 and 4\n\n\n\nWebsite announcment\n\n\n\nWeeks 3 and 4 of the course have been updated!\n\n\n\nMar 12, 2026\n\n\n\n\n\n\n\n\n\n\nWeek 1 & Week 2\n\n\n\nWebsite announcment\n\n\n\nThe first two weeks of the course have been updated!\n\n\n\nFeb 13, 2026\n\n\n\n\n\n\n\n\n\n\nLaunch of the website\n\n\n\nWebsite announcment\n\n\n\nThe website for the course has just been created. Stay tuned for further development!\n\n\n\nJan 10, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "index.html#quick-links",
+    "href": "index.html#quick-links",
+    "title": "Introduction to Language Questionnaires",
+    "section": "🚀 Quick links",
+    "text": "🚀 Quick links\n\n\n\n\n\n\n\n\n📖 Syllabus\n\n\n\nFull course schedule, reading list, and grading policies.\nGo to Syllabus\n\n\n\n\n\n\n\n\n\n\n💻 PCIbex\n\n\n\nWe use PCIbex for designing web-based experiments.\nLaunch PCIbex\n\n\n\n\n\n\n\n\n\n\n📊 R & RStudio\n\n\n\nDownload the software needed for Part 3 of the course.\nGet R Get RStudio"
+  },
+  {
+    "objectID": "index.html#instructor",
+    "href": "index.html#instructor",
+    "title": "Introduction to Language Questionnaires",
+    "section": "👤 Instructor",
+    "text": "👤 Instructor\nAymeric Collart (理克) Department of Chinese, NTNU\nEmail provided in class"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "course-materials/week1.html",
+    "href": "course-materials/week1.html",
+    "title": "Week 1: Introduction",
+    "section": "",
+    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
+    "crumbs": [
+      "Home",
+      "Preliminary weeks",
+      "Week 1: Introduction"
+    ]
+  },
+  {
+    "objectID": "course-materials/week1.html#welcome-to-the-course",
+    "href": "course-materials/week1.html#welcome-to-the-course",
+    "title": "Week 1: Introduction",
+    "section": "",
+    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
+    "crumbs": [
+      "Home",
+      "Preliminary weeks",
+      "Week 1: Introduction"
+    ]
+  },
+  {
+    "objectID": "course-materials/week2.html",
+    "href": "course-materials/week2.html",
+    "title": "Week 2: What is language, and ethics in linguistic research",
+    "section": "",
+    "text": "During Week 2, we will talk about ethics in linguistic research, covering the following topics:\n\n1. Outstanding questions2. Ethical Practices3. Institutions\n\n\nWhat is language, and where is language?\n\nWhat are the consequences of these answers when designing a linguistic survey?\nHow do our assumptions about “where language lives” change how we ask questions?\n\n\n\nWhat are ethical (or respectful) practices?\n\nWe will define what it means to be ethical in linguistic surveys (and any other kind of survey).\nI will share real examples of ethical dilemmas and situations that I encountered in the past few years, and how to avoid such problems.\n\n\n\nWhat are the institutional structures for research ethics in Taiwan?\n\nWe will focus on the Center for Taiwan Academic Research Ethics Education (in Chinese: 臺灣學術倫理教育資源中心) provided by the Ministry of Education.\nI will show you why you should care about these regulations, even as undergraduate and graduate students.\n\n\n\n\n\n\n\n\n\n\n  Center for Taiwan Academic Research Ethics Education \n\n(臺灣學術倫理教育資源中心)\n\n\n\n\n\n\n\n\n\n\n📝 Assignment for Next Week\n\n\n\nFor students enrolled in the program (and if you have time):\nPlease take the mandatory online ethics classes and pass the examination. (6 hours of training)\n\nSubmission: You do not need to upload the certificate of results.\nVerification: I will provide a sheet on Moodle; you will just need to check the box next to your name to confirm you have finished.",
+    "crumbs": [
+      "Home",
+      "Preliminary weeks",
+      "Week 2: Linguistic research and ethics"
+    ]
+  },
+  {
+    "objectID": "course-materials/week2.html#overview",
+    "href": "course-materials/week2.html#overview",
+    "title": "Week 2: What is language, and ethics in linguistic research",
+    "section": "",
+    "text": "During Week 2, we will talk about ethics in linguistic research, covering the following topics:\n\n1. Outstanding questions2. Ethical Practices3. Institutions\n\n\nWhat is language, and where is language?\n\nWhat are the consequences of these answers when designing a linguistic survey?\nHow do our assumptions about “where language lives” change how we ask questions?\n\n\n\nWhat are ethical (or respectful) practices?\n\nWe will define what it means to be ethical in linguistic surveys (and any other kind of survey).\nI will share real examples of ethical dilemmas and situations that I encountered in the past few years, and how to avoid such problems.\n\n\n\nWhat are the institutional structures for research ethics in Taiwan?\n\nWe will focus on the Center for Taiwan Academic Research Ethics Education (in Chinese: 臺灣學術倫理教育資源中心) provided by the Ministry of Education.\nI will show you why you should care about these regulations, even as undergraduate and graduate students.\n\n\n\n\n\n\n\n\n\n\n  Center for Taiwan Academic Research Ethics Education \n\n(臺灣學術倫理教育資源中心)\n\n\n\n\n\n\n\n\n\n\n📝 Assignment for Next Week\n\n\n\nFor students enrolled in the program (and if you have time):\nPlease take the mandatory online ethics classes and pass the examination. (6 hours of training)\n\nSubmission: You do not need to upload the certificate of results.\nVerification: I will provide a sheet on Moodle; you will just need to check the box next to your name to confirm you have finished.",
+    "crumbs": [
+      "Home",
+      "Preliminary weeks",
+      "Week 2: Linguistic research and ethics"
     ]
   },
   {
@@ -148,307 +404,142 @@
     ]
   },
   {
-    "objectID": "course-materials/week2.html",
-    "href": "course-materials/week2.html",
-    "title": "Week 2: What is language, and ethics in linguistic research",
+    "objectID": "course-materials/week5.html",
+    "href": "course-materials/week5.html",
+    "title": "Week 5 - Questionnaire items",
     "section": "",
-    "text": "During Week 2, we will talk about ethics in linguistic research, covering the following topics:\n\n1. Outstanding questions2. Ethical Practices3. Institutions\n\n\nWhat is language, and where is language?\n\nWhat are the consequences of these answers when designing a linguistic survey?\nHow do our assumptions about “where language lives” change how we ask questions?\n\n\n\nWhat are ethical (or respectful) practices?\n\nWe will define what it means to be ethical in linguistic surveys (and any other kind of survey).\nI will share real examples of ethical dilemmas and situations that I encountered in the past few years, and how to avoid such problems.\n\n\n\nWhat are the institutional structures for research ethics in Taiwan?\n\nWe will focus on the Center for Taiwan Academic Research Ethics Education (in Chinese: 臺灣學術倫理教育資源中心) provided by the Ministry of Education.\nI will show you why you should care about these regulations, even as undergraduate and graduate students.\n\n\n\n\n\n\n\n\n\n\n  Center for Taiwan Academic Research Ethics Education \n\n(臺灣學術倫理教育資源中心)\n\n\n\n\n\n\n\n\n\n\n📝 Assignment for Next Week\n\n\n\nFor students enrolled in the program (and if you have time):\nPlease take the mandatory online ethics classes and pass the examination. (6 hours of training)\n\nSubmission: You do not need to upload the certificate of results.\nVerification: I will provide a sheet on Moodle; you will just need to check the box next to your name to confirm you have finished.",
-    "crumbs": [
-      "Home",
-      "Preliminary weeks",
-      "Week 2: Linguistic research and ethics"
-    ]
-  },
-  {
-    "objectID": "course-materials/week2.html#overview",
-    "href": "course-materials/week2.html#overview",
-    "title": "Week 2: What is language, and ethics in linguistic research",
-    "section": "",
-    "text": "During Week 2, we will talk about ethics in linguistic research, covering the following topics:\n\n1. Outstanding questions2. Ethical Practices3. Institutions\n\n\nWhat is language, and where is language?\n\nWhat are the consequences of these answers when designing a linguistic survey?\nHow do our assumptions about “where language lives” change how we ask questions?\n\n\n\nWhat are ethical (or respectful) practices?\n\nWe will define what it means to be ethical in linguistic surveys (and any other kind of survey).\nI will share real examples of ethical dilemmas and situations that I encountered in the past few years, and how to avoid such problems.\n\n\n\nWhat are the institutional structures for research ethics in Taiwan?\n\nWe will focus on the Center for Taiwan Academic Research Ethics Education (in Chinese: 臺灣學術倫理教育資源中心) provided by the Ministry of Education.\nI will show you why you should care about these regulations, even as undergraduate and graduate students.\n\n\n\n\n\n\n\n\n\n\n  Center for Taiwan Academic Research Ethics Education \n\n(臺灣學術倫理教育資源中心)\n\n\n\n\n\n\n\n\n\n\n📝 Assignment for Next Week\n\n\n\nFor students enrolled in the program (and if you have time):\nPlease take the mandatory online ethics classes and pass the examination. (6 hours of training)\n\nSubmission: You do not need to upload the certificate of results.\nVerification: I will provide a sheet on Moodle; you will just need to check the box next to your name to confirm you have finished.",
-    "crumbs": [
-      "Home",
-      "Preliminary weeks",
-      "Week 2: Linguistic research and ethics"
-    ]
-  },
-  {
-    "objectID": "course-materials/week1.html",
-    "href": "course-materials/week1.html",
-    "title": "Week 1: Introduction",
-    "section": "",
-    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
-    "crumbs": [
-      "Home",
-      "Preliminary weeks",
-      "Week 1: Introduction"
-    ]
-  },
-  {
-    "objectID": "course-materials/week1.html#welcome-to-the-course",
-    "href": "course-materials/week1.html#welcome-to-the-course",
-    "title": "Week 1: Introduction",
-    "section": "",
-    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
-    "crumbs": [
-      "Home",
-      "Preliminary weeks",
-      "Week 1: Introduction"
-    ]
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Introduction to Language Questionnaires",
-    "section": "",
-    "text": "Welcome to the course website for CHC9012: Language Questionnaires.\nInstructor: Aymeric Collart (理克) Department: Department of Chinese, NTNU  Credits: 2  Prerequisites: None"
-  },
-  {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "Introduction to Language Questionnaires",
-    "section": "",
-    "text": "Welcome to the course website for CHC9012: Language Questionnaires.\nInstructor: Aymeric Collart (理克) Department: Department of Chinese, NTNU  Credits: 2  Prerequisites: None"
-  },
-  {
-    "objectID": "index.html#course-description",
-    "href": "index.html#course-description",
-    "title": "Introduction to Language Questionnaires",
-    "section": "📋 Course Description",
-    "text": "📋 Course Description\nThis course introduces the fundamentals of online language questionnaires with an emphasis on hands-on practice. After discussing ethic issues in linguistic research, the course will be divided into three parts:\n\nFundamental concepts and practices in language questionnaires.\nSet-up of a web-based questionnaire (using PCIbex).\nHandling, analysis, and visualization of the results (using R).\n\nBy the end of the course, students are expected to acquire the basic knowledge of questionnaire design concepts and the capacity to design and run their own language questionnaire."
-  },
-  {
-    "objectID": "index.html#news-updates",
-    "href": "index.html#news-updates",
-    "title": "Introduction to Language Questionnaires",
-    "section": "📢 News & Updates",
-    "text": "📢 News & Updates\n\n\n\n\n\n\n\nWeek 7\n\n\n\nWebsite announcment\n\n\n\nWeeks 8 and 10 of the course have been updated!\n\n\n\nMar 30, 2026\n\n\n\n\n\n\n\n\n\n\nWeek 7\n\n\n\nWebsite announcment\n\n\n\nWeek 7 of the course has been updated!\n\n\n\nMar 30, 2026\n\n\n\n\n\n\n\n\n\n\nWeeks 3 and 4\n\n\n\nWebsite announcment\n\n\n\nWeeks 3 and 4 of the course have been updated!\n\n\n\nMar 12, 2026\n\n\n\n\n\n\n\n\n\n\nWeek 1 & Week 2\n\n\n\nWebsite announcment\n\n\n\nThe first two weeks of the course have been updated!\n\n\n\nFeb 13, 2026\n\n\n\n\n\n\n\n\n\n\nLaunch of the website\n\n\n\nWebsite announcment\n\n\n\nThe website for the course has just been created. Stay tuned for further development!\n\n\n\nJan 10, 2026\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "index.html#quick-links",
-    "href": "index.html#quick-links",
-    "title": "Introduction to Language Questionnaires",
-    "section": "🚀 Quick links",
-    "text": "🚀 Quick links\n\n\n\n\n\n\n\n\n📖 Syllabus\n\n\n\nFull course schedule, reading list, and grading policies.\nGo to Syllabus\n\n\n\n\n\n\n\n\n\n\n💻 PCIbex\n\n\n\nWe use PCIbex for designing web-based experiments.\nLaunch PCIbex\n\n\n\n\n\n\n\n\n\n\n📊 R & RStudio\n\n\n\nDownload the software needed for Part 3 of the course.\nGet R Get RStudio"
-  },
-  {
-    "objectID": "index.html#instructor",
-    "href": "index.html#instructor",
-    "title": "Introduction to Language Questionnaires",
-    "section": "👤 Instructor",
-    "text": "👤 Instructor\nAymeric Collart (理克) Department of Chinese, NTNU\nEmail provided in class"
-  },
-  {
-    "objectID": "course-materials/week8.html",
-    "href": "course-materials/week8.html",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "",
-    "text": "This week, we will discuss how to set the parameters of a template to obtain a more simple and yet more powerful script. By the end of this week, you will have the script of your very final experiment ready!\n\n🎯 Goals & key concepts💻 Necessary codes📝 Homework\n\n\nHow to optimize your script:\n\nTemplate: How to create a script that can run automatically through all the trials?\nRandomization: How to present the trials using a random order?\nCounterbalancing: How to counterbalance the items using a Latin square design?\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants in a specific element (example: getTextInput(...), getDropDown(...), etc.)\ngetVar(...): Used to obtain the content of an element stored in a variable (i.e., within newVar(...)).\n\n\n\n  Download the full script \n\n\n  Experiment from the script covered this week \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle (you can upload the .js file, or a Word or PDF file)\n\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 2: Designing a web-based questionnaire",
-      "Week 8: More complex questionnaires with PCIbex"
-    ]
-  },
-  {
-    "objectID": "course-materials/week8.html#overview",
-    "href": "course-materials/week8.html#overview",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "",
-    "text": "This week, we will discuss how to set the parameters of a template to obtain a more simple and yet more powerful script. By the end of this week, you will have the script of your very final experiment ready!\n\n🎯 Goals & key concepts💻 Necessary codes📝 Homework\n\n\nHow to optimize your script:\n\nTemplate: How to create a script that can run automatically through all the trials?\nRandomization: How to present the trials using a random order?\nCounterbalancing: How to counterbalance the items using a Latin square design?\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants in a specific element (example: getTextInput(...), getDropDown(...), etc.)\ngetVar(...): Used to obtain the content of an element stored in a variable (i.e., within newVar(...)).\n\n\n\n  Download the full script \n\n\n  Experiment from the script covered this week \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle (you can upload the .js file, or a Word or PDF file)\n\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 2: Designing a web-based questionnaire",
-      "Week 8: More complex questionnaires with PCIbex"
-    ]
-  },
-  {
-    "objectID": "course-materials/week8.html#lets-simplify-and-automatize-the-process",
-    "href": "course-materials/week8.html#lets-simplify-and-automatize-the-process",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "1. Let’s simplify and automatize the process",
-    "text": "1. Let’s simplify and automatize the process\n\n1.1 Creation of the template\nSo far, we created an experiment following this structure:\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  B ==&gt; C([🧪 Experimental trials])\n  C ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style C fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n\n\n\n\n\n\nBut more precisely, it looks like that, with multiple trials:\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  \n  subgraph Exp [🧪 Experimental trials]\n    C1([Trial 1]) --&gt; C2([Trial 2]) --&gt; C3([Trial 3]) --&gt; C4([Trial 4]) -.-&gt; C5([Last Trial])\n  end\n  \n  B ==&gt; C1\n  C5 ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n  \n  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C2 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C3 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C4 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  \n  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5\n\n\n\n\n\n\nAs we saw last week, we could type all the trials individually. Alternatively, there is a much more efficient way to go. We provide the details below.\n\nA. Create the material tableB. Update the existing code\n\n\nInstead of typing the trials in the script, we create a table where we can list them. Let’s say we have 8 sentences, divided between 2 conditions (so 4 sentences per condition)\n\n\n\n\nItemNo\nSentence\nCondition\n\n\n\n\n1\nThis is the first sentence\nGrammatical\n\n\n2\nThis is the second sentence\nGrammatical\n\n\n3\nThis is the third sentence\nGrammatical\n\n\n4\nThis is the fourth sentence\nGrammatical\n\n\n5\nThis are the fifth sentence\nUngrammatical\n\n\n6\nThis are the sixth sentence\nUngrammatical\n\n\n7\nThis are the seventh sentence\nUngrammatical\n\n\n8\nThis are the eighth sentence\nUngrammatical\n\n\n\nWe need to have this tables under the Resources part on the left of the interface. One way to do is to open an Excel document, save it into a .csv file (columns seperated by commas), and upload on PCIbex. This is the most convenient way to go, especially when you have a lot of information.\nInstead, we are going to create it directly for this tutorial. Right next to the Resources part, you can click on the + (Create new file) sign, and you rename it to: material.csv. You will see the logo changing to something similar to: .\nAfter that, you click on the file, and it will open it next to the script. You just have to copy and paste the following section inside (the commas , indicate different columns).\nItemNo,Sentence,Condition\n1,This is the first sentence,Grammatical\n2,This is the second sentence,Grammatical\n3,This is the third sentence,Grammatical\n4,This is the fourth sentence,Grammatical\n5,This are the fifth sentence,Ungrammatical\n6,This are the sixth sentence,Ungrammatical\n7,This are the seventh sentence,Ungrammatical\n8,This are the eighth sentence,Ungrammatical\n\n\nNow that we have our materials uploaded onto PCIbex, we just need to modify the script that we already have. As a reminder, this is what it looked like with two trials:\n\n\n\n\n\n\nPrevious script\n\n\n\n\n\n/// 3. Experimental trials\n\nnewTrial(\"Experiment\",\n    newText(\"FirstSentence\", \"This is another grammatical sentence\")\n        .print()\n        .center()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n    )\n    \nnewTrial(\"Experiment\",\n    newText(\"SecondSentence\", \"This sentence not is grammatical\")\n        .print()\n        .center()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n    )\n\n\n\nWe actually just need to update that a little bit… and you will realize that it will even look easier than what we wrote! More specifically:\n\nWe must specify that we are dealing with a template using the Template() function. The content of the template (i.e., the trials) is found within the parentheses.\nWe must also specify the name of the file where the trials can be found, we change the file into a variable to refer to (here, the name of the variable is row), and which column corresponds to the trials to display on the screen (here, the column is called Sentence; row.Sentence means that it is the column called Sentence in the file corresponding to the variable row).\nImportantly, we delete all other newTrial() elements. We only need one within the template.\n\n/// 3. Experimental trials\n\n+ Template(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n-    newText(\"FirstSentence\", \"This is another grammatical sentence\")\n+    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n+ ) // This is the closing parenthesis corresponding to `Template()`\n\n- newTrial(\"Experiment\",\n-     newText(\"SecondSentence\", \"This sentence not is grammatical\")\n-         .print()\n-         .center()\n-     ,\n-     newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n-         .labelsPosition(\"bottom\")\n-         .before(newText(\"Not acceptable\"))\n-         .after(newText(\"Acceptable\"))\n-         .print()\n-         .center()\n-         .wait()\n-    )\nAnd that’s all, we are done!\n\n\n\n\n\n\n1.2 log() with a template\nIf you run the experiment and look at the results file, you will see that you can find the judgments given by the participants. But we may want more information in the results file:\n\nThe ID of the sentence,\nThe sentence itself,\nThe experimental condition,\nAnd other information found in the material table.\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n-        .log() // Since we know it does not work, let's delete it\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n+    .log(\"ItemNo\", row.ItemNo)\n+    .log(\"Sentence\", row.Sentence)\n+    .log(\"Condition\", row.Condition)\n)\nIn addition, since the participants provide background information, we would like to add these details in the same line as well! But such information is not found in a seperate file, they are provided by the participants themselves. This is therefore a two-step process to store such information in the results file, as follows:\n\n\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n\n\n\n\n\n\n\n\n\nStep 1 - Define the variable when the participants provide their information. We create a new variable (think as if we create a new column) called “Age” with the newVar() element. Then we set the content of this variable. We need to tell PCIbex where to find it with the getTextInput() element. In the same code, we have an element called newTextInput(\"Age\"), therefore we need to use the same name: getTextInput(\"Age\"). We need to do the same with other elements we want to keep, hence the getDropDown(\"Degree\") element.\n\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n    newText(\"We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.\")\n        .print()\n        .center()\n    ,\n    newText(\"Your age:\")\n        .print()\n        .center()\n    ,\n    newTextInput(\"Age\")\n        .print()\n        .center()\n        .log(\"final\")\n    ,\n    newText(\"Your highest degree:\")\n        .print()\n        .center()\n    ,\n    newDropDown(\"Degree\", \"Please select one option\")\n        .add(\"Elementary school\", \"Junior high school\", \"Senior high school\", \"BA\", \"MA\", \"Ph.D.\")\n        .print()\n        .center()\n        .log()\n    ,\n    newButton(\"Continue\")\n        .center()\n        .print()\n        .wait()\n+    ,\n+    newVar(\"Age\")\n+        .global()\n+        .set(getTextInput(\"Age\"))\n+    ,\n+    newVar(\"Degree\")\n+        .global()\n+        .set(getDropDown(\"Degree\"))\n    )\n\nStep 2 - Store the information along with the results of each trial. We just need to add two lines, starting with the .log() command that we are very familiar with. We need to use the getVar() element to say “grasp the information from this variable”.\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n+    .log(\"Age\", getVar(\"Age\"))\n+    .log(\"Degree\", getVar(\"Degree\"))\n)",
-    "crumbs": [
-      "Home",
-      "Part 2: Designing a web-based questionnaire",
-      "Week 8: More complex questionnaires with PCIbex"
-    ]
-  },
-  {
-    "objectID": "course-materials/week8.html#lets-specify-the-template-and-the-overall-procedure",
-    "href": "course-materials/week8.html#lets-specify-the-template-and-the-overall-procedure",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "2. Let’s specify the template and the overall procedure",
-    "text": "2. Let’s specify the template and the overall procedure\nWe are almost done with the parameters of the experiment! Now that we are using the Template() element, we can set additional parameters.\n\nA. Sequence and randomizationB. Counterbalancing\n\n\nWe can specify the sequence of the whole experiment right at the beginning of the script. In other words, we want to translate this figure into PCIbex language.\n\n\n\n\n\nflowchart LR\n  A([👋 Welcome page]) ==&gt; B([🛠️ Practice trials])\n  \n  subgraph Exp [🧪 Experimental trials]\n    C1([Trial 1]) --&gt; C2([Trial 2]) --&gt; C3([Trial 3]) --&gt; C4([Trial 4]) -.-&gt; C5([Last Trial])\n  end\n  \n  B ==&gt; C1\n  C5 ==&gt; D([🏁 Goodbye page])\n  \n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px\n  style D fill:#f8f9fa,stroke:#95a5a6,stroke-width:2px\n  \n  style C1 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C2 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C3 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C4 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  style C5 fill:#f8f9fa,stroke:#e74c3c,stroke-width:2px\n  \n  style Exp fill:none,stroke:#e74c3c,stroke-width:2px,stroke-dasharray: 5 5\n\n\n\n\n\n\nWe can do that using the Sequence() element, as below:\nSequence(\"Welcome page\", \"Background information\", \"Instructions\", \"AnnouncementPractice\", \"Practice\", \"AnnouncementEndPractice\", \"Experiment\", \"Goodbye\")\nBut we will run into a problem. We did not specify when to send the results! To do that, we must give a name to the SendResults() element that we placed right before the ‘goodbye page’, and include it in the Sequence() element.\nPennController.ResetPrefix(null)\n\n+ Sequence(\"Welcome page\", \"Background information\", \"Instructions\", \"AnnouncementPractice\", \"Practice\", \"AnnouncementEndPractice\", \"Experiment\", \"Send\" \"Goodbye\")\n\n/// 1. Welcome page\n// 1.1 Hello page, ICF\n\nnewTrial(\"Welcome page\",\n...\n    )\n\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n...\n    )\n\n// 1.3 Instructions\n\nnewTrial(\"Instructions\",\n...\n    )\n\n/// 2. Practice trials\n\nnewTrial(\"AnnouncementPractice\",\n...\n    )\n\nnewTrial(\"Practice\",\n...\n    )\n    \nnewTrial(\"AnnouncementEndPractice\",\n...\n)\n\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n...\n)\n\n/// 4. Goodbye page\n+ SendResults(\"Send\")\n\nnewTrial(\"Goodbye\",\n...\n        )\nWith the Sequence() element, we just need to specify which part of the experiment needs to be presented in random order, using the randomize() element, as below.\nSequence(\"Welcome page\", \"Background information\", \"Instructions\", \"AnnouncementPractice\", \"Practice\", \"AnnouncementEndPractice\",\n+ randomize(\"Experiment\"), \n\"Send\", \"Goodbye\")\n\n\nOur last step concerns Latin square designs, i.e., when we want to counterbalance the items and present different ones to different participants for some reasons. So far, we have 8 sentences dispatched into 2 conditions, so 4 items per condition. Now, let’s say that we only want to present the two first sentences from each condition to Participant 1, and the last two sentences to Participant 2, and so on.\nWith PCIbex, we can specify the lists directly in the material table. We just need to have a column called group, and PCIbex will automatically identify that these corresponds to different lists in a Latin square design. My habit is to use ‘A’, ‘B’, etc. to specify the lists, such that there is no confusion with the item IDs.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nThis is the first sentence\nGrammatical\nA\n\n\n2\nThis is the second sentence\nGrammatical\nA\n\n\n3\nThis is the third sentence\nGrammatical\nB\n\n\n4\nThis is the fourth sentence\nGrammatical\nB\n\n\n5\nThis are the fifth sentence\nUngrammatical\nA\n\n\n6\nThis are the sixth sentence\nUngrammatical\nA\n\n\n7\nThis are the seventh sentence\nUngrammatical\nB\n\n\n8\nThis are the eighth sentence\nUngrammatical\nB\n\n\n\nIn the end, the content of material.csv looks like this:\nItemNo,Sentence,Condition,group\n1,This is the first sentence,Grammatical,A\n2,This is the second sentence,Grammatical,A\n3,This is the third sentence,Grammatical,B\n4,This is the fourth sentence,Grammatical,B\n5,This are the fifth sentence,Ungrammatical,A\n6,This are the sixth sentence,Ungrammatical,A\n7,This are the seventh sentence,Ungrammatical,B\n8,This are the eighth sentence,Ungrammatical,B\nFinally, to keep track of which list the participants saw, we need to use the .log() command!\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n    .log(\"Sentence\", row.Sentence)\n+    .log(\"List\", row.group)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)",
-    "crumbs": [
-      "Home",
-      "Part 2: Designing a web-based questionnaire",
-      "Week 8: More complex questionnaires with PCIbex"
-    ]
-  },
-  {
-    "objectID": "course-materials/week8.html#final-test-run-the-experiment-several-times-and-look-at-the-results-file",
-    "href": "course-materials/week8.html#final-test-run-the-experiment-several-times-and-look-at-the-results-file",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "3. Final test: Run the experiment several times and look at the results file",
-    "text": "3. Final test: Run the experiment several times and look at the results file\nA good practice, when everything is set, is to run the experiments several times as if we were pretending that we are different participants. We can first check that this is indeed what we want the participants to see, and also that the results file is in order.\nI just ran the experiment two times, here is what the results file look like. It is also a good practice to prepare a checklist, such that we know what to expect.\n\n\n\n\n\n\nChecklist for the results file\n\n\n\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see the age of the participants? Their degree?\nCan I see their choice/judgment?\nWere the sentences randomly presented?\nOther checks we can think of.\n\n\n\n\n\n\nClick on the image to zoom in\n\n\nNote that I rearranged the results file to fit in one image. It looks quite disorganized, but we will learn in the last part of this course how to handle that without headaches.\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle (you can upload the .js file, or a Word or PDF file)",
-    "crumbs": [
-      "Home",
-      "Part 2: Designing a web-based questionnaire",
-      "Week 8: More complex questionnaires with PCIbex"
-    ]
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#goals-key-concepts",
-    "href": "course-materials/Week8_Slides2.html#goals-key-concepts",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "🎯 Goals & Key Concepts",
-    "text": "🎯 Goals & Key Concepts\n\nHow to optimize your script💻 Necessary codes\n\n\nHow to optimize your script:\n\nTemplate: Automate trials via a single script.\nRandomization: Shuffle trial order effortlessly.\nCounterbalancing: Master Latin square designs.\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants.\ngetVar(...): Used to obtain the content of an element stored in a variable."
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
-    "href": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "A. Create the material table",
-    "text": "A. Create the material table\nInstead of typing the trials in the script, we create a table where we can list them.\n\n\n\n\nItemNo\nSentence\nCondition\n\n\n\n\n1\nThis is the first sentence\nGrammatical\n\n\n2\nThis is the second sentence\nGrammatical\n\n\n…\n…\n…\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nCreate material.csv in the PCIbex Resources section."
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#concept",
-    "href": "course-materials/Week8_Slides2.html#concept",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Concept",
-    "text": "Concept\nThis is a a two-step process to store such information in the results file:\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
-    "href": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Step 1: Define the variables",
-    "text": "Step 1: Define the variables\n\n\n\n\n\n\nNote\n\n\n\nThis must be done where the information appears for the first time. For our experiment, this is in the 👋 Welcome page!\nNotice that we use (1) the newVar() element to create a new variable, and then (2) the getTextInput() and getDropDown() to tell PCIbex what content to keep in memory!\n\n\n\n\n\nLet’s look at the code:\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n    newText(\"We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.\")\n        .print()\n        .center()\n    ,\n    newText(\"Your age:\")\n        .print()\n        .center()\n    ,\n    newTextInput(\"Age\")\n        .print()\n        .center()\n        .log(\"final\")\n    ,\n    newText(\"Your highest degree:\")\n        .print()\n        .center()\n    ,\n    newDropDown(\"Degree\", \"Please select one option\")\n        .add(\"Elementary school\", \"Junior high school\", \"Senior high school\", \"BA\", \"MA\", \"Ph.D.\")\n        .print()\n        .center()\n        .log()\n    ,\n    newButton(\"Continue\")\n        .center()\n        .print()\n        .wait()\n+    ,\n+    newVar(\"Age\")\n+        .global()\n+        .set(getTextInput(\"Age\"))\n+    ,\n+    newVar(\"Degree\")\n+        .global()\n+        .set(getDropDown(\"Degree\"))\n    )\n\n\nDone!"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
-    "href": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Step 2: Store the information about the participants",
-    "text": "Step 2: Store the information about the participants\n\n\n\n\n\n\nNote\n\n\nNow that you created the variable and that they are kept in memory, we can store them in the results file using the .log() command. But notice the use of getVar()!\n\n\n\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n+    .log(\"Age\", getVar(\"Age\"))\n+    .log(\"Degree\", getVar(\"Degree\"))\n)\n\n\nDone!"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
-    "href": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Recall: What is “counterbalancing”?",
-    "text": "Recall: What is “counterbalancing”?\n\n\n\n\n\n\n\nNote\n\n\nExample: For some reasons, you want Participant 1 to read half of the sentences, Participant 2 the other half, Participant 3 the same as Participant 1, Participant 4 the same as Participant 2, etc.\n\n\n\n\n\nHow to do that with PCIbex?\n\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
-    "href": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Final content in the material.csv file",
-    "text": "Final content in the material.csv file\nItemNo,Sentence,Condition,group\n1,This is the first sentence,Grammatical,A\n2,This is the second sentence,Grammatical,A\n3,This is the third sentence,Grammatical,B\n4,This is the fourth sentence,Grammatical,B\n5,This are the fifth sentence,Ungrammatical,A\n6,This are the sixth sentence,Ungrammatical,A\n7,This are the seventh sentence,Ungrammatical,B\n8,This are the eighth sentence,Ungrammatical,B\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB\n\n\n\n\n\nDon’t forget to use the log() element to keep track of which list the participants were assigned to!\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n\n...\n         \n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n    .log(\"Sentence\", row.Sentence)\n+    .log(\"List\", row.group)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
-    "href": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Download the results file, open it and check the following:",
-    "text": "Download the results file, open it and check the following:\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see age and degree? choice/judgment?\nWere the sentences randomly presented?"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#assignment-for-next-week",
-    "href": "course-materials/Week8_Slides2.html#assignment-for-next-week",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "📝 Assignment for next week",
-    "text": "📝 Assignment for next week\n\n\n\n\n\n\nAssignment\n\n\n\nDownload the script of this week\nAnnotate each line of code\nUpload the annotated script on Moodle\n\n\n\n\n\n\n\n\n\n\nYou can even start preparing your own experiment!"
-  },
-  {
-    "objectID": "course-materials/week3.html",
-    "href": "course-materials/week3.html",
-    "title": "Week 3: Fundamentals of questionnaire design",
-    "section": "",
-    "text": "This week, we will cover the basics of questionnaire (or experimental) design. We will learn the technical terms to describe the methodology employed in a questionnaire or experiment, which will be essential for you when reading academic papers, attending conferences, and writing your own final term papers.\n\n🧪 Core concepts📚 Required readings\n\n\nExperimental design variables & structure\nWe will discuss the following core concepts through several studies involving language:\n\nVariables: Independent variable(s) and dependent variable(s).\nTypes of design: Within-participants design, between-participants design, and mixed designs.\nFactorial design: What “factors” and “levels” actually mean.\nCounterbalancing: Why there is a need to counterbalance, and how Latin square designs work to achieve it.\n\n\n\nDiscussion material for this week\nOur discussion of these concepts will be based on the following two readings:\n\nAbbuhl et al. (2014) (from the book “Research Methods in Linguistics”)\nRogers & Révész (2020) (from the book “The Routledge Handbook of Research Methods in Applied Linguistics”)\n\n\n\n\n\n\n\nHere is a visual breakdown to help you synthesize the experimental design concepts we are discussing this week:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConcept\nDefinition\nExample application\n\n\n\n\nIndependent variable\nThe variable that is manipulated by the researcher, also known as the variable of influence. It is expected to bring about variation or change in the dependent variable.\nCorrective feedback\n\n\nDependent variable\nThe variable that is measured or influenced.\nGrammatical development\n\n\nBetween-participants design\nA design where each level of the independent variable is comprised of different participants.\nTypically developing (TD) children and children with specific language impairment (SLI)\n\n\nWithin-participants design\nA design where the same individuals are assigned to all levels of the independent variable.\nA class studying half of target items under a spaced-short condition and the other half under a spaced-long condition\n\n\nMixed design\nA design that combines both within-participants and between-participants factors.\nExamining L2 performance using task complexity (within-participants) and modality (between-participants)\n\n\nFactorial design\nA research design that includes more than one independent variable to examine separate and combined effects.\nInvestigating the effects of wh-dependency and dependency length on sentence processing using a 2 x 2 design\n\n\nCounterbalancing\nHaving different, randomly assigned participants complete the different levels of the independent variable in different orders to address order or carryover effects. A Latin-square design is frequently used for this purpose to control against test- and task-order effects.\nCounterbalancing four different tasks across four groups in a Latin-square design so each group completes tasks in a different order\n\n\n\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before our next meeting:\n\nBrainstorm: Review the concepts we’ve been through today. Start thinking of your own research question and how to translate it using the variables and design structures we’ve learned this week.\nRead: Prepare the materials for Week 4:\n\nSchütze & Sprouse (2014)\nKaiser (2014)",
+    "text": "[To complete later]",
     "crumbs": [
       "Home",
       "Part 1: Fundamentals of language questionnaires",
-      "Week 3: Fundamentals of questionnaire design"
+      "Week 5: Questionnaire items"
     ]
   },
   {
-    "objectID": "course-materials/week3.html#overview",
-    "href": "course-materials/week3.html#overview",
-    "title": "Week 3: Fundamentals of questionnaire design",
-    "section": "",
-    "text": "This week, we will cover the basics of questionnaire (or experimental) design. We will learn the technical terms to describe the methodology employed in a questionnaire or experiment, which will be essential for you when reading academic papers, attending conferences, and writing your own final term papers.\n\n🧪 Core concepts📚 Required readings\n\n\nExperimental design variables & structure\nWe will discuss the following core concepts through several studies involving language:\n\nVariables: Independent variable(s) and dependent variable(s).\nTypes of design: Within-participants design, between-participants design, and mixed designs.\nFactorial design: What “factors” and “levels” actually mean.\nCounterbalancing: Why there is a need to counterbalance, and how Latin square designs work to achieve it.\n\n\n\nDiscussion material for this week\nOur discussion of these concepts will be based on the following two readings:\n\nAbbuhl et al. (2014) (from the book “Research Methods in Linguistics”)\nRogers & Révész (2020) (from the book “The Routledge Handbook of Research Methods in Applied Linguistics”)\n\n\n\n\n\n\n\nHere is a visual breakdown to help you synthesize the experimental design concepts we are discussing this week:\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConcept\nDefinition\nExample application\n\n\n\n\nIndependent variable\nThe variable that is manipulated by the researcher, also known as the variable of influence. It is expected to bring about variation or change in the dependent variable.\nCorrective feedback\n\n\nDependent variable\nThe variable that is measured or influenced.\nGrammatical development\n\n\nBetween-participants design\nA design where each level of the independent variable is comprised of different participants.\nTypically developing (TD) children and children with specific language impairment (SLI)\n\n\nWithin-participants design\nA design where the same individuals are assigned to all levels of the independent variable.\nA class studying half of target items under a spaced-short condition and the other half under a spaced-long condition\n\n\nMixed design\nA design that combines both within-participants and between-participants factors.\nExamining L2 performance using task complexity (within-participants) and modality (between-participants)\n\n\nFactorial design\nA research design that includes more than one independent variable to examine separate and combined effects.\nInvestigating the effects of wh-dependency and dependency length on sentence processing using a 2 x 2 design\n\n\nCounterbalancing\nHaving different, randomly assigned participants complete the different levels of the independent variable in different orders to address order or carryover effects. A Latin-square design is frequently used for this purpose to control against test- and task-order effects.\nCounterbalancing four different tasks across four groups in a Latin-square design so each group completes tasks in a different order\n\n\n\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before our next meeting:\n\nBrainstorm: Review the concepts we’ve been through today. Start thinking of your own research question and how to translate it using the variables and design structures we’ve learned this week.\nRead: Prepare the materials for Week 4:\n\nSchütze & Sprouse (2014)\nKaiser (2014)",
-    "crumbs": [
-      "Home",
-      "Part 1: Fundamentals of language questionnaires",
-      "Week 3: Fundamentals of questionnaire design"
-    ]
-  },
-  {
-    "objectID": "course-materials/week4.html",
-    "href": "course-materials/week4.html",
-    "title": "Week 4: Paradigms and tools",
-    "section": "",
-    "text": "This week, we will talk about the different types of paradigms and tools that we can use when running online questionnaires or experiments. Last week, our discussion focused on the Independent Variable (IV) and how its manipulation creates different kinds of design. This week, we shift our focus to the Dependent Variable (DV).\n\n🧪 Core concepts📚 Required readings\n\n\nFocusing on the Dependent Variable (DV)\nWe will explore the following key areas:\n\nOperationalization: What makes a DV “good” (i.e., testable and measurable)?\nOffline methods: Judgment experiments, ad-hoc reaction times, and various tasks for language experiments.\nOn-line methods: Exploring timing methods and tracking techniques.\nParadigms: We will examine common experimental setups used to elicit specific data.\n\n\n\nDiscussion material for this week\nOur discussion of these concepts will be based on the following two readings:\n\nSchütze & Sprouse (2014) (from the book “Research Methods in Linguistics”)\nKaiser (2014) (from the book “Research Methods in Linguistics”)\n\n\n\n\n\n\n\n\n\n\n\n⚠️ Important clarification: “On-line”\n\n\n\nPay attention! In experimental linguistics and psychology, the word “on-line” does not mean “on the internet.” Instead, it means measuring a cognitive process “in real time” as it unfolds.\n\n\n\n\n\n\n\n\n\n\n\n\n\nConcept\nDefinition / Focus\nExample application\n\n\n\n\nOperationalization (Dependent Measures)\nThe selection of a specific behavioral response to measure cognitive systems, such as time, error rate, or reported perceptions of acceptability.\nMeasuring reaction times as an indication of processing complexity\n\n\nOff-line methods\nMethods that provide crucial information about final interpretations, or the final outcome of language processing.\nAcceptability judgment tasks, where speakers are explicitly asked to report their spontaneous reaction concerning whether a string of words is a possible utterance\n\n\nOn-line methods\nMethods that tap into real-time aspects of language processing. These methods detect rapid, transient effects that are often not explicitly noticed by language users.\nUsing an eye-tracker to record eye movements that are closely time-locked to the speech stream as a participant listens to instructions\n\n\nReaction-time paradigms\nMethods measuring how rapidly people perform different kinds of linguistic tasks.\nA self-paced reading task where participants press a button to reveal words one by one, allowing researchers to record how much time is spent on each part of the sentence\n\n\nVisual-world paradigm\nAn eye-tracking method where a participant is presented with auditory linguistic stimuli coupled with objects or a visual display.\nMeasuring fixation probabilities to target objects (like a beaker) and competitor objects on a computer screen as the participant hears the spoken word unfold\n\n\n\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before next week:\n\nRead: Review the assigned materials:\n\nGillioz & Zufferey (2021)\n\nProject Planning: Seriously start to think of your final project. Consider your specific topic and decide whether you will be working individually or in a group.",
-    "crumbs": [
-      "Home",
-      "Part 1: Fundamentals of language questionnaires",
-      "Week 4: Paradigms and tools"
-    ]
-  },
-  {
-    "objectID": "course-materials/week4.html#overview",
-    "href": "course-materials/week4.html#overview",
-    "title": "Week 4: Paradigms and tools",
-    "section": "",
-    "text": "This week, we will talk about the different types of paradigms and tools that we can use when running online questionnaires or experiments. Last week, our discussion focused on the Independent Variable (IV) and how its manipulation creates different kinds of design. This week, we shift our focus to the Dependent Variable (DV).\n\n🧪 Core concepts📚 Required readings\n\n\nFocusing on the Dependent Variable (DV)\nWe will explore the following key areas:\n\nOperationalization: What makes a DV “good” (i.e., testable and measurable)?\nOffline methods: Judgment experiments, ad-hoc reaction times, and various tasks for language experiments.\nOn-line methods: Exploring timing methods and tracking techniques.\nParadigms: We will examine common experimental setups used to elicit specific data.\n\n\n\nDiscussion material for this week\nOur discussion of these concepts will be based on the following two readings:\n\nSchütze & Sprouse (2014) (from the book “Research Methods in Linguistics”)\nKaiser (2014) (from the book “Research Methods in Linguistics”)\n\n\n\n\n\n\n\n\n\n\n\n⚠️ Important clarification: “On-line”\n\n\n\nPay attention! In experimental linguistics and psychology, the word “on-line” does not mean “on the internet.” Instead, it means measuring a cognitive process “in real time” as it unfolds.\n\n\n\n\n\n\n\n\n\n\n\n\n\nConcept\nDefinition / Focus\nExample application\n\n\n\n\nOperationalization (Dependent Measures)\nThe selection of a specific behavioral response to measure cognitive systems, such as time, error rate, or reported perceptions of acceptability.\nMeasuring reaction times as an indication of processing complexity\n\n\nOff-line methods\nMethods that provide crucial information about final interpretations, or the final outcome of language processing.\nAcceptability judgment tasks, where speakers are explicitly asked to report their spontaneous reaction concerning whether a string of words is a possible utterance\n\n\nOn-line methods\nMethods that tap into real-time aspects of language processing. These methods detect rapid, transient effects that are often not explicitly noticed by language users.\nUsing an eye-tracker to record eye movements that are closely time-locked to the speech stream as a participant listens to instructions\n\n\nReaction-time paradigms\nMethods measuring how rapidly people perform different kinds of linguistic tasks.\nA self-paced reading task where participants press a button to reveal words one by one, allowing researchers to record how much time is spent on each part of the sentence\n\n\nVisual-world paradigm\nAn eye-tracking method where a participant is presented with auditory linguistic stimuli coupled with objects or a visual display.\nMeasuring fixation probabilities to target objects (like a beaker) and competitor objects on a computer screen as the participant hears the spoken word unfold\n\n\n\n\n\n\n\n\n\n\n📝 Assignment for next week\n\n\n\nPlease complete the following tasks before next week:\n\nRead: Review the assigned materials:\n\nGillioz & Zufferey (2021)\n\nProject Planning: Seriously start to think of your final project. Consider your specific topic and decide whether you will be working individually or in a group.",
-    "crumbs": [
-      "Home",
-      "Part 1: Fundamentals of language questionnaires",
-      "Week 4: Paradigms and tools"
-    ]
-  },
-  {
-    "objectID": "course-materials/week12.html",
-    "href": "course-materials/week12.html",
-    "title": "Week 12 - Tidying data (2/2) and data exploration (1/2) with R",
+    "objectID": "course-materials/week13.html",
+    "href": "course-materials/week13.html",
+    "title": "Week 13 - Data exploration (2/2) and data visualization (1/2) with R",
     "section": "",
     "text": "[To complete later]",
     "crumbs": [
       "Home",
       "Part 3: Analyses and visualization",
-      "Week 12: Tidying data (2/2) and data exploration (1/2) with R"
+      "Week 13: Data exploration (2/2) and data visualization (1/2) with R"
     ]
   },
   {
-    "objectID": "course-materials/week11.html",
-    "href": "course-materials/week11.html",
-    "title": "Week 11 - Import and tidying data (1/2) with R",
+    "objectID": "course-materials/week10.html",
+    "href": "course-materials/week10.html",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
     "section": "",
-    "text": "[To complete later]",
+    "text": "This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.\n\n🎯 Goals & key concepts💻 Necessary codes📝 Homework\n\n\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\nScript sharing: How to write a beautiful script to share?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle",
     "crumbs": [
       "Home",
       "Part 3: Analyses and visualization",
-      "Week 11: Import and tidying data (1/2) with R"
+      "Week 10: Presentation of R"
     ]
   },
   {
-    "objectID": "course-materials/week14.html",
-    "href": "course-materials/week14.html",
-    "title": "Week 14 - Data visualization with R (2/2)",
+    "objectID": "course-materials/week10.html#overview",
+    "href": "course-materials/week10.html#overview",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
     "section": "",
-    "text": "[To complete later]",
+    "text": "This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.\n\n🎯 Goals & key concepts💻 Necessary codes📝 Homework\n\n\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\nScript sharing: How to write a beautiful script to share?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle",
     "crumbs": [
       "Home",
       "Part 3: Analyses and visualization",
-      "Week 14: Data visualization with R (2/2)"
+      "Week 10: Presentation of R"
     ]
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#what-is-r-what-is-rstudio",
+    "href": "course-materials/week10_slides.html#what-is-r-what-is-rstudio",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "1.1. What is R? What is RStudio?",
+    "text": "1.1. What is R? What is RStudio?\n\n\n\n\nThe Engine: R\n\n\n\nThe main program where all the mathematical magic and deep computations happen.\n\n\n\n\n\n\n\nThe Dashboard: RStudio\n\n\n\nA user-friendly interface that makes it incredibly easy to interact with R."
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#download-and-install",
+    "href": "course-materials/week10_slides.html#download-and-install",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "1.2. Download and Install",
+    "text": "1.2. Download and Install\n\nStep 1: Download and install RStep 2: Download and install RStudio\n\n\nNow that R is installed, it is time to do the same with RStudio. Go to the RStudio website by clicking here. You will see something like this:\n\nNext, choose your CRAN (The Comprehensive R Archive Network). Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.\n\nChoose the files to download according to your computer’s operating system. The most common are macOS (for Apple computers) or Windows.\n\nOn the next page, choose the subdirectory. For our purposes, we only need the “base” subdirectory.\n\nWe finally got to the last page! Click on the first link to download the files, as shown below. Wait until the file is downloaded, open it, and follow the standard instructions to install R on your computer.\n\n\n\nNow that R is installed, it is time to do the same with RStudio. Go to the RStudio website by clicking here. You will see something like this:\n\nScroll down to look for the download links. Again, choose the right file for your operating system. Just click the link, let it download, open the file, and follow the instructions!"
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#launch-and-try",
+    "href": "course-materials/week10_slides.html#launch-and-try",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "1.3. Launch and Try!",
+    "text": "1.3. Launch and Try!\nLook for the program called “RStudio” on your computer. Once you find it, just open it up, and you can move on to the next section!\n\n\n\n\n\n\n💡 Wait, why didn’t we open R?\n\n\nRecall that R is the program where computations are done, and RStudio is the user-friendly interface. Even though we needed to download both, you actually only ever need to open RStudio when you want to use R! RStudio will talk to R in the background for you."
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#terminology",
+    "href": "course-materials/week10_slides.html#terminology",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "Terminology",
+    "text": "Terminology\n\n\n\n\n\n\n\nConcept\nDefinition\n\n\n\n\nLine of code\nA single, simple instruction (e.g., 4 + 2).\n\n\nFunction\nA pre-packaged cluster of code that performs a specific task.\n\n\nPackage / Library\nA downloadable folder containing hundreds of useful functions!"
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#a.-the-working-directory",
+    "href": "course-materials/week10_slides.html#a.-the-working-directory",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "A. The Working Directory",
+    "text": "A. The Working Directory\nBefore doing anything with data, you must tell R exactly which folder on your computer to look in. This is your Working Directory.\nUse the Computer Block to navigate to your project folder. Click the Gear Icon, and select “Save as Working Directory”."
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#b.-comments",
+    "href": "course-materials/week10_slides.html#b.-comments",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "B. Comments",
+    "text": "B. Comments\nUse the # symbol to write notes to yourself. R will completely ignore anything written after a hashtag!\n### This is a comment. R will not run this.\n2 + 4 ### This adds two numbers together!"
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#c.-loading-data",
+    "href": "course-materials/week10_slides.html#c.-loading-data",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "C. Loading Data",
+    "text": "C. Loading Data\n\n\n\n\n\n\nData to use\n\n\nYou need to download this file and place it in the folder for this class in the Documents folder of your computer.\n\n\n\n\nLet’s import a .csv dataset (like an Excel file). We use the read.csv() function and assign it to a variable called data.\ndata &lt;- read.csv(\"GACTT_RESULTS_ANONYMIZED_v2.csv\", header=TRUE)\n\n\nAlternatively, you can use the RStudio interface! In your Variable block, click “Import Dataset” &gt; “From Text (base)”, select your file, and click Import."
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#d.-transforming-and-summarizing-data",
+    "href": "course-materials/week10_slides.html#d.-transforming-and-summarizing-data",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "D. Transforming and Summarizing Data",
+    "text": "D. Transforming and Summarizing Data\n\nOnce loaded, you can inspect your data using str(data) to see its structure, or summary(data) to get a quick mathematical overview.\nstr(data)\n\nsummary(data)\n\n\nOften, survey data comes in as plain text when it should be categorized into groups (Factors). We fix this using as.factor():\ndata$What.is.your.age. &lt;- as.factor(data$What.is.your.age.)\n(The $ symbol tells R to look inside the dataset for a specific column!)\n\n\nIf we want to count how many people fit into different groups, we can use the powerful dplyr package:\nlibrary(dplyr)\n\ndata3 &lt;- data2 %&gt;% \n  group_by(What.is.your.age., How.many.cups.of.coffee.do.you.typically.drink.per.day.) %&gt;% \n  summarize(Count = n())"
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#e.-plotting-the-data",
+    "href": "course-materials/week10_slides.html#e.-plotting-the-data",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "E. Plotting the Data",
+    "text": "E. Plotting the Data\nWith our data summarized, we can use the built-in plot() function to visualize it:\nplot(x = data3$What.is.your.age., y = data3$Count)"
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#how-to-create-a-beautiful-convenient-and-shareable-script",
+    "href": "course-materials/week10_slides.html#how-to-create-a-beautiful-convenient-and-shareable-script",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "How to create a beautiful, convenient and shareable script?",
+    "text": "How to create a beautiful, convenient and shareable script?\nTo start, click “New File” &gt; “R Markdown…”\n\nRStudio will prompt you for a Title and Author. Once created, you will see a document with a YAML Header at the top between dashed lines ---. This header controls the settings for your final document."
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#writing-text-and-code",
+    "href": "course-materials/week10_slides.html#writing-text-and-code",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "Writing Text and Code",
+    "text": "Writing Text and Code\nIn an R Markdown file, anything you type normally becomes standard text. To actually write R code, you must insert a Code Chunk. Click the “Insert” button at the top of the script and select “R”. A grey box will appear.\n\nYou can run these individual chunks using the green Play Button in the corner of the grey box."
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#the-magic-knit-button",
+    "href": "course-materials/week10_slides.html#the-magic-knit-button",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "The Magic “Knit” Button",
+    "text": "The Magic “Knit” Button\nWhen your document is complete, click the Knit button at the top of the interface. R will automatically run all your code chunks, generate the graphs, format your text beautifully, and produce a polished final document you can share with the world!"
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#assignments",
+    "href": "course-materials/week10_slides.html#assignments",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "Assignments",
+    "text": "Assignments\n\n\n\n\n\n\n📝 Assignment for next week\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week (here)\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle"
   }
 ]
