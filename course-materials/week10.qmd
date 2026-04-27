@@ -153,6 +153,12 @@ This week, we will have an introduction to the R language and the RStudio interf
 
 :::
 
+<div class="text-center mb-4">
+  <a href="Week10_Slides.html" class="btn btn-outline-primary" target="_blank">
+    <i class="bi bi-window-stack"></i> View the slides of this week's tutorial
+  </a>
+</div>
+
 <br>
 
 
