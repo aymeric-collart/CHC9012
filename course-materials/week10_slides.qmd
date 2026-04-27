@@ -10,7 +10,6 @@ format:
     chalkboard: true
     width: 1280
     height: 720
-    output-dir: "."
 ---
 
 
