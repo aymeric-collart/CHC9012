@@ -216,9 +216,9 @@ I had never heard of R, and to me, calling a program with only one letter seemed
 
 ### Step 1: Download and install R
 
-Now that R is installed, it is time to do the same with RStudio. Go to the RStudio website by clicking <a href="https://posit.co/download/rstudio-desktop/" target="_blank">here</a>. You will see something like this:
+Go to the RStudio website by clicking <a href="https://www.r-project.org/" target="_blank">here</a>. You will see something like this:
 
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudioWebsite_FrontPage.png)
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RWebsite_FrontPage.png)
 
 Next, choose your **CRAN** (The Comprehensive R Archive Network). Let's choose the one in Taiwan. You will need to scroll down the page to find the link. 
 
