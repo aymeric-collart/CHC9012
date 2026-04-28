@@ -202,21 +202,14 @@
 </div>
 
 </section>
-<section class="slide level2">
-
-<div class="panel-tabset">
-<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">🎯 Goals &amp; key concepts</a></li></ul>
-<div class="tab-content">
-<div id="tabset-1-1">
+<section id="goals-key-concepts" class="slide level2">
+<h2>🎯 Goals &amp; key concepts</h2>
 <p><strong>Get to know R:</strong></p>
 <ul>
 <li><strong>Basics:</strong> What is R, and what is RStudio?</li>
 <li><strong>Simple coding:</strong> What are the most important functions in R?</li>
 <li><strong>Script sharing:</strong> How to write a beautiful script to share?</li>
 </ul>
-</div>
-</div>
-</div>
 </section>
 <section class="slide level2">
 
@@ -277,9 +270,9 @@ A user-friendly interface that makes it incredibly easy to interact with R.
 <section id="download-and-install" class="slide level2">
 <h2>1.2. Download and Install</h2>
 <div class="panel-tabset">
-<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Step 1: Download and install R</a></li><li><a href="#tabset-2-2">Step 2: Download and install RStudio</a></li></ul>
+<ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Step 1: Download and install R</a></li><li><a href="#tabset-1-2">Step 2: Download and install RStudio</a></li></ul>
 <div class="tab-content">
-<div id="tabset-2-1">
+<div id="tabset-1-1">
 <p>Now that R is installed, it is time to do the same with RStudio. Go to the RStudio website by clicking <a href="https://posit.co/download/rstudio-desktop/" target="_blank">here</a>. You will see something like this:</p>
 <p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudioWebsite_FrontPage.png"></p>
 <p>Next, choose your <strong>CRAN</strong> (The Comprehensive R Archive Network). Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.</p>
@@ -291,7 +284,7 @@ A user-friendly interface that makes it incredibly easy to interact with R.
 <p>We finally got to the last page! Click on the first link to download the files, as shown below. Wait until the file is downloaded, open it, and follow the standard instructions to install R on your computer.</p>
 <p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RWebsite_DownloadFinal.png"></p>
 </div>
-<div id="tabset-2-2">
+<div id="tabset-1-2">
 <p>Now that R is installed, it is time to do the same with RStudio. Go to the RStudio website by clicking <a href="https://posit.co/download/rstudio-desktop/" target="_blank">here</a>. You will see something like this:</p>
 <p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RStudioWebsite_FrontPage.png"></p>
 <p>Scroll down to look for the download links. Again, choose the right file for your operating system. Just click the link, let it download, open the file, and follow the instructions!</p>
@@ -366,9 +359,9 @@ A user-friendly interface that makes it incredibly easy to interact with R.
 <section class="slide level2">
 
 <div class="panel-tabset">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">💻 The Computer Block (Bottom-Right)</a></li><li><a href="#tabset-3-2">🗂️ The Variable Block (Top-Right)</a></li><li><a href="#tabset-3-3">⚙️ The Console Block (Bottom-Left)</a></li><li><a href="#tabset-3-4">📝 The Script Block (Top-Left)</a></li></ul>
+<ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">💻 The Computer Block (Bottom-Right)</a></li><li><a href="#tabset-2-2">🗂️ The Variable Block (Top-Right)</a></li><li><a href="#tabset-2-3">⚙️ The Console Block (Bottom-Left)</a></li><li><a href="#tabset-2-4">📝 The Script Block (Top-Left)</a></li></ul>
 <div class="tab-content">
-<div id="tabset-3-1">
+<div id="tabset-2-1">
 <p>Click on the <strong>Files</strong> button in this block. You will see a list of files and folders from your computer. This interface allows you to communicate and navigate directly with your hard drive, right from inside RStudio!</p>
 <div class="callout callout-note callout-style-simple">
 <div class="callout-body">
@@ -381,7 +374,7 @@ A user-friendly interface that makes it incredibly easy to interact with R.
 </div>
 </div>
 </div>
-<div id="tabset-3-2">
+<div id="tabset-2-2">
 <p><strong>Environment tab</strong>: Where variables you create while coding are temporarily stored. <br><br> In the ‘Console block’ (bottom-left), type this code and press Enter:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
@@ -392,10 +385,10 @@ A user-friendly interface that makes it incredibly easy to interact with R.
 <p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/VariableBlock_WithVariable.png"></p>
 <p>You have stored the calculation inside a variable called <code>a</code>. You can call it anytime simply by typing <code>a</code> in the console, or even add to it by typing <code>a + 2</code>!</p>
 </div>
-<div id="tabset-3-3">
+<div id="tabset-2-3">
 <p>You just had a glimpse of it. <strong>The console block is the engine room where the code is actually run.</strong> When you type commands here and press Enter, R executes them immediately.</p>
 </div>
-<div id="tabset-3-4">
+<div id="tabset-2-4">
 <p><img data-src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/OpenNewScript.gif"></p>
 <p>Type the following lines into your new Script block:</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a>    <span class="dv">4</span> <span class="sc">+</span> <span class="dv">2</span></span>

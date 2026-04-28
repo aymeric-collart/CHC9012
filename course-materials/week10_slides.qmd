@@ -13,8 +13,6 @@ format:
 ---
 
 
-::: {.panel-tabset}
-
 ## 🎯 Goals & key concepts
 **Get to know R:**
 
@@ -22,7 +20,6 @@ format:
 - **Simple coding:** What are the most important functions in R?
 - **Script sharing:** How to write a beautiful script to share?
 
-:::
 
 ---
 

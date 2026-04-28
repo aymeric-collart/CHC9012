@@ -452,6 +452,13 @@
     ]
   },
   {
+    "objectID": "course-materials/week10_slides.html#goals-key-concepts",
+    "href": "course-materials/week10_slides.html#goals-key-concepts",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "🎯 Goals & key concepts",
+    "text": "🎯 Goals & key concepts\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\nScript sharing: How to write a beautiful script to share?"
+  },
+  {
     "objectID": "course-materials/week10_slides.html#what-is-r-what-is-rstudio",
     "href": "course-materials/week10_slides.html#what-is-r-what-is-rstudio",
     "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
