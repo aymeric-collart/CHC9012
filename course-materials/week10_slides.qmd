@@ -79,7 +79,7 @@ It is your computer that ran your behavior in programs able to perform computati
 
 ::: {.panel-tabset}
 
-## Step 1: Download and install R
+### Step 1: Download and install R
 
 Now that R is installed, it is time to do the same with RStudio. Go to the RStudio website by clicking <a href="https://posit.co/download/rstudio-desktop/" target="_blank">here</a>. You will see something like this:
 
@@ -101,7 +101,7 @@ We finally got to the last page! Click on the first link to download the files, 
 
 ![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RWebsite_DownloadFinal.png)
 
-## Step 2: Download and install RStudio
+### Step 2: Download and install RStudio
 
 Now that R is installed, it is time to do the same with RStudio. Go to the RStudio website by clicking <a href="https://posit.co/download/rstudio-desktop/" target="_blank">here</a>. You will see something like this:
   
