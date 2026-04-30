@@ -1,6 +1,286 @@
 ---
-title: "Week 11 - Import and tidying data (1/2) with R"
+title: "Week 11 - Preparation: Computer set-up and data imporation"
+subtitle: "CHC9012 | National Taiwan Normal University"
 format: html
 ---
 
-[To complete later]
+```{=html}
+<style>
+  
+  /* Tabset Styling */
+  .nav-tabs {
+    border-bottom: 2px solid #ecf0f1;
+    margin-top: 1em;
+    margin-bottom: 30px;
+  }
+.nav-tabs .nav-link {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #95a5a6;
+    border: none;
+  padding: 15px 25px;
+  transition: all 0.3s ease;
+}
+.nav-tabs .nav-link:hover {
+  color: #2c3e50;
+    border: none;
+}
+.nav-tabs .nav-link.active {
+  color: #3498db !important;
+    background: none;
+  border: none;
+  border-bottom: 4px solid #3498db;
+}
+
+/* Stunning Headers */
+  
+  h2 {
+    margin-top: 1.8em;
+    color: #2980b9;
+      font-weight: 600;
+  }
+h3 {
+  margin-top: 1.5em;
+  color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Floating Images with Animations */
+  img {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    margin: 2rem auto;
+    display: block;
+  }
+img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
+}
+
+/* Elegant Gradient Divider */
+  hr.rounded {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
+    margin: 4rem 0;
+  }
+
+/* Pro Code Styling */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    color: #e74c3c;
+      background-color: #fdf2f0;
+      padding: 3px 6px;
+    border-radius: 5px;
+  }
+pre code {
+  color: #333;
+    background-color: transparent;
+}
+
+/* Clean Tables */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin: 2rem 0;
+  }
+th {
+  background-color: #3498db;
+    color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  font-weight: 600;
+}
+td {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* Emphasized bolding */
+  b, strong {
+    color: #2c3e50;
+      font-weight: 700;
+  }
+</style>
+```
+
+## Overview
+
+This week, we will have a tutorial on how to prepare your computer for further analyses.
+
+::::: panel-tabset
+## 🎯 Goals & key concepts
+
+**Prepare your computer:**
+
+-   **Projects:** How to set-up a project in RStudio?
+-   **Advanced scripts:** How to use Markdown documents to share better scripts?
+-   **Data importation:** Where to find your PCIbex results file, and how to import it to RStudio?
+
+## 💻 Necessary codes and dataset
+
+**A brief summary of the essential elements:**
+
+\[To complete later\]
+
+<br>
+
+::: {.text-center .mb-3}
+<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/Script_Week11.R" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the full script </a>
+:::
+
+::: {.text-center .mb-3}
+<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/results_FAKE_FOR_CHC9012.csv" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script </a>
+:::
+
+## 📝 Homework
+
+**Please complete the following tasks before our next meeting:**
+
+-   Download the Markdown script of this week
+-   Annotate each line of code (use your own words, these annotations are for your own reference!)
+-   Knit into a PDF file, and upload it on Moodle
+:::::
+
+::: {.text-center .mb-4}
+<a href="week11_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week's tutorial </a>
+:::
+
+<br>
+
+# 💻 Part 1: Prepare your computer: R projects
+
+The most terrifying part when working with experimental data is that by the end of your study, you will have many files in your computer. It is very easy to be messy, to mix files from different steps, and even to have scripts and files for which we have no idea what they are. Therefore, we need to prepare our computer for each study beforehand.
+
+::::: panel-tabset
+## 1.1. Prepare the folder in your computer
+
+-   Please find you `Documents` (or `文件`) folder.
+-   Once you found it, please create a folder for this class (you can call it `CHC9012_Spring2025`, for example)
+-   Within this folder, please create subfolders, such as:
+    -   `Slides`: Where you can store the slides from this class
+    -   `PCIbex_design`: Where you can store your script from PCIbex, files containing the materials, etc.
+    -   `PreprocessingAnalysesR`: Where you will store the datasets and scripts we are going to use in Part 3.
+
+In the end, your folder will look like this:
+
+![](images/clipboard-1590947435.png)
+
+::: {.callout-tip appearance="simple"}
+### Pay attention to the names
+
+Generally, it is better not to use any space when naming folders and files!
+:::
+
+## 1.2. Create an R project
+
+-   There a small blue icon on the top-left side of RStudio. Please click on it.
+
+![](images/clipboard-2121617076.png)
+
+-   Then, click on "Existing Directory".
+
+![](images/clipboard-3751932394.png)
+
+-   In the next window, click on "Browse...", and look for the folder called `PreprocessingAnalysesR` that we just created. Please check `Open in a new session`, and on "Create Project".
+
+![](images/clipboard-1025670899.png)
+
+::: {.callout-tip appearance="simple"}
+### Why creating a project?
+
+It will open a new and clean RStudio window. At the same time, it will set the `PreprocessingAnalysesR` as the working directory by default.
+
+Another advantage is that you can have one RStudio window per project, and switch between them without worrying about the working directory of trying to find the right files! You can have a list of your several projects on the top-right corner of RStudio. Here is mine for example:
+
+![](images/clipboard-1750222853.png)
+:::
+:::::
+
+::: {.callout-note appearance="minimal" style="background-color: #f0f7ff; border-left: 5px solid #0056b3; border-radius: 8px; padding: 1.5em;"}
+## 📝 In-class exercise
+
+**Task list:**
+
+-   [ ] Find the R script from last week and move it to the `PreprocessingAnalysesR` folder.
+-   [ ] Open the script within your newly created project.
+:::
+
+<hr>
+
+# 📊 Part 2: Better and reproducible scripts with R Markdown
+
+Standard R Scripts only save your code. **R Markdown** files are an incredible upgrade. They allow you to combine your titles, your narrative text, your R code, and your generated plots into **one single, shareable document** (like a PDF, Word, or HTML file). This is the gold standard for Open Science!
+
+-   To start, click **"New File" \> "R Markdown..."**
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ScriptTypes.png)
+
+-   RStudio will prompt you for a Title and Author. Once created, you will see a document with a **YAML Header** at the top between dashed lines `---`. This header controls the settings for your final document.
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Markdown_YAML.png)
+
+### Writing text and code
+
+-   In an R Markdown file, anything you type normally becomes standard text. To actually write R code, you must insert a **Code Chunk**. Click the "Insert" button at the top of the script and select "R". A grey box will appear.
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_WarningMessage.png)
+
+The symbol `{r}` indicates that the code in the grey area is in R language. Hashtags `#` symbols followed by the `|` bar indicate settings for the block. Otherwise, they are just comments in R as usual.
+
+-   You can run these individual chunks using the green **Play Button** in the corner of the grey box.
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_RunBlock.png)
+
+### The "Knit" button
+
+When your document is complete, click the **Knit** button at the top of the interface. You can choose to create an HTML or even a PDF document! R will automatically run all your code chunks, generate the graphs, format your text beautifully, and produce a polished final document you can share with the world!
+
+::: {.callout-note appearance="minimal" style="background-color: #f0f7ff; border-left: 5px solid #0056b3; border-radius: 8px; padding: 1.5em;"}
+## 📝 In-class exercise
+
+**Task list:**
+
+-   [x] Create a new Markdown document, and call it `ScriptWeek10_Markdown`.
+-   [ ] Use the script from last week, but adapt it to the Markdown format. Be creative!
+:::
+
+<hr>
+
+# Part 3: Download your PCIbex results and import them into RStudio
+
+:::: panel-tabset
+## 3.1. Download the results file
+
+-  On the PCIbex platform, click on the `Results` button.
+
+-  Then, click on `Download`
+
+![](images/clipboard-1787923676.png)
+
+-  Finally, place the file in the folder you just created on your computer!
+
+## 3.2. Importing the data into RStudio
+
+
+::::
+
+<hr>
+
+::: {.callout-important icon="true"}
+## 📝 Assignment for next week
+
+Please complete the following tasks before our next meeting:
+
+-   Download the script of this week
+-   Annotate each line of code (use your own words, these annotations are for your own reference!)
+-   Upload the annotated script on Moodle
+:::

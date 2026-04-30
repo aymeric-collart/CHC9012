@@ -60,7 +60,7 @@ website:
         contents:
           - text: "Week 10: Presentation of R"
             href: course-materials/week10.qmd
-          - text: "Week 11: Import and tidying data (1/2) with R"
+          - text: "Week 11: Preparation: Computer set-up and data imporation"
             href: course-materials/week11.qmd
           - text: "Week 12: Tidying data (2/2) and data exploration (1/2) with R"
             href: course-materials/week12.qmd

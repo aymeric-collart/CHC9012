@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Week 11 - Import and tidying data (1/2) with R – CHC9012</title>
+<title>Week 11 - Preparation: Computer set-up and data imporation – CHC9012</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -294,7 +294,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../course-materials/week10.html">Part 3: Analyses and visualization</a></li><li class="breadcrumb-item"><a href="../course-materials/week11.html">Week 11: Import and tidying data (1/2) with R</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../course-materials/week10.html">Part 3: Analyses and visualization</a></li><li class="breadcrumb-item"><a href="../course-materials/week11.html">Week 11: Preparation: Computer set-up and data imporation</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -413,7 +413,7 @@ ul.task-list li input[type="checkbox"] {
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../course-materials/week11.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Week 11: Import and tidying data (1/2) with R</span></a>
+ <span class="menu-text">Week 11: Preparation: Computer set-up and data imporation</span></a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -447,16 +447,30 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#part-1-prepare-your-computer-r-projects" id="toc-part-1-prepare-your-computer-r-projects" class="nav-link" data-scroll-target="#part-1-prepare-your-computer-r-projects">💻 Part 1: Prepare your computer: R projects</a></li>
+  <li><a href="#part-2-better-and-reproducible-scripts-with-r-markdown" id="toc-part-2-better-and-reproducible-scripts-with-r-markdown" class="nav-link" data-scroll-target="#part-2-better-and-reproducible-scripts-with-r-markdown">📊 Part 2: Better and reproducible scripts with R Markdown</a>
+  <ul class="collapse">
+  <li><a href="#writing-text-and-code" id="toc-writing-text-and-code" class="nav-link" data-scroll-target="#writing-text-and-code">Writing text and code</a></li>
+  <li><a href="#the-knit-button" id="toc-the-knit-button" class="nav-link" data-scroll-target="#the-knit-button">The “Knit” button</a></li>
+  </ul></li>
+  <li><a href="#part-3-download-your-pcibex-results-and-import-them-into-rstudio" id="toc-part-3-download-your-pcibex-results-and-import-them-into-rstudio" class="nav-link" data-scroll-target="#part-3-download-your-pcibex-results-and-import-them-into-rstudio">Part 3: Download your PCIbex results and import them into RStudio</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../course-materials/week10.html">Part 3: Analyses and visualization</a></li><li class="breadcrumb-item"><a href="../course-materials/week11.html">Week 11: Import and tidying data (1/2) with R</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../course-materials/week10.html">Part 3: Analyses and visualization</a></li><li class="breadcrumb-item"><a href="../course-materials/week11.html">Week 11: Preparation: Computer set-up and data imporation</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Week 11 - Import and tidying data (1/2) with R</h1>
+<h1 class="title">Week 11 - Preparation: Computer set-up and data imporation</h1>
+<p class="subtitle lead">CHC9012 | National Taiwan Normal University</p>
 </div>
 
 
@@ -473,9 +487,322 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<style>
+  
+  /* Tabset Styling */
+  .nav-tabs {
+    border-bottom: 2px solid #ecf0f1;
+    margin-top: 1em;
+    margin-bottom: 30px;
+  }
+.nav-tabs .nav-link {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #95a5a6;
+    border: none;
+  padding: 15px 25px;
+  transition: all 0.3s ease;
+}
+.nav-tabs .nav-link:hover {
+  color: #2c3e50;
+    border: none;
+}
+.nav-tabs .nav-link.active {
+  color: #3498db !important;
+    background: none;
+  border: none;
+  border-bottom: 4px solid #3498db;
+}
+
+/* Stunning Headers */
+  
+  h2 {
+    margin-top: 1.8em;
+    color: #2980b9;
+      font-weight: 600;
+  }
+h3 {
+  margin-top: 1.5em;
+  color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Floating Images with Animations */
+  img {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    margin: 2rem auto;
+    display: block;
+  }
+img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
+}
+
+/* Elegant Gradient Divider */
+  hr.rounded {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
+    margin: 4rem 0;
+  }
+
+/* Pro Code Styling */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    color: #e74c3c;
+      background-color: #fdf2f0;
+      padding: 3px 6px;
+    border-radius: 5px;
+  }
+pre code {
+  color: #333;
+    background-color: transparent;
+}
+
+/* Clean Tables */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin: 2rem 0;
+  }
+th {
+  background-color: #3498db;
+    color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  font-weight: 600;
+}
+td {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* Emphasized bolding */
+  b, strong {
+    color: #2c3e50;
+      font-weight: 700;
+  }
+</style>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This week, we will have a tutorial on how to prepare your computer for further analyses.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals &amp; key concepts</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes and dataset</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>Prepare your computer:</strong></p>
+<ul>
+<li><strong>Projects:</strong> How to set-up a project in RStudio?</li>
+<li><strong>Advanced scripts:</strong> How to use Markdown documents to share better scripts?</li>
+<li><strong>Data importation:</strong> Where to find your PCIbex results file, and how to import it to RStudio?</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>A brief summary of the essential elements:</strong></p>
 <p>[To complete later]</p>
+<p><br></p>
+<div class="text-center mb-3">
+<p><a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/Script_Week11.R" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the full script </a></p>
+</div>
+<div class="text-center mb-3">
+<p><a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/results_FAKE_FOR_CHC9012.csv" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script </a></p>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>Please complete the following tasks before our next meeting:</strong></p>
+<ul>
+<li>Download the Markdown script of this week</li>
+<li>Annotate each line of code (use your own words, these annotations are for your own reference!)</li>
+<li>Knit into a PDF file, and upload it on Moodle</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="text-center mb-4">
+<p><a href="week11_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week’s tutorial </a></p>
+</div>
+<p><br></p>
+</section>
+<section id="part-1-prepare-your-computer-r-projects" class="level1">
+<h1>💻 Part 1: Prepare your computer: R projects</h1>
+<p>The most terrifying part when working with experimental data is that by the end of your study, you will have many files in your computer. It is very easy to be messy, to mix files from different steps, and even to have scripts and files for which we have no idea what they are. Therefore, we need to prepare our computer for each study beforehand.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">1.1. Prepare the folder in your computer</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">1.2. Create an R project</a></li></ul>
+<div class="tab-content">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ul>
+<li>Please find you <code>Documents</code> (or <code>文件</code>) folder.</li>
+<li>Once you found it, please create a folder for this class (you can call it <code>CHC9012_Spring2025</code>, for example)</li>
+<li>Within this folder, please create subfolders, such as:
+<ul>
+<li><code>Slides</code>: Where you can store the slides from this class</li>
+<li><code>PCIbex_design</code>: Where you can store your script from PCIbex, files containing the materials, etc.</li>
+<li><code>PreprocessingAnalysesR</code>: Where you will store the datasets and scripts we are going to use in Part 3.</li>
+</ul></li>
+</ul>
+<p>In the end, your folder will look like this:</p>
+<p><img src="images/clipboard-1590947435.png" class="img-fluid"></p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Pay attention to the names
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Generally, it is better not to use any space when naming folders and files!</p>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<ul>
+<li>There a small blue icon on the top-left side of RStudio. Please click on it.</li>
+</ul>
+<p><img src="images/clipboard-2121617076.png" class="img-fluid"></p>
+<ul>
+<li>Then, click on “Existing Directory”.</li>
+</ul>
+<p><img src="images/clipboard-3751932394.png" class="img-fluid"></p>
+<ul>
+<li>In the next window, click on “Browse…”, and look for the folder called <code>PreprocessingAnalysesR</code> that we just created. Please check <code>Open in a new session</code>, and on “Create Project”.</li>
+</ul>
+<p><img src="images/clipboard-1025670899.png" class="img-fluid"></p>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why creating a project?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>It will open a new and clean RStudio window. At the same time, it will set the <code>PreprocessingAnalysesR</code> as the working directory by default.</p>
+<p>Another advantage is that you can have one RStudio window per project, and switch between them without worrying about the working directory of trying to find the right files! You can have a list of your several projects on the top-right corner of RStudio. Here is mine for example:</p>
+<p><img src="images/clipboard-1750222853.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" style="background-color: #f0f7ff; border-left: 5px solid #0056b3; border-radius: 8px; padding: 1.5em;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📝 In-class exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Task list:</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Find the R script from last week and move it to the <code>PreprocessingAnalysesR</code> folder.</label></li>
+<li><label><input type="checkbox">Open the script within your newly created project.</label></li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-2-better-and-reproducible-scripts-with-r-markdown" class="level1">
+<h1>📊 Part 2: Better and reproducible scripts with R Markdown</h1>
+<p>Standard R Scripts only save your code. <strong>R Markdown</strong> files are an incredible upgrade. They allow you to combine your titles, your narrative text, your R code, and your generated plots into <strong>one single, shareable document</strong> (like a PDF, Word, or HTML file). This is the gold standard for Open Science!</p>
+<ul>
+<li>To start, click <strong>“New File” &gt; “R Markdown…”</strong></li>
+</ul>
+<p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ScriptTypes.png" class="img-fluid"></p>
+<ul>
+<li>RStudio will prompt you for a Title and Author. Once created, you will see a document with a <strong>YAML Header</strong> at the top between dashed lines <code>---</code>. This header controls the settings for your final document.</li>
+</ul>
+<p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Markdown_YAML.png" class="img-fluid"></p>
+<section id="writing-text-and-code" class="level3">
+<h3 class="anchored" data-anchor-id="writing-text-and-code">Writing text and code</h3>
+<ul>
+<li>In an R Markdown file, anything you type normally becomes standard text. To actually write R code, you must insert a <strong>Code Chunk</strong>. Click the “Insert” button at the top of the script and select “R”. A grey box will appear.</li>
+</ul>
+<p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_WarningMessage.png" class="img-fluid"></p>
+<p>The symbol <code>{r}</code> indicates that the code in the grey area is in R language. Hashtags <code>#</code> symbols followed by the <code>|</code> bar indicate settings for the block. Otherwise, they are just comments in R as usual.</p>
+<ul>
+<li>You can run these individual chunks using the green <strong>Play Button</strong> in the corner of the grey box.</li>
+</ul>
+<p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_RunBlock.png" class="img-fluid"></p>
+</section>
+<section id="the-knit-button" class="level3">
+<h3 class="anchored" data-anchor-id="the-knit-button">The “Knit” button</h3>
+<p>When your document is complete, click the <strong>Knit</strong> button at the top of the interface. You can choose to create an HTML or even a PDF document! R will automatically run all your code chunks, generate the graphs, format your text beautifully, and produce a polished final document you can share with the world!</p>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" style="background-color: #f0f7ff; border-left: 5px solid #0056b3; border-radius: 8px; padding: 1.5em;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📝 In-class exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Task list:</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox" checked="">Create a new Markdown document, and call it <code>ScriptWeek10_Markdown</code>.</label></li>
+<li><label><input type="checkbox">Use the script from last week, but adapt it to the Markdown format. Be creative!</label></li>
+</ul>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-3-download-your-pcibex-results-and-import-them-into-rstudio" class="level1">
+<h1>Part 3: Download your PCIbex results and import them into RStudio</h1>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">3.1. Download the results file</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">3.2. Importing the data into RStudio</a></li></ul>
+<div class="tab-content">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<ul>
+<li><p>On the PCIbex platform, click on the <code>Results</code> button.</p></li>
+<li><p>Then, click on <code>Download</code></p></li>
+</ul>
+<p><img src="images/clipboard-1787923676.png" class="img-fluid"></p>
+<ul>
+<li>Finally, place the file in the folder you just created on your computer!</li>
+</ul>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+
+</div>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📝 Assignment for next week
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please complete the following tasks before our next meeting:</p>
+<ul>
+<li>Download the script of this week</li>
+<li>Annotate each line of code (use your own words, these annotations are for your own reference!)</li>
+<li>Upload the annotated script on Moodle</li>
+</ul>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -898,7 +1225,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This website is built with Quarto</p>
 </div>

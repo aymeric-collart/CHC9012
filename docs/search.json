@@ -42,13 +42,25 @@
   {
     "objectID": "course-materials/week11.html",
     "href": "course-materials/week11.html",
-    "title": "Week 11 - Import and tidying data (1/2) with R",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
     "section": "",
-    "text": "[To complete later]",
+    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals & key concepts💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nKnit into a PDF file, and upload it on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
     "crumbs": [
       "Home",
       "Part 3: Analyses and visualization",
-      "Week 11: Import and tidying data (1/2) with R"
+      "Week 11: Preparation: Computer set-up and data imporation"
+    ]
+  },
+  {
+    "objectID": "course-materials/week11.html#overview",
+    "href": "course-materials/week11.html#overview",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "",
+    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals & key concepts💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nKnit into a PDF file, and upload it on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 11: Preparation: Computer set-up and data imporation"
     ]
   },
   {
