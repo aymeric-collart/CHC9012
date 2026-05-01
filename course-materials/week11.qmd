@@ -117,7 +117,7 @@ td {
 This week, we will have a tutorial on how to prepare your computer for further analyses.
 
 ::::: panel-tabset
-## 🎯 Goals & key concepts
+## 🎯 Goals
 
 **Prepare your computer:**
 
@@ -129,13 +129,13 @@ This week, we will have a tutorial on how to prepare your computer for further a
 
 **A brief summary of the essential elements:**
 
-\[To complete later\]
+- `read.pcibex(...)`: Self-built function to import PCIbex results froms `.csv` file.
+- `head(...)`: Used to have a look of the first N rows of the dataset.
+- `str(...)`: Used to look at the structure of the dataset.
+- `summary(...)`: Used to summarize the whole dataset.
+- `view(...)`: Used to open the dataset.
 
 <br>
-
-::: {.text-center .mb-3}
-<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/Script_Week11.R" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the full script </a>
-:::
 
 ::: {.text-center .mb-3}
 <a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/results_FAKE_FOR_CHC9012.csv" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script </a>
@@ -145,13 +145,11 @@ This week, we will have a tutorial on how to prepare your computer for further a
 
 **Please complete the following tasks before our next meeting:**
 
--   Download the Markdown script of this week
--   Annotate each line of code (use your own words, these annotations are for your own reference!)
--   Knit into a PDF file, and upload it on Moodle
+No assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.
 :::::
 
 ::: {.text-center .mb-4}
-<a href="week11_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week's tutorial </a>
+<a href="week11_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week's tutorial [SOON] </a>
 :::
 
 <br>
@@ -194,7 +192,7 @@ Generally, it is better not to use any space when naming folders and files!
 
 ![](images/clipboard-1025670899.png)
 
-::: {.callout-tip appearance="simple"}
+::: {.callout-tip collapse="true" appearance="simple"}
 ### Why creating a project?
 
 It will open a new and clean RStudio window. At the same time, it will set the `PreprocessingAnalysesR` as the working directory by default.
@@ -249,20 +247,185 @@ When your document is complete, click the **Knit** button at the top of the inte
 
 **Task list:**
 
--   [x] Create a new Markdown document, and call it `ScriptWeek10_Markdown`.
+-   [ ] Create a new Markdown document, and call it `ScriptWeek10_Markdown`.
 -   [ ] Use the script from last week, but adapt it to the Markdown format. Be creative!
 :::
 
 <hr>
 
-# Part 3: Download your PCIbex results and import them into RStudio
+# 📊 Part 3: Download your PCIbex results and import them into RStudio
+
+For the rest of this class, I will show how to preprocess data based on this experiment. You can have a look at it, and its associated code.
+<br><br>
+<a href="https://farm.pcibex.net/p/qCbaTy/" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Try the experiment </a>
+
+::: {.callout-note collapse="true" title="Code of the experiment, following the structure introduced in Part 2 (AI-augmented script)"}
+``` diff
+PennController.ResetPrefix(null);
+
+// Optional: Preload any images or CSS here
+// PreloadGui(); 
+
+Sequence("Welcome", "Background", "Instructions", "AnnouncePractice", "Practice", "AnnounceExperiment", randomize("Experiment"), "Send", "Goodbye");
+
+// --- Global Styling ---
+// This applies to all elements unless overridden
+Header(
+    defaultText
+        .cssContainer({"margin-bottom":"1.5em", "line-height":"1.4em", "font-size":"18px"})
+        .print()
+        .center()
+    ,
+    defaultButton
+        .css({"margin-top":"2em", "padding":"10px 20px", "border-radius":"8px", "background-color":"#f0f0f0"})
+        .print()
+        .center()
+    ,
+    defaultTextInput
+        .css({"margin-bottom":"1em", "padding":"5px"})
+        .print()
+        .center()
+);
+
+// --- 1. Welcome Page ---
+newTrial("Welcome",
+    newText("WelcomeTitle", "<b>Linguistics Study: Sentence Processing</b>")
+        .css("font-size", "24px")
+    ,
+    newText("ICF", "Welcome! Below is the Informed Consent Form. <br>Please read it carefully before proceeding.")
+    ,
+    // Using an HTML file for the consent form is much cleaner
+    newHtml("consent", "consent.html") 
+        .checkboxWarning("You must consent to continue.")
+        .print()
+        .center()
+    ,
+    newButton("I Consent & Continue")
+        .wait()
+);
+
+// --- 2. Background Questionnaire ---
+newTrial("Background",
+    newText("Intro", "<b>About You</b><br>Please provide a few details to help our research.")
+    ,
+    newCanvas("form", 400, 200)
+        .add( 0,  0, newText("AgeLabel", "How old are you?").left() )
+        .add( 200, 0, newTextInput("Age").size(50).log("final") )
+        .add( 0,  60, newText("DegreeLabel", "Highest degree:").left() )
+        .add( 200, 60, newDropDown("Degree", "Select...")
+            .add("High school", "BA", "MA", "Ph.D.", "Other")
+            .log() 
+        )
+        .print()
+        .center()
+    ,
+    newButton("Continue")
+        .wait()
+    ,
+    newVar("Age").global().set( getTextInput("Age") ),
+    newVar("Degree").global().set( getDropDown("Degree") )
+);
+
+// --- 3. Instructions ---
+newTrial("Instructions",
+    newText("InstrHeader", "<b>Instructions</b>")
+    ,
+    newText("Explanation", "In this task, you will read sentences one by one.<br>Your job is to rate how <i>natural</i> or <i>acceptable</i> they sound.")
+    ,
+    newText("Example", "Example: 'I will must do it.'<br>This sounds very unnatural, so you would choose <b>1</b>.")
+        .css({"background-color":"#f9f9f9", "padding":"15px", "border-left":"5px solid #ccc"})
+    ,
+    newButton("I'm ready to practice!")
+        .wait()
+);
+
+// --- 4. Practice Trials ---
+newTrial("AnnouncePractice",
+    newText("GetReady", "Let's start with a quick practice.")
+    ,
+    newButton("Start Practice")
+        .wait()
+);
+
+newTrial("Practice",
+    newText("Stimulus", "This is a normal English sentence.")
+        .css("font-style", "italic")
+    ,
+    newScale("Scale", 7)
+        .labelsPosition("bottom")
+        .before( newText("Very Unnatural") )
+        .after( newText("Very Natural") )
+        .keys() // Allows users to use number keys 1-7
+        .print()
+        .center()
+        .log()
+        .wait()
+);
+
+// --- 5. Experimental Trials ---
+newTrial("AnnounceExperiment",
+    newText("RealStart", "The practice is over. The real experiment starts now!<br>Please respond based on your first intuition.")
+    ,
+    newButton("Begin Experiment")
+        .wait()
+);
+
+Template("material.csv", row => 
+    newTrial("Experiment",
+        newText("Cross", "+") // Fixation cross
+            .css("font-size", "30px")
+        ,
+        newTimer("Fixation", 500).start().wait()
+        ,
+        getText("Cross").remove()
+        ,
+        newText("Sentence", row.Sentence)
+            .css({"font-size":"22px", "margin-top":"20px"})
+        ,
+        newScale("Scale", 7)
+            .labelsPosition("bottom")
+            .before( newText("Unnatural") )
+            .after( newText("Natural") )
+            .keys()
+            .print()
+            .center()
+            .log()
+            .wait()
+    )
+    .log("ItemNo", row.ItemNo)
+    .log("Condition", row.Condition)
+    .log("Group", row.group)
+    .log("UserAge", getVar("Age"))
+    .log("UserDegree", getVar("Degree"))
+);
+
+// --- 6. Final Submission ---
+SendResults("Send");
+
+newTrial("Goodbye",
+    newText("Thanks", "<b>Thank you!</b><br>Your data has been submitted successfully.")
+    ,
+    newText("Exit", "You can now close this window.")
+    ,
+    newButton().wait() // Infinite wait to prevent accidental restart
+);
+```
+:::
+
+
+::: {.callout-tip appearance="simple"}
+### Fake results!
+
+An AI robot did the experiment several times. I also pretended that I was a "bad" participant several times. The results are just to show you how to analyze data from PCIbex, they do not have other value!
+:::
+
 
 :::: panel-tabset
 ## 3.1. Download the results file
 
 -  On the PCIbex platform, click on the `Results` button.
 
--  Then, click on `Download`
+-  Then, click on `Download`.
 
 ![](images/clipboard-1787923676.png)
 
@@ -270,17 +433,74 @@ When your document is complete, click the **Knit** button at the top of the inte
 
 ## 3.2. Importing the data into RStudio
 
+-  [ ] First, open a new Markdown document. Call it `DataImportFromPCIbex`.
+
+-  [ ] Importing raw data from PCIbex is special, and the team wrote a function dedicated to that. The second step is to create an `r` block, to paste the following code, and to run it to activate the function.
+
+``` diff
+read.pcibex <- function(filepath, auto.colnames=TRUE, fun.col=function(col,cols){cols[cols==col]<-paste(col,"Ibex",sep=".");return(cols)}) {
+  n.cols <- max(count.fields(filepath,sep=",",quote=NULL),na.rm=TRUE)
+  if (auto.colnames){
+    cols <- c()
+    con <- file(filepath, "r")
+    while ( TRUE ) {
+      line <- readLines(con, n = 1, warn=FALSE)
+      if ( length(line) == 0) {
+        break
+      }
+      m <- regmatches(line,regexec("^# (\\d+)\\. (.+)\\.$",line))[[1]]
+      if (length(m) == 3) {
+        index <- as.numeric(m[2])
+        value <- m[3]
+        if (is.function(fun.col)){
+         cols <- fun.col(value,cols)
+        }
+        cols[index] <- value
+        if (index == n.cols){
+          break
+        }
+      }
+    }
+    close(con)
+    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=cols))
+  }
+  else{
+    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=seq(1:n.cols)))
+  }
+}
+```
+
+-  [ ] Third, you can import the data using this function. The code is as below. We store the data into a new dataset (variable) that we call `data`.
+``` diff
+data <- read.pcibex("results_FAKE_FOR_CHC9012.csv")
+```
+
+-  [ ] Finally, it is always a good idea to have a look at the data that you just imported. You can do that through these lines of code.
+``` diff
+head(data, 20)
+
+str(data)
+
+summary(data)
+```
 
 ::::
+
+
+::: {.callout-note appearance="minimal" style="background-color: #f0f7ff; border-left: 5px solid #0056b3; border-radius: 8px; padding: 1.5em;"}
+## 📝 In-class exercise
+
+**Task list:**
+
+-   [ ] Look at the whole table. To do so, click on the variable, or just write `view(data)` in the console
+-   [ ] Manually, identify and take notes of (1) what information is missing, (2) which rows should be erased/kept, and (3) which columns should be deleted or added.
+:::
+
 
 <hr>
 
 ::: {.callout-important icon="true"}
 ## 📝 Assignment for next week
 
-Please complete the following tasks before our next meeting:
-
--   Download the script of this week
--   Annotate each line of code (use your own words, these annotations are for your own reference!)
--   Upload the annotated script on Moodle
+No assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.
 :::

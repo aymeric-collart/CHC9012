@@ -119,12 +119,11 @@ This week, we will have an introduction to the R language and the RStudio interf
 
 ::: {.panel-tabset}
 
-## 🎯 Goals & key concepts
+## 🎯 Goals
 **Get to know R:**
 
 - **Basics:** What is R, and what is RStudio?
 - **Simple coding:** What are the most important functions in R?
-- **Script sharing:** How to write a beautiful script to share?
 
 ## 💻 Necessary codes
 **A brief summary of the essential elements:**
@@ -485,42 +484,6 @@ plot(x = data3$What.is.your.age., y = data3$Count)
 *(If your groups are out of alphabetical order, you can use the `factor(..., levels=c(...))` command to manually sort them before plotting!)*
 
 :::::
-
-<hr>
-
-# 📊 Part 3: Reproducible data with R Markdown
-
-Standard R Scripts only save your code. **R Markdown** files are an incredible upgrade. They allow you to combine your titles, your narrative text, your R code, and your generated plots into **one single, shareable document** (like a PDF, Word, or HTML file). This is the gold standard for Open Science!
-
-To start, click **"New File" > "R Markdown..."**
-
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ScriptTypes.png)
-
-
-RStudio will prompt you for a Title and Author. Once created, you will see a document with a **YAML Header** at the top between dashed lines `---`. This header controls the settings for your final document.
-
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Markdown_YAML.png)
-
-
-### Writing Text and Code
-In an R Markdown file, anything you type normally becomes standard text. To actually write R code, you must insert a **Code Chunk**. Click the "Insert" button at the top of the script and select "R". A grey box will appear. 
-
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_WarningMessage.png)
-
-
-You can run these individual chunks using the green **Play Button** in the corner of the grey box.
-
-
-![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_RunBlock.png)
-
-
-### The Magic "Knit" Button
-
-When your document is complete, click the **Knit** button at the top of the interface. R will automatically run all your code chunks, generate the graphs, format your text beautifully, and produce a polished final document you can share with the world!
-
 
 <hr>
 

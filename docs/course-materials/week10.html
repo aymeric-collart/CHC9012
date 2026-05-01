@@ -490,11 +490,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
   <li><a href="#part-1-setup-installation" id="toc-part-1-setup-installation" class="nav-link" data-scroll-target="#part-1-setup-installation">🎒 Part 1: Setup &amp; Installation</a></li>
   <li><a href="#part-2-working-in-rstudio" id="toc-part-2-working-in-rstudio" class="nav-link" data-scroll-target="#part-2-working-in-rstudio">💻 Part 2: Working in RStudio</a></li>
-  <li><a href="#part-3-reproducible-data-with-r-markdown" id="toc-part-3-reproducible-data-with-r-markdown" class="nav-link" data-scroll-target="#part-3-reproducible-data-with-r-markdown">📊 Part 3: Reproducible data with R Markdown</a>
-  <ul class="collapse">
-  <li><a href="#writing-text-and-code" id="toc-writing-text-and-code" class="nav-link" data-scroll-target="#writing-text-and-code">Writing Text and Code</a></li>
-  <li><a href="#the-magic-knit-button" id="toc-the-magic-knit-button" class="nav-link" data-scroll-target="#the-magic-knit-button">The Magic “Knit” Button</a></li>
-  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -631,14 +626,13 @@ td {
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals &amp; key concepts</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p><strong>Get to know R:</strong></p>
 <ul>
 <li><strong>Basics:</strong> What is R, and what is RStudio?</li>
 <li><strong>Simple coding:</strong> What are the most important functions in R?</li>
-<li><strong>Script sharing:</strong> How to write a beautiful script to share?</li>
 </ul>
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
@@ -992,25 +986,6 @@ A user-friendly interface that makes it incredibly easy to interact with R.
 </div>
 </div>
 <hr>
-</section>
-<section id="part-3-reproducible-data-with-r-markdown" class="level1">
-<h1>📊 Part 3: Reproducible data with R Markdown</h1>
-<p>Standard R Scripts only save your code. <strong>R Markdown</strong> files are an incredible upgrade. They allow you to combine your titles, your narrative text, your R code, and your generated plots into <strong>one single, shareable document</strong> (like a PDF, Word, or HTML file). This is the gold standard for Open Science!</p>
-<p>To start, click <strong>“New File” &gt; “R Markdown…”</strong></p>
-<p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ScriptTypes.png" class="img-fluid"></p>
-<p>RStudio will prompt you for a Title and Author. Once created, you will see a document with a <strong>YAML Header</strong> at the top between dashed lines <code>---</code>. This header controls the settings for your final document.</p>
-<p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Markdown_YAML.png" class="img-fluid"></p>
-<section id="writing-text-and-code" class="level3">
-<h3 class="anchored" data-anchor-id="writing-text-and-code">Writing Text and Code</h3>
-<p>In an R Markdown file, anything you type normally becomes standard text. To actually write R code, you must insert a <strong>Code Chunk</strong>. Click the “Insert” button at the top of the script and select “R”. A grey box will appear.</p>
-<p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_WarningMessage.png" class="img-fluid"></p>
-<p>You can run these individual chunks using the green <strong>Play Button</strong> in the corner of the grey box.</p>
-<p><img src="https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_RunBlock.png" class="img-fluid"></p>
-</section>
-<section id="the-magic-knit-button" class="level3">
-<h3 class="anchored" data-anchor-id="the-magic-knit-button">The Magic “Knit” Button</h3>
-<p>When your document is complete, click the <strong>Knit</strong> button at the top of the interface. R will automatically run all your code chunks, generate the graphs, format your text beautifully, and produce a polished final document you can share with the world!</p>
-<hr>
 <div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -1031,7 +1006,6 @@ A user-friendly interface that makes it incredibly easy to interact with R.
 </div>
 
 
-</section>
 </section>
 
 </main> <!-- /main -->

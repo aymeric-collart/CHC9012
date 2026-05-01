@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -459,7 +494,7 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#writing-text-and-code" id="toc-writing-text-and-code" class="nav-link" data-scroll-target="#writing-text-and-code">Writing text and code</a></li>
   <li><a href="#the-knit-button" id="toc-the-knit-button" class="nav-link" data-scroll-target="#the-knit-button">The “Knit” button</a></li>
   </ul></li>
-  <li><a href="#part-3-download-your-pcibex-results-and-import-them-into-rstudio" id="toc-part-3-download-your-pcibex-results-and-import-them-into-rstudio" class="nav-link" data-scroll-target="#part-3-download-your-pcibex-results-and-import-them-into-rstudio">Part 3: Download your PCIbex results and import them into RStudio</a></li>
+  <li><a href="#part-3-download-your-pcibex-results-and-import-them-into-rstudio" id="toc-part-3-download-your-pcibex-results-and-import-them-into-rstudio" class="nav-link" data-scroll-target="#part-3-download-your-pcibex-results-and-import-them-into-rstudio">📊 Part 3: Download your PCIbex results and import them into RStudio</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -596,7 +631,7 @@ td {
 <h2 class="anchored" data-anchor-id="overview">Overview</h2>
 <p>This week, we will have a tutorial on how to prepare your computer for further analyses.</p>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals &amp; key concepts</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes and dataset</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes and dataset</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p><strong>Prepare your computer:</strong></p>
@@ -608,27 +643,26 @@ td {
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
 <p><strong>A brief summary of the essential elements:</strong></p>
-<p>[To complete later]</p>
+<ul>
+<li><code>read.pcibex(...)</code>: Self-built function to import PCIbex results froms <code>.csv</code> file.</li>
+<li><code>head(...)</code>: Used to have a look of the first N rows of the dataset.</li>
+<li><code>str(...)</code>: Used to look at the structure of the dataset.</li>
+<li><code>summary(...)</code>: Used to summarize the whole dataset.</li>
+<li><code>view(...)</code>: Used to open the dataset.</li>
+</ul>
 <p><br></p>
-<div class="text-center mb-3">
-<p><a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/Script_Week11.R" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the full script </a></p>
-</div>
 <div class="text-center mb-3">
 <p><a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/results_FAKE_FOR_CHC9012.csv" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script </a></p>
 </div>
 </div>
 <div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
 <p><strong>Please complete the following tasks before our next meeting:</strong></p>
-<ul>
-<li>Download the Markdown script of this week</li>
-<li>Annotate each line of code (use your own words, these annotations are for your own reference!)</li>
-<li>Knit into a PDF file, and upload it on Moodle</li>
-</ul>
+<p>No assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.</p>
 </div>
 </div>
 </div>
 <div class="text-center mb-4">
-<p><a href="week11_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week’s tutorial </a></p>
+<p><a href="week11_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week’s tutorial [SOON] </a></p>
 </div>
 <p><br></p>
 </section>
@@ -679,18 +713,21 @@ Pay attention to the names
 </ul>
 <p><img src="images/clipboard-1025670899.png" class="img-fluid"></p>
 <div class="callout callout-style-simple callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
 Why creating a project?
 </div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
 </div>
+<div id="callout-2" class="callout-2-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
 <p>It will open a new and clean RStudio window. At the same time, it will set the <code>PreprocessingAnalysesR</code> as the working directory by default.</p>
 <p>Another advantage is that you can have one RStudio window per project, and switch between them without worrying about the working directory of trying to find the right files! You can have a list of your several projects on the top-right corner of RStudio. Here is mine for example:</p>
 <p><img src="images/clipboard-1750222853.png" class="img-fluid"></p>
+</div>
 </div>
 </div>
 </div>
@@ -753,7 +790,7 @@ Why creating a project?
 <div class="callout-body-container callout-body">
 <p><strong>Task list:</strong></p>
 <ul class="task-list">
-<li><label><input type="checkbox" checked="">Create a new Markdown document, and call it <code>ScriptWeek10_Markdown</code>.</label></li>
+<li><label><input type="checkbox">Create a new Markdown document, and call it <code>ScriptWeek10_Markdown</code>.</label></li>
 <li><label><input type="checkbox">Use the script from last week, but adapt it to the Markdown format. Be creative!</label></li>
 </ul>
 </div>
@@ -762,14 +799,191 @@ Why creating a project?
 </section>
 </section>
 <section id="part-3-download-your-pcibex-results-and-import-them-into-rstudio" class="level1">
-<h1>Part 3: Download your PCIbex results and import them into RStudio</h1>
+<h1>📊 Part 3: Download your PCIbex results and import them into RStudio</h1>
+<p>For the rest of this class, I will show how to preprocess data based on this experiment. You can have a look at it, and its associated code. <br><br> <a href="https://farm.pcibex.net/p/qCbaTy/" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Try the experiment </a></p>
+<div class="callout callout-style-default callout-note callout-titled" title="Code of the experiment, following the structure introduced in Part 2 (AI-augmented script)">
+<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Code of the experiment, following the structure introduced in Part 2 (AI-augmented script)
+</div>
+<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
+</div>
+<div id="callout-5" class="callout-5-contents callout-collapse collapse">
+<div class="callout-body-container callout-body">
+<div class="sourceCode" id="cb1"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>PennController.ResetPrefix(null);</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>// Optional: Preload any images or CSS here</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>// PreloadGui(); </span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>Sequence("Welcome", "Background", "Instructions", "AnnouncePractice", "Practice", "AnnounceExperiment", randomize("Experiment"), "Send", "Goodbye");</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>// --- Global Styling ---</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>// This applies to all elements unless overridden</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>Header(</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    defaultText</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>        .cssContainer({"margin-bottom":"1.5em", "line-height":"1.4em", "font-size":"18px"})</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>    defaultButton</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>        .css({"margin-top":"2em", "padding":"10px 20px", "border-radius":"8px", "background-color":"#f0f0f0"})</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    defaultTextInput</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>        .css({"margin-bottom":"1em", "padding":"5px"})</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>// --- 1. Welcome Page ---</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a>newTrial("Welcome",</span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>    newText("WelcomeTitle", "&lt;b&gt;Linguistics Study: Sentence Processing&lt;/b&gt;")</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>        .css("font-size", "24px")</span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>    newText("ICF", "Welcome! Below is the Informed Consent Form. &lt;br&gt;Please read it carefully before proceeding.")</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>    // Using an HTML file for the consent form is much cleaner</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>    newHtml("consent", "consent.html") </span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a>        .checkboxWarning("You must consent to continue.")</span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a>    newButton("I Consent &amp; Continue")</span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>        .wait()</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a>// --- 2. Background Questionnaire ---</span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a>newTrial("Background",</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a>    newText("Intro", "&lt;b&gt;About You&lt;/b&gt;&lt;br&gt;Please provide a few details to help our research.")</span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a>    newCanvas("form", 400, 200)</span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>        .add( 0,  0, newText("AgeLabel", "How old are you?").left() )</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>        .add( 200, 0, newTextInput("Age").size(50).log("final") )</span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>        .add( 0,  60, newText("DegreeLabel", "Highest degree:").left() )</span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>        .add( 200, 60, newDropDown("Degree", "Select...")</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>            .add("High school", "BA", "MA", "Ph.D.", "Other")</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>            .log() </span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>        )</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>    newButton("Continue")</span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a>        .wait()</span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-62"><a href="#cb1-62" aria-hidden="true" tabindex="-1"></a>    newVar("Age").global().set( getTextInput("Age") ),</span>
+<span id="cb1-63"><a href="#cb1-63" aria-hidden="true" tabindex="-1"></a>    newVar("Degree").global().set( getDropDown("Degree") )</span>
+<span id="cb1-64"><a href="#cb1-64" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-65"><a href="#cb1-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-66"><a href="#cb1-66" aria-hidden="true" tabindex="-1"></a>// --- 3. Instructions ---</span>
+<span id="cb1-67"><a href="#cb1-67" aria-hidden="true" tabindex="-1"></a>newTrial("Instructions",</span>
+<span id="cb1-68"><a href="#cb1-68" aria-hidden="true" tabindex="-1"></a>    newText("InstrHeader", "&lt;b&gt;Instructions&lt;/b&gt;")</span>
+<span id="cb1-69"><a href="#cb1-69" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-70"><a href="#cb1-70" aria-hidden="true" tabindex="-1"></a>    newText("Explanation", "In this task, you will read sentences one by one.&lt;br&gt;Your job is to rate how &lt;i&gt;natural&lt;/i&gt; or &lt;i&gt;acceptable&lt;/i&gt; they sound.")</span>
+<span id="cb1-71"><a href="#cb1-71" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-72"><a href="#cb1-72" aria-hidden="true" tabindex="-1"></a>    newText("Example", "Example: 'I will must do it.'&lt;br&gt;This sounds very unnatural, so you would choose &lt;b&gt;1&lt;/b&gt;.")</span>
+<span id="cb1-73"><a href="#cb1-73" aria-hidden="true" tabindex="-1"></a>        .css({"background-color":"#f9f9f9", "padding":"15px", "border-left":"5px solid #ccc"})</span>
+<span id="cb1-74"><a href="#cb1-74" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-75"><a href="#cb1-75" aria-hidden="true" tabindex="-1"></a>    newButton("I'm ready to practice!")</span>
+<span id="cb1-76"><a href="#cb1-76" aria-hidden="true" tabindex="-1"></a>        .wait()</span>
+<span id="cb1-77"><a href="#cb1-77" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-78"><a href="#cb1-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-79"><a href="#cb1-79" aria-hidden="true" tabindex="-1"></a>// --- 4. Practice Trials ---</span>
+<span id="cb1-80"><a href="#cb1-80" aria-hidden="true" tabindex="-1"></a>newTrial("AnnouncePractice",</span>
+<span id="cb1-81"><a href="#cb1-81" aria-hidden="true" tabindex="-1"></a>    newText("GetReady", "Let's start with a quick practice.")</span>
+<span id="cb1-82"><a href="#cb1-82" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-83"><a href="#cb1-83" aria-hidden="true" tabindex="-1"></a>    newButton("Start Practice")</span>
+<span id="cb1-84"><a href="#cb1-84" aria-hidden="true" tabindex="-1"></a>        .wait()</span>
+<span id="cb1-85"><a href="#cb1-85" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-86"><a href="#cb1-86" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-87"><a href="#cb1-87" aria-hidden="true" tabindex="-1"></a>newTrial("Practice",</span>
+<span id="cb1-88"><a href="#cb1-88" aria-hidden="true" tabindex="-1"></a>    newText("Stimulus", "This is a normal English sentence.")</span>
+<span id="cb1-89"><a href="#cb1-89" aria-hidden="true" tabindex="-1"></a>        .css("font-style", "italic")</span>
+<span id="cb1-90"><a href="#cb1-90" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-91"><a href="#cb1-91" aria-hidden="true" tabindex="-1"></a>    newScale("Scale", 7)</span>
+<span id="cb1-92"><a href="#cb1-92" aria-hidden="true" tabindex="-1"></a>        .labelsPosition("bottom")</span>
+<span id="cb1-93"><a href="#cb1-93" aria-hidden="true" tabindex="-1"></a>        .before( newText("Very Unnatural") )</span>
+<span id="cb1-94"><a href="#cb1-94" aria-hidden="true" tabindex="-1"></a>        .after( newText("Very Natural") )</span>
+<span id="cb1-95"><a href="#cb1-95" aria-hidden="true" tabindex="-1"></a>        .keys() // Allows users to use number keys 1-7</span>
+<span id="cb1-96"><a href="#cb1-96" aria-hidden="true" tabindex="-1"></a>        .print()</span>
+<span id="cb1-97"><a href="#cb1-97" aria-hidden="true" tabindex="-1"></a>        .center()</span>
+<span id="cb1-98"><a href="#cb1-98" aria-hidden="true" tabindex="-1"></a>        .log()</span>
+<span id="cb1-99"><a href="#cb1-99" aria-hidden="true" tabindex="-1"></a>        .wait()</span>
+<span id="cb1-100"><a href="#cb1-100" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-101"><a href="#cb1-101" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-102"><a href="#cb1-102" aria-hidden="true" tabindex="-1"></a>// --- 5. Experimental Trials ---</span>
+<span id="cb1-103"><a href="#cb1-103" aria-hidden="true" tabindex="-1"></a>newTrial("AnnounceExperiment",</span>
+<span id="cb1-104"><a href="#cb1-104" aria-hidden="true" tabindex="-1"></a>    newText("RealStart", "The practice is over. The real experiment starts now!&lt;br&gt;Please respond based on your first intuition.")</span>
+<span id="cb1-105"><a href="#cb1-105" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-106"><a href="#cb1-106" aria-hidden="true" tabindex="-1"></a>    newButton("Begin Experiment")</span>
+<span id="cb1-107"><a href="#cb1-107" aria-hidden="true" tabindex="-1"></a>        .wait()</span>
+<span id="cb1-108"><a href="#cb1-108" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-109"><a href="#cb1-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-110"><a href="#cb1-110" aria-hidden="true" tabindex="-1"></a>Template("material.csv", row =&gt; </span>
+<span id="cb1-111"><a href="#cb1-111" aria-hidden="true" tabindex="-1"></a>    newTrial("Experiment",</span>
+<span id="cb1-112"><a href="#cb1-112" aria-hidden="true" tabindex="-1"></a>        newText("Cross", "+") // Fixation cross</span>
+<span id="cb1-113"><a href="#cb1-113" aria-hidden="true" tabindex="-1"></a>            .css("font-size", "30px")</span>
+<span id="cb1-114"><a href="#cb1-114" aria-hidden="true" tabindex="-1"></a>        ,</span>
+<span id="cb1-115"><a href="#cb1-115" aria-hidden="true" tabindex="-1"></a>        newTimer("Fixation", 500).start().wait()</span>
+<span id="cb1-116"><a href="#cb1-116" aria-hidden="true" tabindex="-1"></a>        ,</span>
+<span id="cb1-117"><a href="#cb1-117" aria-hidden="true" tabindex="-1"></a>        getText("Cross").remove()</span>
+<span id="cb1-118"><a href="#cb1-118" aria-hidden="true" tabindex="-1"></a>        ,</span>
+<span id="cb1-119"><a href="#cb1-119" aria-hidden="true" tabindex="-1"></a>        newText("Sentence", row.Sentence)</span>
+<span id="cb1-120"><a href="#cb1-120" aria-hidden="true" tabindex="-1"></a>            .css({"font-size":"22px", "margin-top":"20px"})</span>
+<span id="cb1-121"><a href="#cb1-121" aria-hidden="true" tabindex="-1"></a>        ,</span>
+<span id="cb1-122"><a href="#cb1-122" aria-hidden="true" tabindex="-1"></a>        newScale("Scale", 7)</span>
+<span id="cb1-123"><a href="#cb1-123" aria-hidden="true" tabindex="-1"></a>            .labelsPosition("bottom")</span>
+<span id="cb1-124"><a href="#cb1-124" aria-hidden="true" tabindex="-1"></a>            .before( newText("Unnatural") )</span>
+<span id="cb1-125"><a href="#cb1-125" aria-hidden="true" tabindex="-1"></a>            .after( newText("Natural") )</span>
+<span id="cb1-126"><a href="#cb1-126" aria-hidden="true" tabindex="-1"></a>            .keys()</span>
+<span id="cb1-127"><a href="#cb1-127" aria-hidden="true" tabindex="-1"></a>            .print()</span>
+<span id="cb1-128"><a href="#cb1-128" aria-hidden="true" tabindex="-1"></a>            .center()</span>
+<span id="cb1-129"><a href="#cb1-129" aria-hidden="true" tabindex="-1"></a>            .log()</span>
+<span id="cb1-130"><a href="#cb1-130" aria-hidden="true" tabindex="-1"></a>            .wait()</span>
+<span id="cb1-131"><a href="#cb1-131" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb1-132"><a href="#cb1-132" aria-hidden="true" tabindex="-1"></a>    .log("ItemNo", row.ItemNo)</span>
+<span id="cb1-133"><a href="#cb1-133" aria-hidden="true" tabindex="-1"></a>    .log("Condition", row.Condition)</span>
+<span id="cb1-134"><a href="#cb1-134" aria-hidden="true" tabindex="-1"></a>    .log("Group", row.group)</span>
+<span id="cb1-135"><a href="#cb1-135" aria-hidden="true" tabindex="-1"></a>    .log("UserAge", getVar("Age"))</span>
+<span id="cb1-136"><a href="#cb1-136" aria-hidden="true" tabindex="-1"></a>    .log("UserDegree", getVar("Degree"))</span>
+<span id="cb1-137"><a href="#cb1-137" aria-hidden="true" tabindex="-1"></a>);</span>
+<span id="cb1-138"><a href="#cb1-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-139"><a href="#cb1-139" aria-hidden="true" tabindex="-1"></a>// --- 6. Final Submission ---</span>
+<span id="cb1-140"><a href="#cb1-140" aria-hidden="true" tabindex="-1"></a>SendResults("Send");</span>
+<span id="cb1-141"><a href="#cb1-141" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-142"><a href="#cb1-142" aria-hidden="true" tabindex="-1"></a>newTrial("Goodbye",</span>
+<span id="cb1-143"><a href="#cb1-143" aria-hidden="true" tabindex="-1"></a>    newText("Thanks", "&lt;b&gt;Thank you!&lt;/b&gt;&lt;br&gt;Your data has been submitted successfully.")</span>
+<span id="cb1-144"><a href="#cb1-144" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-145"><a href="#cb1-145" aria-hidden="true" tabindex="-1"></a>    newText("Exit", "You can now close this window.")</span>
+<span id="cb1-146"><a href="#cb1-146" aria-hidden="true" tabindex="-1"></a>    ,</span>
+<span id="cb1-147"><a href="#cb1-147" aria-hidden="true" tabindex="-1"></a>    newButton().wait() // Infinite wait to prevent accidental restart</span>
+<span id="cb1-148"><a href="#cb1-148" aria-hidden="true" tabindex="-1"></a>);</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Fake results!
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>An AI robot did the experiment several times. I also pretended that I was a “bad” participant several times. The results are just to show you how to analyze data from PCIbex, they do not have other value!</p>
+</div>
+</div>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">3.1. Download the results file</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">3.2. Importing the data into RStudio</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <ul>
 <li><p>On the PCIbex platform, click on the <code>Results</code> button.</p></li>
-<li><p>Then, click on <code>Download</code></p></li>
+<li><p>Then, click on <code>Download</code>.</p></li>
 </ul>
 <p><img src="images/clipboard-1787923676.png" class="img-fluid"></p>
 <ul>
@@ -777,8 +991,70 @@ Why creating a project?
 </ul>
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-
+<ul class="task-list">
+<li><p><label><input type="checkbox">First, open a new Markdown document. Call it <code>DataImportFromPCIbex</code>.</label></p></li>
+<li><p><label><input type="checkbox">Importing raw data from PCIbex is special, and the team wrote a function dedicated to that. The second step is to create an <code>r</code> block, to paste the following code, and to run it to activate the function.</label></p></li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>read.pcibex &lt;- function(filepath, auto.colnames=TRUE, fun.col=function(col,cols){cols[cols==col]&lt;-paste(col,"Ibex",sep=".");return(cols)}) {</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  n.cols &lt;- max(count.fields(filepath,sep=",",quote=NULL),na.rm=TRUE)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  if (auto.colnames){</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    cols &lt;- c()</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    con &lt;- file(filepath, "r")</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    while ( TRUE ) {</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      line &lt;- readLines(con, n = 1, warn=FALSE)</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      if ( length(line) == 0) {</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>        break</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      m &lt;- regmatches(line,regexec("^# (\\d+)\\. (.+)\\.$",line))[[1]]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>      if (length(m) == 3) {</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>        index &lt;- as.numeric(m[2])</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>        value &lt;- m[3]</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>        if (is.function(fun.col)){</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>         cols &lt;- fun.col(value,cols)</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>        cols[index] &lt;- value</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>        if (index == n.cols){</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>          break</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>        }</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>      }</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>    close(con)</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=cols))</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>  else{</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=seq(1:n.cols)))</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul class="task-list">
+<li><label><input type="checkbox">Third, you can import the data using this function. The code is as below. We store the data into a new dataset (variable) that we call <code>data</code>.</label></li>
+</ul>
+<div class="sourceCode" id="cb3"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>data &lt;- read.pcibex("results_FAKE_FOR_CHC9012.csv")</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul class="task-list">
+<li><label><input type="checkbox">Finally, it is always a good idea to have a look at the data that you just imported. You can do that through these lines of code.</label></li>
+</ul>
+<div class="sourceCode" id="cb4"><pre class="sourceCode diff code-with-copy"><code class="sourceCode diff"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>head(data, 20)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>str(data)</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>summary(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note no-icon callout-titled" style="background-color: #f0f7ff; border-left: 5px solid #0056b3; border-radius: 8px; padding: 1.5em;">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon no-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📝 In-class exercise
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p><strong>Task list:</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Look at the whole table. To do so, click on the variable, or just write <code>view(data)</code> in the console</label></li>
+<li><label><input type="checkbox">Manually, identify and take notes of (1) what information is missing, (2) which rows should be erased/kept, and (3) which columns should be deleted or added.</label></li>
+</ul>
 </div>
 </div>
 <hr>
@@ -792,12 +1068,7 @@ Why creating a project?
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Please complete the following tasks before our next meeting:</p>
-<ul>
-<li>Download the script of this week</li>
-<li>Annotate each line of code (use your own words, these annotations are for your own reference!)</li>
-<li>Upload the annotated script on Moodle</li>
-</ul>
+<p>No assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.</p>
 </div>
 </div>
 
