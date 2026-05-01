@@ -149,7 +149,7 @@ No assignment for next week! Please carefully review the content of these past t
 :::::
 
 ::: {.text-center .mb-4}
-<a href="week11_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week's tutorial [SOON] </a>
+<a href="week11_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week's tutorial</a>
 :::
 
 <br>

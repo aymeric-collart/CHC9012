@@ -1,0 +1,329 @@
+---
+title: "Week 11 - Preparation: Computer set-up and data imporation"
+subtitle: "CHC9012 | National Taiwan Normal University"
+format: 
+  revealjs:
+    theme: serif
+    transition: slide
+    scrollable: true
+    slide-number: true
+    chalkboard: true
+    width: 1280
+    height: 720
+---
+
+## 🎯 Goals
+
+**Prepare your computer:**
+
+::: {.fragment .fade-up}
+-   **Projects:** How to set-up a project in RStudio?
+:::
+
+::: {.fragment .fade-up}
+-   **Advanced scripts:** How to use Markdown documents to share better scripts?
+:::
+
+::: {.fragment .fade-up}
+-   **Data importation:** Where to find your PCIbex results file, and how to import it to RStudio?
+:::
+
+# 💻 Part 1: Prepare your computer: R projects
+
+------------------------------------------------------------------------
+
+
+## {.center}
+
+::: {.callout-tip appearance="simple" style="width: 60%; margin: auto;"}
+### Why?
+
+We want to be *organized* and **not messy**!
+:::
+
+::: {.fragment .fade-up}
+-   **Section 1.1:** Prepare the folder in your computer.
+:::
+
+::: {.fragment .fade-up}
+-   **Section 1.2:** Create the related R project.
+:::
+
+---
+
+
+## 1.1 Setting up your folders {vertical-align="center"}
+
+
+::: {.fragment}
+1.  Navigate to your **`Documents`** (or **`文件`**) folder.
+:::
+
+::: {.fragment}
+2.  Create your **Root Folder**: `CHC9012_Spring2025`
+:::
+
+::: {.fragment}
+3.  Add the **Project Subfolders**:
+    *   📁 `Slides`: Presentation files.
+    *   📁 `PCIbex_design`: Scripts & materials.
+    *   📁 `PreprocessingAnalysesR`: Datasets & R code.
+:::
+
+
+---
+
+## You should obtain something like this {.center}
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/clipboard-1590947435.png)
+
+
+::: {.fragment}
+
+::: {.callout-tip appearance="simple"}
+### Pay attention to the names
+
+Generally, it is better not to use any space when naming folders and files!
+:::
+
+:::
+
+---
+
+## 1.2 Initializing Your R Project {vertical-align="center"}
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+::: {.fragment data-fragment-index="1"}
+**1. Launch `New Project Wizard`** <i class="fa-solid fa-square-plus" style="color: #2c7a7b;"></i>
+<br><small>Click the **blue cube icon** in the top-left corner of RStudio.</small>
+:::
+
+<br>
+
+::: {.fragment data-fragment-index="2"}
+**2. Select project type** <i style="color: #2c7a7b;"></i>
+<br><small>Choose **"Existing Directory"** to link R to your folder structure.</small>
+:::
+
+<br>
+
+::: {.fragment data-fragment-index="3"}
+**3. Finalize Connection** <i class="fa-solid fa-circle-check" style="color: #2c7a7b;"></i>
+<br><small>Browse to `PreprocessingAnalysesR`, check **"Open in a new session"**, and click **Create Project**.</small>
+:::
+:::
+
+::: {.column width="40%"}
+::: {.r-stack}
+![](images/clipboard-2121617076.png){.fragment .fade-in-then-out data-fragment-index="1" width="100"}
+
+![](images/clipboard-3751932394.png){.fragment .fade-in-then-out data-fragment-index="2" width="500"}
+
+![](images/clipboard-1025670899.png){.fragment data-fragment-index="3" width="500"}
+:::
+:::
+
+:::
+
+::: {.fragment}
+
+::: {.callout-note appearance="simple" .fragment data-fragment-index="3"}
+**Benefit:** An `.Rproj` file sets your "Working Directory" automatically!
+:::
+
+:::
+
+---
+
+## Other advantages of creating projects {.center}
+
+::: {.columns}
+
+::: {.column width="60%"}
+
+1.  One RStudio window = One project
+2.  Switch between them without worrying about the working directory of trying to find the right files!
+3.  List of your projects on the top-right corner of RStudio. Here is mine for example:
+
+:::
+
+::: {.column width="40%"}
+
+![](images/clipboard-1750222853.png){width="400"}
+
+:::
+
+:::
+
+---
+
+## 📝 In-class exercise!
+<br><br>
+<center>**Task list:**
+
+-   [ ] Find the R script from last week and move it to the `PreprocessingAnalysesR` folder.
+-   [ ] Open the script within your newly created project.
+
+
+# 📊 Part 2: Better and reproducible scripts with R Markdown
+
+
+## From raw script to functional: R Markdown {.center}
+
+::: {.columns}
+
+::: {.column width="55%"}
+::: {.fragment data-fragment-index="1"}
+**1. Create the file** 📄
+<br><small>Go to **New File > R Markdown**. This moves you from raw code to a "living" document.</small>
+:::
+
+::: {.fragment data-fragment-index="2"}
+**2. Configure (YAML)** ⚙️
+<br><small>The header between `---` controls your title, author, and output format (HTML/PDF).</small>
+:::
+
+::: {.fragment data-fragment-index="3"}
+**3. Text + Code chunks** 📝
+<br><small>Write text normally; insert **Code Chunks** (`{r}`) for analysis.</small>
+:::
+
+::: {.fragment data-fragment-index="4"}
+**4. Run your codes** ▶️
+<br><small>Use the green **Play Button** to test individual steps.</small>
+:::
+
+::: {.fragment data-fragment-index="5"}
+**5. The Final "Knit"** 🧶
+<br><small>Click **Knit** to stitch everything into a polished report automatically!</small>
+:::
+:::
+
+::: {.column width = "45%"}
+::: {.r-stack}
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/ScriptTypes.png){.fragment .fade-in-then-out data-fragment-index="1"}
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/Markdown_YAML.png){.fragment .fade-in-then-out data-fragment-index="2" style="width: 100%; height: auto; border-radius: 8px;"}
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_WarningMessage.png){.fragment .fade-in-then-out data-fragment-index="3" style="width: 100%; height: auto; border-radius: 8px;"}
+
+![](https://github.com/aymeric-collart/CHC9012/raw/main/course-materials/Images/RCodeBlock_RunBlock.png){.fragment data-fragment-index="4" style="width: 100%; height: auto; border-radius: 8px;"}
+:::
+:::
+
+:::
+
+---
+
+## 📝 In-class exercise!
+<br><br>
+<center>**Task list:**
+
+-   [ ] Create a new Markdown document, and call it `ScriptWeek10_Markdown`.
+-   [ ] Use the script from last week, but adapt it to the Markdown format. Be creative!
+
+
+# 📊 Part 3: Download your PCIbex results and import them into RStudio
+
+## Fake experiment for this class
+
+<a href="https://farm.pcibex.net/p/qCbaTy/" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Try the experiment </a>
+
+::: {.callout-note collapse="true" title="The code of the fake experiment is given on the website"}
+
+:::
+
+::: {.callout-tip appearance="simple"}
+### Fake results!
+
+An AI robot did the experiment several times. I also pretended that I was a "bad" participant several times. The results are just to show you how to analyze data from PCIbex, they do not have other value!
+:::
+
+---
+
+::: panel-tabset
+## 3.1. Download the results file
+
+-   On the PCIbex platform, click on the `Results` button.
+
+-   Then, click on `Download`.
+
+![](images/clipboard-1787923676.png)
+
+-   Finally, place the file in the folder you just created on your computer!
+
+## 3.2. Importing the data into RStudio
+
+-   [ ] First, open a new Markdown document. Call it `DataImportFromPCIbex`.
+
+-   [ ] Second, create an `r` block, paste the following code, and run it to activate the function.
+
+``` diff
+read.pcibex <- function(filepath, auto.colnames=TRUE, fun.col=function(col,cols){cols[cols==col]<-paste(col,"Ibex",sep=".");return(cols)}) {
+  n.cols <- max(count.fields(filepath,sep=",",quote=NULL),na.rm=TRUE)
+  if (auto.colnames){
+    cols <- c()
+    con <- file(filepath, "r")
+    while ( TRUE ) {
+      line <- readLines(con, n = 1, warn=FALSE)
+      if ( length(line) == 0) {
+        break
+      }
+      m <- regmatches(line,regexec("^# (\\d+)\\. (.+)\\.$",line))[[1]]
+      if (length(m) == 3) {
+        index <- as.numeric(m[2])
+        value <- m[3]
+        if (is.function(fun.col)){
+         cols <- fun.col(value,cols)
+        }
+        cols[index] <- value
+        if (index == n.cols){
+          break
+        }
+      }
+    }
+    close(con)
+    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=cols))
+  }
+  else{
+    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=seq(1:n.cols)))
+  }
+}
+```
+
+-   [ ] Third, import the data using this function. The code is as below. We store the data into a new dataset (variable) that we call `data`.
+
+``` diff
+data <- read.pcibex("results_FAKE_FOR_CHC9012.csv")
+```
+
+-   [ ] Finally, it is always a good idea to have a look at the data that you just imported. You can do that through these lines of code.
+
+``` diff
+head(data, 20)
+
+str(data)
+
+summary(data)
+```
+:::
+
+---
+
+## 📝 In-class exercise!
+<br><br>
+<center>**Task list:**
+
+-   [ ] Look at the whole table. To do so, click on the variable, or just write `view(data)` in the console
+-   [ ] Manually, identify and take notes of (1) what information is missing, (2) which rows should be erased/kept, and (3) which columns should be deleted or added.
+
+---
+
+::: {.callout-important icon="true"}
+## 📝 Assignment for next week
+
+No assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.
+:::

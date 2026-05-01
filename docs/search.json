@@ -44,7 +44,7 @@
     "href": "course-materials/week11.html",
     "title": "Week 11 - Preparation: Computer set-up and data imporation",
     "section": "",
-    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n\nread.pcibex(...): Self-built function to import PCIbex results froms .csv file.\nhead(...): Used to have a look of the first N rows of the dataset.\nstr(...): Used to look at the structure of the dataset.\nsummary(...): Used to summarize the whole dataset.\nview(...): Used to open the dataset.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nNo assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.\n\n\n\n\n  View the slides of this week’s tutorial [SOON]",
+    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n\nread.pcibex(...): Self-built function to import PCIbex results froms .csv file.\nhead(...): Used to have a look of the first N rows of the dataset.\nstr(...): Used to look at the structure of the dataset.\nsummary(...): Used to summarize the whole dataset.\nview(...): Used to open the dataset.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nNo assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.\n\n\n\n\n  View the slides of this week’s tutorial",
     "crumbs": [
       "Home",
       "Part 3: Analyses and visualization",
@@ -56,7 +56,7 @@
     "href": "course-materials/week11.html#overview",
     "title": "Week 11 - Preparation: Computer set-up and data imporation",
     "section": "",
-    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n\nread.pcibex(...): Self-built function to import PCIbex results froms .csv file.\nhead(...): Used to have a look of the first N rows of the dataset.\nstr(...): Used to look at the structure of the dataset.\nsummary(...): Used to summarize the whole dataset.\nview(...): Used to open the dataset.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nNo assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.\n\n\n\n\n  View the slides of this week’s tutorial [SOON]",
+    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n\nread.pcibex(...): Self-built function to import PCIbex results froms .csv file.\nhead(...): Used to have a look of the first N rows of the dataset.\nstr(...): Used to look at the structure of the dataset.\nsummary(...): Used to summarize the whole dataset.\nview(...): Used to open the dataset.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nNo assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.\n\n\n\n\n  View the slides of this week’s tutorial",
     "crumbs": [
       "Home",
       "Part 3: Analyses and visualization",
@@ -247,6 +247,13 @@
     ]
   },
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
     "title": "Introduction to Language Questionnaires",
@@ -289,11 +296,81 @@
     "text": "👤 Instructor\nAymeric Collart (理克) Department of Chinese, NTNU\nEmail provided in class"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "course-materials/week11_slides.html#goals",
+    "href": "course-materials/week11_slides.html#goals",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "🎯 Goals",
+    "text": "🎯 Goals\nPrepare your computer:\n\n\nProjects: How to set-up a project in RStudio?\n\n\n\n\nAdvanced scripts: How to use Markdown documents to share better scripts?\n\n\n\n\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#section",
+    "href": "course-materials/week11_slides.html#section",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
     "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
+    "text": "Why?\n\n\nWe want to be organized and not messy!\n\n\n\n\n\n\nSection 1.1: Prepare the folder in your computer.\n\n\n\n\nSection 1.2: Create the related R project."
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#setting-up-your-folders",
+    "href": "course-materials/week11_slides.html#setting-up-your-folders",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "1.1 Setting up your folders",
+    "text": "1.1 Setting up your folders\n\n\nNavigate to your Documents (or 文件) folder.\n\n\n\n\nCreate your Root Folder: CHC9012_Spring2025\n\n\n\n\nAdd the Project Subfolders:\n\n📁 Slides: Presentation files.\n📁 PCIbex_design: Scripts & materials.\n📁 PreprocessingAnalysesR: Datasets & R code."
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#you-should-obtain-something-like-this",
+    "href": "course-materials/week11_slides.html#you-should-obtain-something-like-this",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "You should obtain something like this",
+    "text": "You should obtain something like this\n\n\n\n\n\n\n\n\nPay attention to the names\n\n\nGenerally, it is better not to use any space when naming folders and files!"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#initializing-your-r-project",
+    "href": "course-materials/week11_slides.html#initializing-your-r-project",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "1.2 Initializing Your R Project",
+    "text": "1.2 Initializing Your R Project\n\n\n\n1. Launch New Project Wizard  Click the blue cube icon in the top-left corner of RStudio.\n\n\n\n2. Select project type  Choose “Existing Directory” to link R to your folder structure.\n\n\n\n3. Finalize Connection  Browse to PreprocessingAnalysesR, check “Open in a new session”, and click Create Project.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBenefit: An .Rproj file sets your “Working Directory” automatically!"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#other-advantages-of-creating-projects",
+    "href": "course-materials/week11_slides.html#other-advantages-of-creating-projects",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "Other advantages of creating projects",
+    "text": "Other advantages of creating projects\n\n\n\nOne RStudio window = One project\nSwitch between them without worrying about the working directory of trying to find the right files!\nList of your projects on the top-right corner of RStudio. Here is mine for example:"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#in-class-exercise",
+    "href": "course-materials/week11_slides.html#in-class-exercise",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "📝 In-class exercise!",
+    "text": "📝 In-class exercise!\n\n\nTask list:\n\nFind the R script from last week and move it to the PreprocessingAnalysesR folder.\nOpen the script within your newly created project."
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#from-raw-script-to-functional-r-markdown",
+    "href": "course-materials/week11_slides.html#from-raw-script-to-functional-r-markdown",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "From raw script to functional: R Markdown",
+    "text": "From raw script to functional: R Markdown\n\n\n\n1. Create the file 📄 Go to New File &gt; R Markdown. This moves you from raw code to a “living” document.\n\n\n2. Configure (YAML) ⚙️ The header between --- controls your title, author, and output format (HTML/PDF).\n\n\n3. Text + Code chunks 📝 Write text normally; insert Code Chunks ({r}) for analysis.\n\n\n4. Run your codes ▶️ Use the green Play Button to test individual steps.\n\n\n5. The Final “Knit” 🧶 Click Knit to stitch everything into a polished report automatically!"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#in-class-exercise-1",
+    "href": "course-materials/week11_slides.html#in-class-exercise-1",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "📝 In-class exercise!",
+    "text": "📝 In-class exercise!\n\n\nTask list:\n\nCreate a new Markdown document, and call it ScriptWeek10_Markdown.\nUse the script from last week, but adapt it to the Markdown format. Be creative!"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#fake-experiment-for-this-class",
+    "href": "course-materials/week11_slides.html#fake-experiment-for-this-class",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "Fake experiment for this class",
+    "text": "Fake experiment for this class\n  Try the experiment \n\n\n\n\n\n\n\nThe code of the fake experiment is given on the website\n\n\n\n\n\n\n\n\n\n\n\n\n\nFake results!\n\n\nAn AI robot did the experiment several times. I also pretended that I was a “bad” participant several times. The results are just to show you how to analyze data from PCIbex, they do not have other value!"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#in-class-exercise-2",
+    "href": "course-materials/week11_slides.html#in-class-exercise-2",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "📝 In-class exercise!",
+    "text": "📝 In-class exercise!\n\n\nTask list:\n\nLook at the whole table. To do so, click on the variable, or just write view(data) in the console\nManually, identify and take notes of (1) what information is missing, (2) which rows should be erased/kept, and (3) which columns should be deleted or added."
   },
   {
     "objectID": "course-materials/week1.html",
