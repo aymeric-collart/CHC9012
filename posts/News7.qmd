@@ -1,0 +1,6 @@
+---
+title: "Week 12"
+date: 2026-05-01
+categories: [Website announcment]
+description: "Week 12 of the course have been created!"
+---

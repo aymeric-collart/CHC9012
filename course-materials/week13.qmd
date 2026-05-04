@@ -1,5 +1,5 @@
 ---
-title: "Week 13 - Data exploration (2/2) and data visualization (1/2) with R"
+title: "Week 13 - Exploring the data"
 format: html
 ---
 

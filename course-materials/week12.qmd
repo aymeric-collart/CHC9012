@@ -370,56 +370,152 @@ rmarkdown::paged_table(data2, options = list(rows.print = 10))
 
 ## 2.4 Calculate the reaction time
 
-```{r}
-library(tidyr)
+::: {.callout-tip icon="false"}
+## 📖 Defining reaction time
 
-##Calculate reaction time
+In this experiment, `Reaction time` = `Time when the judgment is made` - `Time when the sentence appeared`
+
+Calculating the reaction time from PCIbex data requires several steps.
+:::
+
+Let's have a look at our data:
+
+```{r}
+#| echo: false
+data_show <- data2 %>%
+  select(Parameter, Value, EventTime, ItemNo)
+rmarkdown::paged_table(data_show, options = list(rows.print = 6))
+```
+
+Here, `Reaction time` = "EventTime *when* `Parameter` = `Choice`" - "EventTime *when* `Value` = `Start`". So we need to select these rows first. We stored in a temporary dataset that we call `RT_Prep1`.
+
+```{r}
 RT_Prep1 <- data2 %>%
   filter(Parameter == "Choice" | Value == "Start")
+```
 
-RT_Prep1$Index <- ifelse(RT_Prep1$Value == "Start",
+Under the `Value` column, we have the time for `Start`, but not for `Choice`, which is found in another column. We want to have everything under the same column. So we tell R that when in the `Value` column, the word is not `Start`, it writes `Choice` instead. Then, we delete columns when the two rows are different -- we want to keep the differences minimal.
+
+```{r}
+RT_Prep1$Value <- ifelse(RT_Prep1$Value == "Start",
                          "Start",
                          "Choice")
 
 RT_Prep1$PennElementType <- NULL
 RT_Prep1$PennElementName <- NULL
 RT_Prep1$Parameter <- NULL
-RT_Prep1$Value <- NULL
+```
 
-RT_Prep2 <- spread(data = RT_Prep1, Index, EventTime)
+```{r}
+#| echo: false
 
+RT_Show <- RT_Prep1 %>%
+  select(Value, EventTime, ItemNo)
+rmarkdown::paged_table(RT_Show, options = list(rows.print = 6))
+```
+
+To do the subtraction, we want to have the `EventTime` for `Start` and `Choice` in different columns. We use the `spread()` function from the `tidyr` library.
+
+```{r}
+library(tidyr)
+RT_Prep2 <- spread(data = RT_Prep1, Value, EventTime)
+
+```
+
+```{r}
+#| echo: false
+
+RT_Show <- RT_Prep2 %>%
+  select(ItemNo, Start, Choice)
+rmarkdown::paged_table(RT_Show, options = list(rows.print = 6))
+```
+
+Now we just have to tell R that we are dealing with numbers, and do the subtraction.
+
+```{r}
 RT_Prep2$Choice <- as.numeric(RT_Prep2$Choice)
 RT_Prep2$Start <- as.numeric(RT_Prep2$Start)
 RT_Prep2$RT <- RT_Prep2$Choice - RT_Prep2$Start
+```
 
+```{r}
+#| echo: false
+
+RT_Show <- RT_Prep2 %>%
+  select(ItemNo, Start, Choice, RT)
+rmarkdown::paged_table(RT_Show, options = list(rows.print = 6))
+```
+
+::: {.callout-tip icon="false"}
+## 💭 Last step
+
+We have two datasets:
+
+-  `data2`, with the judgment data, but ***not*** the reaction time,
+-  `RT_Prep2`, the temporary dataset with the reaction time, but ***not*** the judgment data.
+
+We just need to join them based on their common minimal value: 1 different trial per participant.
+:::
+
+First, we select the row where the judgment is given.
+
+```{r}
 data3 <- data2 %>%
   filter(Parameter %in% "Choice")
+```
 
+Finally, we use the `left_join()` function to join these two datasets based on (a) the participant ID, and (b) the Item index.
+
+```{r}
 data3 <- data3 %>%
   left_join(RT_Prep2 %>% select(ID_1_TimeReceived, ID_2_IP, ItemNo, RT), 
             by = c("ID_1_TimeReceived", "ID_2_IP", "ItemNo"))
 ```
+```{r}
+#| echo: false
+
+RT_Show <- data3 %>%
+  select(ID_1_TimeReceived, ItemNo, Value, RT, Condition)
+rmarkdown::paged_table(RT_Show, options = list(rows.print = 25))
+```
+
 
 ## 2.5 Change the nature of the variables
 
+Let's look again at our data:
+```{r}
+str(data3)
+```
+
+Some variables correspond to ***groups*** (or categories), so we used the `as.factor()` function to group them.
 
 ```{r}
-## Transform to "factors" (or "groups")
 data3$ID_1_TimeReceived <- as.factor(data3$ID_1_TimeReceived)
 data3$ID_2_IP <- as.factor(data3$ID_2_IP)
 data3$ItemNo <- as.factor(data3$ItemNo)
 data3$Condition <- as.factor(data3$Condition)
 data3$Group <- as.factor(data3$Group)
 data3$UserDegree <- as.factor(data3$UserDegree)
+```
 
-## Transform to numeric
+Some are just numerical value, and so we use the `as.numeric()` function.
+
+```{r}
 data3$Order.number.of.item <- as.numeric(data3$Order.number.of.item)
 data3$Value <- as.numeric(data3$Value)
 data3$UserAge <- as.numeric(data3$UserAge)
 data3$RT <- as.numeric(data3$RT)
 ```
 
+Now this is our data:
+```{r}
+str(data3)
+```
+
+
 ## 2.6 Another round of removing unnecessary columns
+
+We made use of some columns when calculating the reaction time, but we do not need them anymore, and they are redudant. So here is another round of column removal!
 
 ```{r}
 str(data3)
@@ -434,6 +530,12 @@ str(data3)
 ```
 
 ## 2.7 Add information about the items
+
+Finally, we realized that even if we have enough information for each trial to conduct further analyses, we do not know what sentence they correspond to. This is surely because we forgot to `.log()` them in the PCIbex script. But we can repair this mistake:
+
+-  We just need to import the table with the material information (used on the PCIbex platform)
+-  We use the `left_join()` function as previously to join these two datasets based on the index of the items (here, `ItemNo`)
+
 
 ```{r}
 material <- read.csv("~/Documents/CHC9012_Spring2026/PreprocessingAnalysesR/material.csv")
@@ -451,13 +553,25 @@ str(data3)
 
 # 💾 Part 3: Check and save the data
 
+::: {.callout-tip icon="true"}
+## 💭 Checking process
+
+We want to make sure that we did not corrupt our data when arranging them for further analyses. Otherwise, we can run further analyses and have results, but they will have no value!
+
+We will mostly use the `ezDesign()` function from the `ez` package.
+:::
+
 ::::: panel-tabset
 
-## 3.1 Check that the data
+## 3.1 Check the data
 
 ```{r}
+#| message: false
+#| warning: false
 library(ez)
+```
 
+```{r}
 # Same number of item per condition for each participant? (should be '15')
 ezDesign(data3, ID_1_TimeReceived, Condition)
 
