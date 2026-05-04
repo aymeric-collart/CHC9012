@@ -66,13 +66,25 @@
   {
     "objectID": "course-materials/week12.html",
     "href": "course-materials/week12.html",
-    "title": "Week 12 - Tidying data (2/2) and data exploration (1/2) with R",
+    "title": "Week 12 - Arranging the data",
     "section": "",
-    "text": "[To complete later]",
+    "text": "This week, we will learn how to arrange the dataset such that it is ready for further exploration.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nArrangements: How to prepare your data for further analyses?\nChecks: How to check that all the data are in order?\n\n\n\nA brief summary of the essential elements:\n\nload(...): Imports a dataset or workspace previously saved in .RData format.\nread.csv(...): Imports external data, such as your stimulus material list, from a .csv file.\n&lt;- NULL: Used to remove unnecessary columns from the dataframe.\nnames(...): Used to view or rename the column headers of the dataset.\nfilter(...): Keeps only the rows that meet specific conditions (e.g., keeping only “Experiment” trials).\nifelse(...): Creates a new value based on a condition.\nspread(...): Reshapes data from long to wide format.\nleft_join(...): Merges two datasets together based on common identifier columns (like ItemNo).\nas.factor(...) / as.numeric(...): Transforms a variable into a category (factor) or a mathematical number (numeric).\nezDesign(...): Generates a heatmap to visually verify that the experimental design is balanced and no data is missing.\nsave(...): Exports your final, prepared dataset into an .RData file for future analysis.\n\n\n\n  Download the dataset for the script [GIVEN LATER]\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
     "crumbs": [
       "Home",
       "Part 3: Analyses and visualization",
-      "Week 12: Tidying data (2/2) and data exploration (1/2) with R"
+      "Week 12: Arranging the data before further analyses"
+    ]
+  },
+  {
+    "objectID": "course-materials/week12.html#overview",
+    "href": "course-materials/week12.html#overview",
+    "title": "Week 12 - Arranging the data",
+    "section": "",
+    "text": "This week, we will learn how to arrange the dataset such that it is ready for further exploration.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nArrangements: How to prepare your data for further analyses?\nChecks: How to check that all the data are in order?\n\n\n\nA brief summary of the essential elements:\n\nload(...): Imports a dataset or workspace previously saved in .RData format.\nread.csv(...): Imports external data, such as your stimulus material list, from a .csv file.\n&lt;- NULL: Used to remove unnecessary columns from the dataframe.\nnames(...): Used to view or rename the column headers of the dataset.\nfilter(...): Keeps only the rows that meet specific conditions (e.g., keeping only “Experiment” trials).\nifelse(...): Creates a new value based on a condition.\nspread(...): Reshapes data from long to wide format.\nleft_join(...): Merges two datasets together based on common identifier columns (like ItemNo).\nas.factor(...) / as.numeric(...): Transforms a variable into a category (factor) or a mathematical number (numeric).\nezDesign(...): Generates a heatmap to visually verify that the experimental design is balanced and no data is missing.\nsave(...): Exports your final, prepared dataset into an .RData file for future analysis.\n\n\n\n  Download the dataset for the script [GIVEN LATER]\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 12: Arranging the data before further analyses"
     ]
   },
   {

@@ -62,7 +62,7 @@ website:
             href: course-materials/week10.qmd
           - text: "Week 11: Preparation: Computer set-up and data imporation"
             href: course-materials/week11.qmd
-          - text: "Week 12: Tidying data (2/2) and data exploration (1/2) with R"
+          - text: "Week 12: Arranging the data before further analyses"
             href: course-materials/week12.qmd
           - text: "Week 13: Data exploration (2/2) and data visualization (1/2) with R"
             href: course-materials/week13.qmd

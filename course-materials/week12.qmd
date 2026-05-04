@@ -1,6 +1,496 @@
 ---
-title: "Week 12 - Tidying data (2/2) and data exploration (1/2) with R"
+title: "Week 12 - Arranging the data"
+subtitle: "CHC9012 | National Taiwan Normal University"
 format: html
 ---
 
-[To complete later]
+```{=html}
+<style>
+  
+  /* Tabset Styling */
+  .nav-tabs {
+    border-bottom: 2px solid #ecf0f1;
+    margin-top: 1em;
+    margin-bottom: 30px;
+  }
+.nav-tabs .nav-link {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #95a5a6;
+    border: none;
+  padding: 15px 25px;
+  transition: all 0.3s ease;
+}
+.nav-tabs .nav-link:hover {
+  color: #2c3e50;
+    border: none;
+}
+.nav-tabs .nav-link.active {
+  color: #3498db !important;
+    background: none;
+  border: none;
+  border-bottom: 4px solid #3498db;
+}
+
+/* Stunning Headers */
+  
+  h2 {
+    margin-top: 1.8em;
+    color: #2980b9;
+      font-weight: 600;
+  }
+h3 {
+  margin-top: 1.5em;
+  color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Floating Images with Animations */
+  img {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    margin: 2rem auto;
+    display: block;
+  }
+img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
+}
+
+/* Elegant Gradient Divider */
+  hr.rounded {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
+    margin: 4rem 0;
+  }
+
+/* Pro Code Styling */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    color: #e74c3c;
+      background-color: #fdf2f0;
+      padding: 3px 6px;
+    border-radius: 5px;
+  }
+pre code {
+  color: #333;
+    background-color: transparent;
+}
+
+/* Clean Tables */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin: 2rem 0;
+  }
+th {
+  background-color: #3498db;
+    color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  font-weight: 600;
+}
+td {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* Emphasized bolding */
+  b, strong {
+    color: #2c3e50;
+      font-weight: 700;
+  }
+  
+  .panel-tabset .nav-tabs, 
+  .panel-tabset .nav-pills {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    border-bottom: 1px solid #dee2e6; /* Keeps the line consistent */
+  }
+
+  /* Optional: Hide the scrollbar for a cleaner look while keeping the functionality */
+  .panel-tabset .nav-tabs::-webkit-scrollbar,
+  .panel-tabset .nav-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .panel-tabset .nav-item {
+    white-space: nowrap; /* Prevents text inside tabs from breaking into two lines */
+  }
+</style>
+```
+
+## Overview
+
+This week, we will learn how to arrange the dataset such that it is ready for further exploration.
+
+::::: panel-tabset
+## 🎯 Goals
+
+**Prepare your computer:**
+
+-   **Arrangements:** How to prepare your data for further analyses?
+-   **Checks:** How to check that all the data are in order?
+
+## 💻 Necessary codes and dataset
+
+**A brief summary of the essential elements:**
+
+-  `load(...)`: Imports a dataset or workspace previously saved in .RData format.
+-  `read.csv(...)`: Imports external data, such as your stimulus material list, from a .csv file.
+-  `<- NULL`: Used to remove unnecessary columns from the dataframe.
+-  `names(...)`: Used to view or rename the column headers of the dataset.
+-  `filter(...)`: Keeps only the rows that meet specific conditions (e.g., keeping only "Experiment" trials).
+-  `ifelse(...)`: Creates a new value based on a condition.
+-  `spread(...)`: Reshapes data from long to wide format.
+-  `left_join(...)`: Merges two datasets together based on common identifier columns (like ItemNo).
+-  `as.factor(...)` / `as.numeric(...)`: Transforms a variable into a category (factor) or a mathematical number (numeric).
+-  `ezDesign(...)`: Generates a heatmap to visually verify that the experimental design is balanced and no data is missing.
+-  `save(...)`: Exports your final, prepared dataset into an .RData file for future analysis.
+
+<br>
+
+::: {.text-center .mb-3}
+<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/results_FAKE_FOR_CHC9012.csv" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script [GIVEN LATER]</a>
+:::
+
+## 📝 Homework
+
+**Please complete the following tasks before our next meeting:**
+
+-  [  ] Download the Markdown script
+-  [  ] Annotate each line of the script
+-  [  ] Knit into a PDF document, and upload on Moodle
+:::::
+
+::: {.text-center .mb-4}
+<a href="week12_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week's tutorial</a>
+:::
+
+<br>
+
+# 💭 Part 1: Plan what you need to do
+
+::: {.callout-tip icon="true"}
+## ✍️ Preparatory activity
+
+We should never forget that coding is a tool to achieve a task. For our case, the main task is to **prepare the dataset for further analyses**, which means:
+
+-  Checking that it is complete and that nothing is missing,
+-  Deleting the columns/rows that are not necessary, and 
+-  Transforming (but not *altering*) the data
+:::
+
+The best way is to look at the data we just imported into RStudio, and take notes about what needs to be done. I personally take physical notes on flying papers for this step.
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code to import and show the dataset"
+#| message: false
+#| warning: false
+
+read.pcibex <- function(filepath, auto.colnames=TRUE, fun.col=function(col,cols){cols[cols==col]<-paste(col,"Ibex",sep=".");return(cols)}) {
+  n.cols <- max(count.fields(filepath,sep=",",quote=NULL),na.rm=TRUE)
+  if (auto.colnames){
+    cols <- c()
+    con <- file(filepath, "r")
+    while ( TRUE ) {
+      line <- readLines(con, n = 1, warn=FALSE)
+      if ( length(line) == 0) {
+        break
+      }
+      m <- regmatches(line,regexec("^# (\\d+)\\. (.+)\\.$",line))[[1]]
+      if (length(m) == 3) {
+        index <- as.numeric(m[2])
+        value <- m[3]
+        if (is.function(fun.col)){
+         cols <- fun.col(value,cols)
+        }
+        cols[index] <- value
+        if (index == n.cols){
+          break
+        }
+      }
+    }
+    close(con)
+    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=cols))
+  }
+  else{
+    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=seq(1:n.cols)))
+  }
+}
+
+data <- read.pcibex("../course-materials/Files/results_FAKE_FOR_CHC9012.csv")
+
+rmarkdown::paged_table(data, options = list(rows.print = 50))
+```
+
+This is what the results table looks like. Let's have a look at its columns, 18 in this file. There are two types: (a) PCIbex's default columns, and (b) the columns that we asked PCIbex to log. 
+
+::::: panel-tabset
+## Default columns from PCIbex
+
+-  `Results.reception.time`: Time in the PCIbex server when the results were received. This can be used as the Participant ID, assuming that there are no two participants who submitted the results at the exact same time.
+-  `MD5.hash.of.participant.s.IP.address`: Scripted IP address of the machine used by the participant.
+-  `Controller.name`: Which controller was used to code the experiment.
+-  `Order.number.of.item`: The order of presentation of the whole questionnaire, starting from the very first page.
+-  `Inner.element.number`: Whether specific numbers were assigned to the element.
+-  `Label`: The name given to the webpage in PCIbex (for example, `Welcome page`, `Instructions`, `Exeriment`, etc.).
+-  `Latin.Square.Group`
+-  `PennElementType`: The PCIbex element used for the action (`TextInput`, `Scale`, `Dropdown`, etc.).
+-  `Parameter`: Breakdown of the elements used on a same page.
+-  `Value`: What the participant wrote or selectedm or when an element *starts* or *ends*.
+-  `EventTime`: Time point at which an action occured (the time corresponds to the PCIbex server)
+-  `Comments`
+
+## Columns that we manually logged
+
+-  `ItemNo`: The ID of the item (here, sentence)
+-  `Condition`: The experimental condition
+-  `Group`
+-  `UserAge`
+-  `UserDegree`
+:::::
+
+::: {.callout-tip icon="true"}
+## ✍️ Preparatory activity, again
+
+Look closely to the results file. What needs to be done?
+:::
+
+::::: panel-tabset
+## Missing data
+-  [ ] Calculate the reaction time (so far, only the even time)
+-  [ ] The actual sentences are missing, need to add them based on `ItemNo`
+-  [ ] No information about the consent box, but this cannot be retrieved
+
+
+## Unnecessary data
+
+-  [ ] Columns containing the same or no value (`Controller.name`, `Inner.element.number`, `Latin.Square.Group`, `Comments`, for example)
+-  [ ] Keep only the lines where `Label` is "Experiment"
+
+## Data to transform
+
+-  [ ] Columns to rename, to be more concise and explicit (`Results.reception.time`, `MD5.hash.of.participant.s.IP.address`)
+-  [ ] Change the nature of the variable (`UserAge` to numerical value, `ItemNo` to a group/factor, etc.)
+
+:::::
+
+# 💻 Part 2: Arrange the dataset with RStudio, according to the plan
+
+You can find below how to perfomr 
+
+::::: {.panel-tabset .nav-pills .tabset-fade group="pipeline"}
+## 2.1 Remove unnecessary columns
+
+-  We need to mention which column from which dataset. In R language, "the column called *Controller.name* from the dataset called *data*" is written using the `$` sign (`data$Controller.name`)
+-  We assign `NULL` to this column to delete it.
+
+```{r}
+data$Controller.name <- NULL
+data$Inner.element.number <- NULL
+data$Latin.Square.Group <- NULL
+data$Comments <- NULL
+```
+
+
+## 2.2 Rename columns
+
+You can have a glimpse of the names of the columns using the `names(...)` function.
+
+```{r}
+names(data)
+```
+
+Each name is assigned to a numerical index. For instance, "[1]" corresponds to "Results.reception.time". We can call the name of one specific column as below.
+
+```{r}
+names(data)[1]
+```
+
+Once we have the index of columns, we just need to assign new names to them.
+
+```{r}
+names(data)[1] <- "ID_1_TimeReceived"
+names(data)[2] <- "ID_2_IP"
+
+names(data)
+```
+
+## 2.3 Select the rows we need
+
+Based on our notes, we need to filter to have only the rows where the `Label` is `Experiment`. 
+
+-  To do so, we use the `filter()` function from the `dplyr` package.
+-  We use the `%>%` to say that "This is the `Label` column from the dataset called `data`".
+-  The `==` sign means that we *want* the `Experiment` rows.
+-  We store that into a new dataset, just in case. 
+
+```{r}
+#| message: false
+#| warning: false
+
+library(dplyr)
+
+data2 <- data %>%
+  filter(Label == "Experiment")
+```
+
+```{r}
+#| echo: false
+
+rmarkdown::paged_table(data2, options = list(rows.print = 10))
+```
+
+We can see that there are unnecessary `_Header_` rows under the `Parameter` column, and we would like to remove them. We can use the same logic, but notice the use of `!=`, meaning "we *don't want* these rows".
+
+```{r}
+data2 <- data2 %>%
+  filter(Parameter != "_Header_")
+```
+
+```{r}
+#| echo: false
+
+rmarkdown::paged_table(data2, options = list(rows.print = 10))
+```
+
+## 2.4 Calculate the reaction time
+
+```{r}
+library(tidyr)
+
+##Calculate reaction time
+RT_Prep1 <- data2 %>%
+  filter(Parameter == "Choice" | Value == "Start")
+
+RT_Prep1$Index <- ifelse(RT_Prep1$Value == "Start",
+                         "Start",
+                         "Choice")
+
+RT_Prep1$PennElementType <- NULL
+RT_Prep1$PennElementName <- NULL
+RT_Prep1$Parameter <- NULL
+RT_Prep1$Value <- NULL
+
+RT_Prep2 <- spread(data = RT_Prep1, Index, EventTime)
+
+RT_Prep2$Choice <- as.numeric(RT_Prep2$Choice)
+RT_Prep2$Start <- as.numeric(RT_Prep2$Start)
+RT_Prep2$RT <- RT_Prep2$Choice - RT_Prep2$Start
+
+data3 <- data2 %>%
+  filter(Parameter %in% "Choice")
+
+data3 <- data3 %>%
+  left_join(RT_Prep2 %>% select(ID_1_TimeReceived, ID_2_IP, ItemNo, RT), 
+            by = c("ID_1_TimeReceived", "ID_2_IP", "ItemNo"))
+```
+
+## 2.5 Change the nature of the variables
+
+
+```{r}
+## Transform to "factors" (or "groups")
+data3$ID_1_TimeReceived <- as.factor(data3$ID_1_TimeReceived)
+data3$ID_2_IP <- as.factor(data3$ID_2_IP)
+data3$ItemNo <- as.factor(data3$ItemNo)
+data3$Condition <- as.factor(data3$Condition)
+data3$Group <- as.factor(data3$Group)
+data3$UserDegree <- as.factor(data3$UserDegree)
+
+## Transform to numeric
+data3$Order.number.of.item <- as.numeric(data3$Order.number.of.item)
+data3$Value <- as.numeric(data3$Value)
+data3$UserAge <- as.numeric(data3$UserAge)
+data3$RT <- as.numeric(data3$RT)
+```
+
+## 2.6 Another round of removing unnecessary columns
+
+```{r}
+str(data3)
+
+data3$Label <- NULL
+data3$PennElementType <- NULL
+data3$PennElementName <- NULL
+data3$Parameter <- NULL
+data3$EventTime <- NULL
+
+str(data3)
+```
+
+## 2.7 Add information about the items
+
+```{r}
+material <- read.csv("~/Documents/CHC9012_Spring2026/PreprocessingAnalysesR/material.csv")
+material$ItemNo <- as.factor(material$ItemNo)
+
+data3 <- data3 %>%
+  left_join(material %>% select(ItemNo, Sentence), 
+            by = "ItemNo")
+
+data3$Sentence <- as.factor(data3$Sentence)
+str(data3)
+```
+
+:::::
+
+# 💾 Part 3: Check and save the data
+
+::::: panel-tabset
+
+## 3.1 Check that the data
+
+```{r}
+library(ez)
+
+# Same number of item per condition for each participant? (should be '15')
+ezDesign(data3, ID_1_TimeReceived, Condition)
+
+# Which participants share the same ID? (hint that this could be the same participant filling the questionnaire twice)
+ezDesign(data3, ID_1_TimeReceived, ID_2_IP)
+
+# Number of times an item appeared by participant (should be '1')
+ezDesign(data3, ID_1_TimeReceived, ItemNo)
+
+# Were the items well dispatched in the two lists?
+ezDesign(data3, ItemNo, Group)
+
+# Were the participants well dispatched in the two lists? (should be '30')
+ezDesign(data3, ID_1_TimeReceived, Group)
+```
+
+## 3.2 Save the prepared dataset
+
+```{r}
+save(data3,
+     file = "CHC9012_PCIbexDataPrepared.RData")
+```
+
+::::: 
+
+<hr>
+
+::: {.callout-important icon="true"}
+## 📝 Assignment for next week
+
+Please complete the following tasks before our next meeting:
+
+-  [  ] Download the Markdown script
+-  [  ] Annotate each line of the script
+-  [  ] Knit into a PDF document, and upload on Moodle
+:::
