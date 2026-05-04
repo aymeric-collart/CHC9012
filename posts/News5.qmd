@@ -1,5 +1,5 @@
 ---
-title: "Week 7"
+title: "Weeks 8 and 10"
 date: 2026-03-30
 categories: [Website announcment]
 description: "Weeks 8 and 10 of the course have been updated!"

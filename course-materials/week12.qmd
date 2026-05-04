@@ -272,7 +272,7 @@ Look closely to the results file. What needs to be done?
 
 ::::: panel-tabset
 ## Missing data
--  [ ] Calculate the reaction time (so far, only the even time)
+-  [ ] Calculate the reaction time (so far, only the event time)
 -  [ ] The actual sentences are missing, need to add them based on `ItemNo`
 -  [ ] No information about the consent box, but this cannot be retrieved
 
@@ -289,9 +289,11 @@ Look closely to the results file. What needs to be done?
 
 :::::
 
+<hr>
+
 # 💻 Part 2: Arrange the dataset with RStudio, according to the plan
 
-You can find below how to perfomr 
+You can find below how to use RStudio to perform the transformations listed above.
 
 ::::: {.panel-tabset .nav-pills .tabset-fade group="pipeline"}
 ## 2.1 Remove unnecessary columns
@@ -550,6 +552,8 @@ str(data3)
 ```
 
 :::::
+
+<hr>
 
 # 💾 Part 3: Check and save the data
 
