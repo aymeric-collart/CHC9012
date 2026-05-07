@@ -1,166 +1,33 @@
 ---
-title: "Week 12 - Arranging the data"
+title: "Week 11 - Preparation: Computer set-up and data imporation"
 subtitle: "CHC9012 | National Taiwan Normal University"
-format: html
+format: 
+  revealjs:
+    theme: serif
+    transition: slide
+    scrollable: true
+    slide-number: true
+    chalkboard: true
+    width: 1280
+    height: 720
 ---
 
-```{=html}
-<style>
-  
-  /* Tabset Styling */
-  .nav-tabs {
-    border-bottom: 2px solid #ecf0f1;
-    margin-top: 1em;
-    margin-bottom: 30px;
-  }
-.nav-tabs .nav-link {
-  font-weight: 700;
-  font-size: 1.1em;
-  color: #95a5a6;
-    border: none;
-  padding: 15px 25px;
-  transition: all 0.3s ease;
-}
-.nav-tabs .nav-link:hover {
-  color: #2c3e50;
-    border: none;
-}
-.nav-tabs .nav-link.active {
-  color: #3498db !important;
-    background: none;
-  border: none;
-  border-bottom: 4px solid #3498db;
-}
-
-/* Stunning Headers */
-  
-  h2 {
-    margin-top: 1.8em;
-    color: #2980b9;
-      font-weight: 600;
-  }
-h3 {
-  margin-top: 1.5em;
-  color: #2c3e50;
-    font-weight: 600;
-}
-
-/* Floating Images with Animations */
-  img {
-    border-radius: 12px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
-    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
-    margin: 2rem auto;
-    display: block;
-  }
-img:hover {
-  transform: translateY(-6px) scale(1.02);
-  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
-}
-
-/* Elegant Gradient Divider */
-  hr.rounded {
-    border: 0;
-    height: 2px;
-    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
-    margin: 4rem 0;
-  }
-
-/* Pro Code Styling */
-  code {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 0.9em;
-    color: #e74c3c;
-      background-color: #fdf2f0;
-      padding: 3px 6px;
-    border-radius: 5px;
-  }
-pre code {
-  color: #333;
-    background-color: transparent;
-}
-
-/* Clean Tables */
-  table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    margin: 2rem 0;
-  }
-th {
-  background-color: #3498db;
-    color: white;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  padding: 15px;
-  font-weight: 600;
-}
-td {
-  background-color: white;
-  padding: 15px;
-  border-bottom: 1px solid #ecf0f1;
-}
-
-/* Emphasized bolding */
-  b, strong {
-    color: #2c3e50;
-      font-weight: 700;
-  }
-  
-  .panel-tabset .nav-tabs, 
-  .panel-tabset .nav-pills {
-    display: flex !important;
-    flex-wrap: nowrap !important;
-    overflow-x: auto !important;
-    overflow-y: hidden !important;
-    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
-    border-bottom: 1px solid #dee2e6; /* Keeps the line consistent */
-  }
-
-  /* Optional: Hide the scrollbar for a cleaner look while keeping the functionality */
-  .panel-tabset .nav-tabs::-webkit-scrollbar,
-  .panel-tabset .nav-pills::-webkit-scrollbar {
-    display: none;
-  }
-
-  .panel-tabset .nav-item {
-    white-space: nowrap; /* Prevents text inside tabs from breaking into two lines */
-  }
-</style>
-```
-
-## Overview
-
-This week, we will learn how to arrange the dataset such that it is ready for further exploration.
-
-::::: panel-tabset
 ## 🎯 Goals
 
 **Prepare your computer:**
 
+::: {.fragment .fade-up}
 -   **Arrangements:** How to prepare your data for further analyses?
+:::
+
+::: {.fragment .fade-up}
 -   **Checks:** How to check that all the data are in order?
+:::
 
-## 💻 Necessary codes and dataset
 
-**A brief summary of the essential elements:**
+---
 
--  `load(...)`: Imports a dataset or workspace previously saved in .RData format.
--  `read.csv(...)`: Imports external data, such as your stimulus material list, from a .csv file.
--  `<- NULL`: Used to remove unnecessary columns from the dataframe.
--  `names(...)`: Used to view or rename the column headers of the dataset.
--  `filter(...)`: Keeps only the rows that meet specific conditions (e.g., keeping only "Experiment" trials).
--  `ifelse(...)`: Creates a new value based on a condition.
--  `spread(...)`: Reshapes data from long to wide format.
--  `left_join(...)`: Merges two datasets together based on common identifier columns (like ItemNo).
--  `as.factor(...)` / `as.numeric(...)`: Transforms a variable into a category (factor) or a mathematical number (numeric).
--  `ezDesign(...)`: Generates a heatmap to visually verify that the experimental design is balanced and no data is missing.
--  `save(...)`: Exports your final, prepared dataset into an .RData file for future analysis.
-
-<br>
+## 💻 Dataset and script
 
 ::: {.text-center .mb-3}
 <a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/CHC9012_DataImportedFromPCIbex.RData?raw=true" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script</a>
@@ -172,20 +39,7 @@ This week, we will learn how to arrange the dataset such that it is ready for fu
 <a href="Files/_Internal/DataPreparationAndCleaning.Rmd" download class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the Markdown script</a>
 :::
 
-## 📝 Homework
-
-**Please complete the following tasks before our next meeting:**
-
--  [  ] Download the Markdown script
--  [  ] Annotate each line of the script
--  [  ] Knit into a PDF document, and upload on Moodle
-:::::
-
-::: {.text-center .mb-4}
-<a href="week12_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week's tutorial</a>
-:::
-
-<br>
+---
 
 # 💭 Part 1: Plan what you need to do
 
@@ -623,14 +477,11 @@ save(data3,
 
 ::::: 
 
-<hr>
+
+---
 
 ::: {.callout-important icon="true"}
 ## 📝 Assignment for next week
 
-Please complete the following tasks before our next meeting:
-
--  [  ] Download the Markdown script
--  [  ] Annotate each line of the script
--  [  ] Knit into a PDF document, and upload on Moodle
+Please annotate the Markdown file from this week, knit to a PDF file, and upload on Moodle!
 :::

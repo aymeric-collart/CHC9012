@@ -178,170 +178,95 @@
     ]
   },
   {
-    "objectID": "course-materials/week12.html",
-    "href": "course-materials/week12.html",
-    "title": "Week 12 - Arranging the data",
-    "section": "",
-    "text": "This week, we will learn how to arrange the dataset such that it is ready for further exploration.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nArrangements: How to prepare your data for further analyses?\nChecks: How to check that all the data are in order?\n\n\n\nA brief summary of the essential elements:\n\nload(...): Imports a dataset or workspace previously saved in .RData format.\nread.csv(...): Imports external data, such as your stimulus material list, from a .csv file.\n&lt;- NULL: Used to remove unnecessary columns from the dataframe.\nnames(...): Used to view or rename the column headers of the dataset.\nfilter(...): Keeps only the rows that meet specific conditions (e.g., keeping only “Experiment” trials).\nifelse(...): Creates a new value based on a condition.\nspread(...): Reshapes data from long to wide format.\nleft_join(...): Merges two datasets together based on common identifier columns (like ItemNo).\nas.factor(...) / as.numeric(...): Transforms a variable into a category (factor) or a mathematical number (numeric).\nezDesign(...): Generates a heatmap to visually verify that the experimental design is balanced and no data is missing.\nsave(...): Exports your final, prepared dataset into an .RData file for future analysis.\n\n\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 12: Arranging the data before further analyses"
-    ]
+    "objectID": "course-materials/week12_slides.html#goals",
+    "href": "course-materials/week12_slides.html#goals",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "🎯 Goals",
+    "text": "🎯 Goals\nPrepare your computer:\n\n\nArrangements: How to prepare your data for further analyses?\n\n\n\n\nChecks: How to check that all the data are in order?"
   },
   {
-    "objectID": "course-materials/week12.html#overview",
-    "href": "course-materials/week12.html#overview",
-    "title": "Week 12 - Arranging the data",
-    "section": "",
-    "text": "This week, we will learn how to arrange the dataset such that it is ready for further exploration.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nArrangements: How to prepare your data for further analyses?\nChecks: How to check that all the data are in order?\n\n\n\nA brief summary of the essential elements:\n\nload(...): Imports a dataset or workspace previously saved in .RData format.\nread.csv(...): Imports external data, such as your stimulus material list, from a .csv file.\n&lt;- NULL: Used to remove unnecessary columns from the dataframe.\nnames(...): Used to view or rename the column headers of the dataset.\nfilter(...): Keeps only the rows that meet specific conditions (e.g., keeping only “Experiment” trials).\nifelse(...): Creates a new value based on a condition.\nspread(...): Reshapes data from long to wide format.\nleft_join(...): Merges two datasets together based on common identifier columns (like ItemNo).\nas.factor(...) / as.numeric(...): Transforms a variable into a category (factor) or a mathematical number (numeric).\nezDesign(...): Generates a heatmap to visually verify that the experimental design is balanced and no data is missing.\nsave(...): Exports your final, prepared dataset into an .RData file for future analysis.\n\n\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 12: Arranging the data before further analyses"
-    ]
+    "objectID": "course-materials/week12_slides.html#dataset-and-script",
+    "href": "course-materials/week12_slides.html#dataset-and-script",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "💻 Dataset and script",
+    "text": "💻 Dataset and script\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script"
   },
   {
-    "objectID": "course-materials/week11.html",
-    "href": "course-materials/week11.html",
+    "objectID": "course-materials/week11_slides.html#goals",
+    "href": "course-materials/week11_slides.html#goals",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "🎯 Goals",
+    "text": "🎯 Goals\nPrepare your computer:\n\n\nProjects: How to set-up a project in RStudio?\n\n\n\n\nAdvanced scripts: How to use Markdown documents to share better scripts?\n\n\n\n\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#section",
+    "href": "course-materials/week11_slides.html#section",
     "title": "Week 11 - Preparation: Computer set-up and data imporation",
     "section": "",
-    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n\nread.pcibex(...): Self-built function to import PCIbex results froms .csv file.\nhead(...): Used to have a look of the first N rows of the dataset.\nstr(...): Used to look at the structure of the dataset.\nsummary(...): Used to summarize the whole dataset.\nview(...): Used to open the dataset.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nNo assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 11: Preparation: Computer set-up and data imporation"
-    ]
+    "text": "Why?\n\n\nWe want to be organized and not messy!\n\n\n\n\n\n\nSection 1.1: Prepare the folder in your computer.\n\n\n\n\nSection 1.2: Create the related R project."
   },
   {
-    "objectID": "course-materials/week11.html#overview",
-    "href": "course-materials/week11.html#overview",
+    "objectID": "course-materials/week11_slides.html#setting-up-your-folders",
+    "href": "course-materials/week11_slides.html#setting-up-your-folders",
     "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "",
-    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n\nread.pcibex(...): Self-built function to import PCIbex results froms .csv file.\nhead(...): Used to have a look of the first N rows of the dataset.\nstr(...): Used to look at the structure of the dataset.\nsummary(...): Used to summarize the whole dataset.\nview(...): Used to open the dataset.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nNo assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 11: Preparation: Computer set-up and data imporation"
-    ]
+    "section": "1.1 Setting up your folders",
+    "text": "1.1 Setting up your folders\n\n\nNavigate to your Documents (or 文件) folder.\n\n\n\n\nCreate your Root Folder: CHC9012_Spring2025\n\n\n\n\nAdd the Project Subfolders:\n\n📁 Slides: Presentation files.\n📁 PCIbex_design: Scripts & materials.\n📁 PreprocessingAnalysesR: Datasets & R code."
   },
   {
-    "objectID": "course-materials/week10.html",
-    "href": "course-materials/week10.html",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "",
-    "text": "This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.\n\n🎯 Goals💻 Necessary codes📝 Homework\n\n\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 10: Presentation of R"
-    ]
+    "objectID": "course-materials/week11_slides.html#you-should-obtain-something-like-this",
+    "href": "course-materials/week11_slides.html#you-should-obtain-something-like-this",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "You should obtain something like this",
+    "text": "You should obtain something like this\n\n\n\n\n\n\n\n\nPay attention to the names\n\n\nGenerally, it is better not to use any space when naming folders and files!"
   },
   {
-    "objectID": "course-materials/week10.html#overview",
-    "href": "course-materials/week10.html#overview",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "",
-    "text": "This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.\n\n🎯 Goals💻 Necessary codes📝 Homework\n\n\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 10: Presentation of R"
-    ]
+    "objectID": "course-materials/week11_slides.html#initializing-your-r-project",
+    "href": "course-materials/week11_slides.html#initializing-your-r-project",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "1.2 Initializing Your R Project",
+    "text": "1.2 Initializing Your R Project\n\n\n\n1. Launch New Project Wizard  Click the blue cube icon in the top-left corner of RStudio.\n\n\n\n2. Select project type  Choose “Existing Directory” to link R to your folder structure.\n\n\n\n3. Finalize Connection  Browse to PreprocessingAnalysesR, check “Open in a new session”, and click Create Project.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBenefit: An .Rproj file sets your “Working Directory” automatically!"
   },
   {
-    "objectID": "course-materials/Week8_Slides2.html#goals-key-concepts",
-    "href": "course-materials/Week8_Slides2.html#goals-key-concepts",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "🎯 Goals & Key Concepts",
-    "text": "🎯 Goals & Key Concepts\n\nHow to optimize your script💻 Necessary codes\n\n\nHow to optimize your script:\n\nTemplate: Automate trials via a single script.\nRandomization: Shuffle trial order effortlessly.\nCounterbalancing: Master Latin square designs.\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants.\ngetVar(...): Used to obtain the content of an element stored in a variable."
+    "objectID": "course-materials/week11_slides.html#other-advantages-of-creating-projects",
+    "href": "course-materials/week11_slides.html#other-advantages-of-creating-projects",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "Other advantages of creating projects",
+    "text": "Other advantages of creating projects\n\n\n\nOne RStudio window = One project\nSwitch between them without worrying about the working directory of trying to find the right files!\nList of your projects on the top-right corner of RStudio. Here is mine for example:"
   },
   {
-    "objectID": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
-    "href": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "A. Create the material table",
-    "text": "A. Create the material table\nInstead of typing the trials in the script, we create a table where we can list them.\n\n\n\n\nItemNo\nSentence\nCondition\n\n\n\n\n1\nThis is the first sentence\nGrammatical\n\n\n2\nThis is the second sentence\nGrammatical\n\n\n…\n…\n…\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nCreate material.csv in the PCIbex Resources section."
+    "objectID": "course-materials/week11_slides.html#in-class-exercise",
+    "href": "course-materials/week11_slides.html#in-class-exercise",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "📝 In-class exercise!",
+    "text": "📝 In-class exercise!\n\n\nTask list:\n\nFind the R script from last week and move it to the PreprocessingAnalysesR folder.\nOpen the script within your newly created project."
   },
   {
-    "objectID": "course-materials/Week8_Slides2.html#concept",
-    "href": "course-materials/Week8_Slides2.html#concept",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Concept",
-    "text": "Concept\nThis is a a two-step process to store such information in the results file:\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px"
+    "objectID": "course-materials/week11_slides.html#from-raw-script-to-functional-r-markdown",
+    "href": "course-materials/week11_slides.html#from-raw-script-to-functional-r-markdown",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "From raw script to functional: R Markdown",
+    "text": "From raw script to functional: R Markdown\n\n\n\n1. Create the file 📄 Go to New File &gt; R Markdown. This moves you from raw code to a “living” document.\n\n\n2. Configure (YAML) ⚙️ The header between --- controls your title, author, and output format (HTML/PDF).\n\n\n3. Text + Code chunks 📝 Write text normally; insert Code Chunks ({r}) for analysis.\n\n\n4. Run your codes ▶️ Use the green Play Button to test individual steps.\n\n\n5. The Final “Knit” 🧶 Click Knit to stitch everything into a polished report automatically!"
   },
   {
-    "objectID": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
-    "href": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Step 1: Define the variables",
-    "text": "Step 1: Define the variables\n\n\n\n\n\n\nNote\n\n\n\nThis must be done where the information appears for the first time. For our experiment, this is in the 👋 Welcome page!\nNotice that we use (1) the newVar() element to create a new variable, and then (2) the getTextInput() and getDropDown() to tell PCIbex what content to keep in memory!\n\n\n\n\n\nLet’s look at the code:\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n    newText(\"We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.\")\n        .print()\n        .center()\n    ,\n    newText(\"Your age:\")\n        .print()\n        .center()\n    ,\n    newTextInput(\"Age\")\n        .print()\n        .center()\n        .log(\"final\")\n    ,\n    newText(\"Your highest degree:\")\n        .print()\n        .center()\n    ,\n    newDropDown(\"Degree\", \"Please select one option\")\n        .add(\"Elementary school\", \"Junior high school\", \"Senior high school\", \"BA\", \"MA\", \"Ph.D.\")\n        .print()\n        .center()\n        .log()\n    ,\n    newButton(\"Continue\")\n        .center()\n        .print()\n        .wait()\n+    ,\n+    newVar(\"Age\")\n+        .global()\n+        .set(getTextInput(\"Age\"))\n+    ,\n+    newVar(\"Degree\")\n+        .global()\n+        .set(getDropDown(\"Degree\"))\n    )\n\n\nDone!"
+    "objectID": "course-materials/week11_slides.html#in-class-exercise-1",
+    "href": "course-materials/week11_slides.html#in-class-exercise-1",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "📝 In-class exercise!",
+    "text": "📝 In-class exercise!\n\n\nTask list:\n\nCreate a new Markdown document, and call it ScriptWeek10_Markdown.\nUse the script from last week, but adapt it to the Markdown format. Be creative!"
   },
   {
-    "objectID": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
-    "href": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Step 2: Store the information about the participants",
-    "text": "Step 2: Store the information about the participants\n\n\n\n\n\n\nNote\n\n\nNow that you created the variable and that they are kept in memory, we can store them in the results file using the .log() command. But notice the use of getVar()!\n\n\n\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n+    .log(\"Age\", getVar(\"Age\"))\n+    .log(\"Degree\", getVar(\"Degree\"))\n)\n\n\nDone!"
+    "objectID": "course-materials/week11_slides.html#fake-experiment-for-this-class",
+    "href": "course-materials/week11_slides.html#fake-experiment-for-this-class",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "Fake experiment for this class",
+    "text": "Fake experiment for this class\n  Try the experiment \n\n\n\n\n\n\n\nThe code of the fake experiment is given on the website\n\n\n\n\n\n\n\n\n\n\n\n\n\nFake results!\n\n\nAn AI robot did the experiment several times. I also pretended that I was a “bad” participant several times. The results are just to show you how to analyze data from PCIbex, they do not have other value!"
   },
   {
-    "objectID": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
-    "href": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Recall: What is “counterbalancing”?",
-    "text": "Recall: What is “counterbalancing”?\n\n\n\n\n\n\n\nNote\n\n\nExample: For some reasons, you want Participant 1 to read half of the sentences, Participant 2 the other half, Participant 3 the same as Participant 1, Participant 4 the same as Participant 2, etc.\n\n\n\n\n\nHow to do that with PCIbex?\n\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
-    "href": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Final content in the material.csv file",
-    "text": "Final content in the material.csv file\nItemNo,Sentence,Condition,group\n1,This is the first sentence,Grammatical,A\n2,This is the second sentence,Grammatical,A\n3,This is the third sentence,Grammatical,B\n4,This is the fourth sentence,Grammatical,B\n5,This are the fifth sentence,Ungrammatical,A\n6,This are the sixth sentence,Ungrammatical,A\n7,This are the seventh sentence,Ungrammatical,B\n8,This are the eighth sentence,Ungrammatical,B\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB\n\n\n\n\n\nDon’t forget to use the log() element to keep track of which list the participants were assigned to!\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n\n...\n         \n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n    .log(\"Sentence\", row.Sentence)\n+    .log(\"List\", row.group)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
-    "href": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Download the results file, open it and check the following:",
-    "text": "Download the results file, open it and check the following:\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see age and degree? choice/judgment?\nWere the sentences randomly presented?"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#assignment-for-next-week",
-    "href": "course-materials/Week8_Slides2.html#assignment-for-next-week",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "📝 Assignment for next week",
-    "text": "📝 Assignment for next week\n\n\n\n\n\n\nAssignment\n\n\n\nDownload the script of this week\nAnnotate each line of code\nUpload the annotated script on Moodle\n\n\n\n\n\n\n\n\n\n\nYou can even start preparing your own experiment!"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "course-materials/week1.html",
-    "href": "course-materials/week1.html",
-    "title": "Week 1: Introduction",
-    "section": "",
-    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
-    "crumbs": [
-      "Home",
-      "Preliminary weeks",
-      "Week 1: Introduction"
-    ]
-  },
-  {
-    "objectID": "course-materials/week1.html#welcome-to-the-course",
-    "href": "course-materials/week1.html#welcome-to-the-course",
-    "title": "Week 1: Introduction",
-    "section": "",
-    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
-    "crumbs": [
-      "Home",
-      "Preliminary weeks",
-      "Week 1: Introduction"
-    ]
+    "objectID": "course-materials/week11_slides.html#in-class-exercise-2",
+    "href": "course-materials/week11_slides.html#in-class-exercise-2",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "📝 In-class exercise!",
+    "text": "📝 In-class exercise!\n\n\nTask list:\n\nLook at the whole table. To do so, click on the variable, or just write view(data) in the console\nManually, identify and take notes of (1) what information is missing, (2) which rows should be erased/kept, and (3) which columns should be deleted or added."
   },
   {
     "objectID": "course-materials/week10_slides.html#goals-key-concepts",
@@ -442,81 +367,170 @@
     "text": "Assignments\n\n\n\n\n\n\n📝 Assignment for next week\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week (here)\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle"
   },
   {
-    "objectID": "course-materials/week11_slides.html#goals",
-    "href": "course-materials/week11_slides.html#goals",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "🎯 Goals",
-    "text": "🎯 Goals\nPrepare your computer:\n\n\nProjects: How to set-up a project in RStudio?\n\n\n\n\nAdvanced scripts: How to use Markdown documents to share better scripts?\n\n\n\n\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?"
+    "objectID": "course-materials/week1.html",
+    "href": "course-materials/week1.html",
+    "title": "Week 1: Introduction",
+    "section": "",
+    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
+    "crumbs": [
+      "Home",
+      "Preliminary weeks",
+      "Week 1: Introduction"
+    ]
   },
   {
-    "objectID": "course-materials/week11_slides.html#section",
-    "href": "course-materials/week11_slides.html#section",
+    "objectID": "course-materials/week1.html#welcome-to-the-course",
+    "href": "course-materials/week1.html#welcome-to-the-course",
+    "title": "Week 1: Introduction",
+    "section": "",
+    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
+    "crumbs": [
+      "Home",
+      "Preliminary weeks",
+      "Week 1: Introduction"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#goals-key-concepts",
+    "href": "course-materials/Week8_Slides2.html#goals-key-concepts",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "🎯 Goals & Key Concepts",
+    "text": "🎯 Goals & Key Concepts\n\nHow to optimize your script💻 Necessary codes\n\n\nHow to optimize your script:\n\nTemplate: Automate trials via a single script.\nRandomization: Shuffle trial order effortlessly.\nCounterbalancing: Master Latin square designs.\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants.\ngetVar(...): Used to obtain the content of an element stored in a variable."
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
+    "href": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "A. Create the material table",
+    "text": "A. Create the material table\nInstead of typing the trials in the script, we create a table where we can list them.\n\n\n\n\nItemNo\nSentence\nCondition\n\n\n\n\n1\nThis is the first sentence\nGrammatical\n\n\n2\nThis is the second sentence\nGrammatical\n\n\n…\n…\n…\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nCreate material.csv in the PCIbex Resources section."
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#concept",
+    "href": "course-materials/Week8_Slides2.html#concept",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Concept",
+    "text": "Concept\nThis is a a two-step process to store such information in the results file:\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
+    "href": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Step 1: Define the variables",
+    "text": "Step 1: Define the variables\n\n\n\n\n\n\nNote\n\n\n\nThis must be done where the information appears for the first time. For our experiment, this is in the 👋 Welcome page!\nNotice that we use (1) the newVar() element to create a new variable, and then (2) the getTextInput() and getDropDown() to tell PCIbex what content to keep in memory!\n\n\n\n\n\nLet’s look at the code:\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n    newText(\"We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.\")\n        .print()\n        .center()\n    ,\n    newText(\"Your age:\")\n        .print()\n        .center()\n    ,\n    newTextInput(\"Age\")\n        .print()\n        .center()\n        .log(\"final\")\n    ,\n    newText(\"Your highest degree:\")\n        .print()\n        .center()\n    ,\n    newDropDown(\"Degree\", \"Please select one option\")\n        .add(\"Elementary school\", \"Junior high school\", \"Senior high school\", \"BA\", \"MA\", \"Ph.D.\")\n        .print()\n        .center()\n        .log()\n    ,\n    newButton(\"Continue\")\n        .center()\n        .print()\n        .wait()\n+    ,\n+    newVar(\"Age\")\n+        .global()\n+        .set(getTextInput(\"Age\"))\n+    ,\n+    newVar(\"Degree\")\n+        .global()\n+        .set(getDropDown(\"Degree\"))\n    )\n\n\nDone!"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
+    "href": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Step 2: Store the information about the participants",
+    "text": "Step 2: Store the information about the participants\n\n\n\n\n\n\nNote\n\n\nNow that you created the variable and that they are kept in memory, we can store them in the results file using the .log() command. But notice the use of getVar()!\n\n\n\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n+    .log(\"Age\", getVar(\"Age\"))\n+    .log(\"Degree\", getVar(\"Degree\"))\n)\n\n\nDone!"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
+    "href": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Recall: What is “counterbalancing”?",
+    "text": "Recall: What is “counterbalancing”?\n\n\n\n\n\n\n\nNote\n\n\nExample: For some reasons, you want Participant 1 to read half of the sentences, Participant 2 the other half, Participant 3 the same as Participant 1, Participant 4 the same as Participant 2, etc.\n\n\n\n\n\nHow to do that with PCIbex?\n\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
+    "href": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Final content in the material.csv file",
+    "text": "Final content in the material.csv file\nItemNo,Sentence,Condition,group\n1,This is the first sentence,Grammatical,A\n2,This is the second sentence,Grammatical,A\n3,This is the third sentence,Grammatical,B\n4,This is the fourth sentence,Grammatical,B\n5,This are the fifth sentence,Ungrammatical,A\n6,This are the sixth sentence,Ungrammatical,A\n7,This are the seventh sentence,Ungrammatical,B\n8,This are the eighth sentence,Ungrammatical,B\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB\n\n\n\n\n\nDon’t forget to use the log() element to keep track of which list the participants were assigned to!\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n\n...\n         \n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n    .log(\"Sentence\", row.Sentence)\n+    .log(\"List\", row.group)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
+    "href": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Download the results file, open it and check the following:",
+    "text": "Download the results file, open it and check the following:\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see age and degree? choice/judgment?\nWere the sentences randomly presented?"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#assignment-for-next-week",
+    "href": "course-materials/Week8_Slides2.html#assignment-for-next-week",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "📝 Assignment for next week",
+    "text": "📝 Assignment for next week\n\n\n\n\n\n\nAssignment\n\n\n\nDownload the script of this week\nAnnotate each line of code\nUpload the annotated script on Moodle\n\n\n\n\n\n\n\n\n\n\nYou can even start preparing your own experiment!"
+  },
+  {
+    "objectID": "course-materials/week10.html",
+    "href": "course-materials/week10.html",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "",
+    "text": "This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.\n\n🎯 Goals💻 Necessary codes📝 Homework\n\n\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 10: Presentation of R"
+    ]
+  },
+  {
+    "objectID": "course-materials/week10.html#overview",
+    "href": "course-materials/week10.html#overview",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "",
+    "text": "This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.\n\n🎯 Goals💻 Necessary codes📝 Homework\n\n\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 10: Presentation of R"
+    ]
+  },
+  {
+    "objectID": "course-materials/week11.html",
+    "href": "course-materials/week11.html",
     "title": "Week 11 - Preparation: Computer set-up and data imporation",
     "section": "",
-    "text": "Why?\n\n\nWe want to be organized and not messy!\n\n\n\n\n\n\nSection 1.1: Prepare the folder in your computer.\n\n\n\n\nSection 1.2: Create the related R project."
+    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n\nread.pcibex(...): Self-built function to import PCIbex results froms .csv file.\nhead(...): Used to have a look of the first N rows of the dataset.\nstr(...): Used to look at the structure of the dataset.\nsummary(...): Used to summarize the whole dataset.\nview(...): Used to open the dataset.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nNo assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 11: Preparation: Computer set-up and data imporation"
+    ]
   },
   {
-    "objectID": "course-materials/week11_slides.html#setting-up-your-folders",
-    "href": "course-materials/week11_slides.html#setting-up-your-folders",
+    "objectID": "course-materials/week11.html#overview",
+    "href": "course-materials/week11.html#overview",
     "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "1.1 Setting up your folders",
-    "text": "1.1 Setting up your folders\n\n\nNavigate to your Documents (or 文件) folder.\n\n\n\n\nCreate your Root Folder: CHC9012_Spring2025\n\n\n\n\nAdd the Project Subfolders:\n\n📁 Slides: Presentation files.\n📁 PCIbex_design: Scripts & materials.\n📁 PreprocessingAnalysesR: Datasets & R code."
+    "section": "",
+    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n\nread.pcibex(...): Self-built function to import PCIbex results froms .csv file.\nhead(...): Used to have a look of the first N rows of the dataset.\nstr(...): Used to look at the structure of the dataset.\nsummary(...): Used to summarize the whole dataset.\nview(...): Used to open the dataset.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nNo assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 11: Preparation: Computer set-up and data imporation"
+    ]
   },
   {
-    "objectID": "course-materials/week11_slides.html#you-should-obtain-something-like-this",
-    "href": "course-materials/week11_slides.html#you-should-obtain-something-like-this",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "You should obtain something like this",
-    "text": "You should obtain something like this\n\n\n\n\n\n\n\n\nPay attention to the names\n\n\nGenerally, it is better not to use any space when naming folders and files!"
+    "objectID": "course-materials/week12.html",
+    "href": "course-materials/week12.html",
+    "title": "Week 12 - Arranging the data",
+    "section": "",
+    "text": "This week, we will learn how to arrange the dataset such that it is ready for further exploration.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nArrangements: How to prepare your data for further analyses?\nChecks: How to check that all the data are in order?\n\n\n\nA brief summary of the essential elements:\n\nload(...): Imports a dataset or workspace previously saved in .RData format.\nread.csv(...): Imports external data, such as your stimulus material list, from a .csv file.\n&lt;- NULL: Used to remove unnecessary columns from the dataframe.\nnames(...): Used to view or rename the column headers of the dataset.\nfilter(...): Keeps only the rows that meet specific conditions (e.g., keeping only “Experiment” trials).\nifelse(...): Creates a new value based on a condition.\nspread(...): Reshapes data from long to wide format.\nleft_join(...): Merges two datasets together based on common identifier columns (like ItemNo).\nas.factor(...) / as.numeric(...): Transforms a variable into a category (factor) or a mathematical number (numeric).\nezDesign(...): Generates a heatmap to visually verify that the experimental design is balanced and no data is missing.\nsave(...): Exports your final, prepared dataset into an .RData file for future analysis.\n\n\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 12: Arranging the data before further analyses"
+    ]
   },
   {
-    "objectID": "course-materials/week11_slides.html#initializing-your-r-project",
-    "href": "course-materials/week11_slides.html#initializing-your-r-project",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "1.2 Initializing Your R Project",
-    "text": "1.2 Initializing Your R Project\n\n\n\n1. Launch New Project Wizard  Click the blue cube icon in the top-left corner of RStudio.\n\n\n\n2. Select project type  Choose “Existing Directory” to link R to your folder structure.\n\n\n\n3. Finalize Connection  Browse to PreprocessingAnalysesR, check “Open in a new session”, and click Create Project.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBenefit: An .Rproj file sets your “Working Directory” automatically!"
-  },
-  {
-    "objectID": "course-materials/week11_slides.html#other-advantages-of-creating-projects",
-    "href": "course-materials/week11_slides.html#other-advantages-of-creating-projects",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "Other advantages of creating projects",
-    "text": "Other advantages of creating projects\n\n\n\nOne RStudio window = One project\nSwitch between them without worrying about the working directory of trying to find the right files!\nList of your projects on the top-right corner of RStudio. Here is mine for example:"
-  },
-  {
-    "objectID": "course-materials/week11_slides.html#in-class-exercise",
-    "href": "course-materials/week11_slides.html#in-class-exercise",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "📝 In-class exercise!",
-    "text": "📝 In-class exercise!\n\n\nTask list:\n\nFind the R script from last week and move it to the PreprocessingAnalysesR folder.\nOpen the script within your newly created project."
-  },
-  {
-    "objectID": "course-materials/week11_slides.html#from-raw-script-to-functional-r-markdown",
-    "href": "course-materials/week11_slides.html#from-raw-script-to-functional-r-markdown",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "From raw script to functional: R Markdown",
-    "text": "From raw script to functional: R Markdown\n\n\n\n1. Create the file 📄 Go to New File &gt; R Markdown. This moves you from raw code to a “living” document.\n\n\n2. Configure (YAML) ⚙️ The header between --- controls your title, author, and output format (HTML/PDF).\n\n\n3. Text + Code chunks 📝 Write text normally; insert Code Chunks ({r}) for analysis.\n\n\n4. Run your codes ▶️ Use the green Play Button to test individual steps.\n\n\n5. The Final “Knit” 🧶 Click Knit to stitch everything into a polished report automatically!"
-  },
-  {
-    "objectID": "course-materials/week11_slides.html#in-class-exercise-1",
-    "href": "course-materials/week11_slides.html#in-class-exercise-1",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "📝 In-class exercise!",
-    "text": "📝 In-class exercise!\n\n\nTask list:\n\nCreate a new Markdown document, and call it ScriptWeek10_Markdown.\nUse the script from last week, but adapt it to the Markdown format. Be creative!"
-  },
-  {
-    "objectID": "course-materials/week11_slides.html#fake-experiment-for-this-class",
-    "href": "course-materials/week11_slides.html#fake-experiment-for-this-class",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "Fake experiment for this class",
-    "text": "Fake experiment for this class\n  Try the experiment \n\n\n\n\n\n\n\nThe code of the fake experiment is given on the website\n\n\n\n\n\n\n\n\n\n\n\n\n\nFake results!\n\n\nAn AI robot did the experiment several times. I also pretended that I was a “bad” participant several times. The results are just to show you how to analyze data from PCIbex, they do not have other value!"
-  },
-  {
-    "objectID": "course-materials/week11_slides.html#in-class-exercise-2",
-    "href": "course-materials/week11_slides.html#in-class-exercise-2",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "📝 In-class exercise!",
-    "text": "📝 In-class exercise!\n\n\nTask list:\n\nLook at the whole table. To do so, click on the variable, or just write view(data) in the console\nManually, identify and take notes of (1) what information is missing, (2) which rows should be erased/kept, and (3) which columns should be deleted or added."
+    "objectID": "course-materials/week12.html#overview",
+    "href": "course-materials/week12.html#overview",
+    "title": "Week 12 - Arranging the data",
+    "section": "",
+    "text": "This week, we will learn how to arrange the dataset such that it is ready for further exploration.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nArrangements: How to prepare your data for further analyses?\nChecks: How to check that all the data are in order?\n\n\n\nA brief summary of the essential elements:\n\nload(...): Imports a dataset or workspace previously saved in .RData format.\nread.csv(...): Imports external data, such as your stimulus material list, from a .csv file.\n&lt;- NULL: Used to remove unnecessary columns from the dataframe.\nnames(...): Used to view or rename the column headers of the dataset.\nfilter(...): Keeps only the rows that meet specific conditions (e.g., keeping only “Experiment” trials).\nifelse(...): Creates a new value based on a condition.\nspread(...): Reshapes data from long to wide format.\nleft_join(...): Merges two datasets together based on common identifier columns (like ItemNo).\nas.factor(...) / as.numeric(...): Transforms a variable into a category (factor) or a mathematical number (numeric).\nezDesign(...): Generates a heatmap to visually verify that the experimental design is balanced and no data is missing.\nsave(...): Exports your final, prepared dataset into an .RData file for future analysis.\n\n\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 12: Arranging the data before further analyses"
+    ]
   },
   {
     "objectID": "course-materials/week13.html",
