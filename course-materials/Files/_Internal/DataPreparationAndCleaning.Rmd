@@ -1,0 +1,168 @@
+---
+title: "DataPreparationAndCleaning"
+author: "Write your name here"
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    highlight: tango
+header-includes:
+   - \usepackage{fvextra}
+   - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\},breaklines}
+---
+
+# 1. Preparations
+
+## 1.1 Load the libraries
+
+```{r}
+library(dplyr)
+library(tidyr)
+library(ez)
+```
+
+## 1.2 Load the data
+
+```{r}
+load("CHC9012_DataImportedFromPCIbex.RData")
+```
+
+
+## 1.3 Check the data
+
+```{r}
+str(data)
+```
+
+
+# 2. Prepare the dataset
+
+## 2.1 Remove unnecessary colum
+
+```{r}
+data$Controller.name <- NULL
+data$Inner.element.number <- NULL
+data$Latin.Square.Group <- NULL
+data$Comments <- NULL
+```
+
+## 2.2 Rename columns
+
+```{r}
+names(data)
+
+names(data)[1] <- "ID_1_TimeReceived"
+names(data)[2] <- "ID_2_IP"
+```
+
+
+## 2.3 Select the rows you need
+
+```{r}
+data2 <- data %>%
+  filter(Label == "Experiment")
+
+data2 <- data2 %>%
+  filter(Parameter != "_Header_")
+```
+
+## 2.4 Add a "Reaction time" column
+
+```{r}
+##Calculate reaction time
+RT_Prep1 <- data2 %>%
+  filter(Parameter == "Choice" | Value == "Start")
+
+RT_Prep1$Index <- ifelse(RT_Prep1$Value == "Start",
+                         "Start",
+                         "Choice")
+
+RT_Prep1$PennElementType <- NULL
+RT_Prep1$PennElementName <- NULL
+RT_Prep1$Parameter <- NULL
+RT_Prep1$Value <- NULL
+
+RT_Prep2 <- spread(data = RT_Prep1, Index, EventTime)
+
+RT_Prep2$Choice <- as.numeric(RT_Prep2$Choice)
+RT_Prep2$Start <- as.numeric(RT_Prep2$Start)
+RT_Prep2$RT <- RT_Prep2$Choice - RT_Prep2$Start
+
+data3 <- data2 %>%
+  filter(Parameter %in% "Choice")
+
+data3 <- data3 %>%
+  left_join(RT_Prep2 %>% select(ID_1_TimeReceived, ID_2_IP, ItemNo, RT), 
+            by = c("ID_1_TimeReceived", "ID_2_IP", "ItemNo"))
+```
+
+
+## 2.5 Change the nature of the variables
+
+```{r}
+## Transform to "factors" (or "groups")
+data3$ID_1_TimeReceived <- as.factor(data3$ID_1_TimeReceived)
+data3$ID_2_IP <- as.factor(data3$ID_2_IP)
+data3$ItemNo <- as.factor(data3$ItemNo)
+data3$Condition <- as.factor(data3$Condition)
+data3$Group <- as.factor(data3$Group)
+data3$UserDegree <- as.factor(data3$UserDegree)
+
+## Transform to numeric
+data3$Order.number.of.item <- as.numeric(data3$Order.number.of.item)
+data3$Value <- as.numeric(data3$Value)
+data3$UserAge <- as.numeric(data3$UserAge)
+data3$RT <- as.numeric(data3$RT)
+```
+
+## 2.6 Final removal of unnecessary columns
+
+```{r}
+str(data3)
+
+data3$Label <- NULL
+data3$PennElementType <- NULL
+data3$PennElementName <- NULL
+data3$Parameter <- NULL
+data3$EventTime <- NULL
+
+str(data3)
+```
+
+## 2.7 Add information (The actual sentences)
+
+```{r}
+material <- read.csv("~/Documents/CHC9012_Spring2026/PreprocessingAnalysesR/material.csv")
+material$ItemNo <- as.factor(material$ItemNo)
+
+data3 <- data3 %>%
+  left_join(material %>% select(ItemNo, Sentence), 
+            by = "ItemNo")
+```
+
+
+# 3. Check that everything is in order
+
+```{r}
+# Same number of item per condition for each participant? (should be '15')
+ezDesign(data3, ID_1_TimeReceived, Condition)
+
+# Which participants share the same ID? (hint that this could be the same participant filling the questionnaire twice)
+ezDesign(data3, ID_1_TimeReceived, ID_2_IP)
+
+# Number of times an item appeared by participant (should be '1')
+ezDesign(data3, ID_1_TimeReceived, ItemNo)
+
+# Were the items well dispatched in the two lists?
+ezDesign(data3, ItemNo, Group)
+
+# Were the participants well dispatched in the two lists? (should be '30')
+ezDesign(data3, ID_1_TimeReceived, Group)
+```
+
+# 4. Save the prepared dataset
+
+```{r}
+save(data3,
+     file = "CHC9012_PCIbexDataPrepared.RData")
+```
+

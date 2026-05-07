@@ -163,7 +163,13 @@ This week, we will learn how to arrange the dataset such that it is ready for fu
 <br>
 
 ::: {.text-center .mb-3}
-<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/results_FAKE_FOR_CHC9012.csv" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script [GIVEN LATER]</a>
+<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/CHC9012_DataImportedFromPCIbex.RData" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script</a>
+:::
+
+<br>
+
+::: {.text-center .mb-3}
+<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/DataPreparationAndCleaning.Rmd" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the Markdown script</a>
 :::
 
 ## 📝 Homework
