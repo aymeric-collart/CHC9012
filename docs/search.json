@@ -180,16 +180,121 @@
   {
     "objectID": "course-materials/week12_slides.html#goals",
     "href": "course-materials/week12_slides.html#goals",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "title": "Week 12 - Arranging the data",
     "section": "🎯 Goals",
-    "text": "🎯 Goals\nPrepare your computer:\n\n\nArrangements: How to prepare your data for further analyses?\n\n\n\n\nChecks: How to check that all the data are in order?"
+    "text": "🎯 Goals\nPrepare your dataset:\n\n\nArrangements: How to prepare your data for further analyses?\n\n\n\n\nChecks: How to check that all the data are in order?"
   },
   {
     "objectID": "course-materials/week12_slides.html#dataset-and-script",
     "href": "course-materials/week12_slides.html#dataset-and-script",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "title": "Week 12 - Arranging the data",
     "section": "💻 Dataset and script",
-    "text": "💻 Dataset and script\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script"
+    "text": "💻 Dataset and script\nPlease download the files for the content of Week 12, and place them in your PreprocessingAnalysesR folder.\n\n 📥 Download the dataset for the script \n 📥 Download the R Markdown script"
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#preparatory-activity",
+    "href": "course-materials/week12_slides.html#preparatory-activity",
+    "title": "Week 12 - Arranging the data",
+    "section": "✍️ Preparatory activity",
+    "text": "✍️ Preparatory activity\n\n\n\n\n\n\nInstructions\n\n\nWe should never forget that coding is a tool to achieve a task. For our case, the main task is to prepare the dataset for further analyses, which means:\n\nChecking that it is complete and that nothing is missing,\nDeleting the columns/rows that are not necessary, and\nTransforming (but not altering) the data\n\n\n\n\n\nHow to do so? Two steps:\n\nLook at the dataset you just imported\nTake notes"
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#step-1-look-at-the-imported-dataset",
+    "href": "course-materials/week12_slides.html#step-1-look-at-the-imported-dataset",
+    "title": "Week 12 - Arranging the data",
+    "section": "Step 1: Look at the imported dataset",
+    "text": "Step 1: Look at the imported dataset\n\nload(\"CHC9012_DataImportedFromPCIbex.RData\")\n\nview(data)"
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#what-are-all-these-columns",
+    "href": "course-materials/week12_slides.html#what-are-all-these-columns",
+    "title": "Week 12 - Arranging the data",
+    "section": "👓 What are all these columns?",
+    "text": "👓 What are all these columns?\n\nDefault columns from PCIbexColumns that we manually logged\n\n\n\nResults.reception.time: Time in the PCIbex server when the results were received. This can be used as the Participant ID, assuming that there are no two participants who submitted the results at the exact same time.\nMD5.hash.of.participant.s.IP.address: Scripted IP address of the machine used by the participant.\nController.name: Which controller was used to code the experiment.\nOrder.number.of.item: The order of presentation of the whole questionnaire, starting from the very first page.\nInner.element.number: Whether specific numbers were assigned to the element.\nLabel: The name given to the webpage in PCIbex (for example, Welcome page, Instructions, Exeriment, etc.).\nLatin.Square.Group\nPennElementType: The PCIbex element used for the action (TextInput, Scale, Dropdown, etc.).\nParameter: Breakdown of the elements used on a same page.\nValue: What the participant wrote or selectedm or when an element starts or ends.\nEventTime: Time point at which an action occured (the time corresponds to the PCIbex server)\nComments\n\n\n\n\nItemNo: The ID of the item (here, sentence)\nCondition: The experimental condition\nGroup\nUserAge\nUserDegree"
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#step-2-preparatory-activity",
+    "href": "course-materials/week12_slides.html#step-2-preparatory-activity",
+    "title": "Week 12 - Arranging the data",
+    "section": "✍️ Step 2: Preparatory activity",
+    "text": "✍️ Step 2: Preparatory activity\n\n\n\n\n\n\nInstructions\n\n\nWhat needs to be done to prepare the dataset?\nSome tips:\n\nChecking that it is complete and that nothing is missing,\nDeleting the columns/rows that are not necessary, and\nTransforming (but not altering) the data"
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#my-own-observations",
+    "href": "course-materials/week12_slides.html#my-own-observations",
+    "title": "Week 12 - Arranging the data",
+    "section": "💡 My own observations",
+    "text": "💡 My own observations\n\nMissing dataUnnecessary dataData to transform\n\n\n\nCalculate the reaction time (so far, only the event time)\nThe actual sentences are missing, need to add them based on ItemNo\nNo information about the consent box, but this cannot be retrieved\n\n\n\n\nColumns containing the same or no value (Controller.name, Inner.element.number, Latin.Square.Group, Comments, for example)\nKeep only the lines where Label is “Experiment”\n\n\n\n\nColumns to rename, to be more concise and explicit (Results.reception.time, MD5.hash.of.participant.s.IP.address)\nChange the nature of the variable (UserAge to numerical value, ItemNo to a group/factor, etc.)"
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#remove-unnecessary-columns",
+    "href": "course-materials/week12_slides.html#remove-unnecessary-columns",
+    "title": "Week 12 - Arranging the data",
+    "section": "2.1 Remove unnecessary columns",
+    "text": "2.1 Remove unnecessary columns\n\nWe need to mention which column from which dataset. In R language, “the column called Controller.name from the dataset called data” is written using the $ sign (data$Controller.name)\nWe assign NULL to this column to delete it.\n\ndata$Controller.name &lt;- NULL\ndata$Inner.element.number &lt;- NULL\ndata$Latin.Square.Group &lt;- NULL\ndata$Comments &lt;- NULL"
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#rename-columns",
+    "href": "course-materials/week12_slides.html#rename-columns",
+    "title": "Week 12 - Arranging the data",
+    "section": "2.2 Rename columns",
+    "text": "2.2 Rename columns\n\n\nYou can have a glimpse of the names of the columns using the names(...) function.\nnames(data)\n\n\n [1] \"Results.reception.time\"              \n [2] \"MD5.hash.of.participant.s.IP.address\"\n [3] \"Order.number.of.item\"                \n [4] \"Label\"                               \n [5] \"PennElementType\"                     \n [6] \"PennElementName\"                     \n [7] \"Parameter\"                           \n [8] \"Value\"                               \n [9] \"EventTime\"                           \n[10] \"ItemNo\"                              \n[11] \"Condition\"                           \n[12] \"Group\"                               \n[13] \"UserAge\"                             \n[14] \"UserDegree\"                          \n\n\n\n\nEach name is assigned to a numerical index. For instance, “[1]” corresponds to “Results.reception.time”.\nnames(data)[1]\n\n\n[1] \"Results.reception.time\"\n\n\n\n\nOnce we have the index of columns, we just need to assign new names to them.\nnames(data)[1] &lt;- \"ID_1_TimeReceived\"\nnames(data)[2] &lt;- \"ID_2_IP\"\n\nnames(data)\n\n\n [1] \"ID_1_TimeReceived\"    \"ID_2_IP\"              \"Order.number.of.item\"\n [4] \"Label\"                \"PennElementType\"      \"PennElementName\"     \n [7] \"Parameter\"            \"Value\"                \"EventTime\"           \n[10] \"ItemNo\"               \"Condition\"            \"Group\"               \n[13] \"UserAge\"              \"UserDegree\""
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#select-the-rows-we-need",
+    "href": "course-materials/week12_slides.html#select-the-rows-we-need",
+    "title": "Week 12 - Arranging the data",
+    "section": "2.3 Select the rows we need",
+    "text": "2.3 Select the rows we need\n\n\n\nWe use the filter() function from the dplyr package.\n%&gt;%: to say that “This is the Label column from the dataset called data”.\n== sign: we want the Experiment rows.\nWe store that into a new dataset called data2.\n\nlibrary(dplyr)\n\ndata2 &lt;- data %&gt;%\n  filter(Label == \"Experiment\")\n\n\nCheck: We expect to only find Experiment in the Label column.\n\n\n\n  \n\n\n\n\n\n\nThere are unnecessary _Header_ rows in the Parameter column.\nWe can use the same logic to remove them, but we use !=, meaning “we don’t want these rows”.\n\ndata2 &lt;- data2 %&gt;%\n  filter(Parameter != \"_Header_\")"
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#calculate-the-reaction-time",
+    "href": "course-materials/week12_slides.html#calculate-the-reaction-time",
+    "title": "Week 12 - Arranging the data",
+    "section": "2.4 Calculate the reaction time",
+    "text": "2.4 Calculate the reaction time\n\n\n\n📖 Defining reaction time\n\n\nIn this experiment, Reaction time = Time when the judgment is made - Time when the sentence appeared\nCalculating the reaction time from PCIbex data requires several steps.\n\n\n\nLet’s have a look at our data:\n\n\n\n  \n\n\n\nHere, Reaction time = “EventTime when Parameter = Choice” - “EventTime when Value = Start”. So we need to select these rows first. We stored in a temporary dataset that we call RT_Prep1.\nUnder the Value column, we have the time for Start, but not for Choice, which is found in another column. We want to have everything under the same column. So we tell R that when in the Value column, the word is not Start, it writes Choice instead. Then, we delete columns when the two rows are different – we want to keep the differences minimal.\n\n\n\n  \n\n\n\nTo do the subtraction, we want to have the EventTime for Start and Choice in different columns. We use the spread() function from the tidyr library.\n\n\n\n  \n\n\n\nNow we just have to tell R that we are dealing with numbers, and do the subtraction.\n\n\n\n  \n\n\n\n\n\n\n💭 Last step\n\n\nWe have two datasets:\n\ndata2, with the judgment data, but not the reaction time,\nRT_Prep2, the temporary dataset with the reaction time, but not the judgment data.\n\nWe just need to join them based on their common minimal value: 1 different trial per participant.\n\n\n\nFirst, we select the row where the judgment is given.\nFinally, we use the left_join() function to join these two datasets based on (a) the participant ID, and (b) the Item index."
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#change-the-nature-of-the-variables",
+    "href": "course-materials/week12_slides.html#change-the-nature-of-the-variables",
+    "title": "Week 12 - Arranging the data",
+    "section": "2.5 Change the nature of the variables",
+    "text": "2.5 Change the nature of the variables\n\n\nLet’s look again at our data:\nstr(data3)\n\n\n'data.frame':   1050 obs. of  15 variables:\n $ ID_1_TimeReceived   : int  1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 ...\n $ ID_2_IP             : chr  \"965c6743ad440dd6eaf441586b84d5c2\" \"965c6743ad440dd6eaf441586b84d5c2\" \"965c6743ad440dd6eaf441586b84d5c2\" \"965c6743ad440dd6eaf441586b84d5c2\" ...\n $ Order.number.of.item: int  16 33 26 25 31 7 28 17 21 34 ...\n $ Label               : chr  \"Experiment\" \"Experiment\" \"Experiment\" \"Experiment\" ...\n $ PennElementType     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ PennElementName     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ Parameter           : chr  \"Choice\" \"Choice\" \"Choice\" \"Choice\" ...\n $ Value               : chr  \"6\" \"1\" \"4\" \"3\" ...\n $ EventTime           : num  1.78e+12 1.78e+12 1.78e+12 1.78e+12 1.78e+12 ...\n $ ItemNo              : chr  \"11\" \"58\" \"51\" \"50\" ...\n $ Condition           : chr  \"Grammatical\" \"Ungrammatical\" \"Ungrammatical\" \"Ungrammatical\" ...\n $ Group               : chr  \"A\" \"A\" \"A\" \"A\" ...\n $ UserAge             : int  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : chr  \"Ph.D.\" \"Ph.D.\" \"Ph.D.\" \"Ph.D.\" ...\n $ RT                  : num  20079 13763 13247 13997 13063 ...\n\n\n\n\nSome variables correspond to groups (or categories), so we used the as.factor() function to group them.\ndata3$ID_1_TimeReceived &lt;- as.factor(data3$ID_1_TimeReceived)\ndata3$ID_2_IP &lt;- as.factor(data3$ID_2_IP)\ndata3$ItemNo &lt;- as.factor(data3$ItemNo)\ndata3$Condition &lt;- as.factor(data3$Condition)\ndata3$Group &lt;- as.factor(data3$Group)\ndata3$UserDegree &lt;- as.factor(data3$UserDegree)\n\n\nFor numerical values, we use the as.numeric() function.\ndata3$Order.number.of.item &lt;- as.numeric(data3$Order.number.of.item)\ndata3$Value &lt;- as.numeric(data3$Value)\ndata3$UserAge &lt;- as.numeric(data3$UserAge)\ndata3$RT &lt;- as.numeric(data3$RT)\nNow this is our data:\nstr(data3)\n\n\n'data.frame':   1050 obs. of  15 variables:\n $ ID_1_TimeReceived   : Factor w/ 35 levels \"1777517421\",\"1777518106\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ ID_2_IP             : Factor w/ 5 levels \"500b881331cdc3f3e92d95160167b433\",..: 5 5 5 5 5 5 5 5 5 5 ...\n $ Order.number.of.item: num  16 33 26 25 31 7 28 17 21 34 ...\n $ Label               : chr  \"Experiment\" \"Experiment\" \"Experiment\" \"Experiment\" ...\n $ PennElementType     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ PennElementName     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ Parameter           : chr  \"Choice\" \"Choice\" \"Choice\" \"Choice\" ...\n $ Value               : num  6 1 4 3 2 6 1 7 1 1 ...\n $ EventTime           : num  1.78e+12 1.78e+12 1.78e+12 1.78e+12 1.78e+12 ...\n $ ItemNo              : Factor w/ 60 levels \"1\",\"10\",\"11\",..: 3 54 47 46 52 12 49 4 41 55 ...\n $ Condition           : Factor w/ 2 levels \"Grammatical\",..: 1 2 2 2 2 1 2 1 2 2 ...\n $ Group               : Factor w/ 2 levels \"A\",\"B\": 1 1 1 1 1 1 1 1 1 1 ...\n $ UserAge             : num  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : Factor w/ 4 levels \"BA\",\"High school\",..: 4 4 4 4 4 4 4 4 4 4 ...\n $ RT                  : num  20079 13763 13247 13997 13063 ..."
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#another-round-of-removing-unnecessary-columns",
+    "href": "course-materials/week12_slides.html#another-round-of-removing-unnecessary-columns",
+    "title": "Week 12 - Arranging the data",
+    "section": "2.6 Another round of removing unnecessary columns",
+    "text": "2.6 Another round of removing unnecessary columns\n\n\nWe made use of some columns when calculating the reaction time, but we do not need them anymore, and they are redundant. So here is another round of column removal!\nstr(data3)\n\n\n'data.frame':   1050 obs. of  15 variables:\n $ ID_1_TimeReceived   : Factor w/ 35 levels \"1777517421\",\"1777518106\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ ID_2_IP             : Factor w/ 5 levels \"500b881331cdc3f3e92d95160167b433\",..: 5 5 5 5 5 5 5 5 5 5 ...\n $ Order.number.of.item: num  16 33 26 25 31 7 28 17 21 34 ...\n $ Label               : chr  \"Experiment\" \"Experiment\" \"Experiment\" \"Experiment\" ...\n $ PennElementType     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ PennElementName     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ Parameter           : chr  \"Choice\" \"Choice\" \"Choice\" \"Choice\" ...\n $ Value               : num  6 1 4 3 2 6 1 7 1 1 ...\n $ EventTime           : num  1.78e+12 1.78e+12 1.78e+12 1.78e+12 1.78e+12 ...\n $ ItemNo              : Factor w/ 60 levels \"1\",\"10\",\"11\",..: 3 54 47 46 52 12 49 4 41 55 ...\n $ Condition           : Factor w/ 2 levels \"Grammatical\",..: 1 2 2 2 2 1 2 1 2 2 ...\n $ Group               : Factor w/ 2 levels \"A\",\"B\": 1 1 1 1 1 1 1 1 1 1 ...\n $ UserAge             : num  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : Factor w/ 4 levels \"BA\",\"High school\",..: 4 4 4 4 4 4 4 4 4 4 ...\n $ RT                  : num  20079 13763 13247 13997 13063 ...\n\n\n\n\ndata3$Label &lt;- NULL\ndata3$PennElementType &lt;- NULL\ndata3$PennElementName &lt;- NULL\ndata3$Parameter &lt;- NULL\ndata3$EventTime &lt;- NULL\n\nstr(data3)\n\n\n'data.frame':   1050 obs. of  10 variables:\n $ ID_1_TimeReceived   : Factor w/ 35 levels \"1777517421\",\"1777518106\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ ID_2_IP             : Factor w/ 5 levels \"500b881331cdc3f3e92d95160167b433\",..: 5 5 5 5 5 5 5 5 5 5 ...\n $ Order.number.of.item: num  16 33 26 25 31 7 28 17 21 34 ...\n $ Value               : num  6 1 4 3 2 6 1 7 1 1 ...\n $ ItemNo              : Factor w/ 60 levels \"1\",\"10\",\"11\",..: 3 54 47 46 52 12 49 4 41 55 ...\n $ Condition           : Factor w/ 2 levels \"Grammatical\",..: 1 2 2 2 2 1 2 1 2 2 ...\n $ Group               : Factor w/ 2 levels \"A\",\"B\": 1 1 1 1 1 1 1 1 1 1 ...\n $ UserAge             : num  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : Factor w/ 4 levels \"BA\",\"High school\",..: 4 4 4 4 4 4 4 4 4 4 ...\n $ RT                  : num  20079 13763 13247 13997 13063 ..."
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#add-information-about-the-items",
+    "href": "course-materials/week12_slides.html#add-information-about-the-items",
+    "title": "Week 12 - Arranging the data",
+    "section": "2.7 Add information about the items",
+    "text": "2.7 Add information about the items\nFinally, we forgot to .log() the sentences in the PCIbex script:\n\nWe import the table with the material information (used on the PCIbex platform),\nWe use the left_join() function to join these two datasets based on the index of the items (here, ItemNo)\n\nmaterial &lt;- read.csv(\"~/Documents/CHC9012_Spring2026/PreprocessingAnalysesR/material.csv\")\nmaterial$ItemNo &lt;- as.factor(material$ItemNo)\n\ndata3 &lt;- data3 %&gt;%\n  left_join(material %&gt;% select(ItemNo, Sentence), \n            by = \"ItemNo\")\n\ndata3$Sentence &lt;- as.factor(data3$Sentence)\nstr(data3)\n\n\n'data.frame':   1050 obs. of  11 variables:\n $ ID_1_TimeReceived   : Factor w/ 35 levels \"1777517421\",\"1777518106\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ ID_2_IP             : Factor w/ 5 levels \"500b881331cdc3f3e92d95160167b433\",..: 5 5 5 5 5 5 5 5 5 5 ...\n $ Order.number.of.item: num  16 33 26 25 31 7 28 17 21 34 ...\n $ Value               : num  6 1 4 3 2 6 1 7 1 1 ...\n $ ItemNo              : Factor w/ 60 levels \"1\",\"10\",\"11\",..: 3 54 47 46 52 12 49 4 41 55 ...\n $ Condition           : Factor w/ 2 levels \"Grammatical\",..: 1 2 2 2 2 1 2 1 2 2 ...\n $ Group               : Factor w/ 2 levels \"A\",\"B\": 1 1 1 1 1 1 1 1 1 1 ...\n $ UserAge             : num  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : Factor w/ 4 levels \"BA\",\"High school\",..: 4 4 4 4 4 4 4 4 4 4 ...\n $ RT                  : num  20079 13763 13247 13997 13063 ...\n $ Sentence            : Factor w/ 60 levels \"He does not need help with his homework today\",..: 23 47 17 46 42 11 38 50 22 28 ..."
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#checking-process",
+    "href": "course-materials/week12_slides.html#checking-process",
+    "title": "Week 12 - Arranging the data",
+    "section": "💭 Checking process",
+    "text": "💭 Checking process\n\n\n\n\n\n\nTip\n\n\nWe want to make sure that we did not corrupt our data when arranging them for further analyses. Otherwise, we can run further analyses and have results, but they will have no value!\nWe will mostly use the ezDesign() function from the ez package."
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#check-the-data",
+    "href": "course-materials/week12_slides.html#check-the-data",
+    "title": "Week 12 - Arranging the data",
+    "section": "3.1 Check the data",
+    "text": "3.1 Check the data\n\n\nWe load the library:\nlibrary(ez)\n\n\n# Same number of item per condition for each participant? (should be '15')\nezDesign(data3, ID_1_TimeReceived, Condition)\n\n\n\n\n\n\n\n\n\n\n\n# Which participants share the same ID? (hint that this could be the same participant filling the questionnaire twice)\nezDesign(data3, ID_1_TimeReceived, ID_2_IP)\n\n\n\n\n\n\n\n\n\n\n\n# Number of times an item appeared by participant (should be '1')\nezDesign(data3, ID_1_TimeReceived, ItemNo)\n\n\n\n\n\n\n\n\n\n\n\n# Were the items well dispatched in the two lists?\nezDesign(data3, ItemNo, Group)\n\n\n\n\n\n\n\n\n\n\n\n# Were the participants well dispatched in the two lists? (should be '30')\nezDesign(data3, ID_1_TimeReceived, Group)"
+  },
+  {
+    "objectID": "course-materials/week12_slides.html#save-the-prepared-dataset",
+    "href": "course-materials/week12_slides.html#save-the-prepared-dataset",
+    "title": "Week 12 - Arranging the data",
+    "section": "3.2 Save the prepared dataset",
+    "text": "3.2 Save the prepared dataset\nsave(data3,\n     file = \"CHC9012_PCIbexDataPrepared.RData\")\nCheck that the file appears in your working directory!"
   },
   {
     "objectID": "course-materials/week11_slides.html#goals",

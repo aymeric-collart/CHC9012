@@ -9,7 +9,7 @@
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
   <meta name="generator" content="quarto-1.7.32">
 
-  <title>CHC9012 – Week 11 - Preparation: Computer set-up and data imporation</title>
+  <title>CHC9012 – Week 12 - Arranging the data</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -27,6 +27,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-816793a8a4a837d14f6ea458e2f1c5cb.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -131,7 +197,7 @@
     <div class="slides">
 
 <section id="title-slide" class="quarto-title-block center">
-  <h1 class="title">Week 11 - Preparation: Computer set-up and data imporation</h1>
+  <h1 class="title">Week 12 - Arranging the data</h1>
   <p class="subtitle">CHC9012 | National Taiwan Normal University</p>
 
 <div class="quarto-title-authors">
@@ -140,7 +206,7 @@
 </section>
 <section id="goals" class="slide level2">
 <h2>🎯 Goals</h2>
-<p><strong>Prepare your computer:</strong></p>
+<p><strong>Prepare your dataset:</strong></p>
 <div class="fragment fade-up">
 <ul>
 <li><strong>Arrangements:</strong> How to prepare your data for further analyses?</li>
@@ -154,26 +220,26 @@
 </section>
 <section id="dataset-and-script" class="slide level2">
 <h2>💻 Dataset and script</h2>
-<div class="text-center mb-3">
-<p><a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/CHC9012_DataImportedFromPCIbex.RData?raw=true" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script</a></p>
-</div>
-<p><br></p>
-<div class="text-center mb-3">
-<p><a href="Files/_Internal/DataPreparationAndCleaning.Rmd" download="" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the Markdown script</a></p>
+<p>Please download the files for the content of Week 12, and place them in your <code>PreprocessingAnalysesR</code> folder.</p>
+<div style="text-align: center; margin-top: 2em;">
+<p><a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/CHC9012_DataImportedFromPCIbex.RData?raw=true" style="display: inline-block; padding: 15px 30px; background-color: #447099; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"> 📥 Download the dataset for the script </a></p>
+<p><a href="https://aymeric-collart.github.io/CHC9012/course-materials/Files/_Internal/DataPreparationAndCleaning.Rmd" download="DataPreparationAndCleaning.Rmd" style="display: inline-block; padding: 15px 30px; border: 2px solid #447099; color: #447099; text-decoration: none; border-radius: 10px; font-weight: bold;"> 📥 Download the R Markdown script </a></p>
 </div>
 </section>
-<section class="slide level2">
-
-</section>
+<section>
 <section id="part-1-plan-what-you-need-to-do" class="title-slide slide level1 center">
 <h1>💭 Part 1: Plan what you need to do</h1>
+
+</section>
+<section id="preparatory-activity" class="slide level2" data-vertical-align="center">
+<h2>✍️ Preparatory activity</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>✍️ Preparatory activity</strong></p>
+<p><strong>Instructions</strong></p>
 </div>
 <div class="callout-content">
 <p>We should never forget that coding is a tool to achieve a task. For our case, the main task is to <strong>prepare the dataset for further analyses</strong>, which means:</p>
@@ -185,7 +251,20 @@
 </div>
 </div>
 </div>
-<p>The best way is to look at the data we just imported into RStudio, and take notes about what needs to be done. I personally take physical notes on flying papers for this step.</p>
+<div class="fragment fade-up">
+<p><strong>How to do so?</strong> Two steps:</p>
+<ul>
+<li>Look at the dataset you just imported</li>
+<li>Take notes</li>
+</ul>
+</div>
+</section>
+<section id="step-1-look-at-the-imported-dataset" class="slide level2">
+<h2>Step 1: Look at the imported dataset</h2>
+<p><br></p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource diff number-lines code-with-copy"><code class="sourceCode diff"><span id="cb1-1"><a></a>load("CHC9012_DataImportedFromPCIbex.RData")</span>
+<span id="cb1-2"><a></a></span>
+<span id="cb1-3"><a></a>view(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><br></p>
 <div class="cell">
 <div class="cell-output-display">
@@ -196,7 +275,9 @@
 </div>
 </div>
 </div>
-<p>This is what the results table looks like. Let’s have a look at its columns, 18 in this file. There are two types: (a) PCIbex’s default columns, and (b) the columns that we asked PCIbex to log.</p>
+</section>
+<section id="what-are-all-these-columns" class="slide level2">
+<h2>👓 What are all these columns?</h2>
 <div class="panel-tabset">
 <ul id="tabset-1" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-1-1">Default columns from PCIbex</a></li><li><a href="#tabset-1-2">Columns that we manually logged</a></li></ul>
 <div class="tab-content">
@@ -227,19 +308,31 @@
 </div>
 </div>
 </div>
+</section>
+<section id="step-2-preparatory-activity" class="slide level2" data-vertical-align="center">
+<h2>✍️ Step 2: Preparatory activity</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>✍️ Preparatory activity, again</strong></p>
+<p><strong>Instructions</strong></p>
 </div>
 <div class="callout-content">
-<p>Look closely to the results file. What needs to be done?</p>
+<p><strong>What needs to be done to prepare the dataset?</strong></p>
+<p>Some tips:</p>
+<ul>
+<li>Checking that it is complete and that nothing is missing,</li>
+<li>Deleting the columns/rows that are not necessary, and</li>
+<li>Transforming (but not <em>altering</em>) the data</li>
+</ul>
 </div>
 </div>
 </div>
+</section>
+<section id="my-own-observations" class="slide level2">
+<h2>💡 My own observations</h2>
 <div class="panel-tabset">
 <ul id="tabset-2" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-2-1">Missing data</a></li><li><a href="#tabset-2-2">Unnecessary data</a></li><li><a href="#tabset-2-3">Data to transform</a></li></ul>
 <div class="tab-content">
@@ -264,23 +357,29 @@
 </div>
 </div>
 </div>
-<hr>
-</section>
-
+</section></section>
+<section>
 <section id="part-2-arrange-the-dataset-with-rstudio-according-to-the-plan" class="title-slide slide level1 center">
 <h1>💻 Part 2: Arrange the dataset with RStudio, according to the plan</h1>
-<p>You can find below how to use RStudio to perform the transformations listed above.</p>
-<div class="panel-tabset nav-pills tabset-fade" data-group="pipeline">
-<ul id="tabset-3" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-3-1">2.1 Remove unnecessary columns</a></li><li><a href="#tabset-3-2">2.2 Rename columns</a></li><li><a href="#tabset-3-3">2.3 Select the rows we need</a></li><li><a href="#tabset-3-4">2.4 Calculate the reaction time</a></li><li><a href="#tabset-3-5">2.5 Change the nature of the variables</a></li><li><a href="#tabset-3-6">2.6 Another round of removing unnecessary columns</a></li><li><a href="#tabset-3-7">2.7 Add information about the items</a></li></ul>
-<div class="tab-content nav-pills tabset-fade" data-group="pipeline">
-<div id="tabset-3-1">
+
+</section>
+<section id="remove-unnecessary-columns" class="slide level2">
+<h2>2.1 Remove unnecessary columns</h2>
 <ul>
 <li>We need to mention which column from which dataset. In R language, “the column called <em>Controller.name</em> from the dataset called <em>data</em>” is written using the <code>$</code> sign (<code>data$Controller.name</code>)</li>
 <li>We assign <code>NULL</code> to this column to delete it.</li>
 </ul>
-</div>
-<div id="tabset-3-2">
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a>data<span class="sc">$</span>Controller.name <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb2-2"><a></a>data<span class="sc">$</span>Inner.element.number <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb2-3"><a></a>data<span class="sc">$</span>Latin.Square.Group <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb2-4"><a></a>data<span class="sc">$</span>Comments <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="rename-columns" class="slide level2">
+<h2>2.2 Rename columns</h2>
+<div class="r-stack">
+<div class="fragment fade-out" data-fragment-index="1">
 <p>You can have a glimpse of the names of the columns using the <code>names(...)</code> function.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">names</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "Results.reception.time"              
@@ -299,13 +398,22 @@
 [14] "UserDegree"                          </code></pre>
 </div>
 </div>
-<p>Each name is assigned to a numerical index. For instance, “[1]” corresponds to “Results.reception.time”. We can call the name of one specific column as below.</p>
+</div>
+<div class="fragment fade-in-then-out" data-fragment-index="1">
+<p>Each name is assigned to a numerical index. For instance, “[1]” corresponds to “Results.reception.time”.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">names</span>(data)[<span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "Results.reception.time"</code></pre>
 </div>
 </div>
+</div>
+<div class="fragment fade-in" data-fragment-index="2">
 <p>Once we have the index of columns, we just need to assign new names to them.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a><span class="fu">names</span>(data)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"ID_1_TimeReceived"</span></span>
+<span id="cb7-2"><a></a><span class="fu">names</span>(data)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"ID_2_IP"</span></span>
+<span id="cb7-3"><a></a></span>
+<span id="cb7-4"><a></a><span class="fu">names</span>(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] "ID_1_TimeReceived"    "ID_2_IP"              "Order.number.of.item"
@@ -316,14 +424,25 @@
 </div>
 </div>
 </div>
-<div id="tabset-3-3">
-<p>Based on our notes, we need to filter to have only the rows where the <code>Label</code> is <code>Experiment</code>.</p>
+</div>
+</section>
+<section id="select-the-rows-we-need" class="slide level2">
+<h2>2.3 Select the rows we need</h2>
+<div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;">
+<div class="fragment fade-out" style="grid-area: 1 / 1;" data-fragment-index="1">
 <ul>
-<li>To do so, we use the <code>filter()</code> function from the <code>dplyr</code> package.</li>
-<li>We use the <code>%&gt;%</code> to say that “This is the <code>Label</code> column from the dataset called <code>data</code>”.</li>
-<li>The <code>==</code> sign means that we <em>want</em> the <code>Experiment</code> rows.</li>
-<li>We store that into a new dataset, just in case.</li>
+<li>We use the <code>filter()</code> function from the <code>dplyr</code> package.</li>
+<li><code>%&gt;%</code>: to say that “This is the <code>Label</code> column from the dataset called <code>data</code>”.</li>
+<li><code>==</code> sign: we <em>want</em> the <code>Experiment</code> rows.</li>
+<li>We store that into a new dataset called <code>data2</code>.</li>
 </ul>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb9-2"><a></a></span>
+<span id="cb9-3"><a></a>data2 <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span></span>
+<span id="cb9-4"><a></a>  <span class="fu">filter</span>(Label <span class="sc">==</span> <span class="st">"Experiment"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="1">
+<p><strong>Check:</strong> We expect to only find <code>Experiment</code> in the <code>Label</code> column.</p>
 <div class="cell">
 <div class="cell-output-display">
 <div data-pagedtable="false">
@@ -333,7 +452,14 @@
 </div>
 </div>
 </div>
-<p>We can see that there are unnecessary <code>_Header_</code> rows under the <code>Parameter</code> column, and we would like to remove them. We can use the same logic, but notice the use of <code>!=</code>, meaning “we <em>don’t want</em> these rows”.</p>
+</div>
+<div class="fragment fade-in" style="grid-area: 1 / 1;" data-fragment-index="2">
+<ul>
+<li>There are unnecessary <code>_Header_</code> rows in the <code>Parameter</code> column.</li>
+<li>We can use the same logic to <em>remove</em> them, but we use <code>!=</code>, meaning “we <em>don’t want</em> these rows”.</li>
+</ul>
+<div class="sourceCode" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a>data2 <span class="ot">&lt;-</span> data2 <span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a></a>  <span class="fu">filter</span>(Parameter <span class="sc">!=</span> <span class="st">"_Header_"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div data-pagedtable="false">
@@ -344,7 +470,10 @@
 </div>
 </div>
 </div>
-<div id="tabset-3-4">
+</div>
+</section>
+<section id="calculate-the-reaction-time" class="slide level2">
+<h2>2.4 Calculate the reaction time</h2>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -423,9 +552,13 @@
 </div>
 </div>
 </div>
-</div>
-<div id="tabset-3-5">
+</section>
+<section id="change-the-nature-of-the-variables" class="slide level2">
+<h2>2.5 Change the nature of the variables</h2>
+<div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;">
+<div class="fragment fade-out" style="grid-area: 1 / 1;" data-fragment-index="1">
 <p>Let’s look again at our data:</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   1050 obs. of  15 variables:
@@ -446,9 +579,24 @@
  $ RT                  : num  20079 13763 13247 13997 13063 ...</code></pre>
 </div>
 </div>
+</div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="1">
 <p>Some variables correspond to <strong><em>groups</em></strong> (or categories), so we used the <code>as.factor()</code> function to group them.</p>
-<p>Some are just numerical value, and so we use the <code>as.numeric()</code> function.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>data3<span class="sc">$</span>ID_1_TimeReceived <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>ID_1_TimeReceived)</span>
+<span id="cb13-2"><a></a>data3<span class="sc">$</span>ID_2_IP <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>ID_2_IP)</span>
+<span id="cb13-3"><a></a>data3<span class="sc">$</span>ItemNo <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>ItemNo)</span>
+<span id="cb13-4"><a></a>data3<span class="sc">$</span>Condition <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>Condition)</span>
+<span id="cb13-5"><a></a>data3<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>Group)</span>
+<span id="cb13-6"><a></a>data3<span class="sc">$</span>UserDegree <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>UserDegree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment fade-in" style="grid-area: 1 / 1;" data-fragment-index="2">
+<p>For numerical values, we use the <code>as.numeric()</code> function.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>data3<span class="sc">$</span>Order.number.of.item <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>Order.number.of.item)</span>
+<span id="cb14-2"><a></a>data3<span class="sc">$</span>Value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>Value)</span>
+<span id="cb14-3"><a></a>data3<span class="sc">$</span>UserAge <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>UserAge)</span>
+<span id="cb14-4"><a></a>data3<span class="sc">$</span>RT <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now this is our data:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   1050 obs. of  15 variables:
@@ -470,8 +618,14 @@
 </div>
 </div>
 </div>
-<div id="tabset-3-6">
-<p>We made use of some columns when calculating the reaction time, but we do not need them anymore, and they are redudant. So here is another round of column removal!</p>
+</div>
+</section>
+<section id="another-round-of-removing-unnecessary-columns" class="slide level2">
+<h2>2.6 Another round of removing unnecessary columns</h2>
+<div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;">
+<div class="fragment fade-out" style="grid-area: 1 / 1;" data-fragment-index="1">
+<p>We made use of some columns when calculating the reaction time, but we do not need them anymore, and they are redundant. So here is another round of column removal!</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   1050 obs. of  15 variables:
@@ -491,6 +645,17 @@
  $ UserDegree          : Factor w/ 4 levels "BA","High school",..: 4 4 4 4 4 4 4 4 4 4 ...
  $ RT                  : num  20079 13763 13247 13997 13063 ...</code></pre>
 </div>
+</div>
+</div>
+<div class="fragment fade-in" style="grid-area: 1 / 1;" data-fragment-index="1">
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>data3<span class="sc">$</span>Label <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb19-2"><a></a>data3<span class="sc">$</span>PennElementType <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb19-3"><a></a>data3<span class="sc">$</span>PennElementName <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb19-4"><a></a>data3<span class="sc">$</span>Parameter <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb19-5"><a></a>data3<span class="sc">$</span>EventTime <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb19-6"><a></a></span>
+<span id="cb19-7"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   1050 obs. of  10 variables:
  $ ID_1_TimeReceived   : Factor w/ 35 levels "1777517421","1777518106",..: 1 1 1 1 1 1 1 1 1 1 ...
@@ -506,12 +671,24 @@
 </div>
 </div>
 </div>
-<div id="tabset-3-7">
-<p>Finally, we realized that even if we have enough information for each trial to conduct further analyses, we do not know what sentence they correspond to. This is surely because we forgot to <code>.log()</code> them in the PCIbex script. But we can repair this mistake:</p>
+</div>
+</section>
+<section id="add-information-about-the-items" class="slide level2">
+<h2>2.7 Add information about the items</h2>
+<p>Finally, we forgot to <code>.log()</code> the sentences in the PCIbex script:</p>
 <ul>
-<li>We just need to import the table with the material information (used on the PCIbex platform)</li>
-<li>We use the <code>left_join()</code> function as previously to join these two datasets based on the index of the items (here, <code>ItemNo</code>)</li>
+<li>We import the table with the material information (used on the PCIbex platform),</li>
+<li>We use the <code>left_join()</code> function to join these two datasets based on the index of the items (here, <code>ItemNo</code>)</li>
 </ul>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>material <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Documents/CHC9012_Spring2026/PreprocessingAnalysesR/material.csv"</span>)</span>
+<span id="cb21-2"><a></a>material<span class="sc">$</span>ItemNo <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(material<span class="sc">$</span>ItemNo)</span>
+<span id="cb21-3"><a></a></span>
+<span id="cb21-4"><a></a>data3 <span class="ot">&lt;-</span> data3 <span class="sc">%&gt;%</span></span>
+<span id="cb21-5"><a></a>  <span class="fu">left_join</span>(material <span class="sc">%&gt;%</span> <span class="fu">select</span>(ItemNo, Sentence), </span>
+<span id="cb21-6"><a></a>            <span class="at">by =</span> <span class="st">"ItemNo"</span>)</span>
+<span id="cb21-7"><a></a></span>
+<span id="cb21-8"><a></a>data3<span class="sc">$</span>Sentence <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>Sentence)</span>
+<span id="cb21-9"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   1050 obs. of  11 variables:
@@ -528,22 +705,21 @@
  $ Sentence            : Factor w/ 60 levels "He does not need help with his homework today",..: 23 47 17 46 42 11 38 50 22 28 ...</code></pre>
 </div>
 </div>
-</div>
-</div>
-</div>
-<hr>
-</section>
-
+</section></section>
 <section>
 <section id="part-3-check-and-save-the-data" class="title-slide slide level1 center">
 <h1>💾 Part 3: Check and save the data</h1>
+
+</section>
+<section id="checking-process" class="slide level2">
+<h2>💭 Checking process</h2>
 <div class="callout callout-tip callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>💭 Checking process</strong></p>
+<p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
 <p>We want to make sure that we did not corrupt our data when arranging them for further analyses. Otherwise, we can run further analyses and have results, but they will have no value!</p>
@@ -551,10 +727,17 @@
 </div>
 </div>
 </div>
-<div class="panel-tabset">
-<ul id="tabset-4" class="panel-tabset-tabby"><li><a data-tabby-default="" href="#tabset-4-1">3.1 Check the data</a></li><li><a href="#tabset-4-2">3.2 Save the prepared dataset</a></li></ul>
-<div class="tab-content">
-<div id="tabset-4-1">
+</section>
+<section id="check-the-data" class="slide level2">
+<h2>3.1 Check the data</h2>
+<div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;">
+<div class="fragment fade-out" style="grid-area: 1 / 1;" data-fragment-index="1">
+<p>We load the library:</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">library</span>(ez)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="1">
+<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co"># Same number of item per condition for each participant? (should be '15')</span></span>
+<span id="cb24-2"><a></a><span class="fu">ezDesign</span>(data3, ID_1_TimeReceived, Condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -563,51 +746,77 @@
 </figure>
 </div>
 </div>
+</div>
+</div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="2">
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="co"># Which participants share the same ID? (hint that this could be the same participant filling the questionnaire twice)</span></span>
+<span id="cb25-2"><a></a><span class="fu">ezDesign</span>(data3, ID_1_TimeReceived, ID_2_IP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
 <div class="cell-output-display">
 <div>
 <figure>
-<p><img data-src="week12_slides_files/figure-revealjs/unnamed-chunk-30-2.png" width="960"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="week12_slides_files/figure-revealjs/unnamed-chunk-30-3.png" width="960"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="week12_slides_files/figure-revealjs/unnamed-chunk-30-4.png" width="960"></p>
-</figure>
-</div>
-</div>
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="week12_slides_files/figure-revealjs/unnamed-chunk-30-5.png" width="960"></p>
+<p><img data-src="week12_slides_files/figure-revealjs/unnamed-chunk-31-1.png" width="960"></p>
 </figure>
 </div>
 </div>
 </div>
 </div>
-<div id="tabset-4-2">
-
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="3">
+<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="co"># Number of times an item appeared by participant (should be '1')</span></span>
+<span id="cb26-2"><a></a><span class="fu">ezDesign</span>(data3, ID_1_TimeReceived, ItemNo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week12_slides_files/figure-revealjs/unnamed-chunk-32-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="4">
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># Were the items well dispatched in the two lists?</span></span>
+<span id="cb27-2"><a></a><span class="fu">ezDesign</span>(data3, ItemNo, Group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week12_slides_files/figure-revealjs/unnamed-chunk-33-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in" style="grid-area: 1 / 1;" data-fragment-index="5">
+<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="co"># Were the participants well dispatched in the two lists? (should be '30')</span></span>
+<span id="cb28-2"><a></a><span class="fu">ezDesign</span>(data3, ID_1_TimeReceived, Group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week12_slides_files/figure-revealjs/unnamed-chunk-34-1.png" width="960"></p>
+</figure>
+</div>
+</div>
 </div>
 </div>
 </div>
 </section>
-<section class="slide level2">
-
+<section id="save-the-prepared-dataset" class="slide level2">
+<h2>3.2 Save the prepared dataset</h2>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">save</span>(data3,</span>
+<span id="cb29-2"><a></a>     <span class="at">file =</span> <span class="st">"CHC9012_PCIbexDataPrepared.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Check that the file appears in your working directory!</p>
+</section></section>
+<section id="assignment-for-next-week" class="title-slide slide level1 center">
+<h1>📝 Assignment for next week</h1>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
-<p><strong>📝 Assignment for next week</strong></p>
+<p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
 <p>Please annotate the Markdown file from this week, knit to a PDF file, and upload on Moodle!</p>
@@ -616,7 +825,7 @@
 </div>
 
 
-</section></section>
+</section>
     </div>
   <div class="quarto-auto-generated-content" style="display: none;">
 <div class="footer footer-default">
