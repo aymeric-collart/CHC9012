@@ -172,10 +172,6 @@ This week, we will learn how to arrange the dataset such that it is ready for fu
 <a href="Files/_Internal/DataPreparationAndCleaning.Rmd" download class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the Markdown script</a>
 :::
 
-::: {.text-center .mb-3}
-<a href="Files/_Internal/DataPreparationAndCleaning.Rmd" download class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the Markdown script (test)</a>
-:::
-
 ## 📝 Homework
 
 **Please complete the following tasks before our next meeting:**
