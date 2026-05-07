@@ -1,0 +1,70 @@
+---
+title: "DataImportFromPCIbex"
+author: "Write your name here"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# 1. Load the function to import the dataset
+
+```{r}
+read.pcibex <- function(filepath, auto.colnames=TRUE, fun.col=function(col,cols){cols[cols==col]<-paste(col,"Ibex",sep=".");return(cols)}) {
+  n.cols <- max(count.fields(filepath,sep=",",quote=NULL),na.rm=TRUE)
+  if (auto.colnames){
+    cols <- c()
+    con <- file(filepath, "r")
+    while ( TRUE ) {
+      line <- readLines(con, n = 1, warn=FALSE)
+      if ( length(line) == 0) {
+        break
+      }
+      m <- regmatches(line,regexec("^# (\\d+)\\. (.+)\\.$",line))[[1]]
+      if (length(m) == 3) {
+        index <- as.numeric(m[2])
+        value <- m[3]
+        if (is.function(fun.col)){
+         cols <- fun.col(value,cols)
+        }
+        cols[index] <- value
+        if (index == n.cols){
+          break
+        }
+      }
+    }
+    close(con)
+    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=cols))
+  }
+  else{
+    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=seq(1:n.cols)))
+  }
+}
+```
+
+# 2. Import the data using this function
+
+## 2.1 Import the data
+
+```{r}
+data <- read.pcibex("results_FAKE_FOR_CHC9012.csv")
+```
+
+
+## 2.2 Have a glimpse at it
+
+```{r}
+head(data, 20)
+
+str(data)
+
+summary(data)
+```
+
+# 3. Save your data
+
+```{r}
+save(data,
+     file = "CHC9012_DataImportedFromPCIbex.RData")
+```
+

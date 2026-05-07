@@ -1,0 +1,61 @@
+ItemNo,Sentence,Condition,group
+1,The teacher did not explain the lesson clearly,Grammatical,A
+2,I will not visit the museum tomorrow afternoon,Grammatical,A
+3,They are not playing football in the park,Grammatical,A
+4,She does not want any sugar in her tea,Grammatical,A
+5,We should not leave our bags unattended here,Grammatical,A
+6,He was not happy with the final result,Grammatical,A
+7,It is not raining as hard as before,Grammatical,A
+8,You must not forget to lock the front door,Grammatical,A
+9,The cat did not catch the small grey mouse,Grammatical,A
+10,I am not going to the party tonight,Grammatical,A
+11,Sarah does not speak Italian very well yet,Grammatical,A
+12,They were not invited to the wedding ceremony,Grammatical,A
+13,The bus does not stop at this corner anymore,Grammatical,A
+14,He might not attend the graduation next week,Grammatical,A
+15,We did not see the movie everyone is talking about,Grammatical,A
+16,My brother does not drink coffee in the morning,Grammatical,B
+17,The flight will not arrive on time due to snow,Grammatical,B
+18,You are not allowed to smoke in this building,Grammatical,B
+19,She could not hear the music from her room,Grammatical,B
+20,They do not have enough money for a new car,Grammatical,B
+21,It does not matter what they think of us,Grammatical,B
+22,I would not do that if I were you,Grammatical,B
+23,The sun is not shining behind those thick clouds,Grammatical,B
+24,We did not buy any groceries at the store,Grammatical,B
+25,He does not need help with his homework today,Grammatical,B
+26,The train does not leave for another hour yet,Grammatical,B
+27,I cannot find my keys anywhere in the house,Grammatical,B
+28,They are not listening to the radio right now,Grammatical,B
+29,She will not help us move the heavy furniture,Grammatical,B
+30,It was not a very good idea to go out,Grammatical,B
+31,The teacher not explained the lesson clearly,Ungrammatical,B
+32,I will visit not the museum tomorrow afternoon,Ungrammatical,B
+33,They not are playing football in the park,Ungrammatical,B
+34,She wants not any sugar in her tea,Ungrammatical,B
+35,We not should leave our bags unattended here,Ungrammatical,B
+36,He not was happy with the final result,Ungrammatical,B
+37,It not is raining as hard as before,Ungrammatical,B
+38,You must forget not to lock the front door,Ungrammatical,B
+39,The cat caught not the small grey mouse,Ungrammatical,B
+40,I not am going to the party tonight,Ungrammatical,B
+41,Sarah speaks not Italian very well yet,Ungrammatical,B
+42,They not were invited to the wedding ceremony,Ungrammatical,B
+43,The bus stops not at this corner anymore,Ungrammatical,B
+44,He not might attend the graduation next week,Ungrammatical,B
+45,We saw not the movie everyone is talking about,Ungrammatical,B
+46,My brother not drinks coffee in the morning,Ungrammatical,A
+47,The flight not will arrive on time due to snow,Ungrammatical,A
+48,You not are allowed to smoke in this building,Ungrammatical,A
+49,She heard not the music from her room,Ungrammatical,A
+50,They have not enough money for a new car,Ungrammatical,A
+51,It matters not what they think of us,Ungrammatical,A
+52,I would do not that if I were you,Ungrammatical,A
+53,The sun not is shining behind those thick clouds,Ungrammatical,A
+54,We bought not any groceries at the store,Ungrammatical,A
+55,He needs not help with his homework today,Ungrammatical,A
+56,The train stops not for another hour yet,Ungrammatical,A
+57,I not can find my keys anywhere in the house,Ungrammatical,A
+58,They not are listening to the radio right now,Ungrammatical,A
+59,She not will help us move the heavy furniture,Ungrammatical,A
+60,It not was a very good idea to go out,Ungrammatical,A
