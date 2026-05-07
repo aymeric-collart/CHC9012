@@ -163,13 +163,17 @@ This week, we will learn how to arrange the dataset such that it is ready for fu
 <br>
 
 ::: {.text-center .mb-3}
-<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/CHC9012_DataImportedFromPCIbex.RData" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script</a>
+<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/CHC9012_DataImportedFromPCIbex.RData?raw=true" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script</a>
 :::
 
 <br>
 
 ::: {.text-center .mb-3}
-<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/DataPreparationAndCleaning.Rmd" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the Markdown script</a>
+<a href="Files/_Internal/DataPreparationAndCleaning.Rmd" download class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the Markdown script</a>
+:::
+
+::: {.text-center .mb-3}
+<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/DataPreparationAndCleaning.Rmd?raw=true" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the Markdown script (test)</a>
 :::
 
 ## 📝 Homework
