@@ -225,6 +225,9 @@
 <p><a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/CHC9012_DataImportedFromPCIbex.RData?raw=true" style="display: inline-block; padding: 15px 30px; background-color: #447099; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);"> 📥 Download the dataset for the script </a></p>
 <p><a href="https://aymeric-collart.github.io/CHC9012/course-materials/Files/_Internal/DataPreparationAndCleaning.Rmd" download="DataPreparationAndCleaning.Rmd" style="display: inline-block; padding: 15px 30px; border: 2px solid #447099; color: #447099; text-decoration: none; border-radius: 10px; font-weight: bold;"> 📥 Download the R Markdown script </a></p>
 </div>
+<div class="fragment fade-up">
+<p><br> 💻 Please start <code>RStudio</code> and select the project called <code>PreprocessingAnalysesR</code>.</p>
+</div>
 </section>
 <section>
 <section id="part-1-plan-what-you-need-to-do" class="title-slide slide level1 center">
@@ -261,11 +264,9 @@
 </section>
 <section id="step-1-look-at-the-imported-dataset" class="slide level2">
 <h2>Step 1: Look at the imported dataset</h2>
-<p><br></p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource diff number-lines code-with-copy"><code class="sourceCode diff"><span id="cb1-1"><a></a>load("CHC9012_DataImportedFromPCIbex.RData")</span>
 <span id="cb1-2"><a></a></span>
 <span id="cb1-3"><a></a>view(data)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><br></p>
 <div class="cell">
 <div class="cell-output-display">
 <div data-pagedtable="false">
@@ -474,17 +475,22 @@
 </section>
 <section id="calculate-the-reaction-time" class="slide level2">
 <h2>2.4 Calculate the reaction time</h2>
+<div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;">
+<div class="fragment fade-out" style="grid-area: 1 / 1;" data-fragment-index="1">
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
 <p><strong>📖 Defining reaction time</strong></p>
 </div>
 <div class="callout-content">
-<p>In this experiment, <code>Reaction time</code> = <code>Time when the judgment is made</code> - <code>Time when the sentence appeared</code></p>
+<p>In this experiment:</p>
+<p><code>Reaction time</code> = <code>Time when the judgment is made</code> - <code>Time when the sentence appeared</code></p>
 <p>Calculating the reaction time from PCIbex data requires several steps.</p>
 </div>
 </div>
 </div>
+</div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="1">
 <p>Let’s have a look at our data:</p>
 <div class="cell">
 <div class="cell-output-display">
@@ -495,8 +501,43 @@
 </div>
 </div>
 </div>
-<p>Here, <code>Reaction time</code> = “EventTime <em>when</em> <code>Parameter</code> = <code>Choice</code>” - “EventTime <em>when</em> <code>Value</code> = <code>Start</code>”. So we need to select these rows first. We stored in a temporary dataset that we call <code>RT_Prep1</code>.</p>
-<p>Under the <code>Value</code> column, we have the time for <code>Start</code>, but not for <code>Choice</code>, which is found in another column. We want to have everything under the same column. So we tell R that when in the <code>Value</code> column, the word is not <code>Start</code>, it writes <code>Choice</code> instead. Then, we delete columns when the two rows are different – we want to keep the differences minimal.</p>
+<p>How would you proceed? Let’s reflect for 10 minutes.</p>
+</div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="2">
+<h3 id="my-solution">My solution</h3>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week12_slides_files/figure-revealjs/unnamed-chunk-12-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="3">
+<h3 id="step-1-create-dataset-with-relevant-rows">Step 1: Create dataset with relevant rows</h3>
+<ul>
+<li><code>Reaction time</code> = “EventTime <em>when</em> <code>Parameter</code> = <code>Choice</code>” - “EventTime <em>when</em> <code>Value</code> = <code>Start</code>”.</li>
+<li>We select these rows, and we stored in a temporary dataset that we call <code>RT_Prep1</code>.</li>
+</ul>
+<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a>RT_Prep1 <span class="ot">&lt;-</span> data2 <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a></a>  <span class="fu">filter</span>(Parameter <span class="sc">==</span> <span class="st">"Choice"</span> <span class="sc">|</span> Value <span class="sc">==</span> <span class="st">"Start"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="4">
+<h3 id="step-2.1-prepare-dataset---annotation">Step 2.1: Prepare dataset - Annotation</h3>
+<ul>
+<li><strong><code>Value</code> column:</strong> time for <code>Start</code>, but not for <code>Choice</code>. We want to have everything under the same column.</li>
+<li><strong>New annotation:</strong> When in the <code>Value</code> column, the word is not <code>Start</code>, we write <code>Choice</code>.</li>
+<li>Then, we delete columns when the two rows are different.</li>
+</ul>
+<div class="sourceCode" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a>RT_Prep1<span class="sc">$</span>Value <span class="ot">&lt;-</span> <span class="fu">ifelse</span>(RT_Prep1<span class="sc">$</span>Value <span class="sc">==</span> <span class="st">"Start"</span>,</span>
+<span id="cb12-2"><a></a>                         <span class="st">"Start"</span>,</span>
+<span id="cb12-3"><a></a>                         <span class="st">"Choice"</span>)</span>
+<span id="cb12-4"><a></a></span>
+<span id="cb12-5"><a></a>RT_Prep1<span class="sc">$</span>PennElementType <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb12-6"><a></a>RT_Prep1<span class="sc">$</span>PennElementName <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb12-7"><a></a>RT_Prep1<span class="sc">$</span>Parameter <span class="ot">&lt;-</span> <span class="cn">NULL</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div data-pagedtable="false">
@@ -506,7 +547,15 @@
 </div>
 </div>
 </div>
-<p>To do the subtraction, we want to have the <code>EventTime</code> for <code>Start</code> and <code>Choice</code> in different columns. We use the <code>spread()</code> function from the <code>tidyr</code> library.</p>
+</div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="5">
+<h3 id="step-2.2-prepare-dataset---change-format">Step 2.2: Prepare dataset - Change format</h3>
+<ul>
+<li><strong>Subtraction:</strong> <code>EventTime</code> for <code>Start</code> and <code>Choice</code> in different columns.</li>
+<li><code>spread()</code> function from the <code>tidyr</code> library.</li>
+</ul>
+<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a><span class="fu">library</span>(tidyr)</span>
+<span id="cb13-2"><a></a>RT_Prep2 <span class="ot">&lt;-</span> <span class="fu">spread</span>(<span class="at">data =</span> RT_Prep1, Value, EventTime)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div data-pagedtable="false">
@@ -516,7 +565,13 @@
 </div>
 </div>
 </div>
-<p>Now we just have to tell R that we are dealing with numbers, and do the subtraction.</p>
+</div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="6">
+<h3 id="step-3-subtract-choice-from-start-time">Step 3: Subtract <code>Choice</code> from <code>Start</code> time</h3>
+<p>Change to numeric values, and subtract.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>RT_Prep2<span class="sc">$</span>Choice <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(RT_Prep2<span class="sc">$</span>Choice)</span>
+<span id="cb14-2"><a></a>RT_Prep2<span class="sc">$</span>Start <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(RT_Prep2<span class="sc">$</span>Start)</span>
+<span id="cb14-3"><a></a>RT_Prep2<span class="sc">$</span>RT <span class="ot">&lt;-</span> RT_Prep2<span class="sc">$</span>Choice <span class="sc">-</span> RT_Prep2<span class="sc">$</span>Start</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div data-pagedtable="false">
@@ -526,10 +581,13 @@
 </div>
 </div>
 </div>
+</div>
+<div class="fragment fade-in" style="grid-area: 1 / 1;" data-fragment-index="7">
+<h3 id="step-4-join-rt-dataset-to-main-one">Step 4: Join RT dataset to main one</h3>
 <div class="callout callout-tip no-icon callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
-<p><strong>💭 Last step</strong></p>
+<p><strong>Tip</strong></p>
 </div>
 <div class="callout-content">
 <p>We have two datasets:</p>
@@ -541,8 +599,17 @@
 </div>
 </div>
 </div>
-<p>First, we select the row where the judgment is given.</p>
-<p>Finally, we use the <code>left_join()</code> function to join these two datasets based on (a) the participant ID, and (b) the Item index.</p>
+<ul>
+<li>First, we select the row where the judgment is given.</li>
+</ul>
+<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>data3 <span class="ot">&lt;-</span> data2 <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a></a>  <span class="fu">filter</span>(Parameter <span class="sc">%in%</span> <span class="st">"Choice"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<ul>
+<li>Finally, we use the <code>left_join()</code> function to join these two datasets based on (a) the participant ID, and (b) the Item index.</li>
+</ul>
+<div class="sourceCode" id="cb16"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a></a>data3 <span class="ot">&lt;-</span> data3 <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a></a>  <span class="fu">left_join</span>(RT_Prep2 <span class="sc">%&gt;%</span> <span class="fu">select</span>(ID_1_TimeReceived, ID_2_IP, ItemNo, RT), </span>
+<span id="cb16-3"><a></a>            <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"ID_1_TimeReceived"</span>, <span class="st">"ID_2_IP"</span>, <span class="st">"ItemNo"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div data-pagedtable="false">
@@ -552,13 +619,15 @@
 </div>
 </div>
 </div>
+</div>
+</div>
 </section>
 <section id="change-the-nature-of-the-variables" class="slide level2">
 <h2>2.5 Change the nature of the variables</h2>
 <div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;">
 <div class="fragment fade-out" style="grid-area: 1 / 1;" data-fragment-index="1">
 <p>Let’s look again at our data:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   1050 obs. of  15 variables:
@@ -582,21 +651,21 @@
 </div>
 <div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="1">
 <p>Some variables correspond to <strong><em>groups</em></strong> (or categories), so we used the <code>as.factor()</code> function to group them.</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>data3<span class="sc">$</span>ID_1_TimeReceived <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>ID_1_TimeReceived)</span>
-<span id="cb13-2"><a></a>data3<span class="sc">$</span>ID_2_IP <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>ID_2_IP)</span>
-<span id="cb13-3"><a></a>data3<span class="sc">$</span>ItemNo <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>ItemNo)</span>
-<span id="cb13-4"><a></a>data3<span class="sc">$</span>Condition <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>Condition)</span>
-<span id="cb13-5"><a></a>data3<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>Group)</span>
-<span id="cb13-6"><a></a>data3<span class="sc">$</span>UserDegree <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>UserDegree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>data3<span class="sc">$</span>ID_1_TimeReceived <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>ID_1_TimeReceived)</span>
+<span id="cb19-2"><a></a>data3<span class="sc">$</span>ID_2_IP <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>ID_2_IP)</span>
+<span id="cb19-3"><a></a>data3<span class="sc">$</span>ItemNo <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>ItemNo)</span>
+<span id="cb19-4"><a></a>data3<span class="sc">$</span>Condition <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>Condition)</span>
+<span id="cb19-5"><a></a>data3<span class="sc">$</span>Group <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>Group)</span>
+<span id="cb19-6"><a></a>data3<span class="sc">$</span>UserDegree <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>UserDegree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment fade-in" style="grid-area: 1 / 1;" data-fragment-index="2">
 <p>For numerical values, we use the <code>as.numeric()</code> function.</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a></a>data3<span class="sc">$</span>Order.number.of.item <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>Order.number.of.item)</span>
-<span id="cb14-2"><a></a>data3<span class="sc">$</span>Value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>Value)</span>
-<span id="cb14-3"><a></a>data3<span class="sc">$</span>UserAge <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>UserAge)</span>
-<span id="cb14-4"><a></a>data3<span class="sc">$</span>RT <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>data3<span class="sc">$</span>Order.number.of.item <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>Order.number.of.item)</span>
+<span id="cb20-2"><a></a>data3<span class="sc">$</span>Value <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>Value)</span>
+<span id="cb20-3"><a></a>data3<span class="sc">$</span>UserAge <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>UserAge)</span>
+<span id="cb20-4"><a></a>data3<span class="sc">$</span>RT <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(data3<span class="sc">$</span>RT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Now this is our data:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   1050 obs. of  15 variables:
@@ -625,7 +694,7 @@
 <div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;">
 <div class="fragment fade-out" style="grid-area: 1 / 1;" data-fragment-index="1">
 <p>We made use of some columns when calculating the reaction time, but we do not need them anymore, and they are redundant. So here is another round of column removal!</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   1050 obs. of  15 variables:
@@ -648,13 +717,13 @@
 </div>
 </div>
 <div class="fragment fade-in" style="grid-area: 1 / 1;" data-fragment-index="1">
-<div class="sourceCode" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>data3<span class="sc">$</span>Label <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb19-2"><a></a>data3<span class="sc">$</span>PennElementType <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb19-3"><a></a>data3<span class="sc">$</span>PennElementName <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb19-4"><a></a>data3<span class="sc">$</span>Parameter <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb19-5"><a></a>data3<span class="sc">$</span>EventTime <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
-<span id="cb19-6"><a></a></span>
-<span id="cb19-7"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a>data3<span class="sc">$</span>Label <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb25-2"><a></a>data3<span class="sc">$</span>PennElementType <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb25-3"><a></a>data3<span class="sc">$</span>PennElementName <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb25-4"><a></a>data3<span class="sc">$</span>Parameter <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb25-5"><a></a>data3<span class="sc">$</span>EventTime <span class="ot">&lt;-</span> <span class="cn">NULL</span></span>
+<span id="cb25-6"><a></a></span>
+<span id="cb25-7"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   1050 obs. of  10 variables:
@@ -680,15 +749,15 @@
 <li>We import the table with the material information (used on the PCIbex platform),</li>
 <li>We use the <code>left_join()</code> function to join these two datasets based on the index of the items (here, <code>ItemNo</code>)</li>
 </ul>
-<div class="sourceCode" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a>material <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Documents/CHC9012_Spring2026/PreprocessingAnalysesR/material.csv"</span>)</span>
-<span id="cb21-2"><a></a>material<span class="sc">$</span>ItemNo <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(material<span class="sc">$</span>ItemNo)</span>
-<span id="cb21-3"><a></a></span>
-<span id="cb21-4"><a></a>data3 <span class="ot">&lt;-</span> data3 <span class="sc">%&gt;%</span></span>
-<span id="cb21-5"><a></a>  <span class="fu">left_join</span>(material <span class="sc">%&gt;%</span> <span class="fu">select</span>(ItemNo, Sentence), </span>
-<span id="cb21-6"><a></a>            <span class="at">by =</span> <span class="st">"ItemNo"</span>)</span>
-<span id="cb21-7"><a></a></span>
-<span id="cb21-8"><a></a>data3<span class="sc">$</span>Sentence <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>Sentence)</span>
-<span id="cb21-9"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a>material <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"~/Documents/CHC9012_Spring2026/PreprocessingAnalysesR/material.csv"</span>)</span>
+<span id="cb27-2"><a></a>material<span class="sc">$</span>ItemNo <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(material<span class="sc">$</span>ItemNo)</span>
+<span id="cb27-3"><a></a></span>
+<span id="cb27-4"><a></a>data3 <span class="ot">&lt;-</span> data3 <span class="sc">%&gt;%</span></span>
+<span id="cb27-5"><a></a>  <span class="fu">left_join</span>(material <span class="sc">%&gt;%</span> <span class="fu">select</span>(ItemNo, Sentence), </span>
+<span id="cb27-6"><a></a>            <span class="at">by =</span> <span class="st">"ItemNo"</span>)</span>
+<span id="cb27-7"><a></a></span>
+<span id="cb27-8"><a></a>data3<span class="sc">$</span>Sentence <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data3<span class="sc">$</span>Sentence)</span>
+<span id="cb27-9"><a></a><span class="fu">str</span>(data3)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output cell-output-stdout">
 <pre><code>'data.frame':   1050 obs. of  11 variables:
@@ -733,24 +802,11 @@
 <div style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;">
 <div class="fragment fade-out" style="grid-area: 1 / 1;" data-fragment-index="1">
 <p>We load the library:</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a></a><span class="fu">library</span>(ez)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">library</span>(ez)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="1">
-<div class="sourceCode" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="co"># Same number of item per condition for each participant? (should be '15')</span></span>
-<span id="cb24-2"><a></a><span class="fu">ezDesign</span>(data3, ID_1_TimeReceived, Condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell">
-<div class="cell-output-display">
-<div>
-<figure>
-<p><img data-src="week12_slides_files/figure-revealjs/unnamed-chunk-30-1.png" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="2">
-<div class="sourceCode" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="co"># Which participants share the same ID? (hint that this could be the same participant filling the questionnaire twice)</span></span>
-<span id="cb25-2"><a></a><span class="fu">ezDesign</span>(data3, ID_1_TimeReceived, ID_2_IP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb30"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a></a><span class="co"># Same number of item per condition for each participant? (should be '15')</span></span>
+<span id="cb30-2"><a></a><span class="fu">ezDesign</span>(data3, ID_1_TimeReceived, Condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -761,9 +817,9 @@
 </div>
 </div>
 </div>
-<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="3">
-<div class="sourceCode" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="co"># Number of times an item appeared by participant (should be '1')</span></span>
-<span id="cb26-2"><a></a><span class="fu">ezDesign</span>(data3, ID_1_TimeReceived, ItemNo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="2">
+<div class="sourceCode" id="cb31"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a></a><span class="co"># Which participants share the same ID? (hint that this could be the same participant filling the questionnaire twice)</span></span>
+<span id="cb31-2"><a></a><span class="fu">ezDesign</span>(data3, ID_1_TimeReceived, ID_2_IP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -774,9 +830,9 @@
 </div>
 </div>
 </div>
-<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="4">
-<div class="sourceCode" id="cb27"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a></a><span class="co"># Were the items well dispatched in the two lists?</span></span>
-<span id="cb27-2"><a></a><span class="fu">ezDesign</span>(data3, ItemNo, Group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="3">
+<div class="sourceCode" id="cb32"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a></a><span class="co"># Number of times an item appeared by participant (should be '1')</span></span>
+<span id="cb32-2"><a></a><span class="fu">ezDesign</span>(data3, ID_1_TimeReceived, ItemNo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -787,9 +843,9 @@
 </div>
 </div>
 </div>
-<div class="fragment fade-in" style="grid-area: 1 / 1;" data-fragment-index="5">
-<div class="sourceCode" id="cb28"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a></a><span class="co"># Were the participants well dispatched in the two lists? (should be '30')</span></span>
-<span id="cb28-2"><a></a><span class="fu">ezDesign</span>(data3, ID_1_TimeReceived, Group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="fragment fade-in-then-out" style="grid-area: 1 / 1;" data-fragment-index="4">
+<div class="sourceCode" id="cb33"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a></a><span class="co"># Were the items well dispatched in the two lists?</span></span>
+<span id="cb33-2"><a></a><span class="fu">ezDesign</span>(data3, ItemNo, Group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 <div class="cell-output-display">
 <div>
@@ -800,12 +856,25 @@
 </div>
 </div>
 </div>
+<div class="fragment fade-in" style="grid-area: 1 / 1;" data-fragment-index="5">
+<div class="sourceCode" id="cb34"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a></a><span class="co"># Were the participants well dispatched in the two lists? (should be '30')</span></span>
+<span id="cb34-2"><a></a><span class="fu">ezDesign</span>(data3, ID_1_TimeReceived, Group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week12_slides_files/figure-revealjs/unnamed-chunk-35-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
 </div>
 </section>
 <section id="save-the-prepared-dataset" class="slide level2">
 <h2>3.2 Save the prepared dataset</h2>
-<div class="sourceCode" id="cb29"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a></a><span class="fu">save</span>(data3,</span>
-<span id="cb29-2"><a></a>     <span class="at">file =</span> <span class="st">"CHC9012_PCIbexDataPrepared.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb35"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a></a><span class="fu">save</span>(data3,</span>
+<span id="cb35-2"><a></a>     <span class="at">file =</span> <span class="st">"CHC9012_PCIbexDataPrepared.RData"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>Check that the file appears in your working directory!</p>
 </section></section>
 <section id="assignment-for-next-week" class="title-slide slide level1 center">

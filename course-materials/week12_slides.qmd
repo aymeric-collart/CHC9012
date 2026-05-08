@@ -45,6 +45,10 @@ Please download the files for the content of Week 12, and place them in your `Pr
 </a>
 
 :::
+::: {.fragment .fade-up}
+<br>
+💻 Please start `RStudio` and select the project called `PreprocessingAnalysesR`.
+:::
 
 
 # 💭 Part 1: Plan what you need to do
@@ -115,14 +119,11 @@ read.pcibex <- function(filepath, auto.colnames=TRUE, fun.col=function(col,cols)
 data <- read.pcibex("../course-materials/Files/results_FAKE_FOR_CHC9012.csv")
 ```
 
-<br>
-
 ```diff
 load("CHC9012_DataImportedFromPCIbex.RData")
 
 view(data)
 ```
-<br>
 
 ```{r}
 #| echo: false
@@ -329,13 +330,21 @@ rmarkdown::paged_table(data2, options = list(rows.print = 10))
 
 ## 2.4 Calculate the reaction time
 
+::: {style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;"}
+::: {.fragment .fade-out style="grid-area: 1 / 1;" fragment-index=1}
+
 ::: {.callout-tip icon="false"}
 ## 📖 Defining reaction time
 
-In this experiment, `Reaction time` = `Time when the judgment is made` - `Time when the sentence appeared`
+In this experiment:
+
+`Reaction time` = `Time when the judgment is made` - `Time when the sentence appeared`
 
 Calculating the reaction time from PCIbex data requires several steps.
 :::
+
+:::
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=1}
 
 Let's have a look at our data:
 
@@ -346,15 +355,85 @@ data_show <- data2 %>%
 rmarkdown::paged_table(data_show, options = list(rows.print = 6))
 ```
 
-Here, `Reaction time` = "EventTime *when* `Parameter` = `Choice`" - "EventTime *when* `Value` = `Start`". So we need to select these rows first. We stored in a temporary dataset that we call `RT_Prep1`.
+How would you proceed? Let's reflect for 10 minutes.
 
+:::
+
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=2}
+
+### My solution
+
+```{tikz}
+#| echo: false
+\usetikzlibrary{arrows.meta, positioning, fit, backgrounds}
+\begin{tikzpicture}[
+    base/.style={rectangle, draw, thick, minimum width=2.8cm, minimum height=1.2cm, align=center, font=\sffamily\small},
+    main/.style={base, fill=blue!10},
+    sub/.style={base, fill=white, font=\sffamily\scriptsize, minimum width=2.2cm, minimum height=0.8cm},
+    group/.style={draw, thick, dashed, inner sep=8pt, rounded corners, fill=gray!2},
+    arrow/.style={-{Stealth[scale=1.2]}, thick}
+]
+
+    % Main Path
+    \node (b1) [main] {Create dataset with \\relevant rows};
+    \node (b2) [main, right=1.2cm of b1] {Prepare dataset \\for computation};
+    \node (b4) [main, right=1.2cm of b2] {Subtract `Choice` \\from `Start` time};
+    \node (b5) [main, right=1.2cm of b4] {Join RT dataset \\to main one};
+
+    % Subblocks (Vertical under b2)
+    \node (s3a) [sub, below=0.8cm of b2] {Annotate};
+    \node (s3b) [sub, below=0.2cm of s3a] {Change format};
+
+    % Container for Block 3
+    \begin{scope}[on background layer]
+        \node (b3) [group, fit=(s3a) (s3b)] {};
+        \node [left=0.1cm of b3, font=\sffamily\itshape, text=gray] {Sub-steps};
+    \end{scope}
+
+    % Arrows
+    \draw [arrow] (b1) -- (b2);
+    \draw [arrow] (b2) -- (b4);
+    \draw [arrow] (b4) -- (b5);
+    
+    % Connecting the sub-steps logic
+    \draw [arrow, dashed, gray] (b2) -- (b3);
+
+\end{tikzpicture}
+```
+
+:::
+
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=3}
+### Step 1: Create dataset with relevant rows
+
+-  `Reaction time` = "EventTime *when* `Parameter` = `Choice`" - "EventTime *when* `Value` = `Start`".
+-  We select these rows, and we stored in a temporary dataset that we call `RT_Prep1`.
+
+```r
+RT_Prep1 <- data2 %>%
+  filter(Parameter == "Choice" | Value == "Start")
+```
 ```{r}
 RT_Prep1 <- data2 %>%
   filter(Parameter == "Choice" | Value == "Start")
 ```
+:::
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=4}
+### Step 2.1: Prepare dataset - Annotation
 
-Under the `Value` column, we have the time for `Start`, but not for `Choice`, which is found in another column. We want to have everything under the same column. So we tell R that when in the `Value` column, the word is not `Start`, it writes `Choice` instead. Then, we delete columns when the two rows are different -- we want to keep the differences minimal.
+-  **`Value` column:** time for `Start`, but not for `Choice`. We want to have everything under the same column.
+-  **New annotation:** When in the `Value` column, the word is not `Start`, we write `Choice`.
+-  Then, we delete columns when the two rows are different.
 
+```r
+RT_Prep1$Value <- ifelse(RT_Prep1$Value == "Start",
+                         "Start",
+                         "Choice")
+
+RT_Prep1$PennElementType <- NULL
+RT_Prep1$PennElementName <- NULL
+RT_Prep1$Parameter <- NULL
+```
 ```{r}
 RT_Prep1$Value <- ifelse(RT_Prep1$Value == "Start",
                          "Start",
@@ -372,13 +451,20 @@ RT_Show <- RT_Prep1 %>%
   select(Value, EventTime, ItemNo)
 rmarkdown::paged_table(RT_Show, options = list(rows.print = 6))
 ```
+:::
 
-To do the subtraction, we want to have the `EventTime` for `Start` and `Choice` in different columns. We use the `spread()` function from the `tidyr` library.
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=5}
+### Step 2.2: Prepare dataset - Change format
+-  **Subtraction:** `EventTime` for `Start` and `Choice` in different columns.
+-  `spread()` function from the `tidyr` library.
 
+```r
+library(tidyr)
+RT_Prep2 <- spread(data = RT_Prep1, Value, EventTime)
+```
 ```{r}
 library(tidyr)
 RT_Prep2 <- spread(data = RT_Prep1, Value, EventTime)
-
 ```
 
 ```{r}
@@ -388,9 +474,16 @@ RT_Show <- RT_Prep2 %>%
   select(ItemNo, Start, Choice)
 rmarkdown::paged_table(RT_Show, options = list(rows.print = 6))
 ```
+:::
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=6}
+### Step 3: Subtract `Choice` from `Start` time
+Change to numeric values, and subtract.
 
-Now we just have to tell R that we are dealing with numbers, and do the subtraction.
-
+```r
+RT_Prep2$Choice <- as.numeric(RT_Prep2$Choice)
+RT_Prep2$Start <- as.numeric(RT_Prep2$Start)
+RT_Prep2$RT <- RT_Prep2$Choice - RT_Prep2$Start
+```
 ```{r}
 RT_Prep2$Choice <- as.numeric(RT_Prep2$Choice)
 RT_Prep2$Start <- as.numeric(RT_Prep2$Start)
@@ -404,10 +497,12 @@ RT_Show <- RT_Prep2 %>%
   select(ItemNo, Start, Choice, RT)
 rmarkdown::paged_table(RT_Show, options = list(rows.print = 6))
 ```
+:::
+
+::: {.fragment .fade-in style="grid-area: 1 / 1;" fragment-index=7}
+### Step 4: Join RT dataset to main one
 
 ::: {.callout-tip icon="false"}
-## 💭 Last step
-
 We have two datasets:
 
 -  `data2`, with the judgment data, but ***not*** the reaction time,
@@ -416,15 +511,22 @@ We have two datasets:
 We just need to join them based on their common minimal value: 1 different trial per participant.
 :::
 
-First, we select the row where the judgment is given.
-
+-  First, we select the row where the judgment is given.
+```r
+data3 <- data2 %>%
+  filter(Parameter %in% "Choice")
+```
 ```{r}
 data3 <- data2 %>%
   filter(Parameter %in% "Choice")
 ```
 
-Finally, we use the `left_join()` function to join these two datasets based on (a) the participant ID, and (b) the Item index.
-
+-  Finally, we use the `left_join()` function to join these two datasets based on (a) the participant ID, and (b) the Item index.
+```r
+data3 <- data3 %>%
+  left_join(RT_Prep2 %>% select(ID_1_TimeReceived, ID_2_IP, ItemNo, RT), 
+            by = c("ID_1_TimeReceived", "ID_2_IP", "ItemNo"))
+```
 ```{r}
 data3 <- data3 %>%
   left_join(RT_Prep2 %>% select(ID_1_TimeReceived, ID_2_IP, ItemNo, RT), 
@@ -437,7 +539,10 @@ RT_Show <- data3 %>%
   select(ID_1_TimeReceived, ItemNo, Value, RT, Condition)
 rmarkdown::paged_table(RT_Show, options = list(rows.print = 25))
 ```
+:::
+:::
 
+---
 
 ## 2.5 Change the nature of the variables
 
