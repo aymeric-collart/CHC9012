@@ -28,7 +28,8 @@ website:
         href: course-materials/week1.qmd
       - text: "Assignments"
         menu:
-          - assignments/hw1.qmd
+          - hw1.qmd
+          - hw2.qmd
     right:
       - icon: github
         href: https://github.com/aymeric-collart/CHC9012

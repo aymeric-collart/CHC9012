@@ -1,3 +1,18 @@
 ---
-title: "Untitled"
+title: "Overview of the assignments"
+subtitle: "CHC9012 | National Taiwan Normal University"
+editor: source
 ---
+
+Here you can find an overview of the assignments to submit before the final week:
+
+- [ ] **Assignment 1:** Please take the mandatory online ethics classes and pass the examination. (6 hours of training)
+- [ ] **Assignment 2:** Short draft of your final project (max. 2 pages)
+- [ ] **Assignment 3:** List of items of your own questionnaire
+- [ ] **Assignment 4:** Annotation of the basic tutorial of PCIbex
+- [ ] **Assignment 5:** Annotation of the advanced tutorial of PCIbex
+- [ ] **Assignment 6:** Annotation of the first R script
+- [ ] **Assignment 7:** Annotation of the R markdown file for data arranging
+- [ ] **Assignment 8:** Annotation of the R markdown file for data exploration
+- [ ] **Assignment 9:** Annotation of the R markdown file for data visualization
+- [ ] **Assignment 10:** The markdown file(s) for your own data
