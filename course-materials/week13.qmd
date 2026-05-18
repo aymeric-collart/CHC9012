@@ -3,4 +3,650 @@ title: "Week 13 - Exploring the data"
 format: html
 ---
 
-[To complete later]
+```{=html}
+<style>
+  
+  /* Tabset Styling */
+  .nav-tabs {
+    border-bottom: 2px solid #ecf0f1;
+    margin-top: 1em;
+    margin-bottom: 30px;
+  }
+.nav-tabs .nav-link {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #95a5a6;
+    border: none;
+  padding: 15px 25px;
+  transition: all 0.3s ease;
+}
+.nav-tabs .nav-link:hover {
+  color: #2c3e50;
+    border: none;
+}
+.nav-tabs .nav-link.active {
+  color: #3498db !important;
+    background: none;
+  border: none;
+  border-bottom: 4px solid #3498db;
+}
+
+/* Stunning Headers */
+  
+  h2 {
+    margin-top: 1.8em;
+    color: #2980b9;
+      font-weight: 600;
+  }
+h3 {
+  margin-top: 1.5em;
+  color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Floating Images with Animations */
+  img {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    margin: 2rem auto;
+    display: block;
+  }
+img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
+}
+
+/* Elegant Gradient Divider */
+  hr.rounded {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
+    margin: 4rem 0;
+  }
+
+/* Pro Code Styling */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    color: #e74c3c;
+      background-color: #fdf2f0;
+      padding: 3px 6px;
+    border-radius: 5px;
+  }
+pre code {
+  color: #333;
+    background-color: transparent;
+}
+
+/* Clean Tables */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin: 2rem 0;
+  }
+th {
+  background-color: #3498db;
+    color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  font-weight: 600;
+}
+td {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* Emphasized bolding */
+  b, strong {
+    color: #2c3e50;
+      font-weight: 700;
+  }
+  
+  .panel-tabset .nav-tabs, 
+  .panel-tabset .nav-pills {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    border-bottom: 1px solid #dee2e6; /* Keeps the line consistent */
+  }
+
+  /* Optional: Hide the scrollbar for a cleaner look while keeping the functionality */
+  .panel-tabset .nav-tabs::-webkit-scrollbar,
+  .panel-tabset .nav-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .panel-tabset .nav-item {
+    white-space: nowrap; /* Prevents text inside tabs from breaking into two lines */
+  }
+</style>
+```
+
+## Overview
+
+This week, we will learn how to explore our results file.
+
+::::: panel-tabset
+## 🎯 Goals
+
+**Explore your results:**
+
+-   **Preprocessing:** How to identify outliers to have a clean dataset?
+-   **Analyses:** How to look at the results based on the experimental design?
+-   **Explorations:** How to check unexpected results?
+
+## 💻 Necessary codes and dataset
+
+**A brief summary of this week's new functions:**
+
+-  `plot()`: Generates scatter plots and boxplots.
+-  `length()`: Returns the number of elements or items in a vector or factor level.
+-  `subset()`: Filters a data frame to return only the rows or columns that meet specific conditions.
+-  `c()`: Combine/Concatenate function; used here to group column names into a vector.
+-  `unique()`: Removes duplicate rows or elements from an object.
+-  `table()`: Creates contingency tables to show the counts/frequencies of factor levels.
+-  `aggregate()`: Splits data into subsets and computes summary statistics (used to find the mean reaction time per participant).
+-  `droplevels()`: Drops unused levels from a factor variable, usually after subsetting data.
+-  `ave()`: Computes sub-group statistics (like group means or standard deviations) and returns a vector matching the original data length.
+-  `sd()`: Calculates the standard deviation of a set of numbers.
+-  `nrow()`: Counts the total number of rows in a data frame.
+-  `as.data.frame()`: Converts an object (like a table) into a standard data frame format.
+-  `summarySE()`: Gives a summary of the data (count, mean, SD, SE) based on several values.
+
+
+<br>
+
+::: {.text-center .mb-3}
+<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/CHC9012_PCIbexDataPrepared.RData?raw=true" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script</a>
+:::
+
+<br>
+
+::: {.text-center .mb-3}
+<a href="Files/_Internal/DataExploration.Rmd" download class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the Markdown script</a>
+:::
+
+## 📝 Homework
+
+**Please complete the following tasks before our next meeting:**
+
+-  [  ] Download the Markdown script
+-  [  ] Annotate each line of the script
+-  [  ] Knit into a PDF document, and upload on Moodle
+:::::
+
+::: {.text-center .mb-4}
+<a href="week13_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week's tutorial</a>
+:::
+
+<br>
+
+# 👀 Part 1: Have an overview of the results
+
+::: {.callout-tip icon="true"}
+## 🤔 Why it is a good idea to have an overall view of results
+
+Even if we have an idea of what the results may look like based on our hypotheses, we should never forget that we are dealing with human behavior, and that something unexpected can happen. While our observations can (and should) be driven by our hypotheses, we need to keep an open mind!
+:::
+
+First, we need to load the data that we have already prepared last week, in addition to the two necessary libraries:
+
+```{r}
+#| message: false
+#| warning: false
+
+load(file = "CHC9012_PCIbexDataPrepared.RData")
+
+library(ez)
+library(dplyr)
+library(Rmisc)
+```
+
+We are digging into different ways to have a first idea of the results below:
+
+-  Overall results based on the experimental design
+-  Overall results by participant
+-  Overall results by item
+-  How to look at the background of the participants
+
+::::: {.panel-tabset .nav-pills .tabset-fade group="pipeline"}
+## 1.1 Overall results, design-based
+
+-  **We can have a first look at the ratings by condition:**
+
+```{r}
+plot(data3$Value ~ data3$Condition)
+```
+
+The `plot()` function gives us a *boxplot*.
+
+::: {.callout-important icon="true"}
+## How to read it?
+
+-  **Thick horizontal line:** This is the *median*, indicating the mean rating.
+-  **Grey boxes:** This is the *interquartile range*, indicating where the middle 50% of the ratings are. 
+-  **Dashed lines:** These are the *whiskers*, indicating scores outside the middle 50%.
+:::
+
+The median ratings for Grammatical sentences is 5, and for Ungrammatical sentences 4. We would expect a wider difference, and this suggests that there is something happening with our data.
+
+- **We can also look at the RT by condition:**
+
+```{r}
+plot(data3$RT ~ data3$Condition)
+```
+
+Can you see the dots? These are the ***outlier trials***. We cannot see a clear pattern because of them. We can decide not to plot the outliers by specifying it as below:
+
+```{r}
+plot(data3$RT ~ data3$Condition, outline = FALSE)
+```
+
+We cannot see great differences between the conditions. 
+
+::: {.callout-important icon="true"}
+## Did you see that?
+
+Did you remark the *y axis* (on the left)? This indicates that the participants took around 800 milliseconds to judge the sentences, which is quite strange. Again, this suggests that there is something weird happening with our dataset.
+:::
+
+## 1.2 Overall results by participant
+
+**We can look at the overall results for each participants using the same `plot()` function:**
+
+-  Here are the **judgments by each participant**. We can see that there is variation, but this is often seen in acceptability judgment experiments.
+
+```{r}
+plot(data3$Value ~ data3$ID_1_TimeReceived)
+```
+
+-  Here is the **reaction time by each participant**. 
+
+```{r}
+plot(data3$RT ~ data3$ID_1_TimeReceived, outline = FALSE)
+```
+
+::: {.callout-important icon="true"}
+## Did you see that?
+
+-  It is visually clear that there are two types of participants: (1) One group read and judged the sentences very quickly, spending the same anount of time for each sentence, and this is quite suspicious, (2) another group that took more time, and they took different amount of time to read and judge each sentence. This is a human-like behavior.
+
+-  Do you remember the problem with *y axis* when looking at the overall pattern? Now we know where it comes from. We are dealing with a group of participants with a weird behavior (*hint:* these are the data from an AI robot).
+:::
+
+## 1.3 Overall results by item
+
+-  Here are the **judgments by each item**. Again, there is variation in the results, but this is often seen in acceptability judgment experiments.
+
+```{r}
+plot(data3$Value ~ data3$ItemNo)
+```
+
+-  Here is the **reaction time by each participant**. Some items were judged very quickly, but this is surely driven by the weird group of participants.
+
+```{r}
+plot(data3$RT ~ data3$ItemNo, outline = FALSE)
+```
+
+## 1.4 How to look at the background of the participants
+
+Finally, we would like to have more information about the participants themselves:
+
+-  Here is the code to obtain the **number of participants**:
+
+```{r}
+## Number of participants
+length(levels(data3$ID_1_TimeReceived))
+```
+
+-  Here is the code to obtain the information about the **age of the participants**:
+
+```{r}
+## Age of participants
+summary(data3$UserAge)
+```
+
+-  Here is the code to obtain the summary table of the **highest level of education of the participants**:
+
+```{r}
+## Degree of participants
+DegreePart <- subset(data3, select = c(ID_1_TimeReceived, UserDegree))
+DegreePart <- unique(DegreePart)
+table(DegreePart$UserDegree)
+```
+
+:::::
+
+<hr>
+
+# 🤯 Part 2: Identify and remove outliers
+
+## 2.1. Identify and remove non-valid participants
+
+Thanks to our first overview of the results, we know that the data from some participants are not valid. In this part, we will see how to identify and remove their data.
+
+::: {.callout-important icon="true"}
+## ⚠️ Be careful
+
+We need to be careful when removing data, especially not to remove too much! The challenge is that there is no absolute established rule. We will see in the following sections that we need to rely on converging evidence to be more confident and ***justify our choice***.
+:::
+
+We can use different types of evidence to identify non-valid participants:
+
+-  Based on abnormal mean reaction time,
+-  Based on shared IPs (shared device),
+-  Based on the observation of specific participants.
+
+::::: {.panel-tabset .nav-pills .tabset-fade group="pipeline"}
+## Abnormal RT
+
+Let's have a look one more time at the plot indicating that there are RT problems.
+
+```{r}
+plot(data3$RT ~ data3$ID_1_TimeReceived, outline = FALSE)
+```
+
+To have a more precise idea, we can look at the mean RT by participant.
+
+```{r}
+PartMeanRT <- aggregate(RT ~ ID_1_TimeReceived,
+                        data = data3,
+                        FUN = mean)
+
+print(PartMeanRT)
+```
+
+This confirms that there are many participants whose mean RT is around 800 milliseconds. Let's have a closer look at this group using the following code.
+
+```{r}
+data_QuickPart <- subset(PartMeanRT, RT < 1000)
+data_QuickPart_FullData <- subset(data3,
+                                  ID_1_TimeReceived %in% data_QuickPart$ID_1_TimeReceived)
+
+plot(data_QuickPart_FullData$RT ~ data_QuickPart_FullData$ID_1_TimeReceived, outline = FALSE)
+```
+
+The fact that the variation is so small is very suspicious. It means that the participants were precise enough to judge the sentences very quickly and at the same rate. To me, this suggests that the participants were just pressing one or two buttons on the keyboard to finish the experiment as quickly as possible. 
+
+Therefore, we can expect that these participants did not give very different ratings when comparing Grammatical and Ungrammatical conditions. Let's have a look at this.
+
+```{r}
+plot(data_QuickPart_FullData$Value ~ data_QuickPart_FullData$Condition)
+```
+
+To make sure that we are not removing too much, we can have a look at the other group:
+
+```{r}
+data_OtherPart <- subset(PartMeanRT, RT > 1000)
+data_OtherPart_FullData <- droplevels(subset(data3,
+                                             ID_1_TimeReceived %in% data_OtherPart$ID_1_TimeReceived))
+
+plot(data_OtherPart_FullData$RT ~ data_OtherPart_FullData$ID_1_TimeReceived, outline = FALSE)
+plot(data_OtherPart_FullData$Value ~ data_OtherPart_FullData$Condition)
+```
+
+The between-participant variation looks like human behavior, and the ratings are quite expected.
+
+## Shared IPs
+
+Another piece of evidence may come from shared IPs (shared device). Indeed, if some participants wanted to finish the experiments very quickly, and if completing the experiment was awarded compensation, it is possible that they completed the experiment several times using the same device.
+
+Let's have a look at the "abnormal behavior" group.
+
+```{r}
+ezDesign(data_QuickPart_FullData, ID_1_TimeReceived, ID_2_IP)
+```
+
+We can see that different participants share the same IP.
+
+Now let's have a look at the other group.
+
+```{r}
+ezDesign(data_OtherPart_FullData, ID_1_TimeReceived, ID_2_IP)
+```
+
+Only two participants share the same IP, but not other ones.
+
+## Look at specific participants
+
+Sometimes, it is useful to inspect specific participants. Here's the code to do so:
+
+```{r}
+IndPart <- subset(data_OtherPart_FullData,
+                  ID_1_TimeReceived == levels(data_OtherPart_FullData$ID_1_TimeReceived)[9])
+
+plot(IndPart$RT ~ IndPart$Condition)
+plot(IndPart$Value ~ IndPart$Condition)
+```
+
+:::::
+
+
+::: {.callout-note icon="true"}
+## Conclusion
+
+We have converging evidence to say that one group's behavior is very different. Therefore, the analyses will be conducted on the group of participants whose behavior indicates that they paid attention to the experiment itself.
+:::
+
+
+
+## 2.2: Identify and remove non-valid trials
+
+Once we identified and removed data from non-valid participants, we can remove outlier trials. Here is an overview of the process:
+
+```{tikz}
+#| echo: false
+\usetikzlibrary{arrows.meta, positioning, fit, backgrounds}
+\begin{tikzpicture}[
+    base/.style={rectangle, draw, thick, minimum width=2.8cm, minimum height=1.2cm, align=center, font=\sffamily\small},
+    main/.style={base, fill=blue!10},
+    sub/.style={base, fill=white, font=\sffamily\scriptsize, minimum width=2.2cm, minimum height=0.8cm},
+    group/.style={draw, thick, dashed, inner sep=8pt, rounded corners, fill=gray!2},
+    arrow/.style={-{Stealth[scale=1.2]}, thick}
+]
+
+    % Main Path
+    \node (b1) [main] {Remove based on \\absolute values};
+    \node (b2) [main, right=1.2cm of b1] {Remove based on \\relative values\\(standard deviation)};
+    \node (b4) [main, right=1.2cm of b2] {Calculate porportion\\of removed data\\(below or around 5 percent)};
+
+    % Arrows
+    \draw [arrow] (b1) -- (b2);
+    \draw [arrow] (b2) -- (b4);
+
+\end{tikzpicture}
+```
+
+::::: {.panel-tabset .nav-pills .tabset-fade group="pipeline"}
+## Remove based on absolute values
+
+This step means that we want to remove data whose RT is below or above a certain value. There is no absolute rule regarding the value to adopt, and this is very specific to each experiment. In our case, we want to remove trials whose RT is below 200 milliseconds and above 20,000 milliseconds (20 seconds).
+
+```{r}
+data_OtherPart_CleanAbsolute <- subset(data_OtherPart_FullData, RT > 200 & RT < 20000)
+```
+
+
+## Remove based on relative values
+
+Removing based on relative values means that we are looking at specific patterns from each participant and from each condition.
+
+In experimental linguistics research, the usual way to go is to look at the mean RT of each condition for each participant, and then we remove trials that are too far from the mean. To do that, we remove trials which are below or above 2.5 times the deviation time from the means.
+
+The following code illustrates how to do that:
+
+```{r}
+# Calculate the mean per Participant and Condition
+data_OtherPart_CleanAbsolute$m_rt <- ave(data_OtherPart_CleanAbsolute$RT, 
+                                         data_OtherPart_CleanAbsolute$ID_1_TimeReceived, 
+                                         data_OtherPart_CleanAbsolute$Condition, 
+                                         FUN = mean)
+
+# 2. Calculate the SD per Participant and Condition
+data_OtherPart_CleanAbsolute$sd_rt <- ave(data_OtherPart_CleanAbsolute$RT, 
+                                          data_OtherPart_CleanAbsolute$ID_1_TimeReceived, 
+                                          data_OtherPart_CleanAbsolute$Condition, 
+                                          FUN = sd)
+
+# 3. Subset the data to remove outliers
+data_OtherPart_CleanAbsoluteRelative <- subset(data_OtherPart_CleanAbsolute, 
+                                               RT >= (m_rt - 2.5 * sd_rt) & 
+                                                 RT <= (m_rt + 2.5 * sd_rt))
+```
+
+
+## Calculate the proportion of removed trials
+
+Finally, to make sure that we did not remove too many trials.
+
+```{r}
+FullData_NbTrials <- nrow(data_OtherPart_FullData)
+TrimmedData_NbTrials <- nrow(data_OtherPart_CleanAbsoluteRelative)
+
+# Number of trimmed trials
+NbTrimmedTrials <- FullData_NbTrials - TrimmedData_NbTrials
+NbTrimmedTrials
+
+# Proportion (%)
+NbTrimmedTrials*100/FullData_NbTrials
+```
+
+The proportion is below 5%, which is acceptable in experimental linguistics.
+
+:::::
+
+
+<hr>
+
+# 📊 Part 3: Analyses and explorations of the clean results
+
+Now that we have a very clean dataset, we are ready to look at the results of our experiment.
+
+::::: {.panel-tabset .nav-pills .tabset-fade group="pipeline"}
+
+## 3.1: Design-based analyses
+
+This is a simple experiment, including grammatical and ungrammatical sentences. The ungrammatical sentences were created by placing the negation marker 'not' in non-canonical places within the sentence.
+
+Therefore, we may expect that grammatical sentences are accepted, while ungrammatical sentences are rejected.
+
+```{r}
+plot(data_OtherPart_CleanAbsoluteRelative$Value ~ data_OtherPart_CleanAbsoluteRelative$Condition)
+
+summarySE(data_OtherPart_CleanAbsoluteRelative,
+          measurevar = "Value",
+          groupvars = "Condition")
+```
+
+::: {.callout-note icon="true"}
+## Observations
+
+-  **Grammatical condition:** The boxplot shows that most of the ratings are above 6, which is expected. There are outliers, but this is very common in experimental linguistics.
+
+-  **Ungrammatical condition:** While the low ratings are expected, there are more variations, as suggested by the boxplot and the higher standard deviation (SD).
+:::
+
+
+```{r}
+plot(data_OtherPart_CleanAbsoluteRelative$RT ~ data_OtherPart_CleanAbsoluteRelative$Condition, outline = FALSE)
+
+summarySE(data_OtherPart_CleanAbsoluteRelative,
+          measurevar = "RT",
+          groupvars = "Condition")
+```
+
+Even after cleaning the data, we can observe the same tendency. The RTs do not greatly differ accross the conditions.
+
+
+## 3.2: Exploratory analyses
+
+::: {.callout-note icon="true"}
+## Why exloring the data?
+
+We observed more variation in the ungrammatical condition. The next step is to understand the source of such variation.
+
+We already did our best with the participants, so it is likely to be **related to the sentences**.
+:::
+
+-  Let's first have a closer look at the **Grammatical condition**:
+
+```{r}
+data_Grammatical <- droplevels(subset(data_OtherPart_CleanAbsoluteRelative,
+                                        Condition == "Grammatical"))
+
+plot(data_Grammatical$Value ~ data_Grammatical$ItemNo)
+```
+
+There are two to three sentences with slightly different ratings, but overall the ratings are quite consistent.
+
+-  Now let's look at the **Ungrammatical condition**:
+
+```{r}
+data_Ungrammatical <- droplevels(subset(data_OtherPart_CleanAbsoluteRelative,
+                                        Condition == "Ungrammatical"))
+
+plot(data_Ungrammatical$Value ~ data_Ungrammatical$ItemNo)
+```
+
+While most of the sentences are rejected, this is not the case for some. **This is the source of variation.**
+
+It could be tempting to remove them from the analyses, but this is a very bad idea. First, we have no reason to remove them. Second, they provide potentially interesting information. Especially, ***why are there ratings different?***
+
+To answer this question, we need to look even closer at these divergent sentences. Here is the code to do so:
+
+```{r}
+# Exploration of divergent ungrammatical sentences
+data_Ungrammatical_OutlierValue <- subset(data_Ungrammatical, Value > 4)
+
+data_Ungrammatical_OutlierValue_Summary <- droplevels(subset(data_Ungrammatical_OutlierValue,
+                                                  select = c(ID_1_TimeReceived,
+                                                             ItemNo,
+                                                             Sentence)))
+data_Ungrammatical_OutlierValue_Summary <- unique(data_Ungrammatical_OutlierValue_Summary)
+data_Ungrammatical_OutlierValue_Overview <- table(data_Ungrammatical_OutlierValue_Summary$ItemNo)
+
+data_Ungrammatical_OutlierValue_Overview
+```
+
+The numbers in the upper row indicate the ID of the sentences. The numbers in the lower row correspond to the number of participants who gave a rating higher than 4.
+
+For many outliers, only one participant gave a rating. This means that we should recruit more participants to make sure that the patterns is really stable. For the moment, we can focus on the sentences who received higher ratings by more than two participants. Here is the code:
+
+```{r}
+# Identify which ungrammatical sentences
+data_Ungrammatical_OutlierValue_Overview <- as.data.frame(data_Ungrammatical_OutlierValue_Overview)
+names(data_Ungrammatical_OutlierValue_Overview)[1] <- "ItemNo"
+
+data_Ungrammatical_OutlierValue_Overview <- droplevels(subset(data_Ungrammatical_OutlierValue_Overview, Freq > 2))
+
+data_Ungrammatical_OutlierValue_Overview <- left_join(data_Ungrammatical_OutlierValue_Overview, 
+                                                      data_Ungrammatical, 
+                                                      by = "ItemNo")
+OutlierUngrammaticalSentences <- unique(data_Ungrammatical_OutlierValue_Overview$Sentence)
+OutlierUngrammaticalSentences
+```
+
+Now it is the role of the linguist to analyze what is happening with these particular sentences!
+
+:::::
+
+<hr>
+
+::: {.callout-important icon="true"}
+## 📝 Assignment for next week
+
+Please complete the following tasks before our next meeting:
+
+-  [  ] Download the Markdown script
+-  [  ] Annotate each line of the script
+-  [  ] Knit into a PDF document, and upload on Moodle
+:::

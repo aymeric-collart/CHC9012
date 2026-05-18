@@ -146,7 +146,7 @@ data3 <- data3 %>%
 # Same number of item per condition for each participant? (should be '15')
 ezDesign(data3, ID_1_TimeReceived, Condition)
 
-# Which participants share the same ID? (hint that this could be the same participant filling the questionnaire twice)
+# Which participants share the same IP? (hint that this could be the same participant filling the questionnaire twice)
 ezDesign(data3, ID_1_TimeReceived, ID_2_IP)
 
 # Number of times an item appeared by participant (should be '1')

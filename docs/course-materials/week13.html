@@ -20,6 +20,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -454,8 +489,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#overview" id="toc-overview" class="nav-link active" data-scroll-target="#overview">Overview</a></li>
+  <li><a href="#part-1-have-an-overview-of-the-results" id="toc-part-1-have-an-overview-of-the-results" class="nav-link" data-scroll-target="#part-1-have-an-overview-of-the-results">👀 Part 1: Have an overview of the results</a></li>
+  <li><a href="#part-2-identify-and-remove-outliers" id="toc-part-2-identify-and-remove-outliers" class="nav-link" data-scroll-target="#part-2-identify-and-remove-outliers">🤯 Part 2: Identify and remove outliers</a>
+  <ul class="collapse">
+  <li><a href="#identify-and-remove-non-valid-participants" id="toc-identify-and-remove-non-valid-participants" class="nav-link" data-scroll-target="#identify-and-remove-non-valid-participants">2.1. Identify and remove non-valid participants</a></li>
+  <li><a href="#identify-and-remove-non-valid-trials" id="toc-identify-and-remove-non-valid-trials" class="nav-link" data-scroll-target="#identify-and-remove-non-valid-trials">2.2: Identify and remove non-valid trials</a></li>
+  </ul></li>
+  <li><a href="#part-3-analyses-and-explorations-of-the-clean-results" id="toc-part-3-analyses-and-explorations-of-the-clean-results" class="nav-link" data-scroll-target="#part-3-analyses-and-explorations-of-the-clean-results">📊 Part 3: Analyses and explorations of the clean results</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -480,9 +528,865 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>[To complete later]</p>
+<style>
+  
+  /* Tabset Styling */
+  .nav-tabs {
+    border-bottom: 2px solid #ecf0f1;
+    margin-top: 1em;
+    margin-bottom: 30px;
+  }
+.nav-tabs .nav-link {
+  font-weight: 700;
+  font-size: 1.1em;
+  color: #95a5a6;
+    border: none;
+  padding: 15px 25px;
+  transition: all 0.3s ease;
+}
+.nav-tabs .nav-link:hover {
+  color: #2c3e50;
+    border: none;
+}
+.nav-tabs .nav-link.active {
+  color: #3498db !important;
+    background: none;
+  border: none;
+  border-bottom: 4px solid #3498db;
+}
+
+/* Stunning Headers */
+  
+  h2 {
+    margin-top: 1.8em;
+    color: #2980b9;
+      font-weight: 600;
+  }
+h3 {
+  margin-top: 1.5em;
+  color: #2c3e50;
+    font-weight: 600;
+}
+
+/* Floating Images with Animations */
+  img {
+    border-radius: 12px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.4s ease;
+    margin: 2rem auto;
+    display: block;
+  }
+img:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 15px 35px rgba(52,152,219,0.2);
+}
+
+/* Elegant Gradient Divider */
+  hr.rounded {
+    border: 0;
+    height: 2px;
+    background-image: linear-gradient(to right, rgba(0,0,0,0), rgba(52,152,219,0.5), rgba(0,0,0,0));
+    margin: 4rem 0;
+  }
+
+/* Pro Code Styling */
+  code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+    color: #e74c3c;
+      background-color: #fdf2f0;
+      padding: 3px 6px;
+    border-radius: 5px;
+  }
+pre code {
+  color: #333;
+    background-color: transparent;
+}
+
+/* Clean Tables */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    margin: 2rem 0;
+  }
+th {
+  background-color: #3498db;
+    color: white;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 15px;
+  font-weight: 600;
+}
+td {
+  background-color: white;
+  padding: 15px;
+  border-bottom: 1px solid #ecf0f1;
+}
+
+/* Emphasized bolding */
+  b, strong {
+    color: #2c3e50;
+      font-weight: 700;
+  }
+  
+  .panel-tabset .nav-tabs, 
+  .panel-tabset .nav-pills {
+    display: flex !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on mobile */
+    border-bottom: 1px solid #dee2e6; /* Keeps the line consistent */
+  }
+
+  /* Optional: Hide the scrollbar for a cleaner look while keeping the functionality */
+  .panel-tabset .nav-tabs::-webkit-scrollbar,
+  .panel-tabset .nav-pills::-webkit-scrollbar {
+    display: none;
+  }
+
+  .panel-tabset .nav-item {
+    white-space: nowrap; /* Prevents text inside tabs from breaking into two lines */
+  }
+</style>
+<section id="overview" class="level2">
+<h2 class="anchored" data-anchor-id="overview">Overview</h2>
+<p>This week, we will learn how to explore our results file.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">🎯 Goals</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">💻 Necessary codes and dataset</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">📝 Homework</a></li></ul>
+<div class="tab-content">
+<div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
+<p><strong>Explore your results:</strong></p>
+<ul>
+<li><strong>Preprocessing:</strong> How to identify outliers to have a clean dataset?</li>
+<li><strong>Analyses:</strong> How to look at the results based on the experimental design?</li>
+<li><strong>Explorations:</strong> How to check unexpected results?</li>
+</ul>
+</div>
+<div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
+<p><strong>A brief summary of this week’s new functions:</strong></p>
+<ul>
+<li><code>plot()</code>: Generates scatter plots and boxplots.</li>
+<li><code>length()</code>: Returns the number of elements or items in a vector or factor level.</li>
+<li><code>subset()</code>: Filters a data frame to return only the rows or columns that meet specific conditions.</li>
+<li><code>c()</code>: Combine/Concatenate function; used here to group column names into a vector.</li>
+<li><code>unique()</code>: Removes duplicate rows or elements from an object.</li>
+<li><code>table()</code>: Creates contingency tables to show the counts/frequencies of factor levels.</li>
+<li><code>aggregate()</code>: Splits data into subsets and computes summary statistics (used to find the mean reaction time per participant).</li>
+<li><code>droplevels()</code>: Drops unused levels from a factor variable, usually after subsetting data.</li>
+<li><code>ave()</code>: Computes sub-group statistics (like group means or standard deviations) and returns a vector matching the original data length.</li>
+<li><code>sd()</code>: Calculates the standard deviation of a set of numbers.</li>
+<li><code>nrow()</code>: Counts the total number of rows in a data frame.</li>
+<li><code>as.data.frame()</code>: Converts an object (like a table) into a standard data frame format.</li>
+<li><code>summarySE()</code>: Gives a summary of the data (count, mean, SD, SE) based on several values.</li>
+</ul>
+<p><br></p>
+<div class="text-center mb-3">
+<p><a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/CHC9012_PCIbexDataPrepared.RData?raw=true" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script</a></p>
+</div>
+<p><br></p>
+<div class="text-center mb-3">
+<p><a href="Files/_Internal/DataExploration.Rmd" download="" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the Markdown script</a></p>
+</div>
+</div>
+<div id="tabset-1-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-3-tab">
+<p><strong>Please complete the following tasks before our next meeting:</strong></p>
+<ul class="task-list">
+<li><label><input type="checkbox">Download the Markdown script</label></li>
+<li><label><input type="checkbox">Annotate each line of the script</label></li>
+<li><label><input type="checkbox">Knit into a PDF document, and upload on Moodle</label></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="text-center mb-4">
+<p><a href="week13_slides.html" class="btn btn-outline-primary" target="_blank"> <i class="bi bi-window-stack"></i> View the slides of this week’s tutorial</a></p>
+</div>
+<p><br></p>
+</section>
+<section id="part-1-have-an-overview-of-the-results" class="level1">
+<h1>👀 Part 1: Have an overview of the results</h1>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+🤔 Why it is a good idea to have an overall view of results
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Even if we have an idea of what the results may look like based on our hypotheses, we should never forget that we are dealing with human behavior, and that something unexpected can happen. While our observations can (and should) be driven by our hypotheses, we need to keep an open mind!</p>
+</div>
+</div>
+<p>First, we need to load the data that we have already prepared last week, in addition to the two necessary libraries:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">load</span>(<span class="at">file =</span> <span class="st">"CHC9012_PCIbexDataPrepared.RData"</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ez)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Rmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>We are digging into different ways to have a first idea of the results below:</p>
+<ul>
+<li>Overall results based on the experimental design</li>
+<li>Overall results by participant</li>
+<li>Overall results by item</li>
+<li>How to look at the background of the participants</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills tabset-fade" data-group="pipeline">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true">1.1 Overall results, design-based</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false">1.2 Overall results by participant</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-3" role="tab" aria-controls="tabset-2-3" aria-selected="false">1.3 Overall results by item</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-4" role="tab" aria-controls="tabset-2-4" aria-selected="false">1.4 How to look at the background of the participants</a></li></ul>
+<div class="tab-content nav-pills tabset-fade" data-group="pipeline">
+<div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
+<ul>
+<li><strong>We can have a first look at the ratings by condition:</strong></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data3<span class="sc">$</span>Value <span class="sc">~</span> data3<span class="sc">$</span>Condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The <code>plot()</code> function gives us a <em>boxplot</em>.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+How to read it?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><strong>Thick horizontal line:</strong> This is the <em>median</em>, indicating the mean rating.</li>
+<li><strong>Grey boxes:</strong> This is the <em>interquartile range</em>, indicating where the middle 50% of the ratings are.</li>
+<li><strong>Dashed lines:</strong> These are the <em>whiskers</em>, indicating scores outside the middle 50%.</li>
+</ul>
+</div>
+</div>
+<p>The median ratings for Grammatical sentences is 5, and for Ungrammatical sentences 4. We would expect a wider difference, and this suggests that there is something happening with our data.</p>
+<ul>
+<li><strong>We can also look at the RT by condition:</strong></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data3<span class="sc">$</span>RT <span class="sc">~</span> data3<span class="sc">$</span>Condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Can you see the dots? These are the <strong><em>outlier trials</em></strong>. We cannot see a clear pattern because of them. We can decide not to plot the outliers by specifying it as below:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data3<span class="sc">$</span>RT <span class="sc">~</span> data3<span class="sc">$</span>Condition, <span class="at">outline =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We cannot see great differences between the conditions.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Did you see that?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Did you remark the <em>y axis</em> (on the left)? This indicates that the participants took around 800 milliseconds to judge the sentences, which is quite strange. Again, this suggests that there is something weird happening with our dataset.</p>
+</div>
+</div>
+</div>
+<div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
+<p><strong>We can look at the overall results for each participants using the same <code>plot()</code> function:</strong></p>
+<ul>
+<li>Here are the <strong>judgments by each participant</strong>. We can see that there is variation, but this is often seen in acceptability judgment experiments.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data3<span class="sc">$</span>Value <span class="sc">~</span> data3<span class="sc">$</span>ID_1_TimeReceived)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-5-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Here is the <strong>reaction time by each participant</strong>.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data3<span class="sc">$</span>RT <span class="sc">~</span> data3<span class="sc">$</span>ID_1_TimeReceived, <span class="at">outline =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Did you see that?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>It is visually clear that there are two types of participants: (1) One group read and judged the sentences very quickly, spending the same anount of time for each sentence, and this is quite suspicious, (2) another group that took more time, and they took different amount of time to read and judge each sentence. This is a human-like behavior.</p></li>
+<li><p>Do you remember the problem with <em>y axis</em> when looking at the overall pattern? Now we know where it comes from. We are dealing with a group of participants with a weird behavior (<em>hint:</em> these are the data from an AI robot).</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="tabset-2-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-3-tab">
+<ul>
+<li>Here are the <strong>judgments by each item</strong>. Again, there is variation in the results, but this is often seen in acceptability judgment experiments.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data3<span class="sc">$</span>Value <span class="sc">~</span> data3<span class="sc">$</span>ItemNo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Here is the <strong>reaction time by each participant</strong>. Some items were judged very quickly, but this is surely driven by the weird group of participants.</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data3<span class="sc">$</span>RT <span class="sc">~</span> data3<span class="sc">$</span>ItemNo, <span class="at">outline =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<div id="tabset-2-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-4-tab">
+<p>Finally, we would like to have more information about the participants themselves:</p>
+<ul>
+<li>Here is the code to obtain the <strong>number of participants</strong>:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Number of participants</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">length</span>(<span class="fu">levels</span>(data3<span class="sc">$</span>ID_1_TimeReceived))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 43</code></pre>
+</div>
+</div>
+<ul>
+<li>Here is the code to obtain the information about the <strong>age of the participants</strong>:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Age of participants</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(data3<span class="sc">$</span>UserAge)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+  19.00   23.00   30.00   35.12   49.00   65.00 </code></pre>
+</div>
+</div>
+<ul>
+<li>Here is the code to obtain the summary table of the <strong>highest level of education of the participants</strong>:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Degree of participants</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>DegreePart <span class="ot">&lt;-</span> <span class="fu">subset</span>(data3, <span class="at">select =</span> <span class="fu">c</span>(ID_1_TimeReceived, UserDegree))</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>DegreePart <span class="ot">&lt;-</span> <span class="fu">unique</span>(DegreePart)</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(DegreePart<span class="sc">$</span>UserDegree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+         BA High school          MA       Ph.D. 
+         14           7          13           9 </code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<hr>
+</section>
+<section id="part-2-identify-and-remove-outliers" class="level1">
+<h1>🤯 Part 2: Identify and remove outliers</h1>
+<section id="identify-and-remove-non-valid-participants" class="level2">
+<h2 class="anchored" data-anchor-id="identify-and-remove-non-valid-participants">2.1. Identify and remove non-valid participants</h2>
+<p>Thanks to our first overview of the results, we know that the data from some participants are not valid. In this part, we will see how to identify and remove their data.</p>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+⚠️ Be careful
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We need to be careful when removing data, especially not to remove too much! The challenge is that there is no absolute established rule. We will see in the following sections that we need to rely on converging evidence to be more confident and <strong><em>justify our choice</em></strong>.</p>
+</div>
+</div>
+<p>We can use different types of evidence to identify non-valid participants:</p>
+<ul>
+<li>Based on abnormal mean reaction time,</li>
+<li>Based on shared IPs (shared device),</li>
+<li>Based on the observation of specific participants.</li>
+</ul>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills tabset-fade" data-group="pipeline">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Abnormal RT</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Shared IPs</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Look at specific participants</a></li></ul>
+<div class="tab-content nav-pills tabset-fade" data-group="pipeline">
+<div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
+<p>Let’s have a look one more time at the plot indicating that there are RT problems.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data3<span class="sc">$</span>RT <span class="sc">~</span> data3<span class="sc">$</span>ID_1_TimeReceived, <span class="at">outline =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>To have a more precise idea, we can look at the mean RT by participant.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>PartMeanRT <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(RT <span class="sc">~</span> ID_1_TimeReceived,</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">data =</span> data3,</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>                        <span class="at">FUN =</span> mean)</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(PartMeanRT)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   ID_1_TimeReceived         RT
+1         1777517421 13571.0667
+2         1777518106   805.1000
+3         1777518142   808.9333
+4         1777518178   808.5000
+5         1777518214   806.3333
+6         1777518250   813.2667
+7         1777518286   811.7333
+8         1777518322   814.4333
+9         1777518359   811.2667
+10        1777518398   806.8333
+11        1777518439   814.5000
+12        1777518549   813.5333
+13        1777518588   805.7000
+14        1777518627   812.1333
+15        1777518665   810.1333
+16        1777518704   815.0000
+17        1777518742   812.1667
+18        1777518781   815.3000
+19        1777518820   812.9667
+20        1777518859   814.9333
+21        1777518898   814.5000
+22        1777518937   810.2000
+23        1777518975   812.4000
+24        1777519013   807.5333
+25        1777519052   814.6333
+26        1777519104   813.5667
+27        1777519142   815.1667
+28        1777519180   813.4333
+29        1777519233   814.9333
+30        1777519270   814.8667
+31        1777519304   807.6333
+32        1777519458   608.8667
+33        1777519500   815.4667
+34        1777519539   692.3667
+35        1777519798  8069.6667
+36        1777952741  1511.9667
+37        1778728888  3986.5667
+38        1778729203 14339.8000
+39        1778730554  4272.8333
+40        1778737433  6259.6333
+41        1778742733  5526.1333
+42        1778763194 11567.2667
+43        1778782660  6250.8000</code></pre>
+</div>
+</div>
+<p>This confirms that there are many participants whose mean RT is around 800 milliseconds. Let’s have a closer look at this group using the following code.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>data_QuickPart <span class="ot">&lt;-</span> <span class="fu">subset</span>(PartMeanRT, RT <span class="sc">&lt;</span> <span class="dv">1000</span>)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>data_QuickPart_FullData <span class="ot">&lt;-</span> <span class="fu">subset</span>(data3,</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>                                  ID_1_TimeReceived <span class="sc">%in%</span> data_QuickPart<span class="sc">$</span>ID_1_TimeReceived)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data_QuickPart_FullData<span class="sc">$</span>RT <span class="sc">~</span> data_QuickPart_FullData<span class="sc">$</span>ID_1_TimeReceived, <span class="at">outline =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The fact that the variation is so small is very suspicious. It means that the participants were precise enough to judge the sentences very quickly and at the same rate. To me, this suggests that the participants were just pressing one or two buttons on the keyboard to finish the experiment as quickly as possible.</p>
+<p>Therefore, we can expect that these participants did not give very different ratings when comparing Grammatical and Ungrammatical conditions. Let’s have a look at this.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data_QuickPart_FullData<span class="sc">$</span>Value <span class="sc">~</span> data_QuickPart_FullData<span class="sc">$</span>Condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>To make sure that we are not removing too much, we can have a look at the other group:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>data_OtherPart <span class="ot">&lt;-</span> <span class="fu">subset</span>(PartMeanRT, RT <span class="sc">&gt;</span> <span class="dv">1000</span>)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>data_OtherPart_FullData <span class="ot">&lt;-</span> <span class="fu">droplevels</span>(<span class="fu">subset</span>(data3,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                                             ID_1_TimeReceived <span class="sc">%in%</span> data_OtherPart<span class="sc">$</span>ID_1_TimeReceived))</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data_OtherPart_FullData<span class="sc">$</span>RT <span class="sc">~</span> data_OtherPart_FullData<span class="sc">$</span>ID_1_TimeReceived, <span class="at">outline =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data_OtherPart_FullData<span class="sc">$</span>Value <span class="sc">~</span> data_OtherPart_FullData<span class="sc">$</span>Condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-16-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>The between-participant variation looks like human behavior, and the ratings are quite expected.</p>
+</div>
+<div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
+<p>Another piece of evidence may come from shared IPs (shared device). Indeed, if some participants wanted to finish the experiments very quickly, and if completing the experiment was awarded compensation, it is possible that they completed the experiment several times using the same device.</p>
+<p>Let’s have a look at the “abnormal behavior” group.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ezDesign</span>(data_QuickPart_FullData, ID_1_TimeReceived, ID_2_IP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>We can see that different participants share the same IP.</p>
+<p>Now let’s have a look at the other group.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ezDesign</span>(data_OtherPart_FullData, ID_1_TimeReceived, ID_2_IP)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Only two participants share the same IP, but not other ones.</p>
+</div>
+<div id="tabset-3-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-3-tab">
+<p>Sometimes, it is useful to inspect specific participants. Here’s the code to do so:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>IndPart <span class="ot">&lt;-</span> <span class="fu">subset</span>(data_OtherPart_FullData,</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>                  ID_1_TimeReceived <span class="sc">==</span> <span class="fu">levels</span>(data_OtherPart_FullData<span class="sc">$</span>ID_1_TimeReceived)[<span class="dv">9</span>])</span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(IndPart<span class="sc">$</span>RT <span class="sc">~</span> IndPart<span class="sc">$</span>Condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(IndPart<span class="sc">$</span>Value <span class="sc">~</span> IndPart<span class="sc">$</span>Condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-19-2.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Conclusion
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We have converging evidence to say that one group’s behavior is very different. Therefore, the analyses will be conducted on the group of participants whose behavior indicates that they paid attention to the experiment itself.</p>
+</div>
+</div>
+</section>
+<section id="identify-and-remove-non-valid-trials" class="level2">
+<h2 class="anchored" data-anchor-id="identify-and-remove-non-valid-trials">2.2: Identify and remove non-valid trials</h2>
+<p>Once we identified and removed data from non-valid participants, we can remove outlier trials. Here is an overview of the process:</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills tabset-fade" data-group="pipeline">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true">Remove based on absolute values</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false">Remove based on relative values</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-3" role="tab" aria-controls="tabset-4-3" aria-selected="false">Calculate the proportion of removed trials</a></li></ul>
+<div class="tab-content nav-pills tabset-fade" data-group="pipeline">
+<div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
+<p>This step means that we want to remove data whose RT is below or above a certain value. There is no absolute rule regarding the value to adopt, and this is very specific to each experiment. In our case, we want to remove trials whose RT is below 200 milliseconds and above 20,000 milliseconds (20 seconds).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>data_OtherPart_CleanAbsolute <span class="ot">&lt;-</span> <span class="fu">subset</span>(data_OtherPart_FullData, RT <span class="sc">&gt;</span> <span class="dv">200</span> <span class="sc">&amp;</span> RT <span class="sc">&lt;</span> <span class="dv">20000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
+<p>Removing based on relative values means that we are looking at specific patterns from each participant and from each condition.</p>
+<p>In experimental linguistics research, the usual way to go is to look at the mean RT of each condition for each participant, and then we remove trials that are too far from the mean. To do that, we remove trials which are below or above 2.5 times the deviation time from the means.</p>
+<p>The following code illustrates how to do that:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Calculate the mean per Participant and Condition</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>data_OtherPart_CleanAbsolute<span class="sc">$</span>m_rt <span class="ot">&lt;-</span> <span class="fu">ave</span>(data_OtherPart_CleanAbsolute<span class="sc">$</span>RT, </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                                         data_OtherPart_CleanAbsolute<span class="sc">$</span>ID_1_TimeReceived, </span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a>                                         data_OtherPart_CleanAbsolute<span class="sc">$</span>Condition, </span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>                                         <span class="at">FUN =</span> mean)</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 2. Calculate the SD per Participant and Condition</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>data_OtherPart_CleanAbsolute<span class="sc">$</span>sd_rt <span class="ot">&lt;-</span> <span class="fu">ave</span>(data_OtherPart_CleanAbsolute<span class="sc">$</span>RT, </span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>                                          data_OtherPart_CleanAbsolute<span class="sc">$</span>ID_1_TimeReceived, </span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>                                          data_OtherPart_CleanAbsolute<span class="sc">$</span>Condition, </span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>                                          <span class="at">FUN =</span> sd)</span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="co"># 3. Subset the data to remove outliers</span></span>
+<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>data_OtherPart_CleanAbsoluteRelative <span class="ot">&lt;-</span> <span class="fu">subset</span>(data_OtherPart_CleanAbsolute, </span>
+<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>                                               RT <span class="sc">&gt;=</span> (m_rt <span class="sc">-</span> <span class="fl">2.5</span> <span class="sc">*</span> sd_rt) <span class="sc">&amp;</span> </span>
+<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a>                                                 RT <span class="sc">&lt;=</span> (m_rt <span class="sc">+</span> <span class="fl">2.5</span> <span class="sc">*</span> sd_rt))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+<div id="tabset-4-3" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-3-tab">
+<p>Finally, to make sure that we did not remove too many trials.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>FullData_NbTrials <span class="ot">&lt;-</span> <span class="fu">nrow</span>(data_OtherPart_FullData)</span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>TrimmedData_NbTrials <span class="ot">&lt;-</span> <span class="fu">nrow</span>(data_OtherPart_CleanAbsoluteRelative)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of trimmed trials</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>NbTrimmedTrials <span class="ot">&lt;-</span> FullData_NbTrials <span class="sc">-</span> TrimmedData_NbTrials</span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>NbTrimmedTrials</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 14</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Proportion (%)</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>NbTrimmedTrials<span class="sc">*</span><span class="dv">100</span><span class="sc">/</span>FullData_NbTrials</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 4.666667</code></pre>
+</div>
+</div>
+<p>The proportion is below 5%, which is acceptable in experimental linguistics.</p>
+</div>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="part-3-analyses-and-explorations-of-the-clean-results" class="level1">
+<h1>📊 Part 3: Analyses and explorations of the clean results</h1>
+<p>Now that we have a very clean dataset, we are ready to look at the results of our experiment.</p>
+<div class="tabset-margin-container"></div><div class="panel-tabset nav-pills tabset-fade" data-group="pipeline">
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true">3.1: Design-based analyses</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false">3.2: Exploratory analyses</a></li></ul>
+<div class="tab-content nav-pills tabset-fade" data-group="pipeline">
+<div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
+<p>This is a simple experiment, including grammatical and ungrammatical sentences. The ungrammatical sentences were created by placing the negation marker ‘not’ in non-canonical places within the sentence.</p>
+<p>Therefore, we may expect that grammatical sentences are accepted, while ungrammatical sentences are rejected.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data_OtherPart_CleanAbsoluteRelative<span class="sc">$</span>Value <span class="sc">~</span> data_OtherPart_CleanAbsoluteRelative<span class="sc">$</span>Condition)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarySE</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">measurevar =</span> <span class="st">"Value"</span>,</span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">groupvars =</span> <span class="st">"Condition"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Condition   N    Value       sd        se        ci
+1   Grammatical 144 6.361111 1.304168 0.1086807 0.2148283
+2 Ungrammatical 142 2.485915 2.041193 0.1712931 0.3386347</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Observations
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p><strong>Grammatical condition:</strong> The boxplot shows that most of the ratings are above 6, which is expected. There are outliers, but this is very common in experimental linguistics.</p></li>
+<li><p><strong>Ungrammatical condition:</strong> While the low ratings are expected, there are more variations, as suggested by the boxplot and the higher standard deviation (SD).</p></li>
+</ul>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data_OtherPart_CleanAbsoluteRelative<span class="sc">$</span>RT <span class="sc">~</span> data_OtherPart_CleanAbsoluteRelative<span class="sc">$</span>Condition, <span class="at">outline =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summarySE</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>          <span class="at">measurevar =</span> <span class="st">"RT"</span>,</span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>          <span class="at">groupvars =</span> <span class="st">"Condition"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Condition   N       RT       sd       se       ci
+1   Grammatical 144 6131.653 4240.087 353.3406 698.4457
+2 Ungrammatical 142 6111.190 4277.881 358.9918 709.7022</code></pre>
+</div>
+</div>
+<p>Even after cleaning the data, we can observe the same tendency. The RTs do not greatly differ accross the conditions.</p>
+</div>
+<div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Why exloring the data?
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>We observed more variation in the ungrammatical condition. The next step is to understand the source of such variation.</p>
+<p>We already did our best with the participants, so it is likely to be <strong>related to the sentences</strong>.</p>
+</div>
+</div>
+<ul>
+<li>Let’s first have a closer look at the <strong>Grammatical condition</strong>:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>data_Grammatical <span class="ot">&lt;-</span> <span class="fu">droplevels</span>(<span class="fu">subset</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>                                        Condition <span class="sc">==</span> <span class="st">"Grammatical"</span>))</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data_Grammatical<span class="sc">$</span>Value <span class="sc">~</span> data_Grammatical<span class="sc">$</span>ItemNo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There are two to three sentences with slightly different ratings, but overall the ratings are quite consistent.</p>
+<ul>
+<li>Now let’s look at the <strong>Ungrammatical condition</strong>:</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>data_Ungrammatical <span class="ot">&lt;-</span> <span class="fu">droplevels</span>(<span class="fu">subset</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>                                        Condition <span class="sc">==</span> <span class="st">"Ungrammatical"</span>))</span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(data_Ungrammatical<span class="sc">$</span>Value <span class="sc">~</span> data_Ungrammatical<span class="sc">$</span>ItemNo)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="week13_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>While most of the sentences are rejected, this is not the case for some. <strong>This is the source of variation.</strong></p>
+<p>It could be tempting to remove them from the analyses, but this is a very bad idea. First, we have no reason to remove them. Second, they provide potentially interesting information. Especially, <strong><em>why are there ratings different?</em></strong></p>
+<p>To answer this question, we need to look even closer at these divergent sentences. Here is the code to do so:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Exploration of divergent ungrammatical sentences</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>data_Ungrammatical_OutlierValue <span class="ot">&lt;-</span> <span class="fu">subset</span>(data_Ungrammatical, Value <span class="sc">&gt;</span> <span class="dv">4</span>)</span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>data_Ungrammatical_OutlierValue_Summary <span class="ot">&lt;-</span> <span class="fu">droplevels</span>(<span class="fu">subset</span>(data_Ungrammatical_OutlierValue,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>                                                  <span class="at">select =</span> <span class="fu">c</span>(ID_1_TimeReceived,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>                                                             ItemNo,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>                                                             Sentence)))</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>data_Ungrammatical_OutlierValue_Summary <span class="ot">&lt;-</span> <span class="fu">unique</span>(data_Ungrammatical_OutlierValue_Summary)</span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>data_Ungrammatical_OutlierValue_Overview <span class="ot">&lt;-</span> <span class="fu">table</span>(data_Ungrammatical_OutlierValue_Summary<span class="sc">$</span>ItemNo)</span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>data_Ungrammatical_OutlierValue_Overview</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+31 33 34 36 37 38 43 44 47 48 50 51 52 55 57 58 
+ 1  1  1  1  1  2  3  1  2  1  2  4  2  2  1  1 </code></pre>
+</div>
+</div>
+<p>The numbers in the upper row indicate the ID of the sentences. The numbers in the lower row correspond to the number of participants who gave a rating higher than 4.</p>
+<p>For many outliers, only one participant gave a rating. This means that we should recruit more participants to make sure that the patterns is really stable. For the moment, we can focus on the sentences who received higher ratings by more than two participants. Here is the code:</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Identify which ungrammatical sentences</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>data_Ungrammatical_OutlierValue_Overview <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(data_Ungrammatical_OutlierValue_Overview)</span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(data_Ungrammatical_OutlierValue_Overview)[<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"ItemNo"</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>data_Ungrammatical_OutlierValue_Overview <span class="ot">&lt;-</span> <span class="fu">droplevels</span>(<span class="fu">subset</span>(data_Ungrammatical_OutlierValue_Overview, Freq <span class="sc">&gt;</span> <span class="dv">2</span>))</span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>data_Ungrammatical_OutlierValue_Overview <span class="ot">&lt;-</span> <span class="fu">left_join</span>(data_Ungrammatical_OutlierValue_Overview, </span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>                                                      data_Ungrammatical, </span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>                                                      <span class="at">by =</span> <span class="st">"ItemNo"</span>)</span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>OutlierUngrammaticalSentences <span class="ot">&lt;-</span> <span class="fu">unique</span>(data_Ungrammatical_OutlierValue_Overview<span class="sc">$</span>Sentence)</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>OutlierUngrammaticalSentences</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] The bus stops not at this corner anymore
+[2] It matters not what they think of us    
+30 Levels: He needs not help with his homework today ...</code></pre>
+</div>
+</div>
+<p>Now it is the role of the linguist to analyze what is happening with these particular sentences!</p>
+</div>
+</div>
+</div>
+<hr>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+📝 Assignment for next week
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Please complete the following tasks before our next meeting:</p>
+<ul class="task-list">
+<li><label><input type="checkbox">Download the Markdown script</label></li>
+<li><label><input type="checkbox">Annotate each line of the script</label></li>
+<li><label><input type="checkbox">Knit into a PDF document, and upload on Moodle</label></li>
+</ul>
+</div>
+</div>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -905,7 +1809,7 @@ ul.task-list li input[type="checkbox"] {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/aymeric-collart/CHC9012/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This website is built with Quarto</p>
 </div>
