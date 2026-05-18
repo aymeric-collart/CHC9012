@@ -1,0 +1,777 @@
+---
+title: "Week 12 - Arranging the data"
+subtitle: "CHC9012 | National Taiwan Normal University"
+format: 
+  revealjs:
+    theme: serif
+    transition: slide
+    scrollable: true
+    slide-number: true
+    chalkboard: true
+    width: 1280
+    height: 720
+---
+
+## 🎯 Goals
+
+**Prepare your dataset:**
+
+::: {.fragment .fade-up}
+-   **Arrangements:** How to prepare your data for further analyses?
+:::
+
+::: {.fragment .fade-up}
+-   **Checks:** How to check that all the data are in order?
+:::
+
+
+---
+
+## 💻 Dataset and script
+
+Please download the files for the content of Week 12, and place them in your `PreprocessingAnalysesR` folder.
+
+::: {style="text-align: center; margin-top: 2em;"}
+
+<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/CHC9012_DataImportedFromPCIbex.RData?raw=true" 
+   style="display: inline-block; padding: 15px 30px; background-color: #447099; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+   📥 Download the dataset for the script
+</a>
+
+<a href="https://aymeric-collart.github.io/CHC9012/course-materials/Files/_Internal/DataPreparationAndCleaning.Rmd" 
+   download="DataPreparationAndCleaning.Rmd" 
+   style="display: inline-block; padding: 15px 30px; border: 2px solid #447099; color: #447099; text-decoration: none; border-radius: 10px; font-weight: bold;">
+   📥 Download the R Markdown script
+</a>
+
+:::
+::: {.fragment .fade-up}
+<br>
+💻 Please start `RStudio` and select the project called `PreprocessingAnalysesR`.
+:::
+
+
+# 💭 Part 1: Plan what you need to do
+
+---
+
+## ✍️ Preparatory activity {vertical-align="center"}
+
+::: {.callout-tip icon="true"}
+## Instructions
+
+
+We should never forget that coding is a tool to achieve a task. For our case, the main task is to **prepare the dataset for further analyses**, which means:
+
+-  Checking that it is complete and that nothing is missing,
+-  Deleting the columns/rows that are not necessary, and 
+-  Transforming (but not *altering*) the data
+:::
+
+::: {.fragment .fade-up}
+**How to do so?** Two steps:
+
+-  Look at the dataset you just imported
+-  Take notes
+:::
+
+---
+
+## Step 1: Look at the imported dataset
+
+```{r}
+#| code-fold: true
+#| code-summary: "Show the code to import and show the dataset (same as last week)"
+#| message: false
+#| warning: false
+
+read.pcibex <- function(filepath, auto.colnames=TRUE, fun.col=function(col,cols){cols[cols==col]<-paste(col,"Ibex",sep=".");return(cols)}) {
+  n.cols <- max(count.fields(filepath,sep=",",quote=NULL),na.rm=TRUE)
+  if (auto.colnames){
+    cols <- c()
+    con <- file(filepath, "r")
+    while ( TRUE ) {
+      line <- readLines(con, n = 1, warn=FALSE)
+      if ( length(line) == 0) {
+        break
+      }
+      m <- regmatches(line,regexec("^# (\\d+)\\. (.+)\\.$",line))[[1]]
+      if (length(m) == 3) {
+        index <- as.numeric(m[2])
+        value <- m[3]
+        if (is.function(fun.col)){
+         cols <- fun.col(value,cols)
+        }
+        cols[index] <- value
+        if (index == n.cols){
+          break
+        }
+      }
+    }
+    close(con)
+    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=cols))
+  }
+  else{
+    return(read.csv(filepath, comment.char="#", header=FALSE, col.names=seq(1:n.cols)))
+  }
+}
+
+data <- read.pcibex("../course-materials/Files/results_FAKE_FOR_CHC9012.csv")
+```
+
+```diff
+load("CHC9012_DataImportedFromPCIbex.RData")
+
+view(data)
+```
+
+```{r}
+#| echo: false
+rmarkdown::paged_table(data, options = list(rows.print = 50))
+```
+
+---
+
+## 👓 What are all these columns?
+
+::::: panel-tabset
+## Default columns from PCIbex
+
+-  `Results.reception.time`: Time in the PCIbex server when the results were received. This can be used as the Participant ID, assuming that there are no two participants who submitted the results at the exact same time.
+-  `MD5.hash.of.participant.s.IP.address`: Scripted IP address of the machine used by the participant.
+-  `Controller.name`: Which controller was used to code the experiment.
+-  `Order.number.of.item`: The order of presentation of the whole questionnaire, starting from the very first page.
+-  `Inner.element.number`: Whether specific numbers were assigned to the element.
+-  `Label`: The name given to the webpage in PCIbex (for example, `Welcome page`, `Instructions`, `Exeriment`, etc.).
+-  `Latin.Square.Group`
+-  `PennElementType`: The PCIbex element used for the action (`TextInput`, `Scale`, `Dropdown`, etc.).
+-  `Parameter`: Breakdown of the elements used on a same page.
+-  `Value`: What the participant wrote or selectedm or when an element *starts* or *ends*.
+-  `EventTime`: Time point at which an action occured (the time corresponds to the PCIbex server)
+-  `Comments`
+
+## Columns that we manually logged
+
+-  `ItemNo`: The ID of the item (here, sentence)
+-  `Condition`: The experimental condition
+-  `Group`
+-  `UserAge`
+-  `UserDegree`
+:::::
+
+---
+
+## ✍️ Step 2: Preparatory activity {vertical-align="center"}
+
+::: {.callout-tip icon="true"}
+## Instructions
+
+**What needs to be done to prepare the dataset?** 
+
+Some tips:
+
+-  Checking that it is complete and that nothing is missing,
+-  Deleting the columns/rows that are not necessary, and 
+-  Transforming (but not *altering*) the data
+:::
+
+---
+
+## 💡 My own observations
+
+::::: panel-tabset
+## Missing data
+-  [ ] Calculate the reaction time (so far, only the event time)
+-  [ ] The actual sentences are missing, need to add them based on `ItemNo`
+-  [ ] No information about the consent box, but this cannot be retrieved
+
+
+## Unnecessary data
+
+-  [ ] Columns containing the same or no value (`Controller.name`, `Inner.element.number`, `Latin.Square.Group`, `Comments`, for example)
+-  [ ] Keep only the lines where `Label` is "Experiment"
+
+## Data to transform
+
+-  [ ] Columns to rename, to be more concise and explicit (`Results.reception.time`, `MD5.hash.of.participant.s.IP.address`)
+-  [ ] Change the nature of the variable (`UserAge` to numerical value, `ItemNo` to a group/factor, etc.)
+
+:::::
+
+
+# 💻 Part 2: Arrange the dataset with RStudio, according to the plan
+
+---
+
+## 2.1 Remove unnecessary columns
+
+-  We need to mention which column from which dataset. In R language, "the column called *Controller.name* from the dataset called *data*" is written using the `$` sign (`data$Controller.name`)
+-  We assign `NULL` to this column to delete it.
+
+```{r}
+data$Controller.name <- NULL
+data$Inner.element.number <- NULL
+data$Latin.Square.Group <- NULL
+data$Comments <- NULL
+```
+
+```r
+data$Controller.name <- NULL
+data$Inner.element.number <- NULL
+data$Latin.Square.Group <- NULL
+data$Comments <- NULL
+```
+
+
+## 2.2 Rename columns
+
+::: {.r-stack}
+
+::: {.fragment .fade-out fragment-index=1}
+You can have a glimpse of the names of the columns using the `names(...)` function.
+
+```r
+names(data)
+```
+```{r}
+names(data)
+```
+:::
+
+::: {.fragment .fade-in-then-out fragment-index=1}
+Each name is assigned to a numerical index. For instance, "[1]" corresponds to "Results.reception.time".
+
+```r
+names(data)[1]
+```
+
+```{r}
+names(data)[1]
+```
+:::
+::: {.fragment .fade-in fragment-index=2}
+Once we have the index of columns, we just need to assign new names to them.
+
+```r
+names(data)[1] <- "ID_1_TimeReceived"
+names(data)[2] <- "ID_2_IP"
+
+names(data)
+```
+```{r}
+names(data)[1] <- "ID_1_TimeReceived"
+names(data)[2] <- "ID_2_IP"
+
+names(data)
+```
+
+:::
+:::
+
+## 2.3 Select the rows we need
+
+::: {style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;"}
+::: {.fragment .fade-out style="grid-area: 1 / 1;" fragment-index=1}
+
+-  We use the `filter()` function from the `dplyr` package.
+-  `%>%`: to say that "This is the `Label` column from the dataset called `data`".
+-  `==` sign: we *want* the `Experiment` rows.
+-  We store that into a new dataset called `data2`. 
+
+```r
+library(dplyr)
+
+data2 <- data %>%
+  filter(Label == "Experiment")
+```
+```{r}
+#| message: false
+#| warning: false
+
+library(dplyr)
+
+data2 <- data %>%
+  filter(Label == "Experiment")
+```
+:::
+
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=1}
+
+**Check:** We expect to only find `Experiment` in the `Label` column.
+
+```{r}
+#| echo: false
+
+rmarkdown::paged_table(data2, options = list(rows.print = 10))
+```
+
+:::
+::: {.fragment .fade-in style="grid-area: 1 / 1;" fragment-index=2}
+
+-  There are unnecessary `_Header_` rows in the `Parameter` column.
+-  We can use the same logic to *remove* them, but we use `!=`, meaning "we *don't want* these rows".
+
+```r
+data2 <- data2 %>%
+  filter(Parameter != "_Header_")
+```
+```{r}
+data2 <- data2 %>%
+  filter(Parameter != "_Header_")
+```
+
+```{r}
+#| echo: false
+
+rmarkdown::paged_table(data2, options = list(rows.print = 10))
+```
+:::
+:::
+
+## 2.4 Calculate the reaction time
+
+::: {style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;"}
+::: {.fragment .fade-out style="grid-area: 1 / 1;" fragment-index=1}
+
+::: {.callout-tip icon="false"}
+## 📖 Defining reaction time
+
+In this experiment:
+
+`Reaction time` = `Time when the judgment is made` - `Time when the sentence appeared`
+
+Calculating the reaction time from PCIbex data requires several steps.
+:::
+
+:::
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=1}
+
+Let's have a look at our data:
+
+```{r}
+#| echo: false
+data_show <- data2 %>%
+  select(Parameter, Value, EventTime, ItemNo)
+rmarkdown::paged_table(data_show, options = list(rows.print = 6))
+```
+
+How would you proceed? Let's reflect for 10 minutes.
+
+:::
+
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=2}
+
+### My solution
+
+```{tikz}
+#| echo: false
+\usetikzlibrary{arrows.meta, positioning, fit, backgrounds}
+\begin{tikzpicture}[
+    base/.style={rectangle, draw, thick, minimum width=2.8cm, minimum height=1.2cm, align=center, font=\sffamily\small},
+    main/.style={base, fill=blue!10},
+    sub/.style={base, fill=white, font=\sffamily\scriptsize, minimum width=2.2cm, minimum height=0.8cm},
+    group/.style={draw, thick, dashed, inner sep=8pt, rounded corners, fill=gray!2},
+    arrow/.style={-{Stealth[scale=1.2]}, thick}
+]
+
+    % Main Path
+    \node (b1) [main] {Create dataset with \\relevant rows};
+    \node (b2) [main, right=1.2cm of b1] {Prepare dataset \\for computation};
+    \node (b4) [main, right=1.2cm of b2] {Subtract `Choice` \\from `Start` time};
+    \node (b5) [main, right=1.2cm of b4] {Join RT dataset \\to main one};
+
+    % Subblocks (Vertical under b2)
+    \node (s3a) [sub, below=0.8cm of b2] {Annotate};
+    \node (s3b) [sub, below=0.2cm of s3a] {Change format};
+
+    % Container for Block 3
+    \begin{scope}[on background layer]
+        \node (b3) [group, fit=(s3a) (s3b)] {};
+        \node [left=0.1cm of b3, font=\sffamily\itshape, text=gray] {Sub-steps};
+    \end{scope}
+
+    % Arrows
+    \draw [arrow] (b1) -- (b2);
+    \draw [arrow] (b2) -- (b4);
+    \draw [arrow] (b4) -- (b5);
+    
+    % Connecting the sub-steps logic
+    \draw [arrow, dashed, gray] (b2) -- (b3);
+
+\end{tikzpicture}
+```
+
+:::
+
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=3}
+### Step 1: Create dataset with relevant rows
+
+-  `Reaction time` = "EventTime *when* `Parameter` = `Choice`" - "EventTime *when* `Value` = `Start`".
+-  We select these rows, and we stored in a temporary dataset that we call `RT_Prep1`.
+
+```r
+RT_Prep1 <- data2 %>%
+  filter(Parameter == "Choice" | Value == "Start")
+```
+```{r}
+RT_Prep1 <- data2 %>%
+  filter(Parameter == "Choice" | Value == "Start")
+```
+:::
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=4}
+### Step 2.1: Prepare dataset - Annotation
+
+-  **`Value` column:** time for `Start`, but not for `Choice`. We want to have everything under the same column.
+-  **New annotation:** When in the `Value` column, the word is not `Start`, we write `Choice`.
+-  Then, we delete columns when the two rows are different.
+
+```r
+RT_Prep1$Value <- ifelse(RT_Prep1$Value == "Start",
+                         "Start",
+                         "Choice")
+
+RT_Prep1$PennElementType <- NULL
+RT_Prep1$PennElementName <- NULL
+RT_Prep1$Parameter <- NULL
+```
+```{r}
+RT_Prep1$Value <- ifelse(RT_Prep1$Value == "Start",
+                         "Start",
+                         "Choice")
+
+RT_Prep1$PennElementType <- NULL
+RT_Prep1$PennElementName <- NULL
+RT_Prep1$Parameter <- NULL
+```
+
+```{r}
+#| echo: false
+
+RT_Show <- RT_Prep1 %>%
+  select(Value, EventTime, ItemNo)
+rmarkdown::paged_table(RT_Show, options = list(rows.print = 6))
+```
+:::
+
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=5}
+### Step 2.2: Prepare dataset - Change format
+-  **Subtraction:** `EventTime` for `Start` and `Choice` in different columns.
+-  `spread()` function from the `tidyr` library.
+
+```r
+library(tidyr)
+RT_Prep2 <- spread(data = RT_Prep1, Value, EventTime)
+```
+```{r}
+library(tidyr)
+RT_Prep2 <- spread(data = RT_Prep1, Value, EventTime)
+```
+
+```{r}
+#| echo: false
+
+RT_Show <- RT_Prep2 %>%
+  select(ItemNo, Start, Choice)
+rmarkdown::paged_table(RT_Show, options = list(rows.print = 6))
+```
+:::
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=6}
+### Step 3: Subtract `Choice` from `Start` time
+Change to numeric values, and subtract.
+
+```r
+RT_Prep2$Choice <- as.numeric(RT_Prep2$Choice)
+RT_Prep2$Start <- as.numeric(RT_Prep2$Start)
+RT_Prep2$RT <- RT_Prep2$Choice - RT_Prep2$Start
+```
+```{r}
+RT_Prep2$Choice <- as.numeric(RT_Prep2$Choice)
+RT_Prep2$Start <- as.numeric(RT_Prep2$Start)
+RT_Prep2$RT <- RT_Prep2$Choice - RT_Prep2$Start
+```
+
+```{r}
+#| echo: false
+
+RT_Show <- RT_Prep2 %>%
+  select(ItemNo, Start, Choice, RT)
+rmarkdown::paged_table(RT_Show, options = list(rows.print = 6))
+```
+:::
+
+::: {.fragment .fade-in style="grid-area: 1 / 1;" fragment-index=7}
+### Step 4: Join RT dataset to main one
+
+::: {.callout-tip icon="false"}
+We have two datasets:
+
+-  `data2`, with the judgment data, but ***not*** the reaction time,
+-  `RT_Prep2`, the temporary dataset with the reaction time, but ***not*** the judgment data.
+
+We just need to join them based on their common minimal value: 1 different trial per participant.
+:::
+
+-  First, we select the row where the judgment is given.
+```r
+data3 <- data2 %>%
+  filter(Parameter %in% "Choice")
+```
+```{r}
+data3 <- data2 %>%
+  filter(Parameter %in% "Choice")
+```
+
+-  Finally, we use the `left_join()` function to join these two datasets based on (a) the participant ID, and (b) the Item index.
+```r
+data3 <- data3 %>%
+  left_join(RT_Prep2 %>% select(ID_1_TimeReceived, ID_2_IP, ItemNo, RT), 
+            by = c("ID_1_TimeReceived", "ID_2_IP", "ItemNo"))
+```
+```{r}
+data3 <- data3 %>%
+  left_join(RT_Prep2 %>% select(ID_1_TimeReceived, ID_2_IP, ItemNo, RT), 
+            by = c("ID_1_TimeReceived", "ID_2_IP", "ItemNo"))
+```
+```{r}
+#| echo: false
+
+RT_Show <- data3 %>%
+  select(ID_1_TimeReceived, ItemNo, Value, RT, Condition)
+rmarkdown::paged_table(RT_Show, options = list(rows.print = 25))
+```
+:::
+:::
+
+---
+
+## 2.5 Change the nature of the variables
+
+::: {style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;"}
+::: {.fragment .fade-out style="grid-area: 1 / 1;" fragment-index=1}
+Let's look again at our data:
+```r
+str(data3)
+```
+```{r}
+str(data3)
+```
+:::
+
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=1}
+Some variables correspond to ***groups*** (or categories), so we used the `as.factor()` function to group them.
+
+```r
+data3$ID_1_TimeReceived <- as.factor(data3$ID_1_TimeReceived)
+data3$ID_2_IP <- as.factor(data3$ID_2_IP)
+data3$ItemNo <- as.factor(data3$ItemNo)
+data3$Condition <- as.factor(data3$Condition)
+data3$Group <- as.factor(data3$Group)
+data3$UserDegree <- as.factor(data3$UserDegree)
+```
+```{r}
+data3$ID_1_TimeReceived <- as.factor(data3$ID_1_TimeReceived)
+data3$ID_2_IP <- as.factor(data3$ID_2_IP)
+data3$ItemNo <- as.factor(data3$ItemNo)
+data3$Condition <- as.factor(data3$Condition)
+data3$Group <- as.factor(data3$Group)
+data3$UserDegree <- as.factor(data3$UserDegree)
+```
+:::
+
+::: {.fragment .fade-in style="grid-area: 1 / 1;" fragment-index=2}
+For numerical values, we use the `as.numeric()` function.
+
+```r
+data3$Order.number.of.item <- as.numeric(data3$Order.number.of.item)
+data3$Value <- as.numeric(data3$Value)
+data3$UserAge <- as.numeric(data3$UserAge)
+data3$RT <- as.numeric(data3$RT)
+```
+```{r}
+data3$Order.number.of.item <- as.numeric(data3$Order.number.of.item)
+data3$Value <- as.numeric(data3$Value)
+data3$UserAge <- as.numeric(data3$UserAge)
+data3$RT <- as.numeric(data3$RT)
+```
+
+Now this is our data:
+```r
+str(data3)
+```
+```{r}
+str(data3)
+```
+:::
+:::
+
+## 2.6 Another round of removing unnecessary columns
+
+::: {style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;"}
+::: {.fragment .fade-out style="grid-area: 1 / 1;" fragment-index=1}
+We made use of some columns when calculating the reaction time, but we do not need them anymore, and they are redundant. So here is another round of column removal!
+
+```r
+str(data3)
+```
+```{r}
+str(data3)
+```
+:::
+::: {.fragment .fade-in style="grid-area: 1 / 1;" fragment-index=1}
+
+```r
+data3$Label <- NULL
+data3$PennElementType <- NULL
+data3$PennElementName <- NULL
+data3$Parameter <- NULL
+data3$EventTime <- NULL
+
+str(data3)
+```
+```{r}
+data3$Label <- NULL
+data3$PennElementType <- NULL
+data3$PennElementName <- NULL
+data3$Parameter <- NULL
+data3$EventTime <- NULL
+
+str(data3)
+```
+:::
+:::
+
+## 2.7 Add information about the items
+
+Finally, we forgot to `.log()` the sentences in the PCIbex script:
+
+-  We import the table with the material information (used on the PCIbex platform),
+-  We use the `left_join()` function to join these two datasets based on the index of the items (here, `ItemNo`)
+
+```r
+material <- read.csv("~/Documents/CHC9012_Spring2026/PreprocessingAnalysesR/material.csv")
+material$ItemNo <- as.factor(material$ItemNo)
+
+data3 <- data3 %>%
+  left_join(material %>% select(ItemNo, Sentence), 
+            by = "ItemNo")
+
+data3$Sentence <- as.factor(data3$Sentence)
+str(data3)
+```
+```{r}
+material <- read.csv("~/Documents/CHC9012_Spring2026/PreprocessingAnalysesR/material.csv")
+material$ItemNo <- as.factor(material$ItemNo)
+
+data3 <- data3 %>%
+  left_join(material %>% select(ItemNo, Sentence), 
+            by = "ItemNo")
+
+data3$Sentence <- as.factor(data3$Sentence)
+str(data3)
+```
+
+
+# 💾 Part 3: Check and save the data
+
+---
+
+## 💭 Checking process
+
+::: {.callout-tip icon="true"}
+
+We want to make sure that we did not corrupt our data when arranging them for further analyses. Otherwise, we can run further analyses and have results, but they will have no value!
+
+We will mostly use the `ezDesign()` function from the `ez` package.
+:::
+
+---
+
+## 3.1 Check the data
+
+::: {style="display: grid; grid-template-columns: 1fr; grid-template-rows: 1fr; margin-top: 50px;"}
+::: {.fragment .fade-out style="grid-area: 1 / 1;" fragment-index=1}
+
+We load the library:
+
+```r
+library(ez)
+```
+```{r}
+#| message: false
+#| warning: false
+library(ez)
+```
+:::
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=1}
+
+```r
+# Same number of item per condition for each participant? (should be '15')
+ezDesign(data3, ID_1_TimeReceived, Condition)
+```
+```{r}
+# Same number of item per condition for each participant? (should be '15')
+ezDesign(data3, ID_1_TimeReceived, Condition)
+```
+:::
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=2}
+```r
+# Which participants share the same ID? (hint that this could be the same participant filling the questionnaire twice)
+ezDesign(data3, ID_1_TimeReceived, ID_2_IP)
+```
+```{r}
+# Which participants share the same IP?
+# (hint that this could be the same participant filling the questionnaire twice)
+ezDesign(data3, ID_1_TimeReceived, ID_2_IP)
+```
+:::
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=3}
+```r
+# Number of times an item appeared by participant (should be '1')
+ezDesign(data3, ID_1_TimeReceived, ItemNo)
+```
+```{r}
+# Number of times an item appeared by participant (should be '1')
+ezDesign(data3, ID_1_TimeReceived, ItemNo)
+```
+:::
+::: {.fragment .fade-in-then-out style="grid-area: 1 / 1;" fragment-index=4}
+```r
+# Were the items well dispatched in the two lists?
+ezDesign(data3, ItemNo, Group)
+```
+```{r}
+# Were the items well dispatched in the two lists?
+ezDesign(data3, ItemNo, Group)
+```
+:::
+::: {.fragment .fade-in style="grid-area: 1 / 1;" fragment-index=5}
+```r
+# Were the participants well dispatched in the two lists? (should be '30')
+ezDesign(data3, ID_1_TimeReceived, Group)
+```
+```{r}
+# Were the participants well dispatched in the two lists? (should be '30')
+ezDesign(data3, ID_1_TimeReceived, Group)
+```
+:::
+:::
+
+## 3.2 Save the prepared dataset
+
+```r
+save(data3,
+     file = "CHC9012_PCIbexDataPrepared.RData")
+```
+```{r}
+save(data3,
+     file = "CHC9012_PCIbexDataPrepared.RData")
+```
+
+Check that the file appears in your working directory!
+
+
+# 📝 Assignment for next week
+
+::: {.callout-important icon="true"}
+Please annotate the Markdown file from this week, knit to a PDF file, and upload on Moodle!
+:::
