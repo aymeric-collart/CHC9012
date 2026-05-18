@@ -172,9 +172,11 @@ This week, we will learn how to explore our results file.
 <br>
 
 ::: {.text-center .mb-3}
-<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/DataExploration.Rmd?raw=true" download class="btn btn-outline-primary btn-sm"> 
-    <i class="bi bi-download"></i> Download the Markdown script
+
+<a href="https://raw.githubusercontent.com/aymeric-collart/CHC9012/main/course-materials/Files/_Internal/DataExploration.Rmd" download="DataExploration.Rmd" class="btn btn-outline-primary btn-sm"> 
+  <i class="bi bi-download"></i> Download the Markdown script
 </a>
+
 :::
 
 ## 📝 Homework
