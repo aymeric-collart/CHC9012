@@ -1,5 +1,5 @@
 ---
-title: "Week 12 - Arranging the data"
+title: "Week 12 - Exploring the data"
 subtitle: "CHC9012 | National Taiwan Normal University"
 format: 
   revealjs:
@@ -14,10 +14,10 @@ format:
 
 ## 🎯 Goals
 
-**Prepare your dataset:**
+**Explore your data:**
 
 ::: {.fragment .fade-up}
--   **Arrangements:** How to prepare your data for further analyses?
+-   **Non-valid data:** How to identify and remo?
 :::
 
 ::: {.fragment .fade-up}

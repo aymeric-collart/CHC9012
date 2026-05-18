@@ -1,0 +1,248 @@
+---
+title: "DataExploration"
+author: "Aymeric Collart"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# 1. Prepare the environment
+
+```{r}
+load(file = "CHC9012_PCIbexDataPrepared.RData")
+```
+
+```{r}
+library(ez)
+library(dplyr)
+library(Rmisc)
+```
+
+# 2. First look at the data
+
+## 2.1 Look based on the experimental design
+
+```{r}
+plot(data3$Value ~ data3$Condition)
+```
+
+```{r}
+plot(data3$RT ~ data3$Condition)
+plot(data3$RT ~ data3$Condition, outline = FALSE)
+```
+
+## 2.2 Look by participant and by item
+
+```{r}
+plot(data3$Value ~ data3$ID_1_TimeReceived)
+```
+
+```{r}
+plot(data3$RT ~ data3$ID_1_TimeReceived)
+plot(data3$RT ~ data3$ID_1_TimeReceived, outline = FALSE)
+```
+
+```{r}
+plot(data3$Value ~ data3$ItemNo)
+```
+
+```{r}
+plot(data3$RT ~ data3$ItemNo)
+plot(data3$RT ~ data3$ItemNo, outline = FALSE)
+```
+
+## 2.3 Look at the background of the participants
+
+```{r}
+## Number of participants
+length(levels(data3$ID_1_TimeReceived))
+```
+
+```{r}
+## Age of participants
+summary(data3$UserAge)
+```
+
+```{r}
+## Degree of participants
+DegreePart <- subset(data3, select = c(ID_1_TimeReceived, UserDegree))
+DegreePart <- unique(DegreePart)
+table(DegreePart$UserDegree)
+```
+
+
+# 3. Cleaning the dataset
+
+## 3.1 How to identify non-valid participants?
+
+### 3.1.1 Identification by RT
+
+```{r}
+plot(data3$RT ~ data3$ID_1_TimeReceived, outline = FALSE)
+
+PartMeanRT <- aggregate(RT ~ ID_1_TimeReceived,
+                        data = data3,
+                        FUN = mean)
+
+print(PartMeanRT)
+```
+
+```{r}
+data_QuickPart <- subset(PartMeanRT, RT < 1000)
+data_QuickPart_FullData <- subset(data3,
+                                  ID_1_TimeReceived %in% data_QuickPart$ID_1_TimeReceived)
+
+plot(data_QuickPart_FullData$RT ~ data_QuickPart_FullData$ID_1_TimeReceived, outline = FALSE)
+plot(data_QuickPart_FullData$Value ~ data_QuickPart_FullData$Condition)
+```
+
+```{r}
+data_OtherPart <- subset(PartMeanRT, RT > 1000)
+data_OtherPart_FullData <- droplevels(subset(data3,
+                                             ID_1_TimeReceived %in% data_OtherPart$ID_1_TimeReceived))
+
+plot(data_OtherPart_FullData$RT ~ data_OtherPart_FullData$ID_1_TimeReceived, outline = FALSE)
+plot(data_OtherPart_FullData$Value ~ data_OtherPart_FullData$Condition)
+```
+
+### 3.1.2 Identification by IP
+
+```{r}
+ezDesign(data3, ID_1_TimeReceived, ID_2_IP)
+
+ezDesign(data_QuickPart_FullData, ID_1_TimeReceived, ID_2_IP)
+ezDesign(data_OtherPart_FullData, ID_1_TimeReceived, ID_2_IP)
+```
+
+### 3.1.3 Identification by looking at individual participants
+
+```{r}
+IndPart <- subset(data_OtherPart_FullData,
+                  ID_1_TimeReceived == levels(data_OtherPart_FullData$ID_1_TimeReceived)[9])
+
+plot(IndPart$Value ~ IndPart$Condition)
+```
+
+```{r}
+## One participant very different
+levels(data_OtherPart_FullData$ID_1_TimeReceived)[3]
+
+IndPart <- subset(data_OtherPart_FullData,
+                  ID_1_TimeReceived == levels(data_OtherPart_FullData$ID_1_TimeReceived)[3])
+plot(IndPart$Value ~ IndPart$Condition)
+plot(IndPart$RT ~ IndPart$ItemNo)
+```
+
+
+## 3.2 How to identify non-valid trials?
+
+
+### 3.2.1 Absolute values
+
+```{r}
+data_OtherPart_CleanAbsolute <- subset(data_OtherPart_FullData, RT > 200 & RT < 20000)
+```
+
+### 3.2.2 Relative values
+
+```{r}
+# Calculate the mean per Participant and Condition
+data_OtherPart_CleanAbsolute$m_rt <- ave(data_OtherPart_CleanAbsolute$RT, 
+                                         data_OtherPart_CleanAbsolute$ID_1_TimeReceived, 
+                                         data_OtherPart_CleanAbsolute$Condition, 
+                                         FUN = mean)
+
+# 2. Calculate the SD per Participant and Condition
+data_OtherPart_CleanAbsolute$sd_rt <- ave(data_OtherPart_CleanAbsolute$RT, 
+                                          data_OtherPart_CleanAbsolute$ID_1_TimeReceived, 
+                                          data_OtherPart_CleanAbsolute$Condition, 
+                                          FUN = sd)
+
+# 3. Subset the data to remove outliers
+data_OtherPart_CleanAbsoluteRelative <- subset(data_OtherPart_CleanAbsolute, 
+                                               RT >= (m_rt - 2.5 * sd_rt) & 
+                                                 RT <= (m_rt + 2.5 * sd_rt))
+```
+
+### 3.2.3 Calculate the number of trials removed
+
+```{r}
+FullData_NbTrials <- nrow(data_OtherPart_FullData)
+TrimmedData_NbTrials <- nrow(data_OtherPart_CleanAbsoluteRelative)
+
+# Number of trimmed trials
+NbTrimmedTrials <- FullData_NbTrials - TrimmedData_NbTrials
+NbTrimmedTrials
+
+# Proportion (%)
+NbTrimmedTrials*100/FullData_NbTrials
+```
+
+
+# 4. Exploration of the clean results
+
+## 4.1 Factorial analysis: Based on the experimental design
+
+```{r}
+plot(data_OtherPart_CleanAbsoluteRelative$Value ~ data_OtherPart_CleanAbsoluteRelative$Condition)
+
+summarySE(data_OtherPart_CleanAbsoluteRelative,
+          measurevar = "Value",
+          groupvars = "Condition")
+
+plot(data_OtherPart_CleanAbsoluteRelative$RT ~ data_OtherPart_CleanAbsoluteRelative$Condition, outline = FALSE)
+
+summarySE(data_OtherPart_CleanAbsoluteRelative,
+          measurevar = "RT",
+          groupvars = "Condition")
+```
+
+## 4.2 Exploratory analysis: Look at trials in specific conditions
+
+### 4.2.1 Look at the grammatical condition
+
+```{r}
+data_Grammatical <- droplevels(subset(data_OtherPart_CleanAbsoluteRelative,
+                                        Condition == "Grammatical"))
+
+plot(data_Grammatical$Value ~ data_Grammatical$ItemNo)
+plot(data_Grammatical$RT ~ data_Grammatical$ItemNo)
+```
+
+### 4.2.2 Look at the Ungrammatical condition
+
+```{r}
+data_Ungrammatical <- droplevels(subset(data_OtherPart_CleanAbsoluteRelative,
+                                        Condition == "Ungrammatical"))
+
+plot(data_Ungrammatical$Value ~ data_Ungrammatical$ItemNo)
+plot(data_Ungrammatical$RT ~ data_Ungrammatical$ItemNo)
+```
+
+```{r}
+# Exploration of divergent ungrammatical sentences
+data_Ungrammatical_OutlierValue <- subset(data_Ungrammatical, Value > 4)
+
+data_Ungrammatical_OutlierValue_Summary <- droplevels(subset(data_Ungrammatical_OutlierValue,
+                                                  select = c(ID_1_TimeReceived,
+                                                             ItemNo,
+                                                             Sentence)))
+data_Ungrammatical_OutlierValue_Summary <- unique(data_Ungrammatical_OutlierValue_Summary)
+data_Ungrammatical_OutlierValue_Overview <- table(data_Ungrammatical_OutlierValue_Summary$ItemNo)
+
+data_Ungrammatical_OutlierValue_Overview
+```
+
+```{r}
+# Identify which ungrammatical sentences
+data_Ungrammatical_OutlierValue_Overview <- as.data.frame(data_Ungrammatical_OutlierValue_Overview)
+names(data_Ungrammatical_OutlierValue_Overview)[1] <- "ItemNo"
+
+data_Ungrammatical_OutlierValue_Overview <- droplevels(subset(data_Ungrammatical_OutlierValue_Overview, Freq > 2))
+
+data_Ungrammatical_OutlierValue_Overview <- left_join(data_Ungrammatical_OutlierValue_Overview, 
+                                                      data_Ungrammatical, 
+                                                      by = "ItemNo")
+OutlierUngrammaticalSentences <- unique(data_Ungrammatical_OutlierValue_Overview$Sentence)
+OutlierUngrammaticalSentences
+```
+

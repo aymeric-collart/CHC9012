@@ -197,393 +197,123 @@
     ]
   },
   {
-    "objectID": "course-materials/week13.html",
-    "href": "course-materials/week13.html",
-    "title": "Week 13 - Exploring the data",
-    "section": "",
-    "text": "This week, we will learn how to explore our results file.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nExplore your results:\n\nPreprocessing: How to identify outliers to have a clean dataset?\nAnalyses: How to look at the results based on the experimental design?\nExplorations: How to check unexpected results?\n\n\n\nA brief summary of this week’s new functions:\n\nplot(): Generates scatter plots and boxplots.\nlength(): Returns the number of elements or items in a vector or factor level.\nsubset(): Filters a data frame to return only the rows or columns that meet specific conditions.\nc(): Combine/Concatenate function; used here to group column names into a vector.\nunique(): Removes duplicate rows or elements from an object.\ntable(): Creates contingency tables to show the counts/frequencies of factor levels.\naggregate(): Splits data into subsets and computes summary statistics (used to find the mean reaction time per participant).\ndroplevels(): Drops unused levels from a factor variable, usually after subsetting data.\nave(): Computes sub-group statistics (like group means or standard deviations) and returns a vector matching the original data length.\nsd(): Calculates the standard deviation of a set of numbers.\nnrow(): Counts the total number of rows in a data frame.\nas.data.frame(): Converts an object (like a table) into a standard data frame format.\nsummarySE(): Gives a summary of the data (count, mean, SD, SE) based on several values.\n\n\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 13: Exploring the data"
-    ]
-  },
-  {
-    "objectID": "course-materials/week13.html#overview",
-    "href": "course-materials/week13.html#overview",
-    "title": "Week 13 - Exploring the data",
-    "section": "",
-    "text": "This week, we will learn how to explore our results file.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nExplore your results:\n\nPreprocessing: How to identify outliers to have a clean dataset?\nAnalyses: How to look at the results based on the experimental design?\nExplorations: How to check unexpected results?\n\n\n\nA brief summary of this week’s new functions:\n\nplot(): Generates scatter plots and boxplots.\nlength(): Returns the number of elements or items in a vector or factor level.\nsubset(): Filters a data frame to return only the rows or columns that meet specific conditions.\nc(): Combine/Concatenate function; used here to group column names into a vector.\nunique(): Removes duplicate rows or elements from an object.\ntable(): Creates contingency tables to show the counts/frequencies of factor levels.\naggregate(): Splits data into subsets and computes summary statistics (used to find the mean reaction time per participant).\ndroplevels(): Drops unused levels from a factor variable, usually after subsetting data.\nave(): Computes sub-group statistics (like group means or standard deviations) and returns a vector matching the original data length.\nsd(): Calculates the standard deviation of a set of numbers.\nnrow(): Counts the total number of rows in a data frame.\nas.data.frame(): Converts an object (like a table) into a standard data frame format.\nsummarySE(): Gives a summary of the data (count, mean, SD, SE) based on several values.\n\n\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 13: Exploring the data"
-    ]
-  },
-  {
-    "objectID": "course-materials/week13.html#identify-and-remove-non-valid-participants",
-    "href": "course-materials/week13.html#identify-and-remove-non-valid-participants",
-    "title": "Week 13 - Exploring the data",
-    "section": "2.1. Identify and remove non-valid participants",
-    "text": "2.1. Identify and remove non-valid participants\nThanks to our first overview of the results, we know that the data from some participants are not valid. In this part, we will see how to identify and remove their data.\n\n\n\n\n\n\n⚠️ Be careful\n\n\n\nWe need to be careful when removing data, especially not to remove too much! The challenge is that there is no absolute established rule. We will see in the following sections that we need to rely on converging evidence to be more confident and justify our choice.\n\n\nWe can use different types of evidence to identify non-valid participants:\n\nBased on abnormal mean reaction time,\nBased on shared IPs (shared device),\nBased on the observation of specific participants.\n\n\nAbnormal RTShared IPsLook at specific participants\n\n\nLet’s have a look one more time at the plot indicating that there are RT problems.\n\nplot(data3$RT ~ data3$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\n\nTo have a more precise idea, we can look at the mean RT by participant.\n\nPartMeanRT &lt;- aggregate(RT ~ ID_1_TimeReceived,\n                        data = data3,\n                        FUN = mean)\n\nprint(PartMeanRT)\n\n   ID_1_TimeReceived         RT\n1         1777517421 13571.0667\n2         1777518106   805.1000\n3         1777518142   808.9333\n4         1777518178   808.5000\n5         1777518214   806.3333\n6         1777518250   813.2667\n7         1777518286   811.7333\n8         1777518322   814.4333\n9         1777518359   811.2667\n10        1777518398   806.8333\n11        1777518439   814.5000\n12        1777518549   813.5333\n13        1777518588   805.7000\n14        1777518627   812.1333\n15        1777518665   810.1333\n16        1777518704   815.0000\n17        1777518742   812.1667\n18        1777518781   815.3000\n19        1777518820   812.9667\n20        1777518859   814.9333\n21        1777518898   814.5000\n22        1777518937   810.2000\n23        1777518975   812.4000\n24        1777519013   807.5333\n25        1777519052   814.6333\n26        1777519104   813.5667\n27        1777519142   815.1667\n28        1777519180   813.4333\n29        1777519233   814.9333\n30        1777519270   814.8667\n31        1777519304   807.6333\n32        1777519458   608.8667\n33        1777519500   815.4667\n34        1777519539   692.3667\n35        1777519798  8069.6667\n36        1777952741  1511.9667\n37        1778728888  3986.5667\n38        1778729203 14339.8000\n39        1778730554  4272.8333\n40        1778737433  6259.6333\n41        1778742733  5526.1333\n42        1778763194 11567.2667\n43        1778782660  6250.8000\n\n\nThis confirms that there are many participants whose mean RT is around 800 milliseconds. Let’s have a closer look at this group using the following code.\n\ndata_QuickPart &lt;- subset(PartMeanRT, RT &lt; 1000)\ndata_QuickPart_FullData &lt;- subset(data3,\n                                  ID_1_TimeReceived %in% data_QuickPart$ID_1_TimeReceived)\n\nplot(data_QuickPart_FullData$RT ~ data_QuickPart_FullData$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\n\nThe fact that the variation is so small is very suspicious. It means that the participants were precise enough to judge the sentences very quickly and at the same rate. To me, this suggests that the participants were just pressing one or two buttons on the keyboard to finish the experiment as quickly as possible.\nTherefore, we can expect that these participants did not give very different ratings when comparing Grammatical and Ungrammatical conditions. Let’s have a look at this.\n\nplot(data_QuickPart_FullData$Value ~ data_QuickPart_FullData$Condition)\n\n\n\n\n\n\n\n\nTo make sure that we are not removing too much, we can have a look at the other group:\n\ndata_OtherPart &lt;- subset(PartMeanRT, RT &gt; 1000)\ndata_OtherPart_FullData &lt;- droplevels(subset(data3,\n                                             ID_1_TimeReceived %in% data_OtherPart$ID_1_TimeReceived))\n\nplot(data_OtherPart_FullData$RT ~ data_OtherPart_FullData$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\nplot(data_OtherPart_FullData$Value ~ data_OtherPart_FullData$Condition)\n\n\n\n\n\n\n\n\nThe between-participant variation looks like human behavior, and the ratings are quite expected.\n\n\nAnother piece of evidence may come from shared IPs (shared device). Indeed, if some participants wanted to finish the experiments very quickly, and if completing the experiment was awarded compensation, it is possible that they completed the experiment several times using the same device.\nLet’s have a look at the “abnormal behavior” group.\n\nezDesign(data_QuickPart_FullData, ID_1_TimeReceived, ID_2_IP)\n\n\n\n\n\n\n\n\nWe can see that different participants share the same IP.\nNow let’s have a look at the other group.\n\nezDesign(data_OtherPart_FullData, ID_1_TimeReceived, ID_2_IP)\n\n\n\n\n\n\n\n\nOnly two participants share the same IP, but not other ones.\n\n\nSometimes, it is useful to inspect specific participants. Here’s the code to do so:\n\nIndPart &lt;- subset(data_OtherPart_FullData,\n                  ID_1_TimeReceived == levels(data_OtherPart_FullData$ID_1_TimeReceived)[9])\n\nplot(IndPart$RT ~ IndPart$Condition)\n\n\n\n\n\n\n\nplot(IndPart$Value ~ IndPart$Condition)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConclusion\n\n\n\nWe have converging evidence to say that one group’s behavior is very different. Therefore, the analyses will be conducted on the group of participants whose behavior indicates that they paid attention to the experiment itself.",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 13: Exploring the data"
-    ]
-  },
-  {
-    "objectID": "course-materials/week13.html#identify-and-remove-non-valid-trials",
-    "href": "course-materials/week13.html#identify-and-remove-non-valid-trials",
-    "title": "Week 13 - Exploring the data",
-    "section": "2.2: Identify and remove non-valid trials",
-    "text": "2.2: Identify and remove non-valid trials\nOnce we identified and removed data from non-valid participants, we can remove outlier trials. Here is an overview of the process:\n\n\n\n\n\n\n\n\n\n\nRemove based on absolute valuesRemove based on relative valuesCalculate the proportion of removed trials\n\n\nThis step means that we want to remove data whose RT is below or above a certain value. There is no absolute rule regarding the value to adopt, and this is very specific to each experiment. In our case, we want to remove trials whose RT is below 200 milliseconds and above 20,000 milliseconds (20 seconds).\n\ndata_OtherPart_CleanAbsolute &lt;- subset(data_OtherPart_FullData, RT &gt; 200 & RT &lt; 20000)\n\n\n\nRemoving based on relative values means that we are looking at specific patterns from each participant and from each condition.\nIn experimental linguistics research, the usual way to go is to look at the mean RT of each condition for each participant, and then we remove trials that are too far from the mean. To do that, we remove trials which are below or above 2.5 times the deviation time from the means.\nThe following code illustrates how to do that:\n\n# Calculate the mean per Participant and Condition\ndata_OtherPart_CleanAbsolute$m_rt &lt;- ave(data_OtherPart_CleanAbsolute$RT, \n                                         data_OtherPart_CleanAbsolute$ID_1_TimeReceived, \n                                         data_OtherPart_CleanAbsolute$Condition, \n                                         FUN = mean)\n\n# 2. Calculate the SD per Participant and Condition\ndata_OtherPart_CleanAbsolute$sd_rt &lt;- ave(data_OtherPart_CleanAbsolute$RT, \n                                          data_OtherPart_CleanAbsolute$ID_1_TimeReceived, \n                                          data_OtherPart_CleanAbsolute$Condition, \n                                          FUN = sd)\n\n# 3. Subset the data to remove outliers\ndata_OtherPart_CleanAbsoluteRelative &lt;- subset(data_OtherPart_CleanAbsolute, \n                                               RT &gt;= (m_rt - 2.5 * sd_rt) & \n                                                 RT &lt;= (m_rt + 2.5 * sd_rt))\n\n\n\nFinally, to make sure that we did not remove too many trials.\n\nFullData_NbTrials &lt;- nrow(data_OtherPart_FullData)\nTrimmedData_NbTrials &lt;- nrow(data_OtherPart_CleanAbsoluteRelative)\n\n# Number of trimmed trials\nNbTrimmedTrials &lt;- FullData_NbTrials - TrimmedData_NbTrials\nNbTrimmedTrials\n\n[1] 14\n\n# Proportion (%)\nNbTrimmedTrials*100/FullData_NbTrials\n\n[1] 4.666667\n\n\nThe proportion is below 5%, which is acceptable in experimental linguistics.",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 13: Exploring the data"
-    ]
-  },
-  {
-    "objectID": "course-materials/week12.html",
-    "href": "course-materials/week12.html",
-    "title": "Week 12 - Arranging the data",
-    "section": "",
-    "text": "This week, we will learn how to arrange the dataset such that it is ready for further exploration.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nArrangements: How to prepare your data for further analyses?\nChecks: How to check that all the data are in order?\n\n\n\nA brief summary of the essential elements:\n\nload(...): Imports a dataset or workspace previously saved in .RData format.\nread.csv(...): Imports external data, such as your stimulus material list, from a .csv file.\n&lt;- NULL: Used to remove unnecessary columns from the dataframe.\nnames(...): Used to view or rename the column headers of the dataset.\nfilter(...): Keeps only the rows that meet specific conditions (e.g., keeping only “Experiment” trials).\nifelse(...): Creates a new value based on a condition.\nspread(...): Reshapes data from long to wide format.\nleft_join(...): Merges two datasets together based on common identifier columns (like ItemNo).\nas.factor(...) / as.numeric(...): Transforms a variable into a category (factor) or a mathematical number (numeric).\nezDesign(...): Generates a heatmap to visually verify that the experimental design is balanced and no data is missing.\nsave(...): Exports your final, prepared dataset into an .RData file for future analysis.\n\n\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 12: Arranging the data before further analyses"
-    ]
-  },
-  {
-    "objectID": "course-materials/week12.html#overview",
-    "href": "course-materials/week12.html#overview",
-    "title": "Week 12 - Arranging the data",
-    "section": "",
-    "text": "This week, we will learn how to arrange the dataset such that it is ready for further exploration.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nArrangements: How to prepare your data for further analyses?\nChecks: How to check that all the data are in order?\n\n\n\nA brief summary of the essential elements:\n\nload(...): Imports a dataset or workspace previously saved in .RData format.\nread.csv(...): Imports external data, such as your stimulus material list, from a .csv file.\n&lt;- NULL: Used to remove unnecessary columns from the dataframe.\nnames(...): Used to view or rename the column headers of the dataset.\nfilter(...): Keeps only the rows that meet specific conditions (e.g., keeping only “Experiment” trials).\nifelse(...): Creates a new value based on a condition.\nspread(...): Reshapes data from long to wide format.\nleft_join(...): Merges two datasets together based on common identifier columns (like ItemNo).\nas.factor(...) / as.numeric(...): Transforms a variable into a category (factor) or a mathematical number (numeric).\nezDesign(...): Generates a heatmap to visually verify that the experimental design is balanced and no data is missing.\nsave(...): Exports your final, prepared dataset into an .RData file for future analysis.\n\n\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 12: Arranging the data before further analyses"
-    ]
-  },
-  {
-    "objectID": "course-materials/week11.html",
-    "href": "course-materials/week11.html",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "",
-    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n\nread.pcibex(...): Self-built function to import PCIbex results froms .csv file.\nhead(...): Used to have a look of the first N rows of the dataset.\nstr(...): Used to look at the structure of the dataset.\nsummary(...): Used to summarize the whole dataset.\nview(...): Used to open the dataset.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nNo assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 11: Preparation: Computer set-up and data imporation"
-    ]
-  },
-  {
-    "objectID": "course-materials/week11.html#overview",
-    "href": "course-materials/week11.html#overview",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "",
-    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n\nread.pcibex(...): Self-built function to import PCIbex results froms .csv file.\nhead(...): Used to have a look of the first N rows of the dataset.\nstr(...): Used to look at the structure of the dataset.\nsummary(...): Used to summarize the whole dataset.\nview(...): Used to open the dataset.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nNo assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 11: Preparation: Computer set-up and data imporation"
-    ]
-  },
-  {
-    "objectID": "course-materials/week10.html",
-    "href": "course-materials/week10.html",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "",
-    "text": "This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.\n\n🎯 Goals💻 Necessary codes📝 Homework\n\n\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 10: Presentation of R"
-    ]
-  },
-  {
-    "objectID": "course-materials/week10.html#overview",
-    "href": "course-materials/week10.html#overview",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "",
-    "text": "This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.\n\n🎯 Goals💻 Necessary codes📝 Homework\n\n\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
-    "crumbs": [
-      "Home",
-      "Part 3: Analyses and visualization",
-      "Week 10: Presentation of R"
-    ]
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#goals-key-concepts",
-    "href": "course-materials/Week8_Slides2.html#goals-key-concepts",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "🎯 Goals & Key Concepts",
-    "text": "🎯 Goals & Key Concepts\n\nHow to optimize your script💻 Necessary codes\n\n\nHow to optimize your script:\n\nTemplate: Automate trials via a single script.\nRandomization: Shuffle trial order effortlessly.\nCounterbalancing: Master Latin square designs.\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants.\ngetVar(...): Used to obtain the content of an element stored in a variable."
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
-    "href": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "A. Create the material table",
-    "text": "A. Create the material table\nInstead of typing the trials in the script, we create a table where we can list them.\n\n\n\n\nItemNo\nSentence\nCondition\n\n\n\n\n1\nThis is the first sentence\nGrammatical\n\n\n2\nThis is the second sentence\nGrammatical\n\n\n…\n…\n…\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nCreate material.csv in the PCIbex Resources section."
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#concept",
-    "href": "course-materials/Week8_Slides2.html#concept",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Concept",
-    "text": "Concept\nThis is a a two-step process to store such information in the results file:\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
-    "href": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Step 1: Define the variables",
-    "text": "Step 1: Define the variables\n\n\n\n\n\n\nNote\n\n\n\nThis must be done where the information appears for the first time. For our experiment, this is in the 👋 Welcome page!\nNotice that we use (1) the newVar() element to create a new variable, and then (2) the getTextInput() and getDropDown() to tell PCIbex what content to keep in memory!\n\n\n\n\n\nLet’s look at the code:\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n    newText(\"We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.\")\n        .print()\n        .center()\n    ,\n    newText(\"Your age:\")\n        .print()\n        .center()\n    ,\n    newTextInput(\"Age\")\n        .print()\n        .center()\n        .log(\"final\")\n    ,\n    newText(\"Your highest degree:\")\n        .print()\n        .center()\n    ,\n    newDropDown(\"Degree\", \"Please select one option\")\n        .add(\"Elementary school\", \"Junior high school\", \"Senior high school\", \"BA\", \"MA\", \"Ph.D.\")\n        .print()\n        .center()\n        .log()\n    ,\n    newButton(\"Continue\")\n        .center()\n        .print()\n        .wait()\n+    ,\n+    newVar(\"Age\")\n+        .global()\n+        .set(getTextInput(\"Age\"))\n+    ,\n+    newVar(\"Degree\")\n+        .global()\n+        .set(getDropDown(\"Degree\"))\n    )\n\n\nDone!"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
-    "href": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Step 2: Store the information about the participants",
-    "text": "Step 2: Store the information about the participants\n\n\n\n\n\n\nNote\n\n\nNow that you created the variable and that they are kept in memory, we can store them in the results file using the .log() command. But notice the use of getVar()!\n\n\n\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n+    .log(\"Age\", getVar(\"Age\"))\n+    .log(\"Degree\", getVar(\"Degree\"))\n)\n\n\nDone!"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
-    "href": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Recall: What is “counterbalancing”?",
-    "text": "Recall: What is “counterbalancing”?\n\n\n\n\n\n\n\nNote\n\n\nExample: For some reasons, you want Participant 1 to read half of the sentences, Participant 2 the other half, Participant 3 the same as Participant 1, Participant 4 the same as Participant 2, etc.\n\n\n\n\n\nHow to do that with PCIbex?\n\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
-    "href": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Final content in the material.csv file",
-    "text": "Final content in the material.csv file\nItemNo,Sentence,Condition,group\n1,This is the first sentence,Grammatical,A\n2,This is the second sentence,Grammatical,A\n3,This is the third sentence,Grammatical,B\n4,This is the fourth sentence,Grammatical,B\n5,This are the fifth sentence,Ungrammatical,A\n6,This are the sixth sentence,Ungrammatical,A\n7,This are the seventh sentence,Ungrammatical,B\n8,This are the eighth sentence,Ungrammatical,B\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB\n\n\n\n\n\nDon’t forget to use the log() element to keep track of which list the participants were assigned to!\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n\n...\n         \n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n    .log(\"Sentence\", row.Sentence)\n+    .log(\"List\", row.group)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
-    "href": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "Download the results file, open it and check the following:",
-    "text": "Download the results file, open it and check the following:\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see age and degree? choice/judgment?\nWere the sentences randomly presented?"
-  },
-  {
-    "objectID": "course-materials/Week8_Slides2.html#assignment-for-next-week",
-    "href": "course-materials/Week8_Slides2.html#assignment-for-next-week",
-    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
-    "section": "📝 Assignment for next week",
-    "text": "📝 Assignment for next week\n\n\n\n\n\n\nAssignment\n\n\n\nDownload the script of this week\nAnnotate each line of code\nUpload the annotated script on Moodle\n\n\n\n\n\n\n\n\n\n\nYou can even start preparing your own experiment!"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "About this site\n\n1 + 1\n\n[1] 2"
-  },
-  {
-    "objectID": "course-materials/week1.html",
-    "href": "course-materials/week1.html",
-    "title": "Week 1: Introduction",
-    "section": "",
-    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
-    "crumbs": [
-      "Home",
-      "Preliminary weeks",
-      "Week 1: Introduction"
-    ]
-  },
-  {
-    "objectID": "course-materials/week1.html#welcome-to-the-course",
-    "href": "course-materials/week1.html#welcome-to-the-course",
-    "title": "Week 1: Introduction",
-    "section": "",
-    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
-    "crumbs": [
-      "Home",
-      "Preliminary weeks",
-      "Week 1: Introduction"
-    ]
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#goals-key-concepts",
-    "href": "course-materials/week10_slides.html#goals-key-concepts",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "🎯 Goals & key concepts",
-    "text": "🎯 Goals & key concepts\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\nScript sharing: How to write a beautiful script to share?"
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#what-is-r-what-is-rstudio",
-    "href": "course-materials/week10_slides.html#what-is-r-what-is-rstudio",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "1.1. What is R? What is RStudio?",
-    "text": "1.1. What is R? What is RStudio?\n\n\n\n\nThe Engine: R\n\n\n\nThe main program where all the mathematical magic and deep computations happen.\n\n\n\n\n\n\n\nThe Dashboard: RStudio\n\n\n\nA user-friendly interface that makes it incredibly easy to interact with R."
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#download-and-install",
-    "href": "course-materials/week10_slides.html#download-and-install",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "1.2. Download and Install",
-    "text": "1.2. Download and Install\n\nStep 1: Download and install RStep 2: Download and install RStudio\n\n\nGo to the RStudio website by clicking here. You will see something like this:\n\nNext, choose your CRAN (The Comprehensive R Archive Network). Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.\n\nChoose the files to download according to your computer’s operating system. The most common are macOS (for Apple computers) or Windows.\n\nOn the next page, choose the subdirectory. For our purposes, we only need the “base” subdirectory.\n\nWe finally got to the last page! Click on the first link to download the files, as shown below. Wait until the file is downloaded, open it, and follow the standard instructions to install R on your computer.\n\n\n\nNow that R is installed, it is time to do the same with RStudio. Go to the RStudio website by clicking here. You will see something like this:\n\nScroll down to look for the download links. Again, choose the right file for your operating system. Just click the link, let it download, open the file, and follow the instructions!"
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#launch-and-try",
-    "href": "course-materials/week10_slides.html#launch-and-try",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "1.3. Launch and Try!",
-    "text": "1.3. Launch and Try!\nLook for the program called “RStudio” on your computer. Once you find it, just open it up, and you can move on to the next section!\n\n\n\n\n\n\n💡 Wait, why didn’t we open R?\n\n\nRecall that R is the program where computations are done, and RStudio is the user-friendly interface. Even though we needed to download both, you actually only ever need to open RStudio when you want to use R! RStudio will talk to R in the background for you."
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#terminology",
-    "href": "course-materials/week10_slides.html#terminology",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "Terminology",
-    "text": "Terminology\n\n\n\n\n\n\n\nConcept\nDefinition\n\n\n\n\nLine of code\nA single, simple instruction (e.g., 4 + 2).\n\n\nFunction\nA pre-packaged cluster of code that performs a specific task.\n\n\nPackage / Library\nA downloadable folder containing hundreds of useful functions!"
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#a.-the-working-directory",
-    "href": "course-materials/week10_slides.html#a.-the-working-directory",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "A. The Working Directory",
-    "text": "A. The Working Directory\nBefore doing anything with data, you must tell R exactly which folder on your computer to look in. This is your Working Directory.\nUse the Computer Block to navigate to your project folder. Click the Gear Icon, and select “Save as Working Directory”."
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#b.-comments",
-    "href": "course-materials/week10_slides.html#b.-comments",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "B. Comments",
-    "text": "B. Comments\nUse the # symbol to write notes to yourself. R will completely ignore anything written after a hashtag!\n### This is a comment. R will not run this.\n2 + 4 ### This adds two numbers together!"
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#c.-loading-data",
-    "href": "course-materials/week10_slides.html#c.-loading-data",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "C. Loading Data",
-    "text": "C. Loading Data\n\n\n\n\n\n\nData to use\n\n\nYou need to download this file and place it in the folder for this class in the Documents folder of your computer.\n\n\n\n\nLet’s import a .csv dataset (like an Excel file). We use the read.csv() function and assign it to a variable called data.\ndata &lt;- read.csv(\"GACTT_RESULTS_ANONYMIZED_v2.csv\", header=TRUE)\n\n\nAlternatively, you can use the RStudio interface! In your Variable block, click “Import Dataset” &gt; “From Text (base)”, select your file, and click Import."
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#d.-transforming-and-summarizing-data",
-    "href": "course-materials/week10_slides.html#d.-transforming-and-summarizing-data",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "D. Transforming and Summarizing Data",
-    "text": "D. Transforming and Summarizing Data\n\nOnce loaded, you can inspect your data using str(data) to see its structure, or summary(data) to get a quick mathematical overview.\nstr(data)\n\nsummary(data)\n\n\nOften, survey data comes in as plain text when it should be categorized into groups (Factors). We fix this using as.factor():\ndata$What.is.your.age. &lt;- as.factor(data$What.is.your.age.)\n(The $ symbol tells R to look inside the dataset for a specific column!)\n\n\nIf we want to count how many people fit into different groups, we can use the powerful dplyr package:\nlibrary(dplyr)\n\ndata3 &lt;- data2 %&gt;% \n  group_by(What.is.your.age., How.many.cups.of.coffee.do.you.typically.drink.per.day.) %&gt;% \n  summarize(Count = n())"
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#e.-plotting-the-data",
-    "href": "course-materials/week10_slides.html#e.-plotting-the-data",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "E. Plotting the Data",
-    "text": "E. Plotting the Data\nWith our data summarized, we can use the built-in plot() function to visualize it:\nplot(x = data3$What.is.your.age., y = data3$Count)"
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#how-to-create-a-beautiful-convenient-and-shareable-script",
-    "href": "course-materials/week10_slides.html#how-to-create-a-beautiful-convenient-and-shareable-script",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "How to create a beautiful, convenient and shareable script?",
-    "text": "How to create a beautiful, convenient and shareable script?\nTo start, click “New File” &gt; “R Markdown…”\n\nRStudio will prompt you for a Title and Author. Once created, you will see a document with a YAML Header at the top between dashed lines ---. This header controls the settings for your final document."
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#writing-text-and-code",
-    "href": "course-materials/week10_slides.html#writing-text-and-code",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "Writing Text and Code",
-    "text": "Writing Text and Code\nIn an R Markdown file, anything you type normally becomes standard text. To actually write R code, you must insert a Code Chunk. Click the “Insert” button at the top of the script and select “R”. A grey box will appear.\n\nYou can run these individual chunks using the green Play Button in the corner of the grey box."
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#the-magic-knit-button",
-    "href": "course-materials/week10_slides.html#the-magic-knit-button",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "The Magic “Knit” Button",
-    "text": "The Magic “Knit” Button\nWhen your document is complete, click the Knit button at the top of the interface. R will automatically run all your code chunks, generate the graphs, format your text beautifully, and produce a polished final document you can share with the world!"
-  },
-  {
-    "objectID": "course-materials/week10_slides.html#assignments",
-    "href": "course-materials/week10_slides.html#assignments",
-    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
-    "section": "Assignments",
-    "text": "Assignments\n\n\n\n\n\n\n📝 Assignment for next week\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week (here)\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle"
-  },
-  {
-    "objectID": "course-materials/week11_slides.html#goals",
-    "href": "course-materials/week11_slides.html#goals",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "objectID": "course-materials/week13_slides.html#goals",
+    "href": "course-materials/week13_slides.html#goals",
+    "title": "Week 12 - Exploring the data",
     "section": "🎯 Goals",
-    "text": "🎯 Goals\nPrepare your computer:\n\n\nProjects: How to set-up a project in RStudio?\n\n\n\n\nAdvanced scripts: How to use Markdown documents to share better scripts?\n\n\n\n\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?"
+    "text": "🎯 Goals\nExplore your data:\n\n\nNon-valid data: How to identify and remo?\n\n\n\n\nChecks: How to check that all the data are in order?"
   },
   {
-    "objectID": "course-materials/week11_slides.html#section",
-    "href": "course-materials/week11_slides.html#section",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "",
-    "text": "Why?\n\n\nWe want to be organized and not messy!\n\n\n\n\n\n\nSection 1.1: Prepare the folder in your computer.\n\n\n\n\nSection 1.2: Create the related R project."
+    "objectID": "course-materials/week13_slides.html#dataset-and-script",
+    "href": "course-materials/week13_slides.html#dataset-and-script",
+    "title": "Week 12 - Exploring the data",
+    "section": "💻 Dataset and script",
+    "text": "💻 Dataset and script\nPlease download the files for the content of Week 12, and place them in your PreprocessingAnalysesR folder.\n\n 📥 Download the dataset for the script \n 📥 Download the R Markdown script \n\n\n 💻 Please start RStudio and select the project called PreprocessingAnalysesR."
   },
   {
-    "objectID": "course-materials/week11_slides.html#setting-up-your-folders",
-    "href": "course-materials/week11_slides.html#setting-up-your-folders",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "1.1 Setting up your folders",
-    "text": "1.1 Setting up your folders\n\n\nNavigate to your Documents (or 文件) folder.\n\n\n\n\nCreate your Root Folder: CHC9012_Spring2025\n\n\n\n\nAdd the Project Subfolders:\n\n📁 Slides: Presentation files.\n📁 PCIbex_design: Scripts & materials.\n📁 PreprocessingAnalysesR: Datasets & R code."
+    "objectID": "course-materials/week13_slides.html#preparatory-activity",
+    "href": "course-materials/week13_slides.html#preparatory-activity",
+    "title": "Week 12 - Exploring the data",
+    "section": "✍️ Preparatory activity",
+    "text": "✍️ Preparatory activity\n\n\n\n\n\n\nInstructions\n\n\nWe should never forget that coding is a tool to achieve a task. For our case, the main task is to prepare the dataset for further analyses, which means:\n\nChecking that it is complete and that nothing is missing,\nDeleting the columns/rows that are not necessary, and\nTransforming (but not altering) the data\n\n\n\n\n\nHow to do so? Two steps:\n\nLook at the dataset you just imported\nTake notes"
   },
   {
-    "objectID": "course-materials/week11_slides.html#you-should-obtain-something-like-this",
-    "href": "course-materials/week11_slides.html#you-should-obtain-something-like-this",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "You should obtain something like this",
-    "text": "You should obtain something like this\n\n\n\n\n\n\n\n\nPay attention to the names\n\n\nGenerally, it is better not to use any space when naming folders and files!"
+    "objectID": "course-materials/week13_slides.html#step-1-look-at-the-imported-dataset",
+    "href": "course-materials/week13_slides.html#step-1-look-at-the-imported-dataset",
+    "title": "Week 12 - Exploring the data",
+    "section": "Step 1: Look at the imported dataset",
+    "text": "Step 1: Look at the imported dataset\nload(\"CHC9012_DataImportedFromPCIbex.RData\")\n\nview(data)"
   },
   {
-    "objectID": "course-materials/week11_slides.html#initializing-your-r-project",
-    "href": "course-materials/week11_slides.html#initializing-your-r-project",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "1.2 Initializing Your R Project",
-    "text": "1.2 Initializing Your R Project\n\n\n\n1. Launch New Project Wizard  Click the blue cube icon in the top-left corner of RStudio.\n\n\n\n2. Select project type  Choose “Existing Directory” to link R to your folder structure.\n\n\n\n3. Finalize Connection  Browse to PreprocessingAnalysesR, check “Open in a new session”, and click Create Project.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBenefit: An .Rproj file sets your “Working Directory” automatically!"
+    "objectID": "course-materials/week13_slides.html#what-are-all-these-columns",
+    "href": "course-materials/week13_slides.html#what-are-all-these-columns",
+    "title": "Week 12 - Exploring the data",
+    "section": "👓 What are all these columns?",
+    "text": "👓 What are all these columns?\n\nDefault columns from PCIbexColumns that we manually logged\n\n\n\nResults.reception.time: Time in the PCIbex server when the results were received. This can be used as the Participant ID, assuming that there are no two participants who submitted the results at the exact same time.\nMD5.hash.of.participant.s.IP.address: Scripted IP address of the machine used by the participant.\nController.name: Which controller was used to code the experiment.\nOrder.number.of.item: The order of presentation of the whole questionnaire, starting from the very first page.\nInner.element.number: Whether specific numbers were assigned to the element.\nLabel: The name given to the webpage in PCIbex (for example, Welcome page, Instructions, Exeriment, etc.).\nLatin.Square.Group\nPennElementType: The PCIbex element used for the action (TextInput, Scale, Dropdown, etc.).\nParameter: Breakdown of the elements used on a same page.\nValue: What the participant wrote or selectedm or when an element starts or ends.\nEventTime: Time point at which an action occured (the time corresponds to the PCIbex server)\nComments\n\n\n\n\nItemNo: The ID of the item (here, sentence)\nCondition: The experimental condition\nGroup\nUserAge\nUserDegree"
   },
   {
-    "objectID": "course-materials/week11_slides.html#other-advantages-of-creating-projects",
-    "href": "course-materials/week11_slides.html#other-advantages-of-creating-projects",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "Other advantages of creating projects",
-    "text": "Other advantages of creating projects\n\n\n\nOne RStudio window = One project\nSwitch between them without worrying about the working directory of trying to find the right files!\nList of your projects on the top-right corner of RStudio. Here is mine for example:"
+    "objectID": "course-materials/week13_slides.html#step-2-preparatory-activity",
+    "href": "course-materials/week13_slides.html#step-2-preparatory-activity",
+    "title": "Week 12 - Exploring the data",
+    "section": "✍️ Step 2: Preparatory activity",
+    "text": "✍️ Step 2: Preparatory activity\n\n\n\n\n\n\nInstructions\n\n\nWhat needs to be done to prepare the dataset?\nSome tips:\n\nChecking that it is complete and that nothing is missing,\nDeleting the columns/rows that are not necessary, and\nTransforming (but not altering) the data"
   },
   {
-    "objectID": "course-materials/week11_slides.html#in-class-exercise",
-    "href": "course-materials/week11_slides.html#in-class-exercise",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "📝 In-class exercise!",
-    "text": "📝 In-class exercise!\n\n\nTask list:\n\nFind the R script from last week and move it to the PreprocessingAnalysesR folder.\nOpen the script within your newly created project."
+    "objectID": "course-materials/week13_slides.html#my-own-observations",
+    "href": "course-materials/week13_slides.html#my-own-observations",
+    "title": "Week 12 - Exploring the data",
+    "section": "💡 My own observations",
+    "text": "💡 My own observations\n\nMissing dataUnnecessary dataData to transform\n\n\n\nCalculate the reaction time (so far, only the event time)\nThe actual sentences are missing, need to add them based on ItemNo\nNo information about the consent box, but this cannot be retrieved\n\n\n\n\nColumns containing the same or no value (Controller.name, Inner.element.number, Latin.Square.Group, Comments, for example)\nKeep only the lines where Label is “Experiment”\n\n\n\n\nColumns to rename, to be more concise and explicit (Results.reception.time, MD5.hash.of.participant.s.IP.address)\nChange the nature of the variable (UserAge to numerical value, ItemNo to a group/factor, etc.)"
   },
   {
-    "objectID": "course-materials/week11_slides.html#from-raw-script-to-functional-r-markdown",
-    "href": "course-materials/week11_slides.html#from-raw-script-to-functional-r-markdown",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "From raw script to functional: R Markdown",
-    "text": "From raw script to functional: R Markdown\n\n\n\n1. Create the file 📄 Go to New File &gt; R Markdown. This moves you from raw code to a “living” document.\n\n\n2. Configure (YAML) ⚙️ The header between --- controls your title, author, and output format (HTML/PDF).\n\n\n3. Text + Code chunks 📝 Write text normally; insert Code Chunks ({r}) for analysis.\n\n\n4. Run your codes ▶️ Use the green Play Button to test individual steps.\n\n\n5. The Final “Knit” 🧶 Click Knit to stitch everything into a polished report automatically!"
+    "objectID": "course-materials/week13_slides.html#remove-unnecessary-columns",
+    "href": "course-materials/week13_slides.html#remove-unnecessary-columns",
+    "title": "Week 12 - Exploring the data",
+    "section": "2.1 Remove unnecessary columns",
+    "text": "2.1 Remove unnecessary columns\n\nWe need to mention which column from which dataset. In R language, “the column called Controller.name from the dataset called data” is written using the $ sign (data$Controller.name)\nWe assign NULL to this column to delete it.\n\ndata$Controller.name &lt;- NULL\ndata$Inner.element.number &lt;- NULL\ndata$Latin.Square.Group &lt;- NULL\ndata$Comments &lt;- NULL"
   },
   {
-    "objectID": "course-materials/week11_slides.html#in-class-exercise-1",
-    "href": "course-materials/week11_slides.html#in-class-exercise-1",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "📝 In-class exercise!",
-    "text": "📝 In-class exercise!\n\n\nTask list:\n\nCreate a new Markdown document, and call it ScriptWeek10_Markdown.\nUse the script from last week, but adapt it to the Markdown format. Be creative!"
+    "objectID": "course-materials/week13_slides.html#rename-columns",
+    "href": "course-materials/week13_slides.html#rename-columns",
+    "title": "Week 12 - Exploring the data",
+    "section": "2.2 Rename columns",
+    "text": "2.2 Rename columns\n\n\nYou can have a glimpse of the names of the columns using the names(...) function.\nnames(data)\n\n\n [1] \"Results.reception.time\"              \n [2] \"MD5.hash.of.participant.s.IP.address\"\n [3] \"Order.number.of.item\"                \n [4] \"Label\"                               \n [5] \"PennElementType\"                     \n [6] \"PennElementName\"                     \n [7] \"Parameter\"                           \n [8] \"Value\"                               \n [9] \"EventTime\"                           \n[10] \"ItemNo\"                              \n[11] \"Condition\"                           \n[12] \"Group\"                               \n[13] \"UserAge\"                             \n[14] \"UserDegree\"                          \n\n\n\n\nEach name is assigned to a numerical index. For instance, “[1]” corresponds to “Results.reception.time”.\nnames(data)[1]\n\n\n[1] \"Results.reception.time\"\n\n\n\n\nOnce we have the index of columns, we just need to assign new names to them.\nnames(data)[1] &lt;- \"ID_1_TimeReceived\"\nnames(data)[2] &lt;- \"ID_2_IP\"\n\nnames(data)\n\n\n [1] \"ID_1_TimeReceived\"    \"ID_2_IP\"              \"Order.number.of.item\"\n [4] \"Label\"                \"PennElementType\"      \"PennElementName\"     \n [7] \"Parameter\"            \"Value\"                \"EventTime\"           \n[10] \"ItemNo\"               \"Condition\"            \"Group\"               \n[13] \"UserAge\"              \"UserDegree\""
   },
   {
-    "objectID": "course-materials/week11_slides.html#fake-experiment-for-this-class",
-    "href": "course-materials/week11_slides.html#fake-experiment-for-this-class",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "Fake experiment for this class",
-    "text": "Fake experiment for this class\n  Try the experiment \n\n\n\n\n\n\n\nThe code of the fake experiment is given on the website\n\n\n\n\n\n\n\n\n\n\n\n\n\nFake results!\n\n\nAn AI robot did the experiment several times. I also pretended that I was a “bad” participant several times. The results are just to show you how to analyze data from PCIbex, they do not have other value!"
+    "objectID": "course-materials/week13_slides.html#select-the-rows-we-need",
+    "href": "course-materials/week13_slides.html#select-the-rows-we-need",
+    "title": "Week 12 - Exploring the data",
+    "section": "2.3 Select the rows we need",
+    "text": "2.3 Select the rows we need\n\n\n\nWe use the filter() function from the dplyr package.\n%&gt;%: to say that “This is the Label column from the dataset called data”.\n== sign: we want the Experiment rows.\nWe store that into a new dataset called data2.\n\nlibrary(dplyr)\n\ndata2 &lt;- data %&gt;%\n  filter(Label == \"Experiment\")\n\n\nCheck: We expect to only find Experiment in the Label column.\n\n\n\n  \n\n\n\n\n\n\nThere are unnecessary _Header_ rows in the Parameter column.\nWe can use the same logic to remove them, but we use !=, meaning “we don’t want these rows”.\n\ndata2 &lt;- data2 %&gt;%\n  filter(Parameter != \"_Header_\")"
   },
   {
-    "objectID": "course-materials/week11_slides.html#in-class-exercise-2",
-    "href": "course-materials/week11_slides.html#in-class-exercise-2",
-    "title": "Week 11 - Preparation: Computer set-up and data imporation",
-    "section": "📝 In-class exercise!",
-    "text": "📝 In-class exercise!\n\n\nTask list:\n\nLook at the whole table. To do so, click on the variable, or just write view(data) in the console\nManually, identify and take notes of (1) what information is missing, (2) which rows should be erased/kept, and (3) which columns should be deleted or added."
+    "objectID": "course-materials/week13_slides.html#calculate-the-reaction-time",
+    "href": "course-materials/week13_slides.html#calculate-the-reaction-time",
+    "title": "Week 12 - Exploring the data",
+    "section": "2.4 Calculate the reaction time",
+    "text": "2.4 Calculate the reaction time\n\n\n\n\n\n📖 Defining reaction time\n\n\nIn this experiment:\nReaction time = Time when the judgment is made - Time when the sentence appeared\nCalculating the reaction time from PCIbex data requires several steps.\n\n\n\n\n\nLet’s have a look at our data:\n\n\n\n  \n\n\n\nHow would you proceed? Let’s reflect for 10 minutes.\n\n\nMy solution\n\n\n\n\n\n\n\n\n\n\n\nStep 1: Create dataset with relevant rows\n\nReaction time = “EventTime when Parameter = Choice” - “EventTime when Value = Start”.\nWe select these rows, and we stored in a temporary dataset that we call RT_Prep1.\n\nRT_Prep1 &lt;- data2 %&gt;%\n  filter(Parameter == \"Choice\" | Value == \"Start\")\n\n\nStep 2.1: Prepare dataset - Annotation\n\nValue column: time for Start, but not for Choice. We want to have everything under the same column.\nNew annotation: When in the Value column, the word is not Start, we write Choice.\nThen, we delete columns when the two rows are different.\n\nRT_Prep1$Value &lt;- ifelse(RT_Prep1$Value == \"Start\",\n                         \"Start\",\n                         \"Choice\")\n\nRT_Prep1$PennElementType &lt;- NULL\nRT_Prep1$PennElementName &lt;- NULL\nRT_Prep1$Parameter &lt;- NULL\n\n\n\n  \n\n\n\n\n\nStep 2.2: Prepare dataset - Change format\n\nSubtraction: EventTime for Start and Choice in different columns.\nspread() function from the tidyr library.\n\nlibrary(tidyr)\nRT_Prep2 &lt;- spread(data = RT_Prep1, Value, EventTime)\n\n\n\n  \n\n\n\n\n\nStep 3: Subtract Choice from Start time\nChange to numeric values, and subtract.\nRT_Prep2$Choice &lt;- as.numeric(RT_Prep2$Choice)\nRT_Prep2$Start &lt;- as.numeric(RT_Prep2$Start)\nRT_Prep2$RT &lt;- RT_Prep2$Choice - RT_Prep2$Start\n\n\n\n  \n\n\n\n\n\nStep 4: Join RT dataset to main one\n\n\n\nTip\n\n\nWe have two datasets:\n\ndata2, with the judgment data, but not the reaction time,\nRT_Prep2, the temporary dataset with the reaction time, but not the judgment data.\n\nWe just need to join them based on their common minimal value: 1 different trial per participant.\n\n\n\n\nFirst, we select the row where the judgment is given.\n\ndata3 &lt;- data2 %&gt;%\n  filter(Parameter %in% \"Choice\")\n\nFinally, we use the left_join() function to join these two datasets based on (a) the participant ID, and (b) the Item index.\n\ndata3 &lt;- data3 %&gt;%\n  left_join(RT_Prep2 %&gt;% select(ID_1_TimeReceived, ID_2_IP, ItemNo, RT), \n            by = c(\"ID_1_TimeReceived\", \"ID_2_IP\", \"ItemNo\"))"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#change-the-nature-of-the-variables",
+    "href": "course-materials/week13_slides.html#change-the-nature-of-the-variables",
+    "title": "Week 12 - Exploring the data",
+    "section": "2.5 Change the nature of the variables",
+    "text": "2.5 Change the nature of the variables\n\n\nLet’s look again at our data:\nstr(data3)\n\n\n'data.frame':   1290 obs. of  15 variables:\n $ ID_1_TimeReceived   : int  1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 ...\n $ ID_2_IP             : chr  \"965c6743ad440dd6eaf441586b84d5c2\" \"965c6743ad440dd6eaf441586b84d5c2\" \"965c6743ad440dd6eaf441586b84d5c2\" \"965c6743ad440dd6eaf441586b84d5c2\" ...\n $ Order.number.of.item: int  16 33 26 25 31 7 28 17 21 34 ...\n $ Label               : chr  \"Experiment\" \"Experiment\" \"Experiment\" \"Experiment\" ...\n $ PennElementType     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ PennElementName     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ Parameter           : chr  \"Choice\" \"Choice\" \"Choice\" \"Choice\" ...\n $ Value               : chr  \"6\" \"1\" \"4\" \"3\" ...\n $ EventTime           : num  1.78e+12 1.78e+12 1.78e+12 1.78e+12 1.78e+12 ...\n $ ItemNo              : chr  \"11\" \"58\" \"51\" \"50\" ...\n $ Condition           : chr  \"Grammatical\" \"Ungrammatical\" \"Ungrammatical\" \"Ungrammatical\" ...\n $ Group               : chr  \"A\" \"A\" \"A\" \"A\" ...\n $ UserAge             : int  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : chr  \"Ph.D.\" \"Ph.D.\" \"Ph.D.\" \"Ph.D.\" ...\n $ RT                  : num  20079 13763 13247 13997 13063 ...\n\n\n\n\nSome variables correspond to groups (or categories), so we used the as.factor() function to group them.\ndata3$ID_1_TimeReceived &lt;- as.factor(data3$ID_1_TimeReceived)\ndata3$ID_2_IP &lt;- as.factor(data3$ID_2_IP)\ndata3$ItemNo &lt;- as.factor(data3$ItemNo)\ndata3$Condition &lt;- as.factor(data3$Condition)\ndata3$Group &lt;- as.factor(data3$Group)\ndata3$UserDegree &lt;- as.factor(data3$UserDegree)\n\n\nFor numerical values, we use the as.numeric() function.\ndata3$Order.number.of.item &lt;- as.numeric(data3$Order.number.of.item)\ndata3$Value &lt;- as.numeric(data3$Value)\ndata3$UserAge &lt;- as.numeric(data3$UserAge)\ndata3$RT &lt;- as.numeric(data3$RT)\nNow this is our data:\nstr(data3)\n\n\n'data.frame':   1290 obs. of  15 variables:\n $ ID_1_TimeReceived   : Factor w/ 43 levels \"1777517421\",\"1777518106\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ ID_2_IP             : Factor w/ 12 levels \"0dee2ffb70111f78f8da03e6cb282297\",..: 9 9 9 9 9 9 9 9 9 9 ...\n $ Order.number.of.item: num  16 33 26 25 31 7 28 17 21 34 ...\n $ Label               : chr  \"Experiment\" \"Experiment\" \"Experiment\" \"Experiment\" ...\n $ PennElementType     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ PennElementName     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ Parameter           : chr  \"Choice\" \"Choice\" \"Choice\" \"Choice\" ...\n $ Value               : num  6 1 4 3 2 6 1 7 1 1 ...\n $ EventTime           : num  1.78e+12 1.78e+12 1.78e+12 1.78e+12 1.78e+12 ...\n $ ItemNo              : Factor w/ 60 levels \"1\",\"10\",\"11\",..: 3 54 47 46 52 12 49 4 41 55 ...\n $ Condition           : Factor w/ 2 levels \"Grammatical\",..: 1 2 2 2 2 1 2 1 2 2 ...\n $ Group               : Factor w/ 2 levels \"A\",\"B\": 1 1 1 1 1 1 1 1 1 1 ...\n $ UserAge             : num  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : Factor w/ 4 levels \"BA\",\"High school\",..: 4 4 4 4 4 4 4 4 4 4 ...\n $ RT                  : num  20079 13763 13247 13997 13063 ..."
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#another-round-of-removing-unnecessary-columns",
+    "href": "course-materials/week13_slides.html#another-round-of-removing-unnecessary-columns",
+    "title": "Week 12 - Exploring the data",
+    "section": "2.6 Another round of removing unnecessary columns",
+    "text": "2.6 Another round of removing unnecessary columns\n\n\nWe made use of some columns when calculating the reaction time, but we do not need them anymore, and they are redundant. So here is another round of column removal!\nstr(data3)\n\n\n'data.frame':   1290 obs. of  15 variables:\n $ ID_1_TimeReceived   : Factor w/ 43 levels \"1777517421\",\"1777518106\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ ID_2_IP             : Factor w/ 12 levels \"0dee2ffb70111f78f8da03e6cb282297\",..: 9 9 9 9 9 9 9 9 9 9 ...\n $ Order.number.of.item: num  16 33 26 25 31 7 28 17 21 34 ...\n $ Label               : chr  \"Experiment\" \"Experiment\" \"Experiment\" \"Experiment\" ...\n $ PennElementType     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ PennElementName     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ Parameter           : chr  \"Choice\" \"Choice\" \"Choice\" \"Choice\" ...\n $ Value               : num  6 1 4 3 2 6 1 7 1 1 ...\n $ EventTime           : num  1.78e+12 1.78e+12 1.78e+12 1.78e+12 1.78e+12 ...\n $ ItemNo              : Factor w/ 60 levels \"1\",\"10\",\"11\",..: 3 54 47 46 52 12 49 4 41 55 ...\n $ Condition           : Factor w/ 2 levels \"Grammatical\",..: 1 2 2 2 2 1 2 1 2 2 ...\n $ Group               : Factor w/ 2 levels \"A\",\"B\": 1 1 1 1 1 1 1 1 1 1 ...\n $ UserAge             : num  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : Factor w/ 4 levels \"BA\",\"High school\",..: 4 4 4 4 4 4 4 4 4 4 ...\n $ RT                  : num  20079 13763 13247 13997 13063 ...\n\n\n\n\ndata3$Label &lt;- NULL\ndata3$PennElementType &lt;- NULL\ndata3$PennElementName &lt;- NULL\ndata3$Parameter &lt;- NULL\ndata3$EventTime &lt;- NULL\n\nstr(data3)\n\n\n'data.frame':   1290 obs. of  10 variables:\n $ ID_1_TimeReceived   : Factor w/ 43 levels \"1777517421\",\"1777518106\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ ID_2_IP             : Factor w/ 12 levels \"0dee2ffb70111f78f8da03e6cb282297\",..: 9 9 9 9 9 9 9 9 9 9 ...\n $ Order.number.of.item: num  16 33 26 25 31 7 28 17 21 34 ...\n $ Value               : num  6 1 4 3 2 6 1 7 1 1 ...\n $ ItemNo              : Factor w/ 60 levels \"1\",\"10\",\"11\",..: 3 54 47 46 52 12 49 4 41 55 ...\n $ Condition           : Factor w/ 2 levels \"Grammatical\",..: 1 2 2 2 2 1 2 1 2 2 ...\n $ Group               : Factor w/ 2 levels \"A\",\"B\": 1 1 1 1 1 1 1 1 1 1 ...\n $ UserAge             : num  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : Factor w/ 4 levels \"BA\",\"High school\",..: 4 4 4 4 4 4 4 4 4 4 ...\n $ RT                  : num  20079 13763 13247 13997 13063 ..."
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#add-information-about-the-items",
+    "href": "course-materials/week13_slides.html#add-information-about-the-items",
+    "title": "Week 12 - Exploring the data",
+    "section": "2.7 Add information about the items",
+    "text": "2.7 Add information about the items\nFinally, we forgot to .log() the sentences in the PCIbex script:\n\nWe import the table with the material information (used on the PCIbex platform),\nWe use the left_join() function to join these two datasets based on the index of the items (here, ItemNo)\n\nmaterial &lt;- read.csv(\"~/Documents/CHC9012_Spring2026/PreprocessingAnalysesR/material.csv\")\nmaterial$ItemNo &lt;- as.factor(material$ItemNo)\n\ndata3 &lt;- data3 %&gt;%\n  left_join(material %&gt;% select(ItemNo, Sentence), \n            by = \"ItemNo\")\n\ndata3$Sentence &lt;- as.factor(data3$Sentence)\nstr(data3)\n\n\n'data.frame':   1290 obs. of  11 variables:\n $ ID_1_TimeReceived   : Factor w/ 43 levels \"1777517421\",\"1777518106\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ ID_2_IP             : Factor w/ 12 levels \"0dee2ffb70111f78f8da03e6cb282297\",..: 9 9 9 9 9 9 9 9 9 9 ...\n $ Order.number.of.item: num  16 33 26 25 31 7 28 17 21 34 ...\n $ Value               : num  6 1 4 3 2 6 1 7 1 1 ...\n $ ItemNo              : Factor w/ 60 levels \"1\",\"10\",\"11\",..: 3 54 47 46 52 12 49 4 41 55 ...\n $ Condition           : Factor w/ 2 levels \"Grammatical\",..: 1 2 2 2 2 1 2 1 2 2 ...\n $ Group               : Factor w/ 2 levels \"A\",\"B\": 1 1 1 1 1 1 1 1 1 1 ...\n $ UserAge             : num  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : Factor w/ 4 levels \"BA\",\"High school\",..: 4 4 4 4 4 4 4 4 4 4 ...\n $ RT                  : num  20079 13763 13247 13997 13063 ...\n $ Sentence            : Factor w/ 60 levels \"He does not need help with his homework today\",..: 23 47 17 46 42 11 38 50 22 28 ..."
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#checking-process",
+    "href": "course-materials/week13_slides.html#checking-process",
+    "title": "Week 12 - Exploring the data",
+    "section": "💭 Checking process",
+    "text": "💭 Checking process\n\n\n\n\n\n\nTip\n\n\nWe want to make sure that we did not corrupt our data when arranging them for further analyses. Otherwise, we can run further analyses and have results, but they will have no value!\nWe will mostly use the ezDesign() function from the ez package."
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#check-the-data",
+    "href": "course-materials/week13_slides.html#check-the-data",
+    "title": "Week 12 - Exploring the data",
+    "section": "3.1 Check the data",
+    "text": "3.1 Check the data\n\n\nWe load the library:\nlibrary(ez)\n\n\n# Same number of item per condition for each participant? (should be '15')\nezDesign(data3, ID_1_TimeReceived, Condition)\n\n\n\n\n\n\n\n\n\n\n\n# Which participants share the same ID? (hint that this could be the same participant filling the questionnaire twice)\nezDesign(data3, ID_1_TimeReceived, ID_2_IP)\n\n\n\n\n\n\n\n\n\n\n\n# Number of times an item appeared by participant (should be '1')\nezDesign(data3, ID_1_TimeReceived, ItemNo)\n\n\n\n\n\n\n\n\n\n\n\n# Were the items well dispatched in the two lists?\nezDesign(data3, ItemNo, Group)\n\n\n\n\n\n\n\n\n\n\n\n# Were the participants well dispatched in the two lists? (should be '30')\nezDesign(data3, ID_1_TimeReceived, Group)"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#save-the-prepared-dataset",
+    "href": "course-materials/week13_slides.html#save-the-prepared-dataset",
+    "title": "Week 12 - Exploring the data",
+    "section": "3.2 Save the prepared dataset",
+    "text": "3.2 Save the prepared dataset\nsave(data3,\n     file = \"CHC9012_PCIbexDataPrepared.RData\")\nCheck that the file appears in your working directory!"
   },
   {
     "objectID": "course-materials/week12_slides.html#goals",
@@ -703,6 +433,395 @@
     "title": "Week 12 - Arranging the data",
     "section": "3.2 Save the prepared dataset",
     "text": "3.2 Save the prepared dataset\nsave(data3,\n     file = \"CHC9012_PCIbexDataPrepared.RData\")\nCheck that the file appears in your working directory!"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#goals",
+    "href": "course-materials/week11_slides.html#goals",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "🎯 Goals",
+    "text": "🎯 Goals\nPrepare your computer:\n\n\nProjects: How to set-up a project in RStudio?\n\n\n\n\nAdvanced scripts: How to use Markdown documents to share better scripts?\n\n\n\n\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#section",
+    "href": "course-materials/week11_slides.html#section",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "",
+    "text": "Why?\n\n\nWe want to be organized and not messy!\n\n\n\n\n\n\nSection 1.1: Prepare the folder in your computer.\n\n\n\n\nSection 1.2: Create the related R project."
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#setting-up-your-folders",
+    "href": "course-materials/week11_slides.html#setting-up-your-folders",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "1.1 Setting up your folders",
+    "text": "1.1 Setting up your folders\n\n\nNavigate to your Documents (or 文件) folder.\n\n\n\n\nCreate your Root Folder: CHC9012_Spring2025\n\n\n\n\nAdd the Project Subfolders:\n\n📁 Slides: Presentation files.\n📁 PCIbex_design: Scripts & materials.\n📁 PreprocessingAnalysesR: Datasets & R code."
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#you-should-obtain-something-like-this",
+    "href": "course-materials/week11_slides.html#you-should-obtain-something-like-this",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "You should obtain something like this",
+    "text": "You should obtain something like this\n\n\n\n\n\n\n\n\nPay attention to the names\n\n\nGenerally, it is better not to use any space when naming folders and files!"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#initializing-your-r-project",
+    "href": "course-materials/week11_slides.html#initializing-your-r-project",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "1.2 Initializing Your R Project",
+    "text": "1.2 Initializing Your R Project\n\n\n\n1. Launch New Project Wizard  Click the blue cube icon in the top-left corner of RStudio.\n\n\n\n2. Select project type  Choose “Existing Directory” to link R to your folder structure.\n\n\n\n3. Finalize Connection  Browse to PreprocessingAnalysesR, check “Open in a new session”, and click Create Project.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nBenefit: An .Rproj file sets your “Working Directory” automatically!"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#other-advantages-of-creating-projects",
+    "href": "course-materials/week11_slides.html#other-advantages-of-creating-projects",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "Other advantages of creating projects",
+    "text": "Other advantages of creating projects\n\n\n\nOne RStudio window = One project\nSwitch between them without worrying about the working directory of trying to find the right files!\nList of your projects on the top-right corner of RStudio. Here is mine for example:"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#in-class-exercise",
+    "href": "course-materials/week11_slides.html#in-class-exercise",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "📝 In-class exercise!",
+    "text": "📝 In-class exercise!\n\n\nTask list:\n\nFind the R script from last week and move it to the PreprocessingAnalysesR folder.\nOpen the script within your newly created project."
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#from-raw-script-to-functional-r-markdown",
+    "href": "course-materials/week11_slides.html#from-raw-script-to-functional-r-markdown",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "From raw script to functional: R Markdown",
+    "text": "From raw script to functional: R Markdown\n\n\n\n1. Create the file 📄 Go to New File &gt; R Markdown. This moves you from raw code to a “living” document.\n\n\n2. Configure (YAML) ⚙️ The header between --- controls your title, author, and output format (HTML/PDF).\n\n\n3. Text + Code chunks 📝 Write text normally; insert Code Chunks ({r}) for analysis.\n\n\n4. Run your codes ▶️ Use the green Play Button to test individual steps.\n\n\n5. The Final “Knit” 🧶 Click Knit to stitch everything into a polished report automatically!"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#in-class-exercise-1",
+    "href": "course-materials/week11_slides.html#in-class-exercise-1",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "📝 In-class exercise!",
+    "text": "📝 In-class exercise!\n\n\nTask list:\n\nCreate a new Markdown document, and call it ScriptWeek10_Markdown.\nUse the script from last week, but adapt it to the Markdown format. Be creative!"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#fake-experiment-for-this-class",
+    "href": "course-materials/week11_slides.html#fake-experiment-for-this-class",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "Fake experiment for this class",
+    "text": "Fake experiment for this class\n  Try the experiment \n\n\n\n\n\n\n\nThe code of the fake experiment is given on the website\n\n\n\n\n\n\n\n\n\n\n\n\n\nFake results!\n\n\nAn AI robot did the experiment several times. I also pretended that I was a “bad” participant several times. The results are just to show you how to analyze data from PCIbex, they do not have other value!"
+  },
+  {
+    "objectID": "course-materials/week11_slides.html#in-class-exercise-2",
+    "href": "course-materials/week11_slides.html#in-class-exercise-2",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "📝 In-class exercise!",
+    "text": "📝 In-class exercise!\n\n\nTask list:\n\nLook at the whole table. To do so, click on the variable, or just write view(data) in the console\nManually, identify and take notes of (1) what information is missing, (2) which rows should be erased/kept, and (3) which columns should be deleted or added."
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#goals-key-concepts",
+    "href": "course-materials/week10_slides.html#goals-key-concepts",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "🎯 Goals & key concepts",
+    "text": "🎯 Goals & key concepts\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\nScript sharing: How to write a beautiful script to share?"
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#what-is-r-what-is-rstudio",
+    "href": "course-materials/week10_slides.html#what-is-r-what-is-rstudio",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "1.1. What is R? What is RStudio?",
+    "text": "1.1. What is R? What is RStudio?\n\n\n\n\nThe Engine: R\n\n\n\nThe main program where all the mathematical magic and deep computations happen.\n\n\n\n\n\n\n\nThe Dashboard: RStudio\n\n\n\nA user-friendly interface that makes it incredibly easy to interact with R."
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#download-and-install",
+    "href": "course-materials/week10_slides.html#download-and-install",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "1.2. Download and Install",
+    "text": "1.2. Download and Install\n\nStep 1: Download and install RStep 2: Download and install RStudio\n\n\nGo to the RStudio website by clicking here. You will see something like this:\n\nNext, choose your CRAN (The Comprehensive R Archive Network). Let’s choose the one in Taiwan. You will need to scroll down the page to find the link.\n\nChoose the files to download according to your computer’s operating system. The most common are macOS (for Apple computers) or Windows.\n\nOn the next page, choose the subdirectory. For our purposes, we only need the “base” subdirectory.\n\nWe finally got to the last page! Click on the first link to download the files, as shown below. Wait until the file is downloaded, open it, and follow the standard instructions to install R on your computer.\n\n\n\nNow that R is installed, it is time to do the same with RStudio. Go to the RStudio website by clicking here. You will see something like this:\n\nScroll down to look for the download links. Again, choose the right file for your operating system. Just click the link, let it download, open the file, and follow the instructions!"
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#launch-and-try",
+    "href": "course-materials/week10_slides.html#launch-and-try",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "1.3. Launch and Try!",
+    "text": "1.3. Launch and Try!\nLook for the program called “RStudio” on your computer. Once you find it, just open it up, and you can move on to the next section!\n\n\n\n\n\n\n💡 Wait, why didn’t we open R?\n\n\nRecall that R is the program where computations are done, and RStudio is the user-friendly interface. Even though we needed to download both, you actually only ever need to open RStudio when you want to use R! RStudio will talk to R in the background for you."
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#terminology",
+    "href": "course-materials/week10_slides.html#terminology",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "Terminology",
+    "text": "Terminology\n\n\n\n\n\n\n\nConcept\nDefinition\n\n\n\n\nLine of code\nA single, simple instruction (e.g., 4 + 2).\n\n\nFunction\nA pre-packaged cluster of code that performs a specific task.\n\n\nPackage / Library\nA downloadable folder containing hundreds of useful functions!"
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#a.-the-working-directory",
+    "href": "course-materials/week10_slides.html#a.-the-working-directory",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "A. The Working Directory",
+    "text": "A. The Working Directory\nBefore doing anything with data, you must tell R exactly which folder on your computer to look in. This is your Working Directory.\nUse the Computer Block to navigate to your project folder. Click the Gear Icon, and select “Save as Working Directory”."
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#b.-comments",
+    "href": "course-materials/week10_slides.html#b.-comments",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "B. Comments",
+    "text": "B. Comments\nUse the # symbol to write notes to yourself. R will completely ignore anything written after a hashtag!\n### This is a comment. R will not run this.\n2 + 4 ### This adds two numbers together!"
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#c.-loading-data",
+    "href": "course-materials/week10_slides.html#c.-loading-data",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "C. Loading Data",
+    "text": "C. Loading Data\n\n\n\n\n\n\nData to use\n\n\nYou need to download this file and place it in the folder for this class in the Documents folder of your computer.\n\n\n\n\nLet’s import a .csv dataset (like an Excel file). We use the read.csv() function and assign it to a variable called data.\ndata &lt;- read.csv(\"GACTT_RESULTS_ANONYMIZED_v2.csv\", header=TRUE)\n\n\nAlternatively, you can use the RStudio interface! In your Variable block, click “Import Dataset” &gt; “From Text (base)”, select your file, and click Import."
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#d.-transforming-and-summarizing-data",
+    "href": "course-materials/week10_slides.html#d.-transforming-and-summarizing-data",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "D. Transforming and Summarizing Data",
+    "text": "D. Transforming and Summarizing Data\n\nOnce loaded, you can inspect your data using str(data) to see its structure, or summary(data) to get a quick mathematical overview.\nstr(data)\n\nsummary(data)\n\n\nOften, survey data comes in as plain text when it should be categorized into groups (Factors). We fix this using as.factor():\ndata$What.is.your.age. &lt;- as.factor(data$What.is.your.age.)\n(The $ symbol tells R to look inside the dataset for a specific column!)\n\n\nIf we want to count how many people fit into different groups, we can use the powerful dplyr package:\nlibrary(dplyr)\n\ndata3 &lt;- data2 %&gt;% \n  group_by(What.is.your.age., How.many.cups.of.coffee.do.you.typically.drink.per.day.) %&gt;% \n  summarize(Count = n())"
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#e.-plotting-the-data",
+    "href": "course-materials/week10_slides.html#e.-plotting-the-data",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "E. Plotting the Data",
+    "text": "E. Plotting the Data\nWith our data summarized, we can use the built-in plot() function to visualize it:\nplot(x = data3$What.is.your.age., y = data3$Count)"
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#how-to-create-a-beautiful-convenient-and-shareable-script",
+    "href": "course-materials/week10_slides.html#how-to-create-a-beautiful-convenient-and-shareable-script",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "How to create a beautiful, convenient and shareable script?",
+    "text": "How to create a beautiful, convenient and shareable script?\nTo start, click “New File” &gt; “R Markdown…”\n\nRStudio will prompt you for a Title and Author. Once created, you will see a document with a YAML Header at the top between dashed lines ---. This header controls the settings for your final document."
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#writing-text-and-code",
+    "href": "course-materials/week10_slides.html#writing-text-and-code",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "Writing Text and Code",
+    "text": "Writing Text and Code\nIn an R Markdown file, anything you type normally becomes standard text. To actually write R code, you must insert a Code Chunk. Click the “Insert” button at the top of the script and select “R”. A grey box will appear.\n\nYou can run these individual chunks using the green Play Button in the corner of the grey box."
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#the-magic-knit-button",
+    "href": "course-materials/week10_slides.html#the-magic-knit-button",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "The Magic “Knit” Button",
+    "text": "The Magic “Knit” Button\nWhen your document is complete, click the Knit button at the top of the interface. R will automatically run all your code chunks, generate the graphs, format your text beautifully, and produce a polished final document you can share with the world!"
+  },
+  {
+    "objectID": "course-materials/week10_slides.html#assignments",
+    "href": "course-materials/week10_slides.html#assignments",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "Assignments",
+    "text": "Assignments\n\n\n\n\n\n\n📝 Assignment for next week\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week (here)\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle"
+  },
+  {
+    "objectID": "course-materials/week1.html",
+    "href": "course-materials/week1.html",
+    "title": "Week 1: Introduction",
+    "section": "",
+    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
+    "crumbs": [
+      "Home",
+      "Preliminary weeks",
+      "Week 1: Introduction"
+    ]
+  },
+  {
+    "objectID": "course-materials/week1.html#welcome-to-the-course",
+    "href": "course-materials/week1.html#welcome-to-the-course",
+    "title": "Week 1: Introduction",
+    "section": "",
+    "text": "This is the introductory week. We will take the time to get to know each other and set the stage for the semester.\nIn this session, I will explain:\n\nThe goals and content of the course.\nThe syllabus and weekly schedule.\nThe grading system and expectations for the group project.\n\n\n\n\n\n\n\n\n\n📄 Key document\n\n\n\nThe syllabus contains all the details about the grading policy and schedule.\n  Read the Syllabus \n\n\n\n\n\n\n\n\n\n\n\n\n\nChecklist\n\n\n\n\nReview the syllabus: Make sure you understand the attendance and grading policies.\nJoin Moodle: Ensure you have access to the course Moodle page.\nSoftware check: Make sure that you can download and install the softwares on your laptop. You will need to bring your laptop to the class starting from Week 5.",
+    "crumbs": [
+      "Home",
+      "Preliminary weeks",
+      "Week 1: Introduction"
+    ]
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site\n\n1 + 1\n\n[1] 2"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#goals-key-concepts",
+    "href": "course-materials/Week8_Slides2.html#goals-key-concepts",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "🎯 Goals & Key Concepts",
+    "text": "🎯 Goals & Key Concepts\n\nHow to optimize your script💻 Necessary codes\n\n\nHow to optimize your script:\n\nTemplate: Automate trials via a single script.\nRandomization: Shuffle trial order effortlessly.\nCounterbalancing: Master Latin square designs.\n\n\n\nA brief summary of the essential elements:\n\nTemplate(...): Used to introduce a trial template.\nSequence(...): Used to control the order of the different parts of the experiment.\nrandomize(...): Used to present the trials using a random order.\nnewVar(...): Used to create a new variable.\ngetX(...): Used to obtained the content given by the participants.\ngetVar(...): Used to obtain the content of an element stored in a variable."
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
+    "href": "course-materials/Week8_Slides2.html#a.-create-the-material-table",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "A. Create the material table",
+    "text": "A. Create the material table\nInstead of typing the trials in the script, we create a table where we can list them.\n\n\n\n\nItemNo\nSentence\nCondition\n\n\n\n\n1\nThis is the first sentence\nGrammatical\n\n\n2\nThis is the second sentence\nGrammatical\n\n\n…\n…\n…\n\n\n\n\n\n\n\n\n\n\n\nNote\n\n\nCreate material.csv in the PCIbex Resources section."
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#concept",
+    "href": "course-materials/Week8_Slides2.html#concept",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Concept",
+    "text": "Concept\nThis is a a two-step process to store such information in the results file:\n\n\n\n\n\nflowchart LR\n  A([\"👋 Welcome page &lt;br&gt; &lt;b&gt;Define the variable&lt;/b&gt;\"]) ==&gt; B([\"🧪 Experimental trials &lt;br&gt; &lt;b&gt;Log the data&lt;/b&gt;\"])\n  style A fill:#f8f9fa,stroke:#3498db,stroke-width:2px\n  style B fill:#f8f9fa,stroke:#2ecc71,stroke-width:2px"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
+    "href": "course-materials/Week8_Slides2.html#step-1-define-the-variables",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Step 1: Define the variables",
+    "text": "Step 1: Define the variables\n\n\n\n\n\n\nNote\n\n\n\nThis must be done where the information appears for the first time. For our experiment, this is in the 👋 Welcome page!\nNotice that we use (1) the newVar() element to create a new variable, and then (2) the getTextInput() and getDropDown() to tell PCIbex what content to keep in memory!\n\n\n\n\n\nLet’s look at the code:\n// 1.2 Background questionnaire\n\nnewTrial(\"Background information\",\n    newText(\"We will ask you some questions about your background. Please feel free to skip some questions if you do not wish to answer.\")\n        .print()\n        .center()\n    ,\n    newText(\"Your age:\")\n        .print()\n        .center()\n    ,\n    newTextInput(\"Age\")\n        .print()\n        .center()\n        .log(\"final\")\n    ,\n    newText(\"Your highest degree:\")\n        .print()\n        .center()\n    ,\n    newDropDown(\"Degree\", \"Please select one option\")\n        .add(\"Elementary school\", \"Junior high school\", \"Senior high school\", \"BA\", \"MA\", \"Ph.D.\")\n        .print()\n        .center()\n        .log()\n    ,\n    newButton(\"Continue\")\n        .center()\n        .print()\n        .wait()\n+    ,\n+    newVar(\"Age\")\n+        .global()\n+        .set(getTextInput(\"Age\"))\n+    ,\n+    newVar(\"Degree\")\n+        .global()\n+        .set(getDropDown(\"Degree\"))\n    )\n\n\nDone!"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
+    "href": "course-materials/Week8_Slides2.html#step-2-store-the-information-about-the-participants",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Step 2: Store the information about the participants",
+    "text": "Step 2: Store the information about the participants\n\n\n\n\n\n\nNote\n\n\nNow that you created the variable and that they are kept in memory, we can store them in the results file using the .log() command. But notice the use of getVar()!\n\n\n\n\n/// 3. Experimental trials\n\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n    newText(\"Sentence\", row.Sentence)\n        .print()\n        .center()\n        .log()\n    ,\n    newScale(\"Scale\", \"1\", \"2\", \"3\", \"4\", \"5\", \"6\", \"7\")\n        .labelsPosition(\"bottom\")\n        .before(newText(\"Not acceptable\"))\n        .after(newText(\"Acceptable\"))\n        .print()\n        .center()\n        .wait()\n        .log()\n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n+    .log(\"Age\", getVar(\"Age\"))\n+    .log(\"Degree\", getVar(\"Degree\"))\n)\n\n\nDone!"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
+    "href": "course-materials/Week8_Slides2.html#recall-what-is-counterbalancing",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Recall: What is “counterbalancing”?",
+    "text": "Recall: What is “counterbalancing”?\n\n\n\n\n\n\n\nNote\n\n\nExample: For some reasons, you want Participant 1 to read half of the sentences, Participant 2 the other half, Participant 3 the same as Participant 1, Participant 4 the same as Participant 2, etc.\n\n\n\n\n\nHow to do that with PCIbex?\n\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
+    "href": "course-materials/Week8_Slides2.html#final-content-in-the-material.csv-file",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Final content in the material.csv file",
+    "text": "Final content in the material.csv file\nItemNo,Sentence,Condition,group\n1,This is the first sentence,Grammatical,A\n2,This is the second sentence,Grammatical,A\n3,This is the third sentence,Grammatical,B\n4,This is the fourth sentence,Grammatical,B\n5,This are the fifth sentence,Ungrammatical,A\n6,This are the sixth sentence,Ungrammatical,A\n7,This are the seventh sentence,Ungrammatical,B\n8,This are the eighth sentence,Ungrammatical,B\n\nAdd a group column to your material table for counterbalancing.\n\n\n\nItemNo\nSentence\nCondition\ngroup\n\n\n\n\n1\nSentence 1\nGrammatical\nA\n\n\n2\nSentence 2\nGrammatical\nB\n\n\n\n\n\nDon’t forget to use the log() element to keep track of which list the participants were assigned to!\n/// 3. Experimental trials\nTemplate(\"material.csv\", row =&gt; \nnewTrial(\"Experiment\",\n\n...\n         \n    )\n    .log(\"ItemNo\", row.ItemNo)\n    .log(\"Condition\", row.Condition)\n    .log(\"Sentence\", row.Sentence)\n+    .log(\"List\", row.group)\n    .log(\"Age\", getVar(\"Age\"))\n    .log(\"Degree\", getVar(\"Degree\"))\n)"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
+    "href": "course-materials/Week8_Slides2.html#download-the-results-file-open-it-and-check-the-following",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "Download the results file, open it and check the following:",
+    "text": "Download the results file, open it and check the following:\n\nAre there two participants?\n4 trials per participant?\nTrials from different lists/group?\nCan I see the sentence? The ItemNo? The condition?\nCan I see age and degree? choice/judgment?\nWere the sentences randomly presented?"
+  },
+  {
+    "objectID": "course-materials/Week8_Slides2.html#assignment-for-next-week",
+    "href": "course-materials/Week8_Slides2.html#assignment-for-next-week",
+    "title": "Week 8 - PCIbex: Multiple-item questionnaires, Latin square and other paradigms",
+    "section": "📝 Assignment for next week",
+    "text": "📝 Assignment for next week\n\n\n\n\n\n\nAssignment\n\n\n\nDownload the script of this week\nAnnotate each line of code\nUpload the annotated script on Moodle\n\n\n\n\n\n\n\n\n\n\nYou can even start preparing your own experiment!"
+  },
+  {
+    "objectID": "course-materials/week10.html",
+    "href": "course-materials/week10.html",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "",
+    "text": "This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.\n\n🎯 Goals💻 Necessary codes📝 Homework\n\n\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 10: Presentation of R"
+    ]
+  },
+  {
+    "objectID": "course-materials/week10.html#overview",
+    "href": "course-materials/week10.html#overview",
+    "title": "Week 10 - Presentation of the R interface and how to create reproducible data",
+    "section": "",
+    "text": "This week, we will have an introduction to the R language and the RStudio interface, which will be useful to analyze our data.\n\n🎯 Goals💻 Necessary codes📝 Homework\n\n\nGet to know R:\n\nBasics: What is R, and what is RStudio?\nSimple coding: What are the most important functions in R?\n\n\n\nA brief summary of the essential elements:\n[To complete later]\n\n\n  Download the full script \n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the script of this week\nAnnotate each line of code (use your own words, these annotations are for your own reference!)\nUpload the annotated script on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 10: Presentation of R"
+    ]
+  },
+  {
+    "objectID": "course-materials/week11.html",
+    "href": "course-materials/week11.html",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "",
+    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n\nread.pcibex(...): Self-built function to import PCIbex results froms .csv file.\nhead(...): Used to have a look of the first N rows of the dataset.\nstr(...): Used to look at the structure of the dataset.\nsummary(...): Used to summarize the whole dataset.\nview(...): Used to open the dataset.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nNo assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 11: Preparation: Computer set-up and data imporation"
+    ]
+  },
+  {
+    "objectID": "course-materials/week11.html#overview",
+    "href": "course-materials/week11.html#overview",
+    "title": "Week 11 - Preparation: Computer set-up and data imporation",
+    "section": "",
+    "text": "This week, we will have a tutorial on how to prepare your computer for further analyses.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nProjects: How to set-up a project in RStudio?\nAdvanced scripts: How to use Markdown documents to share better scripts?\nData importation: Where to find your PCIbex results file, and how to import it to RStudio?\n\n\n\nA brief summary of the essential elements:\n\nread.pcibex(...): Self-built function to import PCIbex results froms .csv file.\nhead(...): Used to have a look of the first N rows of the dataset.\nstr(...): Used to look at the structure of the dataset.\nsummary(...): Used to summarize the whole dataset.\nview(...): Used to open the dataset.\n\n\n\n  Download the dataset for the script \n\n\n\nPlease complete the following tasks before our next meeting:\nNo assignment for next week! Please carefully review the content of these past two weeks, and finalize the data collection of your own project.\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 11: Preparation: Computer set-up and data imporation"
+    ]
+  },
+  {
+    "objectID": "course-materials/week12.html",
+    "href": "course-materials/week12.html",
+    "title": "Week 12 - Arranging the data",
+    "section": "",
+    "text": "This week, we will learn how to arrange the dataset such that it is ready for further exploration.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nArrangements: How to prepare your data for further analyses?\nChecks: How to check that all the data are in order?\n\n\n\nA brief summary of the essential elements:\n\nload(...): Imports a dataset or workspace previously saved in .RData format.\nread.csv(...): Imports external data, such as your stimulus material list, from a .csv file.\n&lt;- NULL: Used to remove unnecessary columns from the dataframe.\nnames(...): Used to view or rename the column headers of the dataset.\nfilter(...): Keeps only the rows that meet specific conditions (e.g., keeping only “Experiment” trials).\nifelse(...): Creates a new value based on a condition.\nspread(...): Reshapes data from long to wide format.\nleft_join(...): Merges two datasets together based on common identifier columns (like ItemNo).\nas.factor(...) / as.numeric(...): Transforms a variable into a category (factor) or a mathematical number (numeric).\nezDesign(...): Generates a heatmap to visually verify that the experimental design is balanced and no data is missing.\nsave(...): Exports your final, prepared dataset into an .RData file for future analysis.\n\n\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 12: Arranging the data before further analyses"
+    ]
+  },
+  {
+    "objectID": "course-materials/week12.html#overview",
+    "href": "course-materials/week12.html#overview",
+    "title": "Week 12 - Arranging the data",
+    "section": "",
+    "text": "This week, we will learn how to arrange the dataset such that it is ready for further exploration.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nPrepare your computer:\n\nArrangements: How to prepare your data for further analyses?\nChecks: How to check that all the data are in order?\n\n\n\nA brief summary of the essential elements:\n\nload(...): Imports a dataset or workspace previously saved in .RData format.\nread.csv(...): Imports external data, such as your stimulus material list, from a .csv file.\n&lt;- NULL: Used to remove unnecessary columns from the dataframe.\nnames(...): Used to view or rename the column headers of the dataset.\nfilter(...): Keeps only the rows that meet specific conditions (e.g., keeping only “Experiment” trials).\nifelse(...): Creates a new value based on a condition.\nspread(...): Reshapes data from long to wide format.\nleft_join(...): Merges two datasets together based on common identifier columns (like ItemNo).\nas.factor(...) / as.numeric(...): Transforms a variable into a category (factor) or a mathematical number (numeric).\nezDesign(...): Generates a heatmap to visually verify that the experimental design is balanced and no data is missing.\nsave(...): Exports your final, prepared dataset into an .RData file for future analysis.\n\n\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script\n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 12: Arranging the data before further analyses"
+    ]
+  },
+  {
+    "objectID": "course-materials/week13.html",
+    "href": "course-materials/week13.html",
+    "title": "Week 13 - Exploring the data",
+    "section": "",
+    "text": "This week, we will learn how to explore our results file.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nExplore your results:\n\nPreprocessing: How to identify outliers to have a clean dataset?\nAnalyses: How to look at the results based on the experimental design?\nExplorations: How to check unexpected results?\n\n\n\nA brief summary of this week’s new functions:\n\nplot(): Generates scatter plots and boxplots.\nlength(): Returns the number of elements or items in a vector or factor level.\nsubset(): Filters a data frame to return only the rows or columns that meet specific conditions.\nc(): Combine/Concatenate function; used here to group column names into a vector.\nunique(): Removes duplicate rows or elements from an object.\ntable(): Creates contingency tables to show the counts/frequencies of factor levels.\naggregate(): Splits data into subsets and computes summary statistics (used to find the mean reaction time per participant).\ndroplevels(): Drops unused levels from a factor variable, usually after subsetting data.\nave(): Computes sub-group statistics (like group means or standard deviations) and returns a vector matching the original data length.\nsd(): Calculates the standard deviation of a set of numbers.\nnrow(): Counts the total number of rows in a data frame.\nas.data.frame(): Converts an object (like a table) into a standard data frame format.\nsummarySE(): Gives a summary of the data (count, mean, SD, SE) based on several values.\n\n\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 13: Exploring the data"
+    ]
+  },
+  {
+    "objectID": "course-materials/week13.html#overview",
+    "href": "course-materials/week13.html#overview",
+    "title": "Week 13 - Exploring the data",
+    "section": "",
+    "text": "This week, we will learn how to explore our results file.\n\n🎯 Goals💻 Necessary codes and dataset📝 Homework\n\n\nExplore your results:\n\nPreprocessing: How to identify outliers to have a clean dataset?\nAnalyses: How to look at the results based on the experimental design?\nExplorations: How to check unexpected results?\n\n\n\nA brief summary of this week’s new functions:\n\nplot(): Generates scatter plots and boxplots.\nlength(): Returns the number of elements or items in a vector or factor level.\nsubset(): Filters a data frame to return only the rows or columns that meet specific conditions.\nc(): Combine/Concatenate function; used here to group column names into a vector.\nunique(): Removes duplicate rows or elements from an object.\ntable(): Creates contingency tables to show the counts/frequencies of factor levels.\naggregate(): Splits data into subsets and computes summary statistics (used to find the mean reaction time per participant).\ndroplevels(): Drops unused levels from a factor variable, usually after subsetting data.\nave(): Computes sub-group statistics (like group means or standard deviations) and returns a vector matching the original data length.\nsd(): Calculates the standard deviation of a set of numbers.\nnrow(): Counts the total number of rows in a data frame.\nas.data.frame(): Converts an object (like a table) into a standard data frame format.\nsummarySE(): Gives a summary of the data (count, mean, SD, SE) based on several values.\n\n\n\n  Download the dataset for the script\n\n\n\n  Download the Markdown script \n\n\n\nPlease complete the following tasks before our next meeting:\n\nDownload the Markdown script\nAnnotate each line of the script\nKnit into a PDF document, and upload on Moodle\n\n\n\n\n\n  View the slides of this week’s tutorial",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 13: Exploring the data"
+    ]
+  },
+  {
+    "objectID": "course-materials/week13.html#identify-and-remove-non-valid-participants",
+    "href": "course-materials/week13.html#identify-and-remove-non-valid-participants",
+    "title": "Week 13 - Exploring the data",
+    "section": "2.1. Identify and remove non-valid participants",
+    "text": "2.1. Identify and remove non-valid participants\nThanks to our first overview of the results, we know that the data from some participants are not valid. In this part, we will see how to identify and remove their data.\n\n\n\n\n\n\n⚠️ Be careful\n\n\n\nWe need to be careful when removing data, especially not to remove too much! The challenge is that there is no absolute established rule. We will see in the following sections that we need to rely on converging evidence to be more confident and justify our choice.\n\n\nWe can use different types of evidence to identify non-valid participants:\n\nBased on abnormal mean reaction time,\nBased on shared IPs (shared device),\nBased on the observation of specific participants.\n\n\nAbnormal RTShared IPsLook at specific participants\n\n\nLet’s have a look one more time at the plot indicating that there are RT problems.\n\nplot(data3$RT ~ data3$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\n\nTo have a more precise idea, we can look at the mean RT by participant.\n\nPartMeanRT &lt;- aggregate(RT ~ ID_1_TimeReceived,\n                        data = data3,\n                        FUN = mean)\n\nprint(PartMeanRT)\n\n   ID_1_TimeReceived         RT\n1         1777517421 13571.0667\n2         1777518106   805.1000\n3         1777518142   808.9333\n4         1777518178   808.5000\n5         1777518214   806.3333\n6         1777518250   813.2667\n7         1777518286   811.7333\n8         1777518322   814.4333\n9         1777518359   811.2667\n10        1777518398   806.8333\n11        1777518439   814.5000\n12        1777518549   813.5333\n13        1777518588   805.7000\n14        1777518627   812.1333\n15        1777518665   810.1333\n16        1777518704   815.0000\n17        1777518742   812.1667\n18        1777518781   815.3000\n19        1777518820   812.9667\n20        1777518859   814.9333\n21        1777518898   814.5000\n22        1777518937   810.2000\n23        1777518975   812.4000\n24        1777519013   807.5333\n25        1777519052   814.6333\n26        1777519104   813.5667\n27        1777519142   815.1667\n28        1777519180   813.4333\n29        1777519233   814.9333\n30        1777519270   814.8667\n31        1777519304   807.6333\n32        1777519458   608.8667\n33        1777519500   815.4667\n34        1777519539   692.3667\n35        1777519798  8069.6667\n36        1777952741  1511.9667\n37        1778728888  3986.5667\n38        1778729203 14339.8000\n39        1778730554  4272.8333\n40        1778737433  6259.6333\n41        1778742733  5526.1333\n42        1778763194 11567.2667\n43        1778782660  6250.8000\n\n\nThis confirms that there are many participants whose mean RT is around 800 milliseconds. Let’s have a closer look at this group using the following code.\n\ndata_QuickPart &lt;- subset(PartMeanRT, RT &lt; 1000)\ndata_QuickPart_FullData &lt;- subset(data3,\n                                  ID_1_TimeReceived %in% data_QuickPart$ID_1_TimeReceived)\n\nplot(data_QuickPart_FullData$RT ~ data_QuickPart_FullData$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\n\nThe fact that the variation is so small is very suspicious. It means that the participants were precise enough to judge the sentences very quickly and at the same rate. To me, this suggests that the participants were just pressing one or two buttons on the keyboard to finish the experiment as quickly as possible.\nTherefore, we can expect that these participants did not give very different ratings when comparing Grammatical and Ungrammatical conditions. Let’s have a look at this.\n\nplot(data_QuickPart_FullData$Value ~ data_QuickPart_FullData$Condition)\n\n\n\n\n\n\n\n\nTo make sure that we are not removing too much, we can have a look at the other group:\n\ndata_OtherPart &lt;- subset(PartMeanRT, RT &gt; 1000)\ndata_OtherPart_FullData &lt;- droplevels(subset(data3,\n                                             ID_1_TimeReceived %in% data_OtherPart$ID_1_TimeReceived))\n\nplot(data_OtherPart_FullData$RT ~ data_OtherPart_FullData$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\nplot(data_OtherPart_FullData$Value ~ data_OtherPart_FullData$Condition)\n\n\n\n\n\n\n\n\nThe between-participant variation looks like human behavior, and the ratings are quite expected.\n\n\nAnother piece of evidence may come from shared IPs (shared device). Indeed, if some participants wanted to finish the experiments very quickly, and if completing the experiment was awarded compensation, it is possible that they completed the experiment several times using the same device.\nLet’s have a look at the “abnormal behavior” group.\n\nezDesign(data_QuickPart_FullData, ID_1_TimeReceived, ID_2_IP)\n\n\n\n\n\n\n\n\nWe can see that different participants share the same IP.\nNow let’s have a look at the other group.\n\nezDesign(data_OtherPart_FullData, ID_1_TimeReceived, ID_2_IP)\n\n\n\n\n\n\n\n\nOnly two participants share the same IP, but not other ones.\n\n\nSometimes, it is useful to inspect specific participants. Here’s the code to do so:\n\nIndPart &lt;- subset(data_OtherPart_FullData,\n                  ID_1_TimeReceived == levels(data_OtherPart_FullData$ID_1_TimeReceived)[9])\n\nplot(IndPart$RT ~ IndPart$Condition)\n\n\n\n\n\n\n\nplot(IndPart$Value ~ IndPart$Condition)\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nConclusion\n\n\n\nWe have converging evidence to say that one group’s behavior is very different. Therefore, the analyses will be conducted on the group of participants whose behavior indicates that they paid attention to the experiment itself.",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 13: Exploring the data"
+    ]
+  },
+  {
+    "objectID": "course-materials/week13.html#identify-and-remove-non-valid-trials",
+    "href": "course-materials/week13.html#identify-and-remove-non-valid-trials",
+    "title": "Week 13 - Exploring the data",
+    "section": "2.2: Identify and remove non-valid trials",
+    "text": "2.2: Identify and remove non-valid trials\nOnce we identified and removed data from non-valid participants, we can remove outlier trials. Here is an overview of the process:\n\n\n\n\n\n\n\n\n\n\nRemove based on absolute valuesRemove based on relative valuesCalculate the proportion of removed trials\n\n\nThis step means that we want to remove data whose RT is below or above a certain value. There is no absolute rule regarding the value to adopt, and this is very specific to each experiment. In our case, we want to remove trials whose RT is below 200 milliseconds and above 20,000 milliseconds (20 seconds).\n\ndata_OtherPart_CleanAbsolute &lt;- subset(data_OtherPart_FullData, RT &gt; 200 & RT &lt; 20000)\n\n\n\nRemoving based on relative values means that we are looking at specific patterns from each participant and from each condition.\nIn experimental linguistics research, the usual way to go is to look at the mean RT of each condition for each participant, and then we remove trials that are too far from the mean. To do that, we remove trials which are below or above 2.5 times the deviation time from the means.\nThe following code illustrates how to do that:\n\n# Calculate the mean per Participant and Condition\ndata_OtherPart_CleanAbsolute$m_rt &lt;- ave(data_OtherPart_CleanAbsolute$RT, \n                                         data_OtherPart_CleanAbsolute$ID_1_TimeReceived, \n                                         data_OtherPart_CleanAbsolute$Condition, \n                                         FUN = mean)\n\n# 2. Calculate the SD per Participant and Condition\ndata_OtherPart_CleanAbsolute$sd_rt &lt;- ave(data_OtherPart_CleanAbsolute$RT, \n                                          data_OtherPart_CleanAbsolute$ID_1_TimeReceived, \n                                          data_OtherPart_CleanAbsolute$Condition, \n                                          FUN = sd)\n\n# 3. Subset the data to remove outliers\ndata_OtherPart_CleanAbsoluteRelative &lt;- subset(data_OtherPart_CleanAbsolute, \n                                               RT &gt;= (m_rt - 2.5 * sd_rt) & \n                                                 RT &lt;= (m_rt + 2.5 * sd_rt))\n\n\n\nFinally, to make sure that we did not remove too many trials.\n\nFullData_NbTrials &lt;- nrow(data_OtherPart_FullData)\nTrimmedData_NbTrials &lt;- nrow(data_OtherPart_CleanAbsoluteRelative)\n\n# Number of trimmed trials\nNbTrimmedTrials &lt;- FullData_NbTrials - TrimmedData_NbTrials\nNbTrimmedTrials\n\n[1] 14\n\n# Proportion (%)\nNbTrimmedTrials*100/FullData_NbTrials\n\n[1] 4.666667\n\n\nThe proportion is below 5%, which is acceptable in experimental linguistics.",
+    "crumbs": [
+      "Home",
+      "Part 3: Analyses and visualization",
+      "Week 13: Exploring the data"
+    ]
   },
   {
     "objectID": "course-materials/week14.html",
