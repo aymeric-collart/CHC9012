@@ -211,109 +211,207 @@
     "text": "💻 Dataset and script\nPlease download the files for the content of Week 13, and place them in your PreprocessingAnalysesR folder.\n\n 📥 Download the dataset for the script \n 📥 Download the R Markdown script \n\n\n 💻 Please start RStudio and select the project called PreprocessingAnalysesR."
   },
   {
-    "objectID": "course-materials/week13_slides.html#preparatory-activity",
-    "href": "course-materials/week13_slides.html#preparatory-activity",
+    "objectID": "course-materials/week13_slides.html#preparations-for-the-analyses",
+    "href": "course-materials/week13_slides.html#preparations-for-the-analyses",
     "title": "Week 13 - Exploring the data",
-    "section": "✍️ Preparatory activity",
-    "text": "✍️ Preparatory activity\n\n\n\n\n\n\nInstructions\n\n\nWe should never forget that coding is a tool to achieve a task. For our case, the main task is to prepare the dataset for further analyses, which means:\n\nChecking that it is complete and that nothing is missing,\nDeleting the columns/rows that are not necessary, and\nTransforming (but not altering) the data\n\n\n\n\n\nHow to do so? Two steps:\n\nLook at the dataset you just imported\nTake notes"
+    "section": "💻 Preparations for the analyses",
+    "text": "💻 Preparations for the analyses\nload(file = \"CHC9012_PCIbexDataPrepared.RData\")\n\nlibrary(ez)\nlibrary(dplyr)\nlibrary(Rmisc)"
   },
   {
-    "objectID": "course-materials/week13_slides.html#step-1-look-at-the-imported-dataset",
-    "href": "course-materials/week13_slides.html#step-1-look-at-the-imported-dataset",
+    "objectID": "course-materials/week13_slides.html#overall-results-12",
+    "href": "course-materials/week13_slides.html#overall-results-12",
     "title": "Week 13 - Exploring the data",
-    "section": "Step 1: Look at the imported dataset",
-    "text": "Step 1: Look at the imported dataset\nload(\"CHC9012_DataImportedFromPCIbex.RData\")\n\nview(data)"
+    "section": "Overall results (1/2)",
+    "text": "Overall results (1/2)\n\n\nplot(data3$Value ~ data3$Condition)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings across conditions\n Please briefly describe the patterns of results."
   },
   {
-    "objectID": "course-materials/week13_slides.html#what-are-all-these-columns",
-    "href": "course-materials/week13_slides.html#what-are-all-these-columns",
+    "objectID": "course-materials/week13_slides.html#overall-results-22",
+    "href": "course-materials/week13_slides.html#overall-results-22",
     "title": "Week 13 - Exploring the data",
-    "section": "👓 What are all these columns?",
-    "text": "👓 What are all these columns?\n\nDefault columns from PCIbexColumns that we manually logged\n\n\n\nResults.reception.time: Time in the PCIbex server when the results were received. This can be used as the Participant ID, assuming that there are no two participants who submitted the results at the exact same time.\nMD5.hash.of.participant.s.IP.address: Scripted IP address of the machine used by the participant.\nController.name: Which controller was used to code the experiment.\nOrder.number.of.item: The order of presentation of the whole questionnaire, starting from the very first page.\nInner.element.number: Whether specific numbers were assigned to the element.\nLabel: The name given to the webpage in PCIbex (for example, Welcome page, Instructions, Exeriment, etc.).\nLatin.Square.Group\nPennElementType: The PCIbex element used for the action (TextInput, Scale, Dropdown, etc.).\nParameter: Breakdown of the elements used on a same page.\nValue: What the participant wrote or selectedm or when an element starts or ends.\nEventTime: Time point at which an action occured (the time corresponds to the PCIbex server)\nComments\n\n\n\n\nItemNo: The ID of the item (here, sentence)\nCondition: The experimental condition\nGroup\nUserAge\nUserDegree"
+    "section": "Overall results (2/2)",
+    "text": "Overall results (2/2)\n\n\nplot(data3$RT ~ data3$Condition)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings across conditions\n Please briefly describe the patterns of results."
   },
   {
-    "objectID": "course-materials/week13_slides.html#step-2-preparatory-activity",
-    "href": "course-materials/week13_slides.html#step-2-preparatory-activity",
+    "objectID": "course-materials/week13_slides.html#overall-results-22-1",
+    "href": "course-materials/week13_slides.html#overall-results-22-1",
     "title": "Week 13 - Exploring the data",
-    "section": "✍️ Step 2: Preparatory activity",
-    "text": "✍️ Step 2: Preparatory activity\n\n\n\n\n\n\nInstructions\n\n\nWhat needs to be done to prepare the dataset?\nSome tips:\n\nChecking that it is complete and that nothing is missing,\nDeleting the columns/rows that are not necessary, and\nTransforming (but not altering) the data"
+    "section": "Overall results (2/2)",
+    "text": "Overall results (2/2)\n\n\nplot(data3$RT ~ data3$Condition, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings across conditions\n Please briefly describe the patterns of results."
   },
   {
-    "objectID": "course-materials/week13_slides.html#my-own-observations",
-    "href": "course-materials/week13_slides.html#my-own-observations",
+    "objectID": "course-materials/week13_slides.html#overall-results-by-participant-12",
+    "href": "course-materials/week13_slides.html#overall-results-by-participant-12",
     "title": "Week 13 - Exploring the data",
-    "section": "💡 My own observations",
-    "text": "💡 My own observations\n\nMissing dataUnnecessary dataData to transform\n\n\n\nCalculate the reaction time (so far, only the event time)\nThe actual sentences are missing, need to add them based on ItemNo\nNo information about the consent box, but this cannot be retrieved\n\n\n\n\nColumns containing the same or no value (Controller.name, Inner.element.number, Latin.Square.Group, Comments, for example)\nKeep only the lines where Label is “Experiment”\n\n\n\n\nColumns to rename, to be more concise and explicit (Results.reception.time, MD5.hash.of.participant.s.IP.address)\nChange the nature of the variable (UserAge to numerical value, ItemNo to a group/factor, etc.)"
+    "section": "Overall results by participant (1/2)",
+    "text": "Overall results by participant (1/2)\n\n\nplot(data3$Value ~ data3$ID_1_TimeReceived)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings by participants\n Are there many very deviant participants?"
   },
   {
-    "objectID": "course-materials/week13_slides.html#remove-unnecessary-columns",
-    "href": "course-materials/week13_slides.html#remove-unnecessary-columns",
+    "objectID": "course-materials/week13_slides.html#overall-results-by-participant-22",
+    "href": "course-materials/week13_slides.html#overall-results-by-participant-22",
     "title": "Week 13 - Exploring the data",
-    "section": "2.1 Remove unnecessary columns",
-    "text": "2.1 Remove unnecessary columns\n\nWe need to mention which column from which dataset. In R language, “the column called Controller.name from the dataset called data” is written using the $ sign (data$Controller.name)\nWe assign NULL to this column to delete it.\n\ndata$Controller.name &lt;- NULL\ndata$Inner.element.number &lt;- NULL\ndata$Latin.Square.Group &lt;- NULL\ndata$Comments &lt;- NULL"
+    "section": "Overall results by participant (2/2)",
+    "text": "Overall results by participant (2/2)\n\n\nplot(data3$RT ~ data3$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings by participants\n Are there many very deviant participants?"
   },
   {
-    "objectID": "course-materials/week13_slides.html#rename-columns",
-    "href": "course-materials/week13_slides.html#rename-columns",
+    "objectID": "course-materials/week13_slides.html#overall-results-by-item-12",
+    "href": "course-materials/week13_slides.html#overall-results-by-item-12",
     "title": "Week 13 - Exploring the data",
-    "section": "2.2 Rename columns",
-    "text": "2.2 Rename columns\n\n\nYou can have a glimpse of the names of the columns using the names(...) function.\nnames(data)\n\n\n [1] \"Results.reception.time\"              \n [2] \"MD5.hash.of.participant.s.IP.address\"\n [3] \"Order.number.of.item\"                \n [4] \"Label\"                               \n [5] \"PennElementType\"                     \n [6] \"PennElementName\"                     \n [7] \"Parameter\"                           \n [8] \"Value\"                               \n [9] \"EventTime\"                           \n[10] \"ItemNo\"                              \n[11] \"Condition\"                           \n[12] \"Group\"                               \n[13] \"UserAge\"                             \n[14] \"UserDegree\"                          \n\n\n\n\nEach name is assigned to a numerical index. For instance, “[1]” corresponds to “Results.reception.time”.\nnames(data)[1]\n\n\n[1] \"Results.reception.time\"\n\n\n\n\nOnce we have the index of columns, we just need to assign new names to them.\nnames(data)[1] &lt;- \"ID_1_TimeReceived\"\nnames(data)[2] &lt;- \"ID_2_IP\"\n\nnames(data)\n\n\n [1] \"ID_1_TimeReceived\"    \"ID_2_IP\"              \"Order.number.of.item\"\n [4] \"Label\"                \"PennElementType\"      \"PennElementName\"     \n [7] \"Parameter\"            \"Value\"                \"EventTime\"           \n[10] \"ItemNo\"               \"Condition\"            \"Group\"               \n[13] \"UserAge\"              \"UserDegree\""
+    "section": "Overall results by item (1/2)",
+    "text": "Overall results by item (1/2)\n\n\nplot(data3$Value ~ data3$ItemNo)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings by participants\n Are there many very deviant items?"
   },
   {
-    "objectID": "course-materials/week13_slides.html#select-the-rows-we-need",
-    "href": "course-materials/week13_slides.html#select-the-rows-we-need",
+    "objectID": "course-materials/week13_slides.html#overall-results-by-item-22",
+    "href": "course-materials/week13_slides.html#overall-results-by-item-22",
     "title": "Week 13 - Exploring the data",
-    "section": "2.3 Select the rows we need",
-    "text": "2.3 Select the rows we need\n\n\n\nWe use the filter() function from the dplyr package.\n%&gt;%: to say that “This is the Label column from the dataset called data”.\n== sign: we want the Experiment rows.\nWe store that into a new dataset called data2.\n\nlibrary(dplyr)\n\ndata2 &lt;- data %&gt;%\n  filter(Label == \"Experiment\")\n\n\nCheck: We expect to only find Experiment in the Label column.\n\n\n\n  \n\n\n\n\n\n\nThere are unnecessary _Header_ rows in the Parameter column.\nWe can use the same logic to remove them, but we use !=, meaning “we don’t want these rows”.\n\ndata2 &lt;- data2 %&gt;%\n  filter(Parameter != \"_Header_\")"
+    "section": "Overall results by item (2/2)",
+    "text": "Overall results by item (2/2)\n\n\nplot(data3$RT ~ data3$ItemNo, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings by participants\n Are there many very deviant items?"
   },
   {
-    "objectID": "course-materials/week13_slides.html#calculate-the-reaction-time",
-    "href": "course-materials/week13_slides.html#calculate-the-reaction-time",
+    "objectID": "course-materials/week13_slides.html#how-to-look-at-the-background-of-the-participants",
+    "href": "course-materials/week13_slides.html#how-to-look-at-the-background-of-the-participants",
     "title": "Week 13 - Exploring the data",
-    "section": "2.4 Calculate the reaction time",
-    "text": "2.4 Calculate the reaction time\n\n\n\n\n\n📖 Defining reaction time\n\n\nIn this experiment:\nReaction time = Time when the judgment is made - Time when the sentence appeared\nCalculating the reaction time from PCIbex data requires several steps.\n\n\n\n\n\nLet’s have a look at our data:\n\n\n\n  \n\n\n\nHow would you proceed? Let’s reflect for 10 minutes.\n\n\nMy solution\n\n\n\n\n\n\n\n\n\n\n\nStep 1: Create dataset with relevant rows\n\nReaction time = “EventTime when Parameter = Choice” - “EventTime when Value = Start”.\nWe select these rows, and we stored in a temporary dataset that we call RT_Prep1.\n\nRT_Prep1 &lt;- data2 %&gt;%\n  filter(Parameter == \"Choice\" | Value == \"Start\")\n\n\nStep 2.1: Prepare dataset - Annotation\n\nValue column: time for Start, but not for Choice. We want to have everything under the same column.\nNew annotation: When in the Value column, the word is not Start, we write Choice.\nThen, we delete columns when the two rows are different.\n\nRT_Prep1$Value &lt;- ifelse(RT_Prep1$Value == \"Start\",\n                         \"Start\",\n                         \"Choice\")\n\nRT_Prep1$PennElementType &lt;- NULL\nRT_Prep1$PennElementName &lt;- NULL\nRT_Prep1$Parameter &lt;- NULL\n\n\n\n  \n\n\n\n\n\nStep 2.2: Prepare dataset - Change format\n\nSubtraction: EventTime for Start and Choice in different columns.\nspread() function from the tidyr library.\n\nlibrary(tidyr)\nRT_Prep2 &lt;- spread(data = RT_Prep1, Value, EventTime)\n\n\n\n  \n\n\n\n\n\nStep 3: Subtract Choice from Start time\nChange to numeric values, and subtract.\nRT_Prep2$Choice &lt;- as.numeric(RT_Prep2$Choice)\nRT_Prep2$Start &lt;- as.numeric(RT_Prep2$Start)\nRT_Prep2$RT &lt;- RT_Prep2$Choice - RT_Prep2$Start\n\n\n\n  \n\n\n\n\n\nStep 4: Join RT dataset to main one\n\n\n\nTip\n\n\nWe have two datasets:\n\ndata2, with the judgment data, but not the reaction time,\nRT_Prep2, the temporary dataset with the reaction time, but not the judgment data.\n\nWe just need to join them based on their common minimal value: 1 different trial per participant.\n\n\n\n\nFirst, we select the row where the judgment is given.\n\ndata3 &lt;- data2 %&gt;%\n  filter(Parameter %in% \"Choice\")\n\nFinally, we use the left_join() function to join these two datasets based on (a) the participant ID, and (b) the Item index.\n\ndata3 &lt;- data3 %&gt;%\n  left_join(RT_Prep2 %&gt;% select(ID_1_TimeReceived, ID_2_IP, ItemNo, RT), \n            by = c(\"ID_1_TimeReceived\", \"ID_2_IP\", \"ItemNo\"))"
+    "section": "How to look at the background of the participants?",
+    "text": "How to look at the background of the participants?\n\nNumber of participants\nlength(levels(data3$ID_1_TimeReceived))\n\n\n[1] 43\n\n\n\n\nAge\nsummary(data3$UserAge)\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  19.00   23.00   30.00   35.12   49.00   65.00 \n\n\n\n\nLevel of education\nDegreePart &lt;- subset(data3, select = c(ID_1_TimeReceived, UserDegree))\nDegreePart &lt;- unique(DegreePart)\ntable(DegreePart$UserDegree)\n\n\n\n         BA High school          MA       Ph.D. \n         14           7          13           9"
   },
   {
-    "objectID": "course-materials/week13_slides.html#change-the-nature-of-the-variables",
-    "href": "course-materials/week13_slides.html#change-the-nature-of-the-variables",
+    "objectID": "course-materials/week13_slides.html#summary",
+    "href": "course-materials/week13_slides.html#summary",
     "title": "Week 13 - Exploring the data",
-    "section": "2.5 Change the nature of the variables",
-    "text": "2.5 Change the nature of the variables\n\n\nLet’s look again at our data:\nstr(data3)\n\n\n'data.frame':   1290 obs. of  15 variables:\n $ ID_1_TimeReceived   : int  1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 1777517421 ...\n $ ID_2_IP             : chr  \"965c6743ad440dd6eaf441586b84d5c2\" \"965c6743ad440dd6eaf441586b84d5c2\" \"965c6743ad440dd6eaf441586b84d5c2\" \"965c6743ad440dd6eaf441586b84d5c2\" ...\n $ Order.number.of.item: int  16 33 26 25 31 7 28 17 21 34 ...\n $ Label               : chr  \"Experiment\" \"Experiment\" \"Experiment\" \"Experiment\" ...\n $ PennElementType     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ PennElementName     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ Parameter           : chr  \"Choice\" \"Choice\" \"Choice\" \"Choice\" ...\n $ Value               : chr  \"6\" \"1\" \"4\" \"3\" ...\n $ EventTime           : num  1.78e+12 1.78e+12 1.78e+12 1.78e+12 1.78e+12 ...\n $ ItemNo              : chr  \"11\" \"58\" \"51\" \"50\" ...\n $ Condition           : chr  \"Grammatical\" \"Ungrammatical\" \"Ungrammatical\" \"Ungrammatical\" ...\n $ Group               : chr  \"A\" \"A\" \"A\" \"A\" ...\n $ UserAge             : int  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : chr  \"Ph.D.\" \"Ph.D.\" \"Ph.D.\" \"Ph.D.\" ...\n $ RT                  : num  20079 13763 13247 13997 13063 ...\n\n\n\n\nSome variables correspond to groups (or categories), so we used the as.factor() function to group them.\ndata3$ID_1_TimeReceived &lt;- as.factor(data3$ID_1_TimeReceived)\ndata3$ID_2_IP &lt;- as.factor(data3$ID_2_IP)\ndata3$ItemNo &lt;- as.factor(data3$ItemNo)\ndata3$Condition &lt;- as.factor(data3$Condition)\ndata3$Group &lt;- as.factor(data3$Group)\ndata3$UserDegree &lt;- as.factor(data3$UserDegree)\n\n\nFor numerical values, we use the as.numeric() function.\ndata3$Order.number.of.item &lt;- as.numeric(data3$Order.number.of.item)\ndata3$Value &lt;- as.numeric(data3$Value)\ndata3$UserAge &lt;- as.numeric(data3$UserAge)\ndata3$RT &lt;- as.numeric(data3$RT)\nNow this is our data:\nstr(data3)\n\n\n'data.frame':   1290 obs. of  15 variables:\n $ ID_1_TimeReceived   : Factor w/ 43 levels \"1777517421\",\"1777518106\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ ID_2_IP             : Factor w/ 12 levels \"0dee2ffb70111f78f8da03e6cb282297\",..: 9 9 9 9 9 9 9 9 9 9 ...\n $ Order.number.of.item: num  16 33 26 25 31 7 28 17 21 34 ...\n $ Label               : chr  \"Experiment\" \"Experiment\" \"Experiment\" \"Experiment\" ...\n $ PennElementType     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ PennElementName     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ Parameter           : chr  \"Choice\" \"Choice\" \"Choice\" \"Choice\" ...\n $ Value               : num  6 1 4 3 2 6 1 7 1 1 ...\n $ EventTime           : num  1.78e+12 1.78e+12 1.78e+12 1.78e+12 1.78e+12 ...\n $ ItemNo              : Factor w/ 60 levels \"1\",\"10\",\"11\",..: 3 54 47 46 52 12 49 4 41 55 ...\n $ Condition           : Factor w/ 2 levels \"Grammatical\",..: 1 2 2 2 2 1 2 1 2 2 ...\n $ Group               : Factor w/ 2 levels \"A\",\"B\": 1 1 1 1 1 1 1 1 1 1 ...\n $ UserAge             : num  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : Factor w/ 4 levels \"BA\",\"High school\",..: 4 4 4 4 4 4 4 4 4 4 ...\n $ RT                  : num  20079 13763 13247 13997 13063 ..."
+    "section": "Summary",
+    "text": "Summary\n\n\nOverall pattern: Grammatical sentences more accepted that ungrammatical ones, but not very obvious\n\n\n\n\nNon-valid data: Many participants with a strange behavior"
   },
   {
-    "objectID": "course-materials/week13_slides.html#another-round-of-removing-unnecessary-columns",
-    "href": "course-materials/week13_slides.html#another-round-of-removing-unnecessary-columns",
+    "objectID": "course-materials/week13_slides.html#identify-and-remove-non-valid-participants",
+    "href": "course-materials/week13_slides.html#identify-and-remove-non-valid-participants",
     "title": "Week 13 - Exploring the data",
-    "section": "2.6 Another round of removing unnecessary columns",
-    "text": "2.6 Another round of removing unnecessary columns\n\n\nWe made use of some columns when calculating the reaction time, but we do not need them anymore, and they are redundant. So here is another round of column removal!\nstr(data3)\n\n\n'data.frame':   1290 obs. of  15 variables:\n $ ID_1_TimeReceived   : Factor w/ 43 levels \"1777517421\",\"1777518106\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ ID_2_IP             : Factor w/ 12 levels \"0dee2ffb70111f78f8da03e6cb282297\",..: 9 9 9 9 9 9 9 9 9 9 ...\n $ Order.number.of.item: num  16 33 26 25 31 7 28 17 21 34 ...\n $ Label               : chr  \"Experiment\" \"Experiment\" \"Experiment\" \"Experiment\" ...\n $ PennElementType     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ PennElementName     : chr  \"Scale\" \"Scale\" \"Scale\" \"Scale\" ...\n $ Parameter           : chr  \"Choice\" \"Choice\" \"Choice\" \"Choice\" ...\n $ Value               : num  6 1 4 3 2 6 1 7 1 1 ...\n $ EventTime           : num  1.78e+12 1.78e+12 1.78e+12 1.78e+12 1.78e+12 ...\n $ ItemNo              : Factor w/ 60 levels \"1\",\"10\",\"11\",..: 3 54 47 46 52 12 49 4 41 55 ...\n $ Condition           : Factor w/ 2 levels \"Grammatical\",..: 1 2 2 2 2 1 2 1 2 2 ...\n $ Group               : Factor w/ 2 levels \"A\",\"B\": 1 1 1 1 1 1 1 1 1 1 ...\n $ UserAge             : num  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : Factor w/ 4 levels \"BA\",\"High school\",..: 4 4 4 4 4 4 4 4 4 4 ...\n $ RT                  : num  20079 13763 13247 13997 13063 ...\n\n\n\n\ndata3$Label &lt;- NULL\ndata3$PennElementType &lt;- NULL\ndata3$PennElementName &lt;- NULL\ndata3$Parameter &lt;- NULL\ndata3$EventTime &lt;- NULL\n\nstr(data3)\n\n\n'data.frame':   1290 obs. of  10 variables:\n $ ID_1_TimeReceived   : Factor w/ 43 levels \"1777517421\",\"1777518106\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ ID_2_IP             : Factor w/ 12 levels \"0dee2ffb70111f78f8da03e6cb282297\",..: 9 9 9 9 9 9 9 9 9 9 ...\n $ Order.number.of.item: num  16 33 26 25 31 7 28 17 21 34 ...\n $ Value               : num  6 1 4 3 2 6 1 7 1 1 ...\n $ ItemNo              : Factor w/ 60 levels \"1\",\"10\",\"11\",..: 3 54 47 46 52 12 49 4 41 55 ...\n $ Condition           : Factor w/ 2 levels \"Grammatical\",..: 1 2 2 2 2 1 2 1 2 2 ...\n $ Group               : Factor w/ 2 levels \"A\",\"B\": 1 1 1 1 1 1 1 1 1 1 ...\n $ UserAge             : num  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : Factor w/ 4 levels \"BA\",\"High school\",..: 4 4 4 4 4 4 4 4 4 4 ...\n $ RT                  : num  20079 13763 13247 13997 13063 ..."
+    "section": "2.1. Identify and remove non-valid participants",
+    "text": "2.1. Identify and remove non-valid participants\n\n\n\n⚠️ Be careful\n\n\nWe need to be careful when removing data! We need converging evidence and justify our choice.\n\n\n\n\nDifferent types of evidence to identify non-valid participants:\n\n\n\nBased on abnormal mean reaction time\n\n\n\n\nBased on shared IPs (shared device)\n\n\n\n\nBased on the observation of specific participants"
   },
   {
-    "objectID": "course-materials/week13_slides.html#add-information-about-the-items",
-    "href": "course-materials/week13_slides.html#add-information-about-the-items",
+    "objectID": "course-materials/week13_slides.html#abnormal-rt-overall-observations",
+    "href": "course-materials/week13_slides.html#abnormal-rt-overall-observations",
     "title": "Week 13 - Exploring the data",
-    "section": "2.7 Add information about the items",
-    "text": "2.7 Add information about the items\nFinally, we forgot to .log() the sentences in the PCIbex script:\n\nWe import the table with the material information (used on the PCIbex platform),\nWe use the left_join() function to join these two datasets based on the index of the items (here, ItemNo)\n\nmaterial &lt;- read.csv(\"~/Documents/CHC9012_Spring2026/PreprocessingAnalysesR/material.csv\")\nmaterial$ItemNo &lt;- as.factor(material$ItemNo)\n\ndata3 &lt;- data3 %&gt;%\n  left_join(material %&gt;% select(ItemNo, Sentence), \n            by = \"ItemNo\")\n\ndata3$Sentence &lt;- as.factor(data3$Sentence)\nstr(data3)\n\n\n'data.frame':   1290 obs. of  11 variables:\n $ ID_1_TimeReceived   : Factor w/ 43 levels \"1777517421\",\"1777518106\",..: 1 1 1 1 1 1 1 1 1 1 ...\n $ ID_2_IP             : Factor w/ 12 levels \"0dee2ffb70111f78f8da03e6cb282297\",..: 9 9 9 9 9 9 9 9 9 9 ...\n $ Order.number.of.item: num  16 33 26 25 31 7 28 17 21 34 ...\n $ Value               : num  6 1 4 3 2 6 1 7 1 1 ...\n $ ItemNo              : Factor w/ 60 levels \"1\",\"10\",\"11\",..: 3 54 47 46 52 12 49 4 41 55 ...\n $ Condition           : Factor w/ 2 levels \"Grammatical\",..: 1 2 2 2 2 1 2 1 2 2 ...\n $ Group               : Factor w/ 2 levels \"A\",\"B\": 1 1 1 1 1 1 1 1 1 1 ...\n $ UserAge             : num  30 30 30 30 30 30 30 30 30 30 ...\n $ UserDegree          : Factor w/ 4 levels \"BA\",\"High school\",..: 4 4 4 4 4 4 4 4 4 4 ...\n $ RT                  : num  20079 13763 13247 13997 13063 ...\n $ Sentence            : Factor w/ 60 levels \"He does not need help with his homework today\",..: 23 47 17 46 42 11 38 50 22 28 ..."
+    "section": "Abnormal RT: Overall observations",
+    "text": "Abnormal RT: Overall observations\n\n\nplot(data3$RT ~ data3$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nPartMeanRT &lt;- aggregate(RT ~ ID_1_TimeReceived,\n                        data = data3,\n                        FUN = mean)\n\nprint(PartMeanRT)\n\n\n   ID_1_TimeReceived         RT\n1         1777517421 13571.0667\n2         1777518106   805.1000\n3         1777518142   808.9333\n4         1777518178   808.5000\n5         1777518214   806.3333\n6         1777518250   813.2667\n7         1777518286   811.7333\n8         1777518322   814.4333\n9         1777518359   811.2667\n10        1777518398   806.8333\n11        1777518439   814.5000\n12        1777518549   813.5333\n13        1777518588   805.7000\n14        1777518627   812.1333\n15        1777518665   810.1333\n16        1777518704   815.0000\n17        1777518742   812.1667\n18        1777518781   815.3000\n19        1777518820   812.9667\n20        1777518859   814.9333\n21        1777518898   814.5000\n22        1777518937   810.2000\n23        1777518975   812.4000\n24        1777519013   807.5333\n25        1777519052   814.6333\n26        1777519104   813.5667\n27        1777519142   815.1667\n28        1777519180   813.4333\n29        1777519233   814.9333\n30        1777519270   814.8667\n31        1777519304   807.6333\n32        1777519458   608.8667\n33        1777519500   815.4667\n34        1777519539   692.3667\n35        1777519798  8069.6667\n36        1777952741  1511.9667\n37        1778728888  3986.5667\n38        1778729203 14339.8000\n39        1778730554  4272.8333\n40        1778737433  6259.6333\n41        1778742733  5526.1333\n42        1778763194 11567.2667\n43        1778782660  6250.8000"
   },
   {
-    "objectID": "course-materials/week13_slides.html#checking-process",
-    "href": "course-materials/week13_slides.html#checking-process",
+    "objectID": "course-materials/week13_slides.html#abnormal-rt-focus-on-the-weird-behavior",
+    "href": "course-materials/week13_slides.html#abnormal-rt-focus-on-the-weird-behavior",
     "title": "Week 13 - Exploring the data",
-    "section": "💭 Checking process",
-    "text": "💭 Checking process\n\n\n\n\n\n\nTip\n\n\nWe want to make sure that we did not corrupt our data when arranging them for further analyses. Otherwise, we can run further analyses and have results, but they will have no value!\nWe will mostly use the ezDesign() function from the ez package."
+    "section": "Abnormal RT: Focus on the weird behavior",
+    "text": "Abnormal RT: Focus on the weird behavior\n\n\ndata_QuickPart &lt;- subset(PartMeanRT, RT &lt; 1000)\ndata_QuickPart_FullData &lt;- subset(data3,\n                                  ID_1_TimeReceived %in% data_QuickPart$ID_1_TimeReceived)\n\nplot(data_QuickPart_FullData$RT ~ data_QuickPart_FullData$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nplot(data_QuickPart_FullData$Value ~ data_QuickPart_FullData$Condition)"
   },
   {
-    "objectID": "course-materials/week13_slides.html#check-the-data",
-    "href": "course-materials/week13_slides.html#check-the-data",
+    "objectID": "course-materials/week13_slides.html#abnormal-rt-focus-on-the-human-like-behavior",
+    "href": "course-materials/week13_slides.html#abnormal-rt-focus-on-the-human-like-behavior",
     "title": "Week 13 - Exploring the data",
-    "section": "3.1 Check the data",
-    "text": "3.1 Check the data\n\n\nWe load the library:\nlibrary(ez)\n\n\n# Same number of item per condition for each participant? (should be '15')\nezDesign(data3, ID_1_TimeReceived, Condition)\n\n\n\n\n\n\n\n\n\n\n\n# Which participants share the same ID? (hint that this could be the same participant filling the questionnaire twice)\nezDesign(data3, ID_1_TimeReceived, ID_2_IP)\n\n\n\n\n\n\n\n\n\n\n\n# Number of times an item appeared by participant (should be '1')\nezDesign(data3, ID_1_TimeReceived, ItemNo)\n\n\n\n\n\n\n\n\n\n\n\n# Were the items well dispatched in the two lists?\nezDesign(data3, ItemNo, Group)\n\n\n\n\n\n\n\n\n\n\n\n# Were the participants well dispatched in the two lists? (should be '30')\nezDesign(data3, ID_1_TimeReceived, Group)"
+    "section": "Abnormal RT: Focus on the human-like behavior",
+    "text": "Abnormal RT: Focus on the human-like behavior\n\n\ndata_OtherPart &lt;- subset(PartMeanRT, RT &gt; 1000)\ndata_OtherPart_FullData &lt;- droplevels(subset(data3,\n                                             ID_1_TimeReceived %in% data_OtherPart$ID_1_TimeReceived))\n\nplot(data_OtherPart_FullData$RT ~ data_OtherPart_FullData$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nplot(data_OtherPart_FullData$Value ~ data_OtherPart_FullData$Condition)"
   },
   {
-    "objectID": "course-materials/week13_slides.html#save-the-prepared-dataset",
-    "href": "course-materials/week13_slides.html#save-the-prepared-dataset",
+    "objectID": "course-materials/week13_slides.html#shared-ips-shared-device",
+    "href": "course-materials/week13_slides.html#shared-ips-shared-device",
     "title": "Week 13 - Exploring the data",
-    "section": "3.2 Save the prepared dataset",
-    "text": "3.2 Save the prepared dataset\nsave(data3,\n     file = \"CHC9012_PCIbexDataPrepared.RData\")\nCheck that the file appears in your working directory!"
+    "section": "Shared IPs (shared device)",
+    "text": "Shared IPs (shared device)\n\n\n\n\n\n\n\n\n\n\n\n\nWeird RTs\nezDesign(data_QuickPart_FullData,\nID_1_TimeReceived,\nID_2_IP)\n\n\n\n\n\n\n\n\n\n\n\n\n\nHuman-like behavior\nezDesign(data_OtherPart_FullData,\nID_1_TimeReceived,\nID_2_IP)"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#look-at-specific-participants",
+    "href": "course-materials/week13_slides.html#look-at-specific-participants",
+    "title": "Week 13 - Exploring the data",
+    "section": "Look at specific participants",
+    "text": "Look at specific participants\nCode to extract the data of one participant (here, Participant #9)\nIndPart &lt;- subset(data_OtherPart_FullData,\n                  ID_1_TimeReceived == levels(data_OtherPart_FullData$ID_1_TimeReceived)[9])\n\n\n\nplot(IndPart$Value ~ IndPart$Condition)\n\n\n\n\n\n\n\n\n\n\nplot(IndPart$RT ~ IndPart$Condition)"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#summary-1",
+    "href": "course-materials/week13_slides.html#summary-1",
+    "title": "Week 13 - Exploring the data",
+    "section": "Summary",
+    "text": "Summary\n\n\nConverging evidence to say that one group’s behavior is very different, indicating that they did not pay attention to the task\n\n\n\n\nFurther analyses: Inclusion of participants with the human-like behavior"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#identify-and-remove-non-valid-trials",
+    "href": "course-materials/week13_slides.html#identify-and-remove-non-valid-trials",
+    "title": "Week 13 - Exploring the data",
+    "section": "2.2. Identify and remove non-valid trials",
+    "text": "2.2. Identify and remove non-valid trials"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#remove-based-on-absolute-values",
+    "href": "course-materials/week13_slides.html#remove-based-on-absolute-values",
+    "title": "Week 13 - Exploring the data",
+    "section": "Remove based on absolute values",
+    "text": "Remove based on absolute values\ndata_OtherPart_CleanAbsolute &lt;- subset(data_OtherPart_FullData, RT &gt; 200 & RT &lt; 20000)"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#remove-based-on-relative-values-12",
+    "href": "course-materials/week13_slides.html#remove-based-on-relative-values-12",
+    "title": "Week 13 - Exploring the data",
+    "section": "Remove based on relative values (1/2)",
+    "text": "Remove based on relative values (1/2)\nplot(data_OtherPart_CleanAbsolute$RT ~ data_OtherPart_CleanAbsolute$ID_1_TimeReceived)"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#remove-based-on-relative-values-22",
+    "href": "course-materials/week13_slides.html#remove-based-on-relative-values-22",
+    "title": "Week 13 - Exploring the data",
+    "section": "Remove based on relative values (2/2)",
+    "text": "Remove based on relative values (2/2)\n# Calculate the mean per Participant and Condition\ndata_OtherPart_CleanAbsolute$m_rt &lt;- ave(data_OtherPart_CleanAbsolute$RT, \n                                         data_OtherPart_CleanAbsolute$ID_1_TimeReceived, \n                                         data_OtherPart_CleanAbsolute$Condition, \n                                         FUN = mean)\n\n# 2. Calculate the SD per Participant and Condition\ndata_OtherPart_CleanAbsolute$sd_rt &lt;- ave(data_OtherPart_CleanAbsolute$RT, \n                                          data_OtherPart_CleanAbsolute$ID_1_TimeReceived, \n                                          data_OtherPart_CleanAbsolute$Condition, \n                                          FUN = sd)\n\n# 3. Subset the data to remove outliers\ndata_OtherPart_CleanAbsoluteRelative &lt;- subset(data_OtherPart_CleanAbsolute, \n                                               RT &gt;= (m_rt - 2.5 * sd_rt) & \n                                                 RT &lt;= (m_rt + 2.5 * sd_rt))"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#calculate-the-proportion-of-removed-trials",
+    "href": "course-materials/week13_slides.html#calculate-the-proportion-of-removed-trials",
+    "title": "Week 13 - Exploring the data",
+    "section": "Calculate the proportion of removed trials",
+    "text": "Calculate the proportion of removed trials\nFullData_NbTrials &lt;- nrow(data_OtherPart_FullData)\nTrimmedData_NbTrials &lt;- nrow(data_OtherPart_CleanAbsoluteRelative)\n\n# Number of trimmed trials\nNbTrimmedTrials &lt;- FullData_NbTrials - TrimmedData_NbTrials\nNbTrimmedTrials\n\n# Proportion (%)\nNbTrimmedTrials*100/FullData_NbTrials\n\n\n[1] 14\n\n\n[1] 4.666667\n\n\nThe proportion is below 5%, which is acceptable in experimental linguistics."
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#design-based-analyses-ratings",
+    "href": "course-materials/week13_slides.html#design-based-analyses-ratings",
+    "title": "Week 13 - Exploring the data",
+    "section": "3.1: Design-based analyses: Ratings",
+    "text": "3.1: Design-based analyses: Ratings\nplot(data_OtherPart_CleanAbsoluteRelative$Value ~ data_OtherPart_CleanAbsoluteRelative$Condition)\n\nsummarySE(data_OtherPart_CleanAbsoluteRelative,\n          measurevar = \"Value\",\n          groupvars = \"Condition\")\n\n\n\n      Condition   N    Value       sd        se        ci\n1   Grammatical 144 6.361111 1.304168 0.1086807 0.2148283\n2 Ungrammatical 142 2.485915 2.041193 0.1712931 0.3386347"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#design-based-analyses-reaction-time",
+    "href": "course-materials/week13_slides.html#design-based-analyses-reaction-time",
+    "title": "Week 13 - Exploring the data",
+    "section": "3.1: Design-based analyses: Reaction time",
+    "text": "3.1: Design-based analyses: Reaction time\nplot(data_OtherPart_CleanAbsoluteRelative$RT ~ data_OtherPart_CleanAbsoluteRelative$Condition)\n\nsummarySE(data_OtherPart_CleanAbsoluteRelative,\n          measurevar = \"RT\",\n          groupvars = \"Condition\")\n\n\n\n      Condition   N       RT       sd       se       ci\n1   Grammatical 144 6131.653 4240.087 353.3406 698.4457\n2 Ungrammatical 142 6111.190 4277.881 358.9918 709.7022"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#exploratory-analyses",
+    "href": "course-materials/week13_slides.html#exploratory-analyses",
+    "title": "Week 13 - Exploring the data",
+    "section": "3.2: Exploratory analyses",
+    "text": "3.2: Exploratory analyses\n\n\n\n\n\n\nWhy exloring the data?\n\n\nWe observed more variation in the ungrammatical condition. The next step is to understand the source of such variation.\nWe already did our best with the participants, so it is likely to be related to the sentences."
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#exploratory-analyses-grammatical-condition",
+    "href": "course-materials/week13_slides.html#exploratory-analyses-grammatical-condition",
+    "title": "Week 13 - Exploring the data",
+    "section": "3.2: Exploratory analyses, Grammatical condition",
+    "text": "3.2: Exploratory analyses, Grammatical condition\ndata_Grammatical &lt;- droplevels(subset(data_OtherPart_CleanAbsoluteRelative,\n                                        Condition == \"Grammatical\"))\n\nplot(data_Grammatical$Value ~ data_Grammatical$ItemNo)"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#exploratory-analyses-ungrammatical-condition-13",
+    "href": "course-materials/week13_slides.html#exploratory-analyses-ungrammatical-condition-13",
+    "title": "Week 13 - Exploring the data",
+    "section": "3.2: Exploratory analyses, Ungrammatical condition (1/3)",
+    "text": "3.2: Exploratory analyses, Ungrammatical condition (1/3)\ndata_Ungrammatical &lt;- droplevels(subset(data_OtherPart_CleanAbsoluteRelative,\n                                        Condition == \"Ungrammatical\"))\n\nplot(data_Ungrammatical$Value ~ data_Ungrammatical$ItemNo)"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#exploratory-analyses-ungrammatical-condition-23",
+    "href": "course-materials/week13_slides.html#exploratory-analyses-ungrammatical-condition-23",
+    "title": "Week 13 - Exploring the data",
+    "section": "3.2: Exploratory analyses, Ungrammatical condition (2/3)",
+    "text": "3.2: Exploratory analyses, Ungrammatical condition (2/3)\n# Exploration of divergent ungrammatical sentences\ndata_Ungrammatical_OutlierValue &lt;- subset(data_Ungrammatical, Value &gt; 4)\n\ndata_Ungrammatical_OutlierValue_Summary &lt;- droplevels(subset(data_Ungrammatical_OutlierValue,\n                                                  select = c(ID_1_TimeReceived,\n                                                             ItemNo,\n                                                             Sentence)))\ndata_Ungrammatical_OutlierValue_Summary &lt;- unique(data_Ungrammatical_OutlierValue_Summary)\ndata_Ungrammatical_OutlierValue_Overview &lt;- table(data_Ungrammatical_OutlierValue_Summary$ItemNo)\n\ndata_Ungrammatical_OutlierValue_Overview\n\n\n\n31 33 34 36 37 38 43 44 47 48 50 51 52 55 57 58 \n 1  1  1  1  1  2  3  1  2  1  2  4  2  2  1  1"
+  },
+  {
+    "objectID": "course-materials/week13_slides.html#exploratory-analyses-ungrammatical-condition-33",
+    "href": "course-materials/week13_slides.html#exploratory-analyses-ungrammatical-condition-33",
+    "title": "Week 13 - Exploring the data",
+    "section": "3.2: Exploratory analyses, Ungrammatical condition (3/3)",
+    "text": "3.2: Exploratory analyses, Ungrammatical condition (3/3)\n# Identify which ungrammatical sentences\ndata_Ungrammatical_OutlierValue_Overview &lt;- as.data.frame(data_Ungrammatical_OutlierValue_Overview)\nnames(data_Ungrammatical_OutlierValue_Overview)[1] &lt;- \"ItemNo\"\n\ndata_Ungrammatical_OutlierValue_Overview &lt;- droplevels(subset(data_Ungrammatical_OutlierValue_Overview, Freq &gt; 2))\n\ndata_Ungrammatical_OutlierValue_Overview &lt;- left_join(data_Ungrammatical_OutlierValue_Overview, \n                                                      data_Ungrammatical, \n                                                      by = \"ItemNo\")\nOutlierUngrammaticalSentences &lt;- unique(data_Ungrammatical_OutlierValue_Overview$Sentence)\nOutlierUngrammaticalSentences\n\n\n[1] The bus stops not at this corner anymore\n[2] It matters not what they think of us    \n30 Levels: He needs not help with his homework today ..."
   },
   {
     "objectID": "course-materials/week12_slides.html#goals",
@@ -936,265 +1034,20 @@
     "href": "hw2.html",
     "title": "How to submit R markdown assignments",
     "section": "",
-    "text": "[To complete later]"
+    "text": "Uploading the Markdown document on Moodle\nKnit it to a PDF file, and upload the PDF file (recommended)"
   },
   {
-    "objectID": "course-materials/week13_slides.html#preparations-for-the-analyses",
-    "href": "course-materials/week13_slides.html#preparations-for-the-analyses",
-    "title": "Week 13 - Exploring the data",
-    "section": "💻 Preparations for the analyses",
-    "text": "💻 Preparations for the analyses\nload(file = \"CHC9012_PCIbexDataPrepared.RData\")\n\nlibrary(ez)\nlibrary(dplyr)\nlibrary(Rmisc)"
+    "objectID": "hw2.html#video-overview",
+    "href": "hw2.html#video-overview",
+    "title": "How to submit R markdown assignments",
+    "section": "Video overview",
+    "text": "Video overview\nYou can focus on the second part of the video (starting around 1m30s).\nVideo"
   },
   {
-    "objectID": "course-materials/week13_slides.html#overall-results",
-    "href": "course-materials/week13_slides.html#overall-results",
-    "title": "Week 13 - Exploring the data",
-    "section": "Overall results",
-    "text": "Overall results\n\n\nplot(data3$Value ~ data3$Condition)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings across conditions\n Please briefly describe the patterns of results."
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#overall-results-12",
-    "href": "course-materials/week13_slides.html#overall-results-12",
-    "title": "Week 13 - Exploring the data",
-    "section": "Overall results (1/2)",
-    "text": "Overall results (1/2)\n\n\nplot(data3$Value ~ data3$Condition)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings across conditions\n Please briefly describe the patterns of results."
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#overall-results-22",
-    "href": "course-materials/week13_slides.html#overall-results-22",
-    "title": "Week 13 - Exploring the data",
-    "section": "Overall results (2/2)",
-    "text": "Overall results (2/2)\n\n\nplot(data3$RT ~ data3$Condition)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings across conditions\n Please briefly describe the patterns of results."
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#overall-results-22-1",
-    "href": "course-materials/week13_slides.html#overall-results-22-1",
-    "title": "Week 13 - Exploring the data",
-    "section": "Overall results (2/2)",
-    "text": "Overall results (2/2)\n\n\nplot(data3$RT ~ data3$Condition, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings across conditions\n Please briefly describe the patterns of results."
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#overall-results-by-participant",
-    "href": "course-materials/week13_slides.html#overall-results-by-participant",
-    "title": "Week 13 - Exploring the data",
-    "section": "Overall results by participant",
-    "text": "Overall results by participant\n\n\nplot(data3$Value ~ data3$ID_1_TimeReceived)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings across conditions\n Please briefly describe the patterns of results."
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#overall-results-by-participant-12",
-    "href": "course-materials/week13_slides.html#overall-results-by-participant-12",
-    "title": "Week 13 - Exploring the data",
-    "section": "Overall results by participant (1/2)",
-    "text": "Overall results by participant (1/2)\n\n\nplot(data3$Value ~ data3$ID_1_TimeReceived)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings by participants\n Are there many very deviant participants?"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#overall-results-by-participant-22",
-    "href": "course-materials/week13_slides.html#overall-results-by-participant-22",
-    "title": "Week 13 - Exploring the data",
-    "section": "Overall results by participant (2/2)",
-    "text": "Overall results by participant (2/2)\n\n\nplot(data3$RT ~ data3$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings by participants\n Are there many very deviant participants?"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#overall-results-by-item-12",
-    "href": "course-materials/week13_slides.html#overall-results-by-item-12",
-    "title": "Week 13 - Exploring the data",
-    "section": "Overall results by item (1/2)",
-    "text": "Overall results by item (1/2)\n\n\nplot(data3$Value ~ data3$ItemNo)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings by participants\n Are there many very deviant items?"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#overall-results-by-item-12-1",
-    "href": "course-materials/week13_slides.html#overall-results-by-item-12-1",
-    "title": "Week 13 - Exploring the data",
-    "section": "Overall results by item (1/2)",
-    "text": "Overall results by item (1/2)\n\n\nplot(data3$RT ~ data3$ItemNo, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings by participants\n Are there many very deviant items?"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#overall-results-by-item-22",
-    "href": "course-materials/week13_slides.html#overall-results-by-item-22",
-    "title": "Week 13 - Exploring the data",
-    "section": "Overall results by item (2/2)",
-    "text": "Overall results by item (2/2)\n\n\nplot(data3$RT ~ data3$ItemNo, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nDistribution of the ratings by participants\n Are there many very deviant items?"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#how-to-look-at-the-background-of-the-participants",
-    "href": "course-materials/week13_slides.html#how-to-look-at-the-background-of-the-participants",
-    "title": "Week 13 - Exploring the data",
-    "section": "How to look at the background of the participants?",
-    "text": "How to look at the background of the participants?\n\nNumber of participants\nlength(levels(data3$ID_1_TimeReceived))\n\n\n[1] 43\n\n\n\n\nAge\nsummary(data3$UserAge)\n\n\n   Min. 1st Qu.  Median    Mean 3rd Qu.    Max. \n  19.00   23.00   30.00   35.12   49.00   65.00 \n\n\n\n\nLevel of education\nDegreePart &lt;- subset(data3, select = c(ID_1_TimeReceived, UserDegree))\nDegreePart &lt;- unique(DegreePart)\ntable(DegreePart$UserDegree)\n\n\n\n         BA High school          MA       Ph.D. \n         14           7          13           9"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#summary",
-    "href": "course-materials/week13_slides.html#summary",
-    "title": "Week 13 - Exploring the data",
-    "section": "Summary",
-    "text": "Summary\n\n\nOverall pattern: Grammatical sentences more accepted that ungrammatical ones, but not very obvious\n\n\n\n\nNon-valid data: Many participants with a strange behavior"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#identify-and-remove-non-valid-participants",
-    "href": "course-materials/week13_slides.html#identify-and-remove-non-valid-participants",
-    "title": "Week 13 - Exploring the data",
-    "section": "2.1. Identify and remove non-valid participants",
-    "text": "2.1. Identify and remove non-valid participants\n\n\n\n⚠️ Be careful\n\n\nWe need to be careful when removing data! We need converging evidence and justify our choice.\n\n\n\n\nDifferent types of evidence to identify non-valid participants:\n\n\n\nBased on abnormal mean reaction time\n\n\n\n\nBased on shared IPs (shared device)\n\n\n\n\nBased on the observation of specific participants"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#abnormal-rt",
-    "href": "course-materials/week13_slides.html#abnormal-rt",
-    "title": "Week 13 - Exploring the data",
-    "section": "Abnormal RT",
-    "text": "Abnormal RT\n\n\nplot(data3$RT ~ data3$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nPartMeanRT &lt;- aggregate(RT ~ ID_1_TimeReceived,\n                        data = data3,\n                        FUN = mean)\n\nprint(PartMeanRT)\n\n\n   ID_1_TimeReceived         RT\n1         1777517421 13571.0667\n2         1777518106   805.1000\n3         1777518142   808.9333\n4         1777518178   808.5000\n5         1777518214   806.3333\n6         1777518250   813.2667\n7         1777518286   811.7333\n8         1777518322   814.4333\n9         1777518359   811.2667\n10        1777518398   806.8333\n11        1777518439   814.5000\n12        1777518549   813.5333\n13        1777518588   805.7000\n14        1777518627   812.1333\n15        1777518665   810.1333\n16        1777518704   815.0000\n17        1777518742   812.1667\n18        1777518781   815.3000\n19        1777518820   812.9667\n20        1777518859   814.9333\n21        1777518898   814.5000\n22        1777518937   810.2000\n23        1777518975   812.4000\n24        1777519013   807.5333\n25        1777519052   814.6333\n26        1777519104   813.5667\n27        1777519142   815.1667\n28        1777519180   813.4333\n29        1777519233   814.9333\n30        1777519270   814.8667\n31        1777519304   807.6333\n32        1777519458   608.8667\n33        1777519500   815.4667\n34        1777519539   692.3667\n35        1777519798  8069.6667\n36        1777952741  1511.9667\n37        1778728888  3986.5667\n38        1778729203 14339.8000\n39        1778730554  4272.8333\n40        1778737433  6259.6333\n41        1778742733  5526.1333\n42        1778763194 11567.2667\n43        1778782660  6250.8000"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#shared-ips",
-    "href": "course-materials/week13_slides.html#shared-ips",
-    "title": "Week 13 - Exploring the data",
-    "section": "Shared IPs",
-    "text": "Shared IPs\nAnother piece of evidence may come from shared IPs (shared device). Indeed, if some participants wanted to finish the experiments very quickly, and if completing the experiment was awarded compensation, it is possible that they completed the experiment several times using the same device.\nLet’s have a look at the “abnormal behavior” group.\n\n\n\n\n\n\n\n\n\nWe can see that different participants share the same IP.\nNow let’s have a look at the other group.\n\n\n\n\n\n\n\n\n\nOnly two participants share the same IP, but not other ones."
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#look-at-specific-participants",
-    "href": "course-materials/week13_slides.html#look-at-specific-participants",
-    "title": "Week 13 - Exploring the data",
-    "section": "Look at specific participants",
-    "text": "Look at specific participants\nCode to extract the data of one participant (here, Participant #9)\nIndPart &lt;- subset(data_OtherPart_FullData,\n                  ID_1_TimeReceived == levels(data_OtherPart_FullData$ID_1_TimeReceived)[9])\n\n\n\nplot(IndPart$Value ~ IndPart$Condition)\n\n\n\n\n\n\n\n\n\n\nplot(IndPart$RT ~ IndPart$Condition)"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#abnormal-rt-overall-observations",
-    "href": "course-materials/week13_slides.html#abnormal-rt-overall-observations",
-    "title": "Week 13 - Exploring the data",
-    "section": "Abnormal RT: Overall observations",
-    "text": "Abnormal RT: Overall observations\n\n\nplot(data3$RT ~ data3$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nPartMeanRT &lt;- aggregate(RT ~ ID_1_TimeReceived,\n                        data = data3,\n                        FUN = mean)\n\nprint(PartMeanRT)\n\n\n   ID_1_TimeReceived         RT\n1         1777517421 13571.0667\n2         1777518106   805.1000\n3         1777518142   808.9333\n4         1777518178   808.5000\n5         1777518214   806.3333\n6         1777518250   813.2667\n7         1777518286   811.7333\n8         1777518322   814.4333\n9         1777518359   811.2667\n10        1777518398   806.8333\n11        1777518439   814.5000\n12        1777518549   813.5333\n13        1777518588   805.7000\n14        1777518627   812.1333\n15        1777518665   810.1333\n16        1777518704   815.0000\n17        1777518742   812.1667\n18        1777518781   815.3000\n19        1777518820   812.9667\n20        1777518859   814.9333\n21        1777518898   814.5000\n22        1777518937   810.2000\n23        1777518975   812.4000\n24        1777519013   807.5333\n25        1777519052   814.6333\n26        1777519104   813.5667\n27        1777519142   815.1667\n28        1777519180   813.4333\n29        1777519233   814.9333\n30        1777519270   814.8667\n31        1777519304   807.6333\n32        1777519458   608.8667\n33        1777519500   815.4667\n34        1777519539   692.3667\n35        1777519798  8069.6667\n36        1777952741  1511.9667\n37        1778728888  3986.5667\n38        1778729203 14339.8000\n39        1778730554  4272.8333\n40        1778737433  6259.6333\n41        1778742733  5526.1333\n42        1778763194 11567.2667\n43        1778782660  6250.8000"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#abnormal-rt-focus-on-the-weird-behavior",
-    "href": "course-materials/week13_slides.html#abnormal-rt-focus-on-the-weird-behavior",
-    "title": "Week 13 - Exploring the data",
-    "section": "Abnormal RT: Focus on the weird behavior",
-    "text": "Abnormal RT: Focus on the weird behavior\n\n\ndata_QuickPart &lt;- subset(PartMeanRT, RT &lt; 1000)\ndata_QuickPart_FullData &lt;- subset(data3,\n                                  ID_1_TimeReceived %in% data_QuickPart$ID_1_TimeReceived)\n\nplot(data_QuickPart_FullData$RT ~ data_QuickPart_FullData$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nplot(data_QuickPart_FullData$Value ~ data_QuickPart_FullData$Condition)"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#abnormal-rt-focus-on-the-human-like-behavior",
-    "href": "course-materials/week13_slides.html#abnormal-rt-focus-on-the-human-like-behavior",
-    "title": "Week 13 - Exploring the data",
-    "section": "Abnormal RT: Focus on the human-like behavior",
-    "text": "Abnormal RT: Focus on the human-like behavior\n\n\ndata_OtherPart &lt;- subset(PartMeanRT, RT &gt; 1000)\ndata_OtherPart_FullData &lt;- droplevels(subset(data3,\n                                             ID_1_TimeReceived %in% data_OtherPart$ID_1_TimeReceived))\n\nplot(data_OtherPart_FullData$RT ~ data_OtherPart_FullData$ID_1_TimeReceived, outline = FALSE)\n\n\n\n\n\n\n\n\n\n\nplot(data_OtherPart_FullData$Value ~ data_OtherPart_FullData$Condition)"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#shared-ips-shared-device",
-    "href": "course-materials/week13_slides.html#shared-ips-shared-device",
-    "title": "Week 13 - Exploring the data",
-    "section": "Shared IPs (shared device)",
-    "text": "Shared IPs (shared device)\n\n\n\n\n\n\n\n\n\n\n\n\nWeird RTs\nezDesign(data_QuickPart_FullData,\nID_1_TimeReceived,\nID_2_IP)\n\n\n\n\n\n\n\n\n\n\n\n\n\nHuman-like behavior\nezDesign(data_OtherPart_FullData,\nID_1_TimeReceived,\nID_2_IP)"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#summary-1",
-    "href": "course-materials/week13_slides.html#summary-1",
-    "title": "Week 13 - Exploring the data",
-    "section": "Summary",
-    "text": "Summary\n\n\nConverging evidence to say that one group’s behavior is very different, indicating that they did not pay attention to the task\n\n\n\n\nFurther analyses: Inclusion of participants with the human-like behavior"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#identify-and-remove-non-valid-trials",
-    "href": "course-materials/week13_slides.html#identify-and-remove-non-valid-trials",
-    "title": "Week 13 - Exploring the data",
-    "section": "2.2. Identify and remove non-valid trials",
-    "text": "2.2. Identify and remove non-valid trials"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#remove-based-on-absolute-values",
-    "href": "course-materials/week13_slides.html#remove-based-on-absolute-values",
-    "title": "Week 13 - Exploring the data",
-    "section": "Remove based on absolute values",
-    "text": "Remove based on absolute values\ndata_OtherPart_CleanAbsolute &lt;- subset(data_OtherPart_FullData, RT &gt; 200 & RT &lt; 20000)"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#remove-based-on-relative-values",
-    "href": "course-materials/week13_slides.html#remove-based-on-relative-values",
-    "title": "Week 13 - Exploring the data",
-    "section": "Remove based on relative values",
-    "text": "Remove based on relative values\nplot(data_OtherPart_CleanAbsolute$RT ~ data_OtherPart_CleanAbsolute$Condition)\n\n# Calculate the mean per Participant and Condition\ndata_OtherPart_CleanAbsolute$m_rt &lt;- ave(data_OtherPart_CleanAbsolute$RT, \n                                         data_OtherPart_CleanAbsolute$ID_1_TimeReceived, \n                                         data_OtherPart_CleanAbsolute$Condition, \n                                         FUN = mean)\n\n# 2. Calculate the SD per Participant and Condition\ndata_OtherPart_CleanAbsolute$sd_rt &lt;- ave(data_OtherPart_CleanAbsolute$RT, \n                                          data_OtherPart_CleanAbsolute$ID_1_TimeReceived, \n                                          data_OtherPart_CleanAbsolute$Condition, \n                                          FUN = sd)\n\n# 3. Subset the data to remove outliers\ndata_OtherPart_CleanAbsoluteRelative &lt;- subset(data_OtherPart_CleanAbsolute, \n                                               RT &gt;= (m_rt - 2.5 * sd_rt) & \n                                                 RT &lt;= (m_rt + 2.5 * sd_rt))"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#remove-based-on-relative-values-12",
-    "href": "course-materials/week13_slides.html#remove-based-on-relative-values-12",
-    "title": "Week 13 - Exploring the data",
-    "section": "Remove based on relative values (1/2)",
-    "text": "Remove based on relative values (1/2)\nplot(data_OtherPart_CleanAbsolute$RT ~ data_OtherPart_CleanAbsolute$ID_1_TimeReceived)"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#remove-based-on-relative-values-12-1",
-    "href": "course-materials/week13_slides.html#remove-based-on-relative-values-12-1",
-    "title": "Week 13 - Exploring the data",
-    "section": "Remove based on relative values (1/2)",
-    "text": "Remove based on relative values (1/2)\n# Calculate the mean per Participant and Condition\ndata_OtherPart_CleanAbsolute$m_rt &lt;- ave(data_OtherPart_CleanAbsolute$RT, \n                                         data_OtherPart_CleanAbsolute$ID_1_TimeReceived, \n                                         data_OtherPart_CleanAbsolute$Condition, \n                                         FUN = mean)\n\n# 2. Calculate the SD per Participant and Condition\ndata_OtherPart_CleanAbsolute$sd_rt &lt;- ave(data_OtherPart_CleanAbsolute$RT, \n                                          data_OtherPart_CleanAbsolute$ID_1_TimeReceived, \n                                          data_OtherPart_CleanAbsolute$Condition, \n                                          FUN = sd)\n\n# 3. Subset the data to remove outliers\ndata_OtherPart_CleanAbsoluteRelative &lt;- subset(data_OtherPart_CleanAbsolute, \n                                               RT &gt;= (m_rt - 2.5 * sd_rt) & \n                                                 RT &lt;= (m_rt + 2.5 * sd_rt))"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#remove-based-on-relative-values-22",
-    "href": "course-materials/week13_slides.html#remove-based-on-relative-values-22",
-    "title": "Week 13 - Exploring the data",
-    "section": "Remove based on relative values (2/2)",
-    "text": "Remove based on relative values (2/2)\n# Calculate the mean per Participant and Condition\ndata_OtherPart_CleanAbsolute$m_rt &lt;- ave(data_OtherPart_CleanAbsolute$RT, \n                                         data_OtherPart_CleanAbsolute$ID_1_TimeReceived, \n                                         data_OtherPart_CleanAbsolute$Condition, \n                                         FUN = mean)\n\n# 2. Calculate the SD per Participant and Condition\ndata_OtherPart_CleanAbsolute$sd_rt &lt;- ave(data_OtherPart_CleanAbsolute$RT, \n                                          data_OtherPart_CleanAbsolute$ID_1_TimeReceived, \n                                          data_OtherPart_CleanAbsolute$Condition, \n                                          FUN = sd)\n\n# 3. Subset the data to remove outliers\ndata_OtherPart_CleanAbsoluteRelative &lt;- subset(data_OtherPart_CleanAbsolute, \n                                               RT &gt;= (m_rt - 2.5 * sd_rt) & \n                                                 RT &lt;= (m_rt + 2.5 * sd_rt))"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#calculate-the-proportion-of-removed-trials",
-    "href": "course-materials/week13_slides.html#calculate-the-proportion-of-removed-trials",
-    "title": "Week 13 - Exploring the data",
-    "section": "Calculate the proportion of removed trials",
-    "text": "Calculate the proportion of removed trials\nFullData_NbTrials &lt;- nrow(data_OtherPart_FullData)\nTrimmedData_NbTrials &lt;- nrow(data_OtherPart_CleanAbsoluteRelative)\n\n# Number of trimmed trials\nNbTrimmedTrials &lt;- FullData_NbTrials - TrimmedData_NbTrials\nNbTrimmedTrials\n\n# Proportion (%)\nNbTrimmedTrials*100/FullData_NbTrials\n\n\n[1] 14\n\n\n[1] 4.666667\n\n\nThe proportion is below 5%, which is acceptable in experimental linguistics."
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#design-based-analyses",
-    "href": "course-materials/week13_slides.html#design-based-analyses",
-    "title": "Week 13 - Exploring the data",
-    "section": "3.1: Design-based analyses",
-    "text": "3.1: Design-based analyses\nplot(data_OtherPart_CleanAbsoluteRelative$Value ~ data_OtherPart_CleanAbsoluteRelative$Condition)\n\nsummarySE(data_OtherPart_CleanAbsoluteRelative,\n          measurevar = \"Value\",\n          groupvars = \"Condition\")\n\n\n\n      Condition   N    Value       sd        se        ci\n1   Grammatical 144 6.361111 1.304168 0.1086807 0.2148283\n2 Ungrammatical 142 2.485915 2.041193 0.1712931 0.3386347\n\n\n\n\n\n\n\n\nObservations\n\n\n\nGrammatical condition: The boxplot shows that most of the ratings are above 6, which is expected. There are outliers, but this is very common in experimental linguistics.\nUngrammatical condition: While the low ratings are expected, there are more variations, as suggested by the boxplot and the higher standard deviation (SD)."
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#design-based-analyses-ratings",
-    "href": "course-materials/week13_slides.html#design-based-analyses-ratings",
-    "title": "Week 13 - Exploring the data",
-    "section": "3.1: Design-based analyses: Ratings",
-    "text": "3.1: Design-based analyses: Ratings\nplot(data_OtherPart_CleanAbsoluteRelative$Value ~ data_OtherPart_CleanAbsoluteRelative$Condition)\n\nsummarySE(data_OtherPart_CleanAbsoluteRelative,\n          measurevar = \"Value\",\n          groupvars = \"Condition\")\n\n\n\n      Condition   N    Value       sd        se        ci\n1   Grammatical 144 6.361111 1.304168 0.1086807 0.2148283\n2 Ungrammatical 142 2.485915 2.041193 0.1712931 0.3386347"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#design-based-analyses-reaction-time",
-    "href": "course-materials/week13_slides.html#design-based-analyses-reaction-time",
-    "title": "Week 13 - Exploring the data",
-    "section": "3.1: Design-based analyses: Reaction time",
-    "text": "3.1: Design-based analyses: Reaction time\nplot(data_OtherPart_CleanAbsoluteRelative$RT ~ data_OtherPart_CleanAbsoluteRelative$Condition)\n\nsummarySE(data_OtherPart_CleanAbsoluteRelative,\n          measurevar = \"RT\",\n          groupvars = \"Condition\")\n\n\n\n      Condition   N       RT       sd       se       ci\n1   Grammatical 144 6131.653 4240.087 353.3406 698.4457\n2 Ungrammatical 142 6111.190 4277.881 358.9918 709.7022"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#exploratory-analyses",
-    "href": "course-materials/week13_slides.html#exploratory-analyses",
-    "title": "Week 13 - Exploring the data",
-    "section": "3.2: Exploratory analyses",
-    "text": "3.2: Exploratory analyses\n\n\n\n\n\n\nWhy exloring the data?\n\n\nWe observed more variation in the ungrammatical condition. The next step is to understand the source of such variation.\nWe already did our best with the participants, so it is likely to be related to the sentences."
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#exploratory-analyses-grammatical-condition",
-    "href": "course-materials/week13_slides.html#exploratory-analyses-grammatical-condition",
-    "title": "Week 13 - Exploring the data",
-    "section": "3.2: Exploratory analyses, Grammatical condition",
-    "text": "3.2: Exploratory analyses, Grammatical condition\ndata_Grammatical &lt;- droplevels(subset(data_OtherPart_CleanAbsoluteRelative,\n                                        Condition == \"Grammatical\"))\n\nplot(data_Grammatical$Value ~ data_Grammatical$ItemNo)"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#exploratory-analyses-ungrammatical-condition-13",
-    "href": "course-materials/week13_slides.html#exploratory-analyses-ungrammatical-condition-13",
-    "title": "Week 13 - Exploring the data",
-    "section": "3.2: Exploratory analyses, Ungrammatical condition (1/3)",
-    "text": "3.2: Exploratory analyses, Ungrammatical condition (1/3)\ndata_Ungrammatical &lt;- droplevels(subset(data_OtherPart_CleanAbsoluteRelative,\n                                        Condition == \"Ungrammatical\"))\n\nplot(data_Ungrammatical$Value ~ data_Ungrammatical$ItemNo)"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#exploratory-analyses-ungrammatical-condition-23",
-    "href": "course-materials/week13_slides.html#exploratory-analyses-ungrammatical-condition-23",
-    "title": "Week 13 - Exploring the data",
-    "section": "3.2: Exploratory analyses, Ungrammatical condition (2/3)",
-    "text": "3.2: Exploratory analyses, Ungrammatical condition (2/3)\n# Exploration of divergent ungrammatical sentences\ndata_Ungrammatical_OutlierValue &lt;- subset(data_Ungrammatical, Value &gt; 4)\n\ndata_Ungrammatical_OutlierValue_Summary &lt;- droplevels(subset(data_Ungrammatical_OutlierValue,\n                                                  select = c(ID_1_TimeReceived,\n                                                             ItemNo,\n                                                             Sentence)))\ndata_Ungrammatical_OutlierValue_Summary &lt;- unique(data_Ungrammatical_OutlierValue_Summary)\ndata_Ungrammatical_OutlierValue_Overview &lt;- table(data_Ungrammatical_OutlierValue_Summary$ItemNo)\n\ndata_Ungrammatical_OutlierValue_Overview\n\n\n\n31 33 34 36 37 38 43 44 47 48 50 51 52 55 57 58 \n 1  1  1  1  1  2  3  1  2  1  2  4  2  2  1  1"
-  },
-  {
-    "objectID": "course-materials/week13_slides.html#exploratory-analyses-ungrammatical-condition-33",
-    "href": "course-materials/week13_slides.html#exploratory-analyses-ungrammatical-condition-33",
-    "title": "Week 13 - Exploring the data",
-    "section": "3.2: Exploratory analyses, Ungrammatical condition (3/3)",
-    "text": "3.2: Exploratory analyses, Ungrammatical condition (3/3)\n# Identify which ungrammatical sentences\ndata_Ungrammatical_OutlierValue_Overview &lt;- as.data.frame(data_Ungrammatical_OutlierValue_Overview)\nnames(data_Ungrammatical_OutlierValue_Overview)[1] &lt;- \"ItemNo\"\n\ndata_Ungrammatical_OutlierValue_Overview &lt;- droplevels(subset(data_Ungrammatical_OutlierValue_Overview, Freq &gt; 2))\n\ndata_Ungrammatical_OutlierValue_Overview &lt;- left_join(data_Ungrammatical_OutlierValue_Overview, \n                                                      data_Ungrammatical, \n                                                      by = \"ItemNo\")\nOutlierUngrammaticalSentences &lt;- unique(data_Ungrammatical_OutlierValue_Overview$Sentence)\nOutlierUngrammaticalSentences\n\n\n[1] The bus stops not at this corner anymore\n[2] It matters not what they think of us    \n30 Levels: He needs not help with his homework today ..."
+    "objectID": "hw2.html#debugging",
+    "href": "hw2.html#debugging",
+    "title": "How to submit R markdown assignments",
+    "section": "Debugging",
+    "text": "Debugging\nWhen you try to knit your R Markdown document into a PDF file, you may encounter this message:\nsh: pdflatex: command not found\n\nError: LaTeX failed to compile Untitled.tex. See The R package tinytex - Helper Functions to Manage TinyTeX, and Compile LaTeX Documents - Yihui Xie | 谢益辉 for debugging tips. See Untitled.log for more info.\nIn addition: Warning message:\nIn system2(..., stdout = if (use_file_stdout()) f1 else FALSE, stderr = f2) :\nerror in running command\nExecution halted\nThis means that you need to install a package before creating the PDF document. Here are the steps: Run this line of code in the console block:\ntinytex::install_tinytex()\nIt can take some time, up to 5 minutes. Now, try to click one more time on “Knit to PDF”. It’s supposed to work. If it still doesn’t work, please contact me!"
   }
 ]

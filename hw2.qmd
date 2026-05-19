@@ -4,4 +4,40 @@ subtitle: "CHC9012 | National Taiwan Normal University"
 editor: source
 ---
 
-[To complete later]
+# Two options
+
+-  Uploading the Markdown document on Moodle
+-  Knit it to a PDF file, and upload the PDF file (recommended)
+
+# How to knit to a PDF file?
+
+## Video overview
+
+You can focus on the second part of the video (starting around 1m30s).
+
+![](CHC9012_HowToSubmitAssignment.mp4)
+
+## Debugging
+
+When you try to knit your R Markdown document into a PDF file, you may encounter this message:
+
+```diff
+sh: pdflatex: command not found
+
+Error: LaTeX failed to compile Untitled.tex. See The R package tinytex - Helper Functions to Manage TinyTeX, and Compile LaTeX Documents - Yihui Xie | 谢益辉 for debugging tips. See Untitled.log for more info.
+In addition: Warning message:
+In system2(..., stdout = if (use_file_stdout()) f1 else FALSE, stderr = f2) :
+error in running command
+Execution halted
+```
+
+
+This means that you need to install a package before creating the PDF document. Here are the steps:
+Run this line of code in the console block: 
+
+```r
+tinytex::install_tinytex()
+```
+
+It can take some time, up to 5 minutes. Now, try to click one more time on "Knit to PDF". It's supposed to work.
+If it still doesn't work, please contact me!
