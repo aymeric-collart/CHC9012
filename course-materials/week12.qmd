@@ -163,13 +163,15 @@ This week, we will learn how to arrange the dataset such that it is ready for fu
 <br>
 
 ::: {.text-center .mb-3}
-<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/material.csv?raw=true" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script</a>
+<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/CHC9012_DataImportedFromPCIbex.RData?raw=true" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the dataset for the script</a>
+
+
 :::
 
 <br>
 
 ::: {.text-center .mb-3}
-<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/CHC9012_DataImportedFromPCIbex.RData?raw=true" class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the material file</a>
+<a href="Files/_Internal/material.csv" download class="btn btn-outline-primary btn-sm"> <i class="bi bi-download"></i> Download the material file</a>
 :::
 
 <br>
