@@ -1,0 +1,307 @@
+---
+title: "Week 14 - Visualizing the data"
+subtitle: "CHC9012 | National Taiwan Normal University"
+format: 
+  revealjs:
+    theme: serif
+    transition: slide
+    scrollable: true
+    slide-number: true
+    chalkboard: true
+    width: 1280
+    height: 720
+---
+
+## 🎯 Goals
+
+**Visualize your results:**
+
+::: {.fragment .fade-up}
+-   What types of figures to select?
+:::
+
+::: {.fragment .fade-up}
+-   How to plot multiple information in one figure?
+:::
+
+
+---
+
+## 💻 Dataset and script
+
+Please download the files for the content of Week 13, and place them in your `PreprocessingAnalysesR` folder.
+
+::: {style="text-align: center; margin-top: 2em;"}
+
+<a href="https://github.com/aymeric-collart/CHC9012/blob/main/course-materials/Files/_Internal/CHC9012_PCIbexDataPrepared.RData?raw=true" 
+   style="display: inline-block; padding: 15px 30px; background-color: #447099; color: white; text-decoration: none; border-radius: 10px; font-weight: bold; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+   📥 Download the dataset for the script
+</a>
+
+<a href="https://aymeric-collart.github.io/CHC9012/course-materials/Files/_Internal/DataVisualization.Rmd" 
+   download="DataVisualization.Rmd" 
+   style="display: inline-block; padding: 15px 30px; border: 2px solid #447099; color: #447099; text-decoration: none; border-radius: 10px; font-weight: bold;">
+   📥 Download the R Markdown script
+</a>
+
+:::
+::: {.fragment .fade-up}
+<br>
+💻 Please start `RStudio` and select the project called `PreprocessingAnalysesR`.
+:::
+
+
+# 👀 Part 1: Why using figures, and what kinds of figures?
+
+## Why plotting the data?
+
+**Why using a figure when we already have the table of results?**
+
+<div class="pulse-box">
+  ⏳ **Activity:** Please spend 10 minutes to brainstorm this question.
+</div>
+
+<style>
+.pulse-box {
+  background-color: #eef2f7;
+  border-left: 5px solid #0d6efd;
+  padding: 20px;
+  margin-top: 40px;
+  border-radius: 4px;
+  font-size: 2.5rem; 
+  font-weight: bold;
+  text-align: center;
+  animation: pulse-animation 2s infinite;
+}
+
+@keyframes pulse-animation {
+  0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(13, 110, 253, 0.4); }
+  70% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(13, 110, 253, 0); }
+  100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(13, 110, 253, 0); }
+}
+</style>
+
+---
+
+## Why plotting the data?
+
+**Why using a figure when we already have the table of results?**
+
+-   **Nature of human cognition.** Figures = more attractive than tables and texts.
+
+-   **Eyes sharper than we think.** It is sometimes easier to observe tendencies with a figure.
+
+# Introduction to most common types of figures in experimental linguistics
+
+## Box Plots for *Data Distribution*
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+::: {.fragment .fade-up .callout-note appearance="simple"}
+###  What it does:
+Visualizes the spread, median, quartiles, and outliers of a continuous numerical variable across different categorical groups.
+:::
+
+<br>
+
+::: {.fragment .fade-up .callout-note appearance="simple"}
+###  Core question
+**How does data distribution compare between groups?** *(e.g., Which Iris species has the longest petals?)*
+:::
+:::
+
+::: {.column width="55%"}
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-width: 6.5
+#| fig-height: 5.5
+
+library(ggplot2)
+
+ggplot(iris, aes(x = Species, y = Petal.Length, fill = Species)) +
+  geom_boxplot(alpha = 0.7, width = 0.6) +
+  scale_fill_brewer(palette = "Pastel1") +
+  labs(
+    title = "Petal length distribution by species", 
+    y = "Petal length (in cm)",
+    x = "Species"
+  ) +
+  theme_minimal(base_size = 16) + # Bumps text size up so it is readable on the projector
+  theme(
+    legend.position = "none",
+    plot.title = element_text(face = "bold", size = 18)
+  )
+```
+:::
+
+:::
+
+---
+
+## Bar plots for *categorical counts*
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+::: {.fragment .fade-up .callout-note appearance="simple"}
+###  What it does:
+Displays counts or frequencies of distinct categories.
+:::
+
+<br>
+
+::: {.fragment .fade-up .callout-note appearance="simple"}
+###  Core question
+Which categories are the most and least common in our dataset?
+:::
+:::
+
+::: {.column width="55%"}
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-width: 6.5
+#| fig-height: 5.5
+
+ggplot(mpg, aes(x = class)) +
+  geom_bar(fill = "steelblue", alpha = 0.85, width = 0.7) +
+  labs(title = "Count of vehicles by class", x = "Vehicle type", y = "Count") +
+  theme_minimal()
+```
+:::
+
+:::
+
+---
+
+## Line charts for *continuous measurement, generally over time*
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+::: {.fragment .fade-up .callout-note appearance="simple"}
+###  What it does:
+Connects individual data points chronologically or sequentially to reveal trajectories, spikes, or downward dips.
+:::
+
+<br>
+
+::: {.fragment .fade-up .callout-note appearance="simple"}
+###  Core question
+How is our metric moving over a continuous sequence?
+:::
+:::
+
+::: {.column width="55%"}
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-width: 6.5
+#| fig-height: 5.5
+
+ggplot(economics, aes(x = date, y = psavert)) +
+  geom_line(color = "firebrick", linewidth = 1) +
+  labs(title = "Personal savings rate trend", x = "Year", y = "Savings rate (in %)") +
+  theme_minimal()
+```
+:::
+
+:::
+
+---
+
+## Scatter plots for *relationships & correlations*
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+::: {.fragment .fade-up .callout-note appearance="simple"}
+###  What it does:
+Plots individual data points at the intersection of two continuous numeric variables to display positive, negative, or non-linear correlations.
+:::
+
+<br>
+
+::: {.fragment .fade-up .callout-note appearance="simple"}
+###  Core question
+Does variable X increase, decrease, or remain unchanged as variable Y changes?
+:::
+:::
+
+::: {.column width="55%"}
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-width: 6.5
+#| fig-height: 5.5
+
+ggplot(iris, aes(x = Sepal.Length, y = Sepal.Width, color = Species)) +
+  geom_point(size = 2.5, alpha = 0.8) +
+  labs(title = "Sepal length vs. Sepal width", x = "Length (in cm)", y = "Width (in cm)") +
+  theme_minimal()
+```
+:::
+
+:::
+
+---
+
+## Combined plots for *more complex data*
+
+::: {.columns}
+
+::: {.column width="45%"}
+
+::: {.fragment .fade-up .callout-note appearance="simple"}
+###  What it does:
+Plots two types of data at the same time.
+<br><br>
+Here, a **boxplot** with an additional **scatter plot**.
+:::
+:::
+
+::: {.column width="55%"}
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| fig-width: 6.5
+#| fig-height: 5.5
+
+ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
+  # 1. Plot the underlying summary structural distribution
+  geom_boxplot(alpha = 0.4, outlier.shape = NA, width = 0.5) + 
+  
+  # 2. Layer the raw data points on top (jittered slightly horizontally so they don't stack up)
+  geom_jitter(aes(color = Species), width = 0.2, size = 2, alpha = 0.7) +
+  
+  labs(
+    title = "Sepal length by species",
+    subtitle = "Combining box plots with jittered data points to avoid hiding sample distribution",
+    y = "Sepal length (in cm)"
+  ) +
+  theme_minimal() +
+  theme(legend.position = "none")
+```
+:::
+
+:::
+
+# Part 2: A step-by-step guide to plot figures with R
+
+
+# 📝 Assignment for next week
+
+::: {.callout-important icon="true"}
+Please annotate the Markdown file from this week, knit to a PDF file, and upload on Moodle!
+:::
