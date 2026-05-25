@@ -214,9 +214,9 @@ This week, we will learn how to visualize the results
 
 **Please complete the following tasks before our next meeting:**
 
--   [ ] Download the Markdown script
--   [ ] Annotate each line of the script
--   [ ] Knit into a PDF document, and upload on Moodle
+1.  Please annotate the Markdown file from this week, knit to a PDF file, and upload on Moodle!
+
+2.  **Next week = Assistance for handling results.** Please have the Markdown document(s) to import your results, clean the dataset and explore/visualize the data ready!
 :::::
 
 ::: {.text-center .mb-4}
@@ -682,7 +682,7 @@ scale_y_continuous(limits = c(0.5, 7.5),
 ```
 :::
 
-## 2.3 Visualizing other results: Reaction time and background information
+## 2.3 Visualizing other results: More about acceptability results, reaction time, and background information
 
 ### 2.3.1 Other figures for the acceptability ratings
 
@@ -1024,7 +1024,7 @@ ggplot(ParticipantBackground,
 
 Please complete the following tasks before our next meeting:
 
--   [ ] Download the Markdown script
--   [ ] Annotate each line of the script
--   [ ] Knit into a PDF document, and upload on Moodle
+1.  Please annotate the Markdown file from this week, knit to a PDF file, and upload on Moodle!
+
+2.  **Next week = Assistance for handling results.** Please have the Markdown document(s) to import your results, clean the dataset and explore/visualize the data ready!
 :::

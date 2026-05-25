@@ -27,6 +27,72 @@
       margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
       vertical-align: middle;
     }
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   </style>
   <link rel="stylesheet" href="../site_libs/revealjs/dist/theme/quarto-816793a8a4a837d14f6ea458e2f1c5cb.css">
   <link href="../site_libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
@@ -123,6 +189,8 @@
       margin-right: 0; 
     }
   </style>
+  <script src="../site_libs/kePrint-0.0.1/kePrint.js"></script>
+  <link href="../site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
 </head>
 <body class="quarto-light">
   <div class="reveal">
@@ -191,14 +259,13 @@
   100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(13, 110, 253, 0); }
 }
 </style>
-</section>
-<section id="why-plotting-the-data-1" class="slide level2">
-<h2>Why plotting the data?</h2>
-<p><strong>Why using a figure when we already have the table of results?</strong></p>
+<div class="fragment fade-up">
+<p><br></p>
 <ul>
 <li><p><strong>Nature of human cognition.</strong> Figures = more attractive than tables and texts.</p></li>
 <li><p><strong>Eyes sharper than we think.</strong> It is sometimes easier to observe tendencies with a figure.</p></li>
 </ul>
+</div>
 </section></section>
 <section>
 <section id="introduction-to-most-common-types-of-figures-in-experimental-linguistics" class="title-slide slide level1 center">
@@ -424,12 +491,860 @@
 </div>
 </div></div>
 </section></section>
+<section>
 <section id="part-2-a-step-by-step-guide-to-plot-figures-with-r" class="title-slide slide level1 center">
 <h1>Part 2: A step-by-step guide to plot figures with R</h1>
 
 </section>
+<section id="introduction-to-ggplot2-and-its-spirit" class="slide level2" data-background-color="#f8fafc" data-linear-gradient="135deg, #f8fafc 60%, #e2e8f0 100%">
+<h2>2.1 Introduction to <code>ggplot2</code> and its spirit</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 40px;">
+<p>Why using the <code>ggplot2</code> package:</p>
+<ul>
+<li>Full control of what we want to plot</li>
+<li>Customization of the figure (legends, annotations, changing the theme and the colors, etc.)</li>
+</ul>
+<div style="font-size: 2rem; line-height: 1.6; color: #0f172a; border-left: 6px solid #3b82f6; padding-left: 25px; font-style: italic; font-weight: 500;">
+<p>The core spirit of <code>ggplot2</code> is that <strong>any data visualization can be broken down into a series of independent layers stacked on top of one another.</strong></p>
+</div>
+</div><div class="column text-center" style="width:35%;">
+<div style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(226, 232, 240, 0.8); border-radius: 16px; padding: 40px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+<p><img data-src="https://ggplot2.tidyverse.org/logo.png" style="margin-bottom: 25px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));" width="180"></p>
+<p><span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; color: #64748b; font-weight: 600; display: block; margin-bottom: 20px;">Official Tidyverse Reference</span></p>
+<p><a href="https://rstudio.github.io/cheatsheets/data-visualization.pdf" class="btn btn-primary" role="button" target="_blank" style="border-radius: 50px; padding: 12px 30px; font-weight: 700; font-size: 0.9rem; background-color: #1e3a8a; border-color: #1e3a8a; box-shadow: 0 4px 14px rgba(30,58,138,0.3);"><i class="bi bi-download"></i> Download Cheatsheet (PDF)</a></p>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="overview-of-the-figure-creation-process-with-ggplot2" class="title-slide slide level1 center">
+<h1>Overview of the figure creation process with <code>ggplot2</code></h1>
 
-<section id="assignment-for-next-week" class="title-slide slide level1 center">
+</section>
+<section id="layer-1-initialize" class="slide level2">
+<h2>Layer 1: Initialize</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><strong>Step 1: Initialize</strong> <br> Create the empty canvas.</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-9-1.png" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="layer-2-aesthetics" class="slide level2">
+<h2>Layer 2: Aesthetics</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><strong>Step 2: Indicate what to plot</strong> <br> In ggplot2 terms, this is called the ‘aesthetics’ (<code>aes()</code>).</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-10-1.png" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="layer-3-geometry" class="slide level2">
+<h2>Layer 3: Geometry</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><strong>Step 3: Indicate how to plot</strong> <br> This is the step where you decide the kind of plot you want to use.</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-11-1.png" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="layer-4-polish" class="slide level2">
+<h2>Layer 4: Polish</h2>
+<div class="columns">
+<div class="column" style="width:45%;">
+<p><strong>Step 4: Polish the details</strong> <br> Change the theme, the color, add a title (and subtitle), change the legend, the font style and size, etc.</p>
+</div><div class="column" style="width:55%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-12-1.png" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="examples-with-codes-acceptability-results" class="title-slide slide level1 center">
+<h1>Examples with codes: Acceptability results</h1>
+
+</section>
+<section id="a.-load-the-libraries" class="slide level2">
+<h2>A. Load the libraries</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb1-2"><a></a><span class="fu">library</span>(dplyr)</span>
+<span id="cb1-3"><a></a><span class="fu">library</span>(Rmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="b.-process-to-data-cleaning-same-as-week-13" class="slide level2">
+<h2>B. Process to data cleaning (Same as Week 13)</h2>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a></a><span class="do">## 2.1 Select the participants with a human-like behavior</span></span>
+<span id="cb2-2"><a></a>PartMeanRT <span class="ot">&lt;-</span> <span class="fu">aggregate</span>(RT <span class="sc">~</span> ID_1_TimeReceived,</span>
+<span id="cb2-3"><a></a>                        <span class="at">data =</span> data3,</span>
+<span id="cb2-4"><a></a>                        <span class="at">FUN =</span> mean)</span>
+<span id="cb2-5"><a></a></span>
+<span id="cb2-6"><a></a>data_OtherPart <span class="ot">&lt;-</span> <span class="fu">subset</span>(PartMeanRT, RT <span class="sc">&gt;</span> <span class="dv">1000</span>)</span>
+<span id="cb2-7"><a></a>data_OtherPart_FullData <span class="ot">&lt;-</span> <span class="fu">droplevels</span>(<span class="fu">subset</span>(data3,</span>
+<span id="cb2-8"><a></a>                                             ID_1_TimeReceived <span class="sc">%in%</span> data_OtherPart<span class="sc">$</span>ID_1_TimeReceived))</span>
+<span id="cb2-9"><a></a></span>
+<span id="cb2-10"><a></a><span class="fu">plot</span>(data_OtherPart_FullData<span class="sc">$</span>RT <span class="sc">~</span> data_OtherPart_FullData<span class="sc">$</span>ID_1_TimeReceived, <span class="at">outline =</span> <span class="cn">FALSE</span>)</span>
+<span id="cb2-11"><a></a><span class="fu">plot</span>(data_OtherPart_FullData<span class="sc">$</span>Value <span class="sc">~</span> data_OtherPart_FullData<span class="sc">$</span>Condition)</span>
+<span id="cb2-12"><a></a></span>
+<span id="cb2-13"><a></a><span class="do">## 2.2 Remove outlier trials</span></span>
+<span id="cb2-14"><a></a></span>
+<span id="cb2-15"><a></a><span class="do">### 2.2.1 Absolute values</span></span>
+<span id="cb2-16"><a></a></span>
+<span id="cb2-17"><a></a>data_OtherPart_CleanAbsolute <span class="ot">&lt;-</span> <span class="fu">subset</span>(data_OtherPart_FullData, RT <span class="sc">&gt;</span> <span class="dv">200</span> <span class="sc">&amp;</span> RT <span class="sc">&lt;</span> <span class="dv">20000</span>)</span>
+<span id="cb2-18"><a></a></span>
+<span id="cb2-19"><a></a><span class="do">### 2.2.2 Relative values</span></span>
+<span id="cb2-20"><a></a></span>
+<span id="cb2-21"><a></a><span class="co"># Calculate the mean per Participant and Condition</span></span>
+<span id="cb2-22"><a></a>data_OtherPart_CleanAbsolute<span class="sc">$</span>m_rt <span class="ot">&lt;-</span> <span class="fu">ave</span>(data_OtherPart_CleanAbsolute<span class="sc">$</span>RT, </span>
+<span id="cb2-23"><a></a>                                         data_OtherPart_CleanAbsolute<span class="sc">$</span>ID_1_TimeReceived, </span>
+<span id="cb2-24"><a></a>                                         data_OtherPart_CleanAbsolute<span class="sc">$</span>Condition, </span>
+<span id="cb2-25"><a></a>                                         <span class="at">FUN =</span> mean)</span>
+<span id="cb2-26"><a></a></span>
+<span id="cb2-27"><a></a><span class="co"># 2. Calculate the SD per Participant and Condition</span></span>
+<span id="cb2-28"><a></a>data_OtherPart_CleanAbsolute<span class="sc">$</span>sd_rt <span class="ot">&lt;-</span> <span class="fu">ave</span>(data_OtherPart_CleanAbsolute<span class="sc">$</span>RT, </span>
+<span id="cb2-29"><a></a>                                          data_OtherPart_CleanAbsolute<span class="sc">$</span>ID_1_TimeReceived, </span>
+<span id="cb2-30"><a></a>                                          data_OtherPart_CleanAbsolute<span class="sc">$</span>Condition, </span>
+<span id="cb2-31"><a></a>                                          <span class="at">FUN =</span> sd)</span>
+<span id="cb2-32"><a></a></span>
+<span id="cb2-33"><a></a><span class="co"># 3. Subset the data to remove outliers</span></span>
+<span id="cb2-34"><a></a>data_OtherPart_CleanAbsoluteRelative <span class="ot">&lt;-</span> <span class="fu">subset</span>(data_OtherPart_CleanAbsolute, </span>
+<span id="cb2-35"><a></a>                                               RT <span class="sc">&gt;=</span> (m_rt <span class="sc">-</span> <span class="fl">2.5</span> <span class="sc">*</span> sd_rt) <span class="sc">&amp;</span> </span>
+<span id="cb2-36"><a></a>                                                 RT <span class="sc">&lt;=</span> (m_rt <span class="sc">+</span> <span class="fl">2.5</span> <span class="sc">*</span> sd_rt))</span>
+<span id="cb2-37"><a></a></span>
+<span id="cb2-38"><a></a><span class="do">### 2.2.3 Calculate the number of trials removed</span></span>
+<span id="cb2-39"><a></a></span>
+<span id="cb2-40"><a></a>FullData_NbTrials <span class="ot">&lt;-</span> <span class="fu">nrow</span>(data_OtherPart_FullData)</span>
+<span id="cb2-41"><a></a>TrimmedData_NbTrials <span class="ot">&lt;-</span> <span class="fu">nrow</span>(data_OtherPart_CleanAbsoluteRelative)</span>
+<span id="cb2-42"><a></a></span>
+<span id="cb2-43"><a></a><span class="co"># Number of trimmed trials</span></span>
+<span id="cb2-44"><a></a>NbTrimmedTrials <span class="ot">&lt;-</span> FullData_NbTrials <span class="sc">-</span> TrimmedData_NbTrials</span>
+<span id="cb2-45"><a></a>NbTrimmedTrials</span>
+<span id="cb2-46"><a></a></span>
+<span id="cb2-47"><a></a><span class="co"># Proportion (%)</span></span>
+<span id="cb2-48"><a></a>NbTrimmedTrials<span class="sc">*</span><span class="dv">100</span><span class="sc">/</span>FullData_NbTrials</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="c.-create-the-canvas" class="slide level2">
+<h2>C. Create the canvas</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a></a><span class="fu">ggplot</span>(data_OtherPart_CleanAbsoluteRelative)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-16-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="d.-include-what-to-plot-the-aesthetics" class="slide level2">
+<h2>D. Include what to plot (the “aesthetics”)</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a></a><span class="fu">ggplot</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb4-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> Condition,</span>
+<span id="cb4-3"><a></a>           <span class="at">y =</span> Value))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-18-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="e.-include-how-to-plot" class="slide level2">
+<h2>E. Include how to plot</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a></a><span class="fu">ggplot</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb5-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> Condition,</span>
+<span id="cb5-3"><a></a>           <span class="at">y =</span> Value)) <span class="sc">+</span> </span>
+<span id="cb5-4"><a></a>  <span class="fu">geom_boxplot</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-20-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="f.-polish-the-details" class="slide level2">
+<h2>F. Polish the details</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a></a><span class="fu">ggplot</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb6-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> Condition,</span>
+<span id="cb6-3"><a></a>           <span class="at">y =</span> Value,</span>
+<span id="cb6-4"><a></a>           <span class="at">fill =</span> Condition)) <span class="sc">+</span> </span>
+<span id="cb6-5"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"skyblue"</span>,</span>
+<span id="cb6-6"><a></a>               <span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb6-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"Acceptability judgments by Grammaticality"</span>,</span>
+<span id="cb6-8"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb6-9"><a></a>       <span class="at">y =</span> <span class="st">"Rating (1-7 Likert Scale)"</span>) <span class="sc">+</span></span>
+<span id="cb6-10"><a></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb6-11"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb6-12"><a></a><span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="fl">0.5</span>, <span class="fl">7.5</span>),</span>
+<span id="cb6-13"><a></a>    <span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-22-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="bar-plots-of-the-acceptability-results" class="title-slide slide level1 center">
+<h1>Bar plots of the acceptability results</h1>
+
+</section>
+<section id="a.-create-a-summary-of-the-results" class="slide level2">
+<h2>A. Create a summary of the results</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a></a>JudgSummary <span class="ot">&lt;-</span> <span class="fu">summarySE</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb7-2"><a></a>                         <span class="at">measurevar =</span> <span class="st">"Value"</span>,</span>
+<span id="cb7-3"><a></a>                         <span class="at">groupvars =</span> <span class="st">"Condition"</span>)</span>
+<span id="cb7-4"><a></a></span>
+<span id="cb7-5"><a></a>JudgSummary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Condition   N    Value       sd        se        ci
+1   Grammatical 144 6.361111 1.304168 0.1086807 0.2148283
+2 Ungrammatical 142 2.485915 2.041193 0.1712931 0.3386347</code></pre>
+</div>
+</div>
+</section>
+<section id="b.-create-the-canvas" class="slide level2">
+<h2>B. Create the canvas</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a></a><span class="fu">ggplot</span>(JudgSummary)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-25-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="c.-include-what-to-plot-the-aesthetics" class="slide level2">
+<h2>C. Include what to plot (the “aesthetics”)</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a></a><span class="fu">ggplot</span>(JudgSummary,</span>
+<span id="cb10-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> Condition,</span>
+<span id="cb10-3"><a></a>           <span class="at">y =</span> Value,</span>
+<span id="cb10-4"><a></a>           <span class="at">fill =</span> Condition))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-27-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="d.-include-how-to-plot" class="slide level2">
+<h2>D. Include how to plot</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a></a><span class="fu">ggplot</span>(JudgSummary,</span>
+<span id="cb11-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> Condition,</span>
+<span id="cb11-3"><a></a>           <span class="at">y =</span> Value,</span>
+<span id="cb11-4"><a></a>           <span class="at">fill =</span> Condition)) <span class="sc">+</span></span>
+<span id="cb11-5"><a></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-29-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="e.-polish-the-details" class="slide level2">
+<h2>E. Polish the details</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a></a><span class="fu">ggplot</span>(JudgSummary,</span>
+<span id="cb12-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> Condition,</span>
+<span id="cb12-3"><a></a>           <span class="at">y =</span> Value,</span>
+<span id="cb12-4"><a></a>           <span class="at">fill =</span> Condition)) <span class="sc">+</span></span>
+<span id="cb12-5"><a></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb12-6"><a></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> Value <span class="sc">-</span> ci,</span>
+<span id="cb12-7"><a></a>                    <span class="at">ymax =</span> Value <span class="sc">+</span> ci), </span>
+<span id="cb12-8"><a></a>                <span class="at">width =</span> <span class="fl">0.15</span>,</span>
+<span id="cb12-9"><a></a>                <span class="at">size =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb12-10"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(Value, <span class="dv">2</span>)), </span>
+<span id="cb12-11"><a></a>            <span class="at">vjust =</span> <span class="dv">4</span>,</span>
+<span id="cb12-12"><a></a>            <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb12-13"><a></a>            <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb12-14"><a></a>            <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span></span>
+<span id="cb12-15"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>),</span>
+<span id="cb12-16"><a></a>                     <span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>,</span>
+<span id="cb12-17"><a></a>                     <span class="at">oob =</span> scales<span class="sc">::</span>rescale_none)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-31-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="complex-bar-plots-for-the-acceptability-ratings" class="title-slide slide level1 center">
+<h1>Complex bar plots for the acceptability ratings</h1>
+
+</section>
+<section id="a.-create-a-summary-of-the-results-1" class="slide level2">
+<h2>A. Create a summary of the results</h2>
+<div class="callout callout-note callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>How many datasets?</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Bar plots</strong> for the general pattern,</li>
+<li><strong>Scatter plots</strong> to visualize the results from each trial.</li>
+</ul>
+<p>We need two types of summary datasets: (1) general pattern, and (2) by-trial results.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a></a>JudgSummary <span class="ot">&lt;-</span> <span class="fu">summarySE</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb13-2"><a></a>                         <span class="at">measurevar =</span> <span class="st">"Value"</span>,</span>
+<span id="cb13-3"><a></a>                         <span class="at">groupvars =</span> <span class="st">"Condition"</span>)</span>
+<span id="cb13-4"><a></a>JudgSummary</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>      Condition   N    Value       sd        se        ci
+1   Grammatical 144 6.361111 1.304168 0.1086807 0.2148283
+2 Ungrammatical 142 2.485915 2.041193 0.1712931 0.3386347</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a></a>JudgSummaryItem <span class="ot">&lt;-</span> <span class="fu">summarySE</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb15-2"><a></a>                         <span class="at">measurevar =</span> <span class="st">"Value"</span>,</span>
+<span id="cb15-3"><a></a>                         <span class="at">groupvars =</span> <span class="fu">c</span>(<span class="st">"Condition"</span>, <span class="st">"ItemNo"</span>))</span>
+<span id="cb15-4"><a></a>JudgSummaryItem</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       Condition ItemNo N    Value        sd        se         ci
+1    Grammatical      1 7 7.000000 0.0000000 0.0000000  0.0000000
+2    Grammatical     10 7 6.857143 0.3779645 0.1428571  0.3495588
+3    Grammatical     11 5 5.400000 2.6076810 1.1661904  3.2378636
+4    Grammatical     12 7 6.857143 0.3779645 0.1428571  0.3495588
+5    Grammatical     13 6 7.000000 0.0000000 0.0000000  0.0000000
+6    Grammatical     14 7 7.000000 0.0000000 0.0000000  0.0000000
+7    Grammatical     15 7 5.571429 2.2253946 0.8411201  2.0581467
+8    Grammatical     16 3 6.000000 1.0000000 0.5773503  2.4841377
+9    Grammatical     17 3 6.000000 1.7320508 1.0000000  4.3026527
+10   Grammatical     18 2 6.000000 1.4142136 1.0000000 12.7062047
+11   Grammatical     19 3 5.666667 2.3094011 1.3333333  5.7368703
+12   Grammatical      2 7 6.571429 0.7867958 0.2973809  0.7276647
+13   Grammatical     20 3 6.333333 1.1547005 0.6666667  2.8684352
+14   Grammatical     21 3 5.333333 2.0816660 1.2018504  5.1711450
+15   Grammatical     22 3 6.000000 1.7320508 1.0000000  4.3026527
+16   Grammatical     23 3 4.666667 1.5275252 0.8819171  3.7945830
+17   Grammatical     24 3 6.333333 1.1547005 0.6666667  2.8684352
+18   Grammatical     25 3 6.000000 1.0000000 0.5773503  2.4841377
+19   Grammatical     26 3 5.000000 1.0000000 0.5773503  2.4841377
+20   Grammatical     27 3 5.666667 1.5275252 0.8819171  3.7945830
+21   Grammatical     28 3 4.333333 2.8867513 1.6666667  7.1710879
+22   Grammatical     29 3 6.333333 1.1547005 0.6666667  2.8684352
+23   Grammatical      3 7 6.428571 1.5118579 0.5714286  1.3982353
+24   Grammatical     30 3 5.666667 1.5275252 0.8819171  3.7945830
+25   Grammatical      4 7 7.000000 0.0000000 0.0000000  0.0000000
+26   Grammatical      5 7 6.428571 1.5118579 0.5714286  1.3982353
+27   Grammatical      6 7 7.000000 0.0000000 0.0000000  0.0000000
+28   Grammatical      7 6 7.000000 0.0000000 0.0000000  0.0000000
+29   Grammatical      8 7 6.571429 1.1338934 0.4285714  1.0486765
+30   Grammatical      9 6 7.000000 0.0000000 0.0000000  0.0000000
+31 Ungrammatical     31 3 3.666667 2.5166115 1.4529663  6.2516095
+32 Ungrammatical     32 3 2.000000 1.7320508 1.0000000  4.3026527
+33 Ungrammatical     33 3 2.333333 2.3094011 1.3333333  5.7368703
+34 Ungrammatical     34 3 4.000000 1.0000000 0.5773503  2.4841377
+35 Ungrammatical     35 2 1.000000 0.0000000 0.0000000  0.0000000
+36 Ungrammatical     36 3 2.666667 2.8867513 1.6666667  7.1710879
+37 Ungrammatical     37 3 2.666667 2.8867513 1.6666667  7.1710879
+38 Ungrammatical     38 3 5.666667 1.5275252 0.8819171  3.7945830
+39 Ungrammatical     39 3 3.000000 1.0000000 0.5773503  2.4841377
+40 Ungrammatical     40 3 1.666667 1.1547005 0.6666667  2.8684352
+41 Ungrammatical     41 3 2.333333 1.5275252 0.8819171  3.7945830
+42 Ungrammatical     42 3 2.666667 1.5275252 0.8819171  3.7945830
+43 Ungrammatical     43 3 6.000000 1.0000000 0.5773503  2.4841377
+44 Ungrammatical     44 3 2.333333 2.3094011 1.3333333  5.7368703
+45 Ungrammatical     45 3 2.333333 1.5275252 0.8819171  3.7945830
+46 Ungrammatical     46 7 1.571429 1.1338934 0.4285714  1.0486765
+47 Ungrammatical     47 7 2.857143 2.8535692 1.0785478  2.6391113
+48 Ungrammatical     48 5 2.400000 2.6076810 1.1661904  3.2378636
+49 Ungrammatical     49 7 1.285714 0.4879500 0.1844278  0.4512785
+50 Ungrammatical     50 6 4.000000 2.4494897 1.0000000  2.5705818
+51 Ungrammatical     51 7 4.285714 2.4976179 0.9440108  2.3099113
+52 Ungrammatical     52 7 3.000000 2.7688746 1.0465362  2.5607819
+53 Ungrammatical     53 5 1.600000 0.8944272 0.4000000  1.1105780
+54 Ungrammatical     54 7 1.428571 1.1338934 0.4285714  1.0486765
+55 Ungrammatical     55 6 3.500000 2.8106939 1.1474610  2.9496423
+56 Ungrammatical     56 6 1.166667 0.4082483 0.1666667  0.4284303
+57 Ungrammatical     57 7 2.142857 1.4638501 0.5532833  1.3538355
+58 Ungrammatical     58 7 2.142857 2.1930627 0.8288998  2.0282447
+59 Ungrammatical     59 7 1.285714 0.4879500 0.1844278  0.4512785
+60 Ungrammatical     60 7 1.285714 0.4879500 0.1844278  0.4512785</code></pre>
+</div>
+</div>
+</section>
+<section id="b.-create-the-figure" class="slide level2">
+<h2>B. Create the figure</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a></a><span class="fu">ggplot</span>(JudgSummary,</span>
+<span id="cb17-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> Condition,</span>
+<span id="cb17-3"><a></a>           <span class="at">y =</span> Value,</span>
+<span id="cb17-4"><a></a>           <span class="at">fill =</span> Condition)) <span class="sc">+</span></span>
+<span id="cb17-5"><a></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb17-6"><a></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> Value <span class="sc">-</span> ci,</span>
+<span id="cb17-7"><a></a>                    <span class="at">ymax =</span> Value <span class="sc">+</span> ci), </span>
+<span id="cb17-8"><a></a>                <span class="at">width =</span> <span class="fl">0.15</span>,</span>
+<span id="cb17-9"><a></a>                <span class="at">size =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb17-10"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(Value, <span class="dv">2</span>)), </span>
+<span id="cb17-11"><a></a>            <span class="at">vjust =</span> <span class="dv">4</span>,</span>
+<span id="cb17-12"><a></a>            <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb17-13"><a></a>            <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb17-14"><a></a>            <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span></span>
+<span id="cb17-15"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">7</span>),</span>
+<span id="cb17-16"><a></a>                     <span class="at">breaks =</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">7</span>,</span>
+<span id="cb17-17"><a></a>                     <span class="at">oob =</span> scales<span class="sc">::</span>rescale_none) <span class="sc">+</span></span>
+<span id="cb17-18"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">data =</span> JudgSummaryItem,</span>
+<span id="cb17-19"><a></a>              <span class="fu">aes</span>(<span class="at">color =</span> Condition),</span>
+<span id="cb17-20"><a></a>              <span class="at">width =</span> <span class="fl">0.2</span>,</span>
+<span id="cb17-21"><a></a>              <span class="at">height =</span> <span class="fl">0.1</span>,</span>
+<span id="cb17-22"><a></a>              <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb17-23"><a></a>              <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb17-24"><a></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-34-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section id="reaction-time-box-plots" class="title-slide slide level1 center">
+<h1>Reaction time: Box plots</h1>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="callout callout-note callout-style-simple">
+<div class="callout-body">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-content">
+<p>No need to summarize the data with boxplots!</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a></a><span class="fu">ggplot</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb18-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> Condition,</span>
+<span id="cb18-3"><a></a>           <span class="at">y =</span> RT,</span>
+<span id="cb18-4"><a></a>           <span class="at">fill =</span> Condition)) <span class="sc">+</span> </span>
+<span id="cb18-5"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"skyblue"</span>,</span>
+<span id="cb18-6"><a></a>               <span class="at">width =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb18-7"><a></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">"RT by Grammaticality"</span>,</span>
+<span id="cb18-8"><a></a>       <span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb18-9"><a></a>       <span class="at">y =</span> <span class="st">"Reaction time (in millisecond)"</span>) <span class="sc">+</span></span>
+<span id="cb18-10"><a></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb18-11"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb18-12"><a></a><span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">20000</span>),</span>
+<span id="cb18-13"><a></a>    <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">20000</span>, <span class="at">by =</span> <span class="dv">4000</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-36-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+
+<section id="reaction-time-bar-plots" class="title-slide slide level1 center">
+<h1>Reaction time: Bar plots</h1>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a></a>RTSummary <span class="ot">&lt;-</span> <span class="fu">summarySE</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb19-2"><a></a>                       <span class="at">measurevar =</span> <span class="st">"RT"</span>,</span>
+<span id="cb19-3"><a></a>                       <span class="at">groupvars =</span> <span class="st">"Condition"</span>)</span>
+<span id="cb19-4"><a></a></span>
+<span id="cb19-5"><a></a><span class="fu">ggplot</span>(RTSummary,</span>
+<span id="cb19-6"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> Condition,</span>
+<span id="cb19-7"><a></a>           <span class="at">y =</span> RT,</span>
+<span id="cb19-8"><a></a>           <span class="at">fill =</span> Condition)) <span class="sc">+</span></span>
+<span id="cb19-9"><a></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">alpha =</span> <span class="fl">0.9</span>) <span class="sc">+</span></span>
+<span id="cb19-10"><a></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> RT <span class="sc">-</span> ci,</span>
+<span id="cb19-11"><a></a>                    <span class="at">ymax =</span> RT <span class="sc">+</span> ci), </span>
+<span id="cb19-12"><a></a>                <span class="at">width =</span> <span class="fl">0.15</span>,</span>
+<span id="cb19-13"><a></a>                <span class="at">size =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb19-14"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(RT)), </span>
+<span id="cb19-15"><a></a>            <span class="at">vjust =</span> <span class="dv">8</span>,</span>
+<span id="cb19-16"><a></a>            <span class="at">color =</span> <span class="st">"white"</span>,</span>
+<span id="cb19-17"><a></a>            <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb19-18"><a></a>            <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span></span>
+<span id="cb19-19"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">4000</span>, <span class="dv">7000</span>),</span>
+<span id="cb19-20"><a></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">4000</span>, <span class="dv">7000</span>, <span class="at">by =</span> <span class="dv">1000</span>),</span>
+<span id="cb19-21"><a></a>                     <span class="at">oob =</span> scales<span class="sc">::</span>rescale_none)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div class="table-responsive">
+<table class="table table-striped table-hover table-condensed caption-top" data-quarto-postprocess="true" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Condition</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">N</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">RT</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">sd</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">se</th>
+<th style="text-align: right;" data-quarto-table-cell-role="th">ci</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Grammatical</td>
+<td style="text-align: right;">144</td>
+<td style="text-align: right;">6131.653</td>
+<td style="text-align: right;">4240.087</td>
+<td style="text-align: right;">353.3406</td>
+<td style="text-align: right;">698.4457</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Ungrammatical</td>
+<td style="text-align: right;">142</td>
+<td style="text-align: right;">6111.190</td>
+<td style="text-align: right;">4277.881</td>
+<td style="text-align: right;">358.9918</td>
+<td style="text-align: right;">709.7022</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-38-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+
+<section>
+<section id="complex-bar-plots-for-the-reaction-time" class="title-slide slide level1 center">
+<h1>Complex bar plots for the reaction time</h1>
+
+</section>
+<section id="a.-create-a-summary-of-the-results-2" class="slide level2">
+<h2>A. Create a summary of the results</h2>
+<div class="callout callout-note callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>How many datasets?</strong></p>
+</div>
+<div class="callout-content">
+<ul>
+<li><strong>Bar plots</strong> for the general pattern,</li>
+<li><strong>Scatter plots</strong> to visualize the results from each trial.</li>
+</ul>
+<p>We need two types of summary datasets: (1) general pattern, and (2) by-trial results.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a></a>RTSummary <span class="ot">&lt;-</span> <span class="fu">summarySE</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb20-2"><a></a>                       <span class="at">measurevar =</span> <span class="st">"RT"</span>,</span>
+<span id="cb20-3"><a></a>                       <span class="at">groupvars =</span> <span class="st">"Condition"</span>)</span>
+<span id="cb20-4"><a></a></span>
+<span id="cb20-5"><a></a>RTSummaryItem <span class="ot">&lt;-</span> <span class="fu">summarySE</span>(data_OtherPart_CleanAbsoluteRelative,</span>
+<span id="cb20-6"><a></a>                         <span class="at">measurevar =</span> <span class="st">"RT"</span>,</span>
+<span id="cb20-7"><a></a>                         <span class="at">groupvars =</span> <span class="fu">c</span>(<span class="st">"Condition"</span>, <span class="st">"ItemNo"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="b.-create-the-figure-1" class="slide level2">
+<h2>B. Create the figure</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a></a><span class="fu">ggplot</span>(RTSummary,</span>
+<span id="cb21-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> Condition,</span>
+<span id="cb21-3"><a></a>           <span class="at">y =</span> RT,</span>
+<span id="cb21-4"><a></a>           <span class="at">fill =</span> Condition)) <span class="sc">+</span></span>
+<span id="cb21-5"><a></a>  <span class="fu">geom_col</span>(<span class="at">width =</span> <span class="fl">0.5</span>, <span class="at">alpha =</span> <span class="fl">0.3</span>) <span class="sc">+</span></span>
+<span id="cb21-6"><a></a>  <span class="fu">geom_errorbar</span>(<span class="fu">aes</span>(<span class="at">ymin =</span> RT <span class="sc">-</span> ci,</span>
+<span id="cb21-7"><a></a>                    <span class="at">ymax =</span> RT <span class="sc">+</span> ci), </span>
+<span id="cb21-8"><a></a>                <span class="at">width =</span> <span class="fl">0.15</span>,</span>
+<span id="cb21-9"><a></a>                <span class="at">size =</span> <span class="fl">0.7</span>) <span class="sc">+</span></span>
+<span id="cb21-10"><a></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">round</span>(RT)), </span>
+<span id="cb21-11"><a></a>            <span class="at">vjust =</span> <span class="dv">8</span>,</span>
+<span id="cb21-12"><a></a>            <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb21-13"><a></a>            <span class="at">size =</span> <span class="dv">5</span>,</span>
+<span id="cb21-14"><a></a>            <span class="at">fontface =</span> <span class="st">"bold"</span>) <span class="sc">+</span></span>
+<span id="cb21-15"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">limits =</span> <span class="fu">c</span>(<span class="dv">3000</span>, <span class="dv">9000</span>),</span>
+<span id="cb21-16"><a></a>                     <span class="at">breaks =</span> <span class="fu">seq</span>(<span class="dv">3000</span>, <span class="dv">9000</span>, <span class="at">by =</span> <span class="dv">2000</span>),</span>
+<span id="cb21-17"><a></a>                     <span class="at">oob =</span> scales<span class="sc">::</span>rescale_none) <span class="sc">+</span></span>
+<span id="cb21-18"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">data =</span> RTSummaryItem,</span>
+<span id="cb21-19"><a></a>              <span class="fu">aes</span>(<span class="at">color =</span> Condition),</span>
+<span id="cb21-20"><a></a>              <span class="at">width =</span> <span class="fl">0.2</span>,</span>
+<span id="cb21-21"><a></a>              <span class="at">height =</span> <span class="fl">0.1</span>,</span>
+<span id="cb21-22"><a></a>              <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb21-23"><a></a>              <span class="at">size =</span> <span class="fl">2.5</span>) <span class="sc">+</span></span>
+<span id="cb21-24"><a></a>  <span class="fu">theme_minimal</span>(<span class="at">base_size =</span> <span class="dv">14</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-41-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section>
+<section id="visualizing-the-background-information" class="title-slide slide level1 center">
+<h1>Visualizing the background information</h1>
+
+</section>
+<section id="a.-create-a-summary-of-the-background-information" class="slide level2">
+<h2>A. Create a summary of the background information</h2>
+<div class="callout callout-note callout-titled callout-style-simple">
+<div class="callout-body">
+<div class="callout-title">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<p><strong>Why summarizing?</strong></p>
+</div>
+<div class="callout-content">
+<p>Our dataset includes more than 20 observations per participants, meaning that the same type of information (e.g., the age and highest degree of Participant 1) appears more than 20 times. Therefore, we need to create a new dataset where “1 row = 1 participant”.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a></a>ParticipantBackground <span class="ot">&lt;-</span> data_OtherPart_CleanAbsoluteRelative <span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a></a>  <span class="fu">distinct</span>(ID_1_TimeReceived, <span class="at">.keep_all =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb22-3"><a></a>  <span class="fu">select</span>(ID_1_TimeReceived, UserAge, UserDegree)</span>
+<span id="cb22-4"><a></a></span>
+<span id="cb22-5"><a></a>ParticipantBackground<span class="sc">$</span>UserDegree <span class="ot">&lt;-</span> <span class="fu">factor</span>(ParticipantBackground<span class="sc">$</span>UserDegree, </span>
+<span id="cb22-6"><a></a>  <span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"High school"</span>, <span class="st">"BA"</span>, <span class="st">"MA"</span>, <span class="st">"Ph.D."</span>) )</span>
+<span id="cb22-7"><a></a></span>
+<span id="cb22-8"><a></a>ParticipantBackground</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   ID_1_TimeReceived UserAge  UserDegree
+1         1777517421      30       Ph.D.
+2         1777519798      54          MA
+3         1777952741      23          MA
+4         1778728888      21          BA
+5         1778729203      22 High school
+6         1778730554      23          BA
+7         1778737433      25          BA
+8         1778742733      23 High school
+9         1778763194      22          BA
+10        1778782660      26          BA</code></pre>
+</div>
+</div>
+</section>
+<section id="b.-plot-the-age-of-the-participants" class="slide level2">
+<h2>B. Plot the age of the participants</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a></a><span class="fu">ggplot</span>(ParticipantBackground, <span class="fu">aes</span>(<span class="at">x =</span> <span class="st">""</span>, <span class="at">y =</span> UserAge)) <span class="sc">+</span></span>
+<span id="cb24-2"><a></a>  <span class="fu">geom_boxplot</span>(</span>
+<span id="cb24-3"><a></a>    <span class="at">width =</span> <span class="fl">0.4</span>, </span>
+<span id="cb24-4"><a></a>    <span class="at">fill =</span> <span class="st">"#4a90e2"</span>,</span>
+<span id="cb24-5"><a></a>    <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb24-6"><a></a>    <span class="at">alpha =</span> <span class="fl">0.7</span></span>
+<span id="cb24-7"><a></a>  ) <span class="sc">+</span></span>
+<span id="cb24-8"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb24-9"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb24-10"><a></a>       <span class="at">y =</span> <span class="st">"Age"</span>) <span class="sc">+</span></span>
+<span id="cb24-11"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-44-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="c.-plot-the-highest-degree-of-the-participants" class="slide level2">
+<h2>C. Plot the highest degree of the participants</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a></a><span class="fu">ggplot</span>(ParticipantBackground,</span>
+<span id="cb25-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> UserDegree,</span>
+<span id="cb25-3"><a></a>           <span class="at">fill =</span> UserDegree)) <span class="sc">+</span></span>
+<span id="cb25-4"><a></a>  <span class="fu">geom_bar</span>(<span class="at">width =</span> <span class="fl">0.5</span>,</span>
+<span id="cb25-5"><a></a>           <span class="at">color =</span> <span class="st">"black"</span>,</span>
+<span id="cb25-6"><a></a>           <span class="at">alpha =</span> <span class="fl">0.8</span>,</span>
+<span id="cb25-7"><a></a>           <span class="at">show.legend =</span> <span class="cn">FALSE</span>) <span class="sc">+</span></span>
+<span id="cb25-8"><a></a>  <span class="fu">geom_text</span>(<span class="at">stat =</span> <span class="st">"count"</span>,</span>
+<span id="cb25-9"><a></a>            <span class="fu">aes</span>(<span class="at">label =</span> <span class="fu">after_stat</span>(count)),</span>
+<span id="cb25-10"><a></a>            <span class="at">vjust =</span> <span class="sc">-</span><span class="fl">0.5</span>,</span>
+<span id="cb25-11"><a></a>            <span class="at">size =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb25-12"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">""</span>,</span>
+<span id="cb25-13"><a></a>       <span class="at">y =</span> <span class="st">"Number of participants"</span>) <span class="sc">+</span></span>
+<span id="cb25-14"><a></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Pastel1"</span>) <span class="sc">+</span></span>
+<span id="cb25-15"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb25-16"><a></a>  <span class="fu">scale_y_continuous</span>(<span class="at">expand =</span> <span class="fu">expansion</span>(<span class="at">mult =</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">0.15</span>)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-46-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section>
+<section id="d.-plot-the-age-and-the-highest-degree-of-the-participants-at-the-same-time" class="slide level2">
+<h2>D. Plot the age and the highest degree of the participants at the same time</h2>
+<div class="columns" style="display: flex; align-items: center; min-height: 550px;">
+<div class="column" style="padding-right: 5px;">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a></a><span class="fu">ggplot</span>(ParticipantBackground,</span>
+<span id="cb26-2"><a></a>       <span class="fu">aes</span>(<span class="at">x =</span> UserDegree,</span>
+<span id="cb26-3"><a></a>           <span class="at">y =</span> UserAge,</span>
+<span id="cb26-4"><a></a>           <span class="at">fill =</span> UserDegree)) <span class="sc">+</span></span>
+<span id="cb26-5"><a></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="fl">0.1</span>,</span>
+<span id="cb26-6"><a></a>              <span class="at">height =</span> <span class="dv">0</span>,</span>
+<span id="cb26-7"><a></a>              <span class="at">alpha =</span> <span class="fl">0.5</span>,</span>
+<span id="cb26-8"><a></a>              <span class="at">size =</span> <span class="fl">2.5</span>,</span>
+<span id="cb26-9"><a></a>              <span class="at">color =</span> <span class="st">"dimgray"</span>) <span class="sc">+</span></span>
+<span id="cb26-10"><a></a>  <span class="fu">geom_boxplot</span>(<span class="at">width =</span> <span class="fl">0.4</span>,</span>
+<span id="cb26-11"><a></a>               <span class="at">alpha =</span> <span class="fl">0.7</span>,</span>
+<span id="cb26-12"><a></a>               <span class="at">outlier.shape =</span> <span class="cn">NA</span>) <span class="sc">+</span></span>
+<span id="cb26-13"><a></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Highest degree"</span>,</span>
+<span id="cb26-14"><a></a>       <span class="at">y =</span> <span class="st">"Age"</span>) <span class="sc">+</span></span>
+<span id="cb26-15"><a></a>  <span class="fu">scale_fill_brewer</span>(<span class="at">palette =</span> <span class="st">"Pastel1"</span>) <span class="sc">+</span></span>
+<span id="cb26-16"><a></a>  <span class="fu">theme_classic</span>(<span class="at">base_size =</span> <span class="dv">14</span>) <span class="sc">+</span></span>
+<span id="cb26-17"><a></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div><div class="column" style="width:50%;">
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure>
+<p><img data-src="week14_slides_files/figure-revealjs/unnamed-chunk-48-1.png" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+</div></div>
+</section></section>
+<section id="assignment-for-next-week" class="title-slide slide level1 center scrollable">
 <h1>📝 Assignment for next week</h1>
 <div class="callout callout-important callout-titled callout-style-default">
 <div class="callout-body">
@@ -440,7 +1355,10 @@
 <p><strong>Important</strong></p>
 </div>
 <div class="callout-content">
-<p>Please annotate the Markdown file from this week, knit to a PDF file, and upload on Moodle!</p>
+<ol type="1">
+<li><p>Please annotate the Markdown file from this week, knit to a PDF file, and upload on Moodle!</p></li>
+<li><p><strong>Next week = Assistance for handling results.</strong> Please have the Markdown document(s) to import your results, clean the dataset and explore/visualize the data ready!</p></li>
+</ol>
 </div>
 </div>
 </div>

@@ -81,15 +81,14 @@ Please download the files for the content of Week 13, and place them in your `Pr
 }
 </style>
 
----
-
-## Why plotting the data?
-
-**Why using a figure when we already have the table of results?**
+::: {.fragment .fade-up}
+<br>
 
 -   **Nature of human cognition.** Figures = more attractive than tables and texts.
 
 -   **Eyes sharper than we think.** It is sometimes easier to observe tendencies with a figure.
+:::
+
 
 # Introduction to most common types of figures in experimental linguistics
 
@@ -299,9 +298,1135 @@ ggplot(iris, aes(x = Species, y = Sepal.Length, fill = Species)) +
 
 # Part 2: A step-by-step guide to plot figures with R
 
+## 2.1 Introduction to `ggplot2` and its spirit {background-color="#f8fafc" linear-gradient="135deg, #f8fafc 60%, #e2e8f0 100%"}
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="65%" style="padding-right: 40px;"}
+Why using the `ggplot2` package:
+
+-  Full control of what we want to plot
+-  Customization of the figure (legends, annotations, changing the theme and the colors, etc.)
+
+
+<div style="font-size: 2rem; line-height: 1.6; color: #0f172a; border-left: 6px solid #3b82f6; padding-left: 25px; font-style: italic; font-weight: 500;">
+The core spirit of `ggplot2` is that **any data visualization can be broken down into a series of independent layers stacked on top of one another.**
+</div>
+:::
+
+::: {.column width="35%" .text-center}
+<div style="background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(10px); border: 1px solid rgba(226, 232, 240, 0.8); border-radius: 16px; padding: 40px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+
+![](https://ggplot2.tidyverse.org/logo.png){width="180px" style="margin-bottom: 25px; filter: drop-shadow(0 10px 15px rgba(0,0,0,0.1));"}
+
+<span style="font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1.5px; color: #64748b; font-weight: 600; display: block; margin-bottom: 20px;">Official Tidyverse Reference</span>
+
+[<i class="bi bi-download"></i> Download Cheatsheet (PDF)](https://rstudio.github.io/cheatsheets/data-visualization.pdf){.btn .btn-primary role="button" target="_blank" style="border-radius: 50px; padding: 12px 30px; font-weight: 700; font-size: 0.9rem; background-color: #1e3a8a; border-color: #1e3a8a; box-shadow: 0 4px 14px rgba(30,58,138,0.3);"}
+
+</div>
+:::
+
+:::
+
+```{r}
+#| echo: false
+load(file = "CHC9012_PCIbexDataPrepared.RData")
+```
+
+```{r}
+#| echo: false
+#| message: false
+#| warning: false
+
+library(ggplot2)
+library(dplyr)
+library(Rmisc)
+```
+
+```{r}
+#| echo: false
+#| warning: false
+#| message: false
+#| include: false
+
+## 2.1 Select the participants with a human-like behavior
+PartMeanRT <- aggregate(RT ~ ID_1_TimeReceived,
+                        data = data3,
+                        FUN = mean)
+
+data_OtherPart <- subset(PartMeanRT, RT > 1000)
+data_OtherPart_FullData <- droplevels(subset(data3,
+                                             ID_1_TimeReceived %in% data_OtherPart$ID_1_TimeReceived))
+
+plot(data_OtherPart_FullData$RT ~ data_OtherPart_FullData$ID_1_TimeReceived, outline = FALSE)
+plot(data_OtherPart_FullData$Value ~ data_OtherPart_FullData$Condition)
+
+## 2.2 Remove outlier trials
+
+### 2.2.1 Absolute values
+data_OtherPart_CleanAbsolute <- subset(data_OtherPart_FullData, RT > 200 & RT < 20000)
+
+### 2.2.2 Relative values
+# Calculate the mean per Participant and Condition
+data_OtherPart_CleanAbsolute$m_rt <- ave(data_OtherPart_CleanAbsolute$RT, 
+                                         data_OtherPart_CleanAbsolute$ID_1_TimeReceived, 
+                                         data_OtherPart_CleanAbsolute$Condition, 
+                                         FUN = mean)
+
+# 2. Calculate the SD per Participant and Condition
+data_OtherPart_CleanAbsolute$sd_rt <- ave(data_OtherPart_CleanAbsolute$RT, 
+                                          data_OtherPart_CleanAbsolute$ID_1_TimeReceived, 
+                                          data_OtherPart_CleanAbsolute$Condition, 
+                                          FUN = sd)
+
+# 3. Subset the data to remove outliers
+data_OtherPart_CleanAbsoluteRelative <- subset(data_OtherPart_CleanAbsolute, 
+                                               RT >= (m_rt - 2.5 * sd_rt) & 
+                                                 RT <= (m_rt + 2.5 * sd_rt))
+
+### 2.2.3 Calculate the number of trials removed
+FullData_NbTrials <- nrow(data_OtherPart_FullData)
+TrimmedData_NbTrials <- nrow(data_OtherPart_CleanAbsoluteRelative)
+
+# Number of trimmed trials
+NbTrimmedTrials <- FullData_NbTrials - TrimmedData_NbTrials
+NbTrimmedTrials
+
+# Proportion (%)
+NbTrimmedTrials*100/FullData_NbTrials
+```
+
+# Overview of the figure creation process with `ggplot2`
+
+
+## Layer 1: Initialize
+::: {.columns}
+::: {.column width="45%"}
+
+**Step 1: Initialize**
+<br>
+Create the empty canvas.
+:::
+
+::: {.column width="55%"}
+
+```{r}
+#| echo: false
+#| fig-width: 7
+#| fig-height: 5
+
+ggplot(
+  data_OtherPart_CleanAbsoluteRelative
+)
+```
+:::
+:::
+
+---
+
+## Layer 2: Aesthetics
+
+::: {.columns}
+::: {.column width="45%"}
+
+**Step 2: Indicate what to plot**
+<br>
+In ggplot2 terms, this is called the 'aesthetics' (`aes()`).
+:::
+
+::: {.column width="55%"}
+
+```{r}
+#| echo: false
+#| fig-width: 7
+#| fig-height: 5
+
+ggplot(
+  data_OtherPart_CleanAbsoluteRelative,
+  aes(x = Condition, y = Value)
+)
+```
+:::
+:::
+
+---
+
+## Layer 3: Geometry
+
+::: {.columns}
+::: {.column width="45%"}
+
+**Step 3: Indicate how to plot**
+<br>
+This is the step where you decide the kind of plot you want to use.
+:::
+
+::: {.column width="55%"}
+
+```{r}
+#| echo: false
+#| fig-width: 7
+#| fig-height: 5
+
+ggplot(
+  data_OtherPart_CleanAbsoluteRelative,
+  aes(x = Condition, y = Value)
+) + 
+  geom_boxplot()
+```
+:::
+:::
+
+---
+
+## Layer 4: Polish
+
+::: {.columns}
+::: {.column width="45%"}
+
+**Step 4: Polish the details**
+<br>
+Change the theme, the color, add a title (and subtitle), change the legend, the font style and size, etc.
+:::
+
+::: {.column width="55%"}
+
+```{r}
+#| echo: false
+#| fig-width: 7
+#| fig-height: 5
+
+ggplot(
+  data_OtherPart_CleanAbsoluteRelative,
+  aes(x = Condition, y = Value, fill = Condition)
+) +
+  geom_boxplot(fill = "skyblue", width = 0.5) +
+  labs(
+    title = "Acceptability judgments by Grammaticality",
+    x = "",
+    y = "Rating (1-7 Likert Scale)"
+  ) +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none") +
+  scale_y_continuous(limits = c(0.5, 7.5), breaks = 1:7)
+```
+:::
+:::
+
+# Examples with codes: Acceptability results
+
+## A. Load the libraries
+
+```{r}
+#| message: false
+#| echo: true
+
+library(ggplot2)
+library(dplyr)
+library(Rmisc)
+```
+
+---
+
+## B. Process to data cleaning (Same as Week 13)
+
+```r
+## 2.1 Select the participants with a human-like behavior
+PartMeanRT <- aggregate(RT ~ ID_1_TimeReceived,
+                        data = data3,
+                        FUN = mean)
+
+data_OtherPart <- subset(PartMeanRT, RT > 1000)
+data_OtherPart_FullData <- droplevels(subset(data3,
+                                             ID_1_TimeReceived %in% data_OtherPart$ID_1_TimeReceived))
+
+plot(data_OtherPart_FullData$RT ~ data_OtherPart_FullData$ID_1_TimeReceived, outline = FALSE)
+plot(data_OtherPart_FullData$Value ~ data_OtherPart_FullData$Condition)
+
+## 2.2 Remove outlier trials
+
+### 2.2.1 Absolute values
+
+data_OtherPart_CleanAbsolute <- subset(data_OtherPart_FullData, RT > 200 & RT < 20000)
+
+### 2.2.2 Relative values
+
+# Calculate the mean per Participant and Condition
+data_OtherPart_CleanAbsolute$m_rt <- ave(data_OtherPart_CleanAbsolute$RT, 
+                                         data_OtherPart_CleanAbsolute$ID_1_TimeReceived, 
+                                         data_OtherPart_CleanAbsolute$Condition, 
+                                         FUN = mean)
+
+# 2. Calculate the SD per Participant and Condition
+data_OtherPart_CleanAbsolute$sd_rt <- ave(data_OtherPart_CleanAbsolute$RT, 
+                                          data_OtherPart_CleanAbsolute$ID_1_TimeReceived, 
+                                          data_OtherPart_CleanAbsolute$Condition, 
+                                          FUN = sd)
+
+# 3. Subset the data to remove outliers
+data_OtherPart_CleanAbsoluteRelative <- subset(data_OtherPart_CleanAbsolute, 
+                                               RT >= (m_rt - 2.5 * sd_rt) & 
+                                                 RT <= (m_rt + 2.5 * sd_rt))
+
+### 2.2.3 Calculate the number of trials removed
+
+FullData_NbTrials <- nrow(data_OtherPart_FullData)
+TrimmedData_NbTrials <- nrow(data_OtherPart_CleanAbsoluteRelative)
+
+# Number of trimmed trials
+NbTrimmedTrials <- FullData_NbTrials - TrimmedData_NbTrials
+NbTrimmedTrials
+
+# Proportion (%)
+NbTrimmedTrials*100/FullData_NbTrials
+```
+
+```{r}
+#| echo: false
+#| results: 'hide'
+#| fig-show: 'hide'
+#| message: false
+#| warning: false
+
+## 2.1 Select the participants with a human-like behavior
+PartMeanRT <- aggregate(RT ~ ID_1_TimeReceived,
+                        data = data3,
+                        FUN = mean)
+
+data_OtherPart <- subset(PartMeanRT, RT > 1000)
+data_OtherPart_FullData <- droplevels(subset(data3,
+                                             ID_1_TimeReceived %in% data_OtherPart$ID_1_TimeReceived))
+
+plot(data_OtherPart_FullData$RT ~ data_OtherPart_FullData$ID_1_TimeReceived, outline = FALSE)
+plot(data_OtherPart_FullData$Value ~ data_OtherPart_FullData$Condition)
+
+## 2.2 Remove outlier trials
+
+### 2.2.1 Absolute values
+
+data_OtherPart_CleanAbsolute <- subset(data_OtherPart_FullData, RT > 200 & RT < 20000)
+
+### 2.2.2 Relative values
+
+# Calculate the mean per Participant and Condition
+data_OtherPart_CleanAbsolute$m_rt <- ave(data_OtherPart_CleanAbsolute$RT, 
+                                         data_OtherPart_CleanAbsolute$ID_1_TimeReceived, 
+                                         data_OtherPart_CleanAbsolute$Condition, 
+                                         FUN = mean)
+
+# 2. Calculate the SD per Participant and Condition
+data_OtherPart_CleanAbsolute$sd_rt <- ave(data_OtherPart_CleanAbsolute$RT, 
+                                          data_OtherPart_CleanAbsolute$ID_1_TimeReceived, 
+                                          data_OtherPart_CleanAbsolute$Condition, 
+                                          FUN = sd)
+
+# 3. Subset the data to remove outliers
+data_OtherPart_CleanAbsoluteRelative <- subset(data_OtherPart_CleanAbsolute, 
+                                               RT >= (m_rt - 2.5 * sd_rt) & 
+                                                 RT <= (m_rt + 2.5 * sd_rt))
+
+### 2.2.3 Calculate the number of trials removed
+
+FullData_NbTrials <- nrow(data_OtherPart_FullData)
+TrimmedData_NbTrials <- nrow(data_OtherPart_CleanAbsoluteRelative)
+
+# Number of trimmed trials
+NbTrimmedTrials <- FullData_NbTrials - TrimmedData_NbTrials
+NbTrimmedTrials
+
+# Proportion (%)
+NbTrimmedTrials*100/FullData_NbTrials
+```
+
+## C. Create the canvas
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+ggplot(data_OtherPart_CleanAbsoluteRelative)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+ggplot(data_OtherPart_CleanAbsoluteRelative)
+```
+:::
+
+:::
+
+## D. Include what to plot (the "aesthetics")
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+
+ggplot(data_OtherPart_CleanAbsoluteRelative,
+       aes(x = Condition,
+           y = Value))
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+
+ggplot(data_OtherPart_CleanAbsoluteRelative,
+       aes(x = Condition,
+           y = Value))
+```
+
+:::
+
+:::
+
+## E. Include how to plot
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+
+ggplot(data_OtherPart_CleanAbsoluteRelative,
+       aes(x = Condition,
+           y = Value)) + 
+  geom_boxplot()
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+
+ggplot(data_OtherPart_CleanAbsoluteRelative,
+       aes(x = Condition,
+           y = Value)) + 
+  geom_boxplot()
+```
+
+:::
+
+:::
+
+## F. Polish the details
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+
+ggplot(data_OtherPart_CleanAbsoluteRelative,
+       aes(x = Condition,
+           y = Value,
+           fill = Condition)) + 
+  geom_boxplot(fill = "skyblue",
+               width = 0.5) +
+  labs(title = "Acceptability judgments by Grammaticality",
+       x = "",
+       y = "Rating (1-7 Likert Scale)") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none") +
+scale_y_continuous(limits = c(0.5, 7.5),
+    breaks = 1:7)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+
+ggplot(data_OtherPart_CleanAbsoluteRelative,
+       aes(x = Condition,
+           y = Value,
+           fill = Condition)) + 
+  geom_boxplot(fill = "skyblue",
+               width = 0.5) +
+  labs(title = "Acceptability judgments by Grammaticality",
+       x = "",
+       y = "Rating (1-7 Likert Scale)") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none") +
+scale_y_continuous(limits = c(0.5, 7.5),
+    breaks = 1:7)
+```
+
+:::
+
+:::
+
+# Bar plots of the acceptability results
+
+## A. Create a summary of the results
+
+```{r}
+#| echo: true
+JudgSummary <- summarySE(data_OtherPart_CleanAbsoluteRelative,
+                         measurevar = "Value",
+                         groupvars = "Condition")
+
+JudgSummary
+```
+
+## B. Create the canvas
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+ggplot(JudgSummary)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+ggplot(JudgSummary)
+```
+:::
+
+:::
+
+## C. Include what to plot (the "aesthetics")
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+
+ggplot(JudgSummary,
+       aes(x = Condition,
+           y = Value,
+           fill = Condition))
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+
+ggplot(JudgSummary,
+       aes(x = Condition,
+           y = Value,
+           fill = Condition))
+```
+
+:::
+
+:::
+
+## D. Include how to plot
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+
+ggplot(JudgSummary,
+       aes(x = Condition,
+           y = Value,
+           fill = Condition)) +
+  geom_col(width = 0.5, alpha = 0.9)
+```
+
+:::
+
+::: {.column width="50%"}
+
+```{r}
+#| echo: false
+
+ggplot(JudgSummary,
+       aes(x = Condition,
+           y = Value,
+           fill = Condition)) +
+  geom_col(width = 0.5, alpha = 0.9)
+```
+
+:::
+
+:::
+
+## E. Polish the details
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+
+ggplot(JudgSummary,
+       aes(x = Condition,
+           y = Value,
+           fill = Condition)) +
+  geom_col(width = 0.5, alpha = 0.9) +
+  geom_errorbar(aes(ymin = Value - ci,
+                    ymax = Value + ci), 
+                width = 0.15,
+                size = 0.7) +
+  geom_text(aes(label = round(Value, 2)), 
+            vjust = 4,
+            color = "white",
+            size = 5,
+            fontface = "bold") +
+  scale_y_continuous(limits = c(1, 7),
+                     breaks = 1:7,
+                     oob = scales::rescale_none)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+
+ggplot(JudgSummary,
+       aes(x = Condition,
+           y = Value,
+           fill = Condition)) +
+  geom_col(width = 0.5, alpha = 0.9) +
+  geom_errorbar(aes(ymin = Value - ci,
+                    ymax = Value + ci), 
+                width = 0.15,
+                size = 0.7) +
+  geom_text(aes(label = round(Value, 2)), 
+            vjust = 4,
+            color = "white",
+            size = 5,
+            fontface = "bold") +
+  scale_y_continuous(limits = c(1, 7),
+                     breaks = 1:7,
+                     oob = scales::rescale_none)
+```
+
+:::
+
+:::
+
+# Complex bar plots for the acceptability ratings
+
+## A. Create a summary of the results
+
+::: {.callout-note appearance="simple"}
+###  How many datasets?
+
+-  **Bar plots** for the general pattern,
+-  **Scatter plots** to visualize the results from each trial.
+
+We need two types of summary datasets: (1) general pattern, and (2) by-trial results.
+:::
+
+```{r}
+#| echo: true
+JudgSummary <- summarySE(data_OtherPart_CleanAbsoluteRelative,
+                         measurevar = "Value",
+                         groupvars = "Condition")
+JudgSummary
+
+JudgSummaryItem <- summarySE(data_OtherPart_CleanAbsoluteRelative,
+                         measurevar = "Value",
+                         groupvars = c("Condition", "ItemNo"))
+JudgSummaryItem
+```
+
+## B. Create the figure
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+ggplot(JudgSummary,
+       aes(x = Condition,
+           y = Value,
+           fill = Condition)) +
+  geom_col(width = 0.5, alpha = 0.3) +
+  geom_errorbar(aes(ymin = Value - ci,
+                    ymax = Value + ci), 
+                width = 0.15,
+                size = 0.7) +
+  geom_text(aes(label = round(Value, 2)), 
+            vjust = 4,
+            color = "black",
+            size = 5,
+            fontface = "bold") +
+  scale_y_continuous(limits = c(1, 7),
+                     breaks = 1:7,
+                     oob = scales::rescale_none) +
+  geom_jitter(data = JudgSummaryItem,
+              aes(color = Condition),
+              width = 0.2,
+              height = 0.1,
+              alpha = 0.5,
+              size = 2.5) +
+  theme_minimal(base_size = 14)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+ggplot(JudgSummary,
+       aes(x = Condition,
+           y = Value,
+           fill = Condition)) +
+  geom_col(width = 0.5, alpha = 0.3) +
+  geom_errorbar(aes(ymin = Value - ci,
+                    ymax = Value + ci), 
+                width = 0.15,
+                size = 0.7) +
+  geom_text(aes(label = round(Value, 2)), 
+            vjust = 4,
+            color = "black",
+            size = 5,
+            fontface = "bold") +
+  scale_y_continuous(limits = c(1, 7),
+                     breaks = 1:7,
+                     oob = scales::rescale_none) +
+  geom_jitter(data = JudgSummaryItem,
+              aes(color = Condition),
+              width = 0.2,
+              height = 0.1,
+              alpha = 0.5,
+              size = 2.5) +
+  theme_minimal(base_size = 14)
+```
+:::
+
+:::
+
+# Reaction time: Box plots
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+::: {.callout-note appearance="simple"}
+No need to summarize the data with boxplots!
+:::
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+ggplot(data_OtherPart_CleanAbsoluteRelative,
+       aes(x = Condition,
+           y = RT,
+           fill = Condition)) + 
+  geom_boxplot(fill = "skyblue",
+               width = 0.5) +
+  labs(title = "RT by Grammaticality",
+       x = "",
+       y = "Reaction time (in millisecond)") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none") +
+scale_y_continuous(limits = c(0, 20000),
+    breaks = seq(0, 20000, by = 4000))
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+ggplot(data_OtherPart_CleanAbsoluteRelative,
+       aes(x = Condition,
+           y = RT,
+           fill = Condition)) + 
+  geom_boxplot(fill = "skyblue",
+               width = 0.5) +
+  labs(title = "RT by Grammaticality",
+       x = "",
+       y = "Reaction time (in millisecond)") +
+  theme_minimal(base_size = 14) +
+  theme(legend.position = "none") +
+scale_y_continuous(limits = c(0, 20000),
+    breaks = seq(0, 20000, by = 4000))
+```
+:::
+
+:::
+
+# Reaction time: Bar plots
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+RTSummary <- summarySE(data_OtherPart_CleanAbsoluteRelative,
+                       measurevar = "RT",
+                       groupvars = "Condition")
+
+ggplot(RTSummary,
+       aes(x = Condition,
+           y = RT,
+           fill = Condition)) +
+  geom_col(width = 0.5, alpha = 0.9) +
+  geom_errorbar(aes(ymin = RT - ci,
+                    ymax = RT + ci), 
+                width = 0.15,
+                size = 0.7) +
+  geom_text(aes(label = round(RT)), 
+            vjust = 8,
+            color = "white",
+            size = 5,
+            fontface = "bold") +
+  scale_y_continuous(limits = c(4000, 7000),
+                     breaks = seq(4000, 7000, by = 1000),
+                     oob = scales::rescale_none)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+library(knitr)
+library(kableExtra)
+
+kable(RTSummary) |>
+  kable_styling(
+    bootstrap_options = c("striped", "hover", "condensed", "responsive"),
+    full_width = TRUE,
+    position = "center"
+  )
+
+ggplot(RTSummary,
+       aes(x = Condition,
+           y = RT,
+           fill = Condition)) +
+  geom_col(width = 0.5, alpha = 0.9) +
+  geom_errorbar(aes(ymin = RT - ci,
+                    ymax = RT + ci), 
+                width = 0.15,
+                size = 0.7) +
+  geom_text(aes(label = round(RT)), 
+            vjust = 8,
+            color = "white",
+            size = 5,
+            fontface = "bold") +
+  scale_y_continuous(limits = c(4000, 7000),
+                     breaks = seq(4000, 7000, by = 1000),
+                     oob = scales::rescale_none)
+```
+:::
+
+:::
+
+
+# Complex bar plots for the reaction time
+
+## A. Create a summary of the results
+
+::: {.callout-note appearance="simple"}
+###  How many datasets?
+
+-  **Bar plots** for the general pattern,
+-  **Scatter plots** to visualize the results from each trial.
+
+We need two types of summary datasets: (1) general pattern, and (2) by-trial results.
+:::
+
+```{r}
+#| echo: true
+RTSummary <- summarySE(data_OtherPart_CleanAbsoluteRelative,
+                       measurevar = "RT",
+                       groupvars = "Condition")
+
+RTSummaryItem <- summarySE(data_OtherPart_CleanAbsoluteRelative,
+                         measurevar = "RT",
+                         groupvars = c("Condition", "ItemNo"))
+```
+
+## B. Create the figure
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+ggplot(RTSummary,
+       aes(x = Condition,
+           y = RT,
+           fill = Condition)) +
+  geom_col(width = 0.5, alpha = 0.3) +
+  geom_errorbar(aes(ymin = RT - ci,
+                    ymax = RT + ci), 
+                width = 0.15,
+                size = 0.7) +
+  geom_text(aes(label = round(RT)), 
+            vjust = 8,
+            color = "black",
+            size = 5,
+            fontface = "bold") +
+  scale_y_continuous(limits = c(3000, 9000),
+                     breaks = seq(3000, 9000, by = 2000),
+                     oob = scales::rescale_none) +
+  geom_jitter(data = RTSummaryItem,
+              aes(color = Condition),
+              width = 0.2,
+              height = 0.1,
+              alpha = 0.5,
+              size = 2.5) +
+  theme_minimal(base_size = 14)
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+ggplot(RTSummary,
+       aes(x = Condition,
+           y = RT,
+           fill = Condition)) +
+  geom_col(width = 0.5, alpha = 0.3) +
+  geom_errorbar(aes(ymin = RT - ci,
+                    ymax = RT + ci), 
+                width = 0.15,
+                size = 0.7) +
+  geom_text(aes(label = round(RT)), 
+            vjust = 8,
+            color = "black",
+            size = 5,
+            fontface = "bold") +
+  scale_y_continuous(limits = c(3000, 9000),
+                     breaks = seq(3000, 9000, by = 2000),
+                     oob = scales::rescale_none) +
+  geom_jitter(data = RTSummaryItem,
+              aes(color = Condition),
+              width = 0.2,
+              height = 0.1,
+              alpha = 0.5,
+              size = 2.5) +
+  theme_minimal(base_size = 14)
+```
+:::
+
+:::
+
+# Visualizing the background information
+
+## A. Create a summary of the background information
+
+::: {.callout-note appearance="simple"}
+###  Why summarizing?
+
+Our dataset includes more than 20 observations per participants, meaning that the same type of information (e.g., the age and highest degree of Participant 1) appears more than 20 times. Therefore, we need to create a new dataset where "1 row = 1 participant".
+:::
+
+```{r}
+#| echo: true
+ParticipantBackground <- data_OtherPart_CleanAbsoluteRelative %>%
+  distinct(ID_1_TimeReceived, .keep_all = TRUE) %>%
+  select(ID_1_TimeReceived, UserAge, UserDegree)
+
+ParticipantBackground$UserDegree <- factor(ParticipantBackground$UserDegree, 
+  levels = c("High school", "BA", "MA", "Ph.D.") )
+
+ParticipantBackground
+```
+
+
+## B. Plot the age of the participants
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+ggplot(ParticipantBackground, aes(x = "", y = UserAge)) +
+  geom_boxplot(
+    width = 0.4, 
+    fill = "#4a90e2",
+    color = "black",
+    alpha = 0.7
+  ) +
+  theme_classic(base_size = 14) +
+  labs(x = "",
+       y = "Age") +
+  theme(legend.position = "none")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+ggplot(ParticipantBackground, aes(x = "", y = UserAge)) +
+  geom_boxplot(
+    width = 0.4, 
+    fill = "#4a90e2",
+    color = "black",
+    alpha = 0.7
+  ) +
+  theme_classic(base_size = 14) +
+  labs(x = "",
+       y = "Age") +
+  theme(legend.position = "none")
+```
+:::
+
+:::
+
+
+## C. Plot the highest degree of the participants
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+ggplot(ParticipantBackground,
+       aes(x = UserDegree,
+           fill = UserDegree)) +
+  geom_bar(width = 0.5,
+           color = "black",
+           alpha = 0.8,
+           show.legend = FALSE) +
+  geom_text(stat = "count",
+            aes(label = after_stat(count)),
+            vjust = -0.5,
+            size = 5) +
+  labs(x = "",
+       y = "Number of participants") +
+  scale_fill_brewer(palette = "Pastel1") +
+  theme_classic(base_size = 14) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.15)))
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+ggplot(ParticipantBackground,
+       aes(x = UserDegree,
+           fill = UserDegree)) +
+  geom_bar(width = 0.5,
+           color = "black",
+           alpha = 0.8,
+           show.legend = FALSE) +
+  geom_text(stat = "count",
+            aes(label = after_stat(count)),
+            vjust = -0.5,
+            size = 5) +
+  labs(x = "",
+       y = "Number of participants") +
+  scale_fill_brewer(palette = "Pastel1") +
+  theme_classic(base_size = 14) +
+  scale_y_continuous(expand = expansion(mult = c(0, 0.15)))
+```
+:::
+
+:::
+
+## D. Plot the age and the highest degree of the participants at the same time
+
+::: {.columns style="display: flex; align-items: center; min-height: 550px;"}
+
+::: {.column width="50%" style="padding-right: 5px;"}
+
+```{r}
+#| echo: true
+#| fig-show: 'hide'
+ggplot(ParticipantBackground,
+       aes(x = UserDegree,
+           y = UserAge,
+           fill = UserDegree)) +
+  geom_jitter(width = 0.1,
+              height = 0,
+              alpha = 0.5,
+              size = 2.5,
+              color = "dimgray") +
+  geom_boxplot(width = 0.4,
+               alpha = 0.7,
+               outlier.shape = NA) +
+  labs(x = "Highest degree",
+       y = "Age") +
+  scale_fill_brewer(palette = "Pastel1") +
+  theme_classic(base_size = 14) +
+  theme(legend.position = "none")
+```
+
+:::
+
+::: {.column width="50%"}
+```{r}
+#| echo: false
+ggplot(ParticipantBackground,
+       aes(x = UserDegree,
+           y = UserAge,
+           fill = UserDegree)) +
+  geom_jitter(width = 0.1,
+              height = 0,
+              alpha = 0.5,
+              size = 2.5,
+              color = "dimgray") +
+  geom_boxplot(width = 0.4,
+               alpha = 0.7,
+               outlier.shape = NA) +
+  labs(x = "Highest degree",
+       y = "Age") +
+  scale_fill_brewer(palette = "Pastel1") +
+  theme_classic(base_size = 14) +
+  theme(legend.position = "none")
+```
+:::
+
+:::
 
 # 📝 Assignment for next week
 
 ::: {.callout-important icon="true"}
-Please annotate the Markdown file from this week, knit to a PDF file, and upload on Moodle!
+
+1.  Please annotate the Markdown file from this week, knit to a PDF file, and upload on Moodle!
+
+2.  **Next week = Assistance for handling results.** Please have the Markdown document(s) to import your results, clean the dataset and explore/visualize the data ready!
 :::
